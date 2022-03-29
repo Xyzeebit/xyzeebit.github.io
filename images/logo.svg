@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	x="0px" y="0px"
+	width="200.0px" height="200.0px"
+	viewBox="0 0 200.0 200.0"
+	enable-background="new 0 0 200.0 200.0"
+	xml:space="preserve">
+<defs>
+<filter id="glow2" x="-200%" y="-200%" width="600%" height="600%" >
+	<feOffset result="offOut" in="SourceGraphic" dx="8.553644" dy="7.128038" />
+	<feGaussianBlur result="blurOut" in="offOut" stdDeviation="0.7128037" />
+	<feFlood flood-color="#000000" flood-opacity="1.000" result="flood"/>
+	<feComposite in="flood" in2="blurOut" operator="in" result="blendOut0"/>
+	<feBlend in="blendOut0" in2="blendOut0" result="blendOut1" mode="normal" />
+	<feBlend in="blendOut1" in2="blendOut0" result="blendOut2" mode="normal" />
+	<feBlend in="SourceGraphic" in2="blendOut2" mode="normal" />
+</filter>
+
+</defs>
+	<path
+		fill="#FFFFFF"
+		stroke="#267AD4"
+		fill-opacity="0.008"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="10.0"
+		stroke-linejoin="miter"
+		stroke-linecap="square"
+		d="M97.76,73.03C99.44,100.78,78.02,113.78,57.07,99.08"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#267AD4"
+		fill-opacity="0.008"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="10.0"
+		stroke-linejoin="miter"
+		stroke-linecap="square"
+		d="M93.14,146.07C91.72,122.60,103.19,105.93,135.90,118.19"/>
+	<path
+		fill="#FFFFFF"
+		stroke="#267AD4"
+		fill-opacity="0.008"
+		stroke-opacity="1.000"
+		fill-rule="nonzero"
+		stroke-width="14.0"
+		filter="url(#glow2)"
+		stroke-linejoin="miter"
+		stroke-linecap="square"
+		d="M32.50,43.89L155.41,43.89A16.33 16.33 0 0 1 171.74,60.22L171.74,158.20A16.33 16.33 0 0 1 155.41,174.53L32.50,174.53A16.33 16.33 0 0 1 16.17,158.20L16.17,60.22A16.33 16.33 0 0 1 32.50,43.89z"/>
+</svg>
