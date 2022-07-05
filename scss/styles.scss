@@ -171,7 +171,13 @@ nav {
     position: relative;
     width: 50px;
     height: $nav-height;
-    right: 15px;
+    
+    @include mobile() {
+        right: 5px;
+    }
+    @include desktop() {
+        right: 15px;
+    }
     div {
         height: 3px;
         background: linear-gradient(to right, $black, $white, $red);
@@ -255,15 +261,17 @@ nav {
         //opacity: 0;
         transform: translateY(-100vh);
         opacity: 0;
-        //transition: all 300ms ease-in-out;
     }
     a:nth-child(1) {
-        transition: all 1000ms ease-in-out;
+        transition: all 1200ms ease-in-out;
     }
     a:nth-child(2) {
-        transition: all 800ms ease-in-out;
+        transition: all 1000ms ease-in-out;
     }
     a:nth-child(3) {
+        transition: all 800ms ease-in-out;
+    }
+    a:nth-child(4) {
         transition: all 500ms ease-in-out;
     }
 }
@@ -456,6 +464,9 @@ section#my-stack-lg {
     }
     @include mobile() {
         padding: 20px;
+    }
+    @include tablet() {
+        padding: 40px;
     }
     @include desktop() {
         padding: 40px;

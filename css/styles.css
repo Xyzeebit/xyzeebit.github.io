@@ -146,7 +146,16 @@ nav {
   position: relative;
   width: 50px;
   height: 30px;
-  right: 15px;
+}
+@media screen and (min-width: 320px) {
+  .nav-button {
+    right: 5px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .nav-button {
+    right: 15px;
+  }
 }
 .nav-button div {
   height: 3px;
@@ -234,12 +243,15 @@ nav {
   opacity: 0;
 }
 .menu a:nth-child(1) {
-  transition: all 1000ms ease-in-out;
+  transition: all 1200ms ease-in-out;
 }
 .menu a:nth-child(2) {
-  transition: all 800ms ease-in-out;
+  transition: all 1000ms ease-in-out;
 }
 .menu a:nth-child(3) {
+  transition: all 800ms ease-in-out;
+}
+.menu a:nth-child(4) {
   transition: all 500ms ease-in-out;
 }
 
@@ -428,6 +440,11 @@ section#my-stack-lg h1 {
 @media screen and (min-width: 320px) {
   section#my-stack-lg {
     padding: 20px;
+  }
+}
+@media screen and (min-width: 641px) {
+  section#my-stack-lg {
+    padding: 40px;
   }
 }
 @media screen and (min-width: 1025px) {
