@@ -257,7 +257,8 @@ nav {
 }
 @media screen and (min-width: 1025px) {
   section#aboutme {
-    padding: 40px;
+    padding-top: 112.5px;
+    height: 450px;
   }
 }
 
@@ -333,14 +334,10 @@ article img.project-image {
   }
 }
 
-.project-desc {
-  background: #3a5d8b;
-}
 .project-desc p {
-  color: floralwhite;
+  color: #3a5d8b;
   font-weight: 500;
-  font-size: 0.9rem;
-  display: none;
+  font-size: 1rem;
   padding-top: 10px;
 }
 .project-desc a {
