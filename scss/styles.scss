@@ -45,11 +45,12 @@ body {
     padding: 0;
     margin: 0;
     font-family: Helvetica, Arial, Verdana, Geneva;
-    scroll-behavior: smooth;
     
 }
 * {
     box-sizing: border-box;
+    scroll-behavior: smooth;
+
 }
 a {
     text-decoration: none;
@@ -91,6 +92,9 @@ main {
 }
 .bg-white {
     background: $white;
+}
+.bg-white-alt {
+    background-color: #fff;
 }
 .bg-grey-blue {
     background: linear-gradient(to bottom, $gray, $blue, $yellow);
@@ -150,10 +154,13 @@ nav {
     z-index: 5;
     transition: all 500ms ease-out;
     @include mobile {
-        padding: 20px 20px 20 3px;
+        padding: 20px 20px 20px 3px;
     }
     @include tablet {
-        padding: 20px 20px 20 3px;
+        padding: 20px 20px 20px 3px;
+    }
+    @include desktop {
+        padding: 20px 30px 20px 25px;
     }
 }
 .nav-button {
@@ -167,7 +174,7 @@ nav {
     right: 15px;
     div {
         height: 3px;
-        background: linear-gradient(to right, $black, #fff, $red);
+        background: linear-gradient(to right, $black, $white, $red);
         position: absolute;
         right: 0;
         border-radius: 5px;
@@ -214,15 +221,24 @@ nav {
     justify-content: center;
     align-items: center;
     img {
-        width: 70px;
-        height: 70px;
+        @include mobile() {
+            width: 70px;
+            height: 70px;
+        }
+        
+        @include desktop() {
+            width: 80px;
+            height: 80px;
+        }
     }
     span {
-        font-weight: 600;
-        color: $red;
-        font-family: cursive;
         @include mobile {
+            color: $red;
             font-size: 1.2rem;
+            font-weight: 400;
+        }
+        @include desktop() {
+            font-size: 2rem;
         }
     }
 }
@@ -266,6 +282,9 @@ section#aboutme {
         color: $black;
         
     }
+    @include desktop() {
+        padding: 40px;
+    }
 }
 
 
@@ -274,6 +293,9 @@ section#projects {
     @include mobile {
         padding: 20px 20px 50px 20px;
         
+    }
+    @include tablet() {
+        padding: 20px 40px 50px 40px;
     }
     .project-list {
         @include mobile {
@@ -305,6 +327,9 @@ section#projects {
             align-self: flex-start;
             font-weight: 600;
             font-size: 2rem;
+        }
+        @include desktop() {
+            font-size: 2.3rem;
         }
     }
 }
@@ -438,7 +463,12 @@ section#my-stack-lg {
         color: $blue;
         font-size: 2rem;
     }
-    padding: 20px;
+    @include mobile() {
+        padding: 20px;
+    }
+    @include desktop() {
+        padding: 40px;
+    }
 
     .my-stack_container {
         padding: 60px;
@@ -464,7 +494,7 @@ footer {
         padding: 40px 20px 30px 20px;
     }
     h1 {
-        color: $blue;
+        color: $gray;
         @include tablet() {
             // text-align: center;
             padding-top: 50px;
@@ -484,7 +514,7 @@ footer {
         padding: 10px 0 5px 0px;
         text-decoration: underline;
         font-weight: 500;
-        color: $red;
+        color: $gray;
         transition: all 200ms ease-in;
         text-align: center;
         @include tablet() {

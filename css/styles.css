@@ -3,11 +3,11 @@ body {
   padding: 0;
   margin: 0;
   font-family: Helvetica, Arial, Verdana, Geneva;
-  scroll-behavior: smooth;
 }
 
 * {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -59,6 +59,10 @@ a {
 
 .bg-white {
   background: floralwhite;
+}
+
+.bg-white-alt {
+  background-color: #fff;
 }
 
 .bg-grey-blue {
@@ -121,12 +125,17 @@ nav {
 }
 @media screen and (min-width: 320px) {
   nav {
-    padding: 20px 20px 20 3px;
+    padding: 20px 20px 20px 3px;
   }
 }
 @media screen and (min-width: 641px) {
   nav {
-    padding: 20px 20px 20 3px;
+    padding: 20px 20px 20px 3px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  nav {
+    padding: 20px 30px 20px 25px;
   }
 }
 
@@ -141,7 +150,7 @@ nav {
 }
 .nav-button div {
   height: 3px;
-  background: linear-gradient(to right, #212621, #fff, #f25d26);
+  background: linear-gradient(to right, #212621, floralwhite, #f25d26);
   position: absolute;
   right: 0;
   border-radius: 5px;
@@ -185,18 +194,28 @@ nav {
   justify-content: center;
   align-items: center;
 }
-.nav-brand img {
-  width: 70px;
-  height: 70px;
+@media screen and (min-width: 320px) {
+  .nav-brand img {
+    width: 70px;
+    height: 70px;
+  }
 }
-.nav-brand span {
-  font-weight: 600;
-  color: #f25d26;
-  font-family: cursive;
+@media screen and (min-width: 1025px) {
+  .nav-brand img {
+    width: 80px;
+    height: 80px;
+  }
 }
 @media screen and (min-width: 320px) {
   .nav-brand span {
+    color: #f25d26;
     font-size: 1.2rem;
+    font-weight: 400;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .nav-brand span {
+    font-size: 2rem;
   }
 }
 
@@ -236,10 +255,20 @@ nav {
     color: #212621;
   }
 }
+@media screen and (min-width: 1025px) {
+  section#aboutme {
+    padding: 40px;
+  }
+}
 
 @media screen and (min-width: 320px) {
   section#projects {
     padding: 20px 20px 50px 20px;
+  }
+}
+@media screen and (min-width: 641px) {
+  section#projects {
+    padding: 20px 40px 50px 40px;
   }
 }
 @media screen and (min-width: 320px) {
@@ -267,6 +296,11 @@ nav {
     align-self: flex-start;
     font-weight: 600;
     font-size: 2rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  section#projects h1 {
+    font-size: 2.3rem;
   }
 }
 
@@ -390,12 +424,19 @@ article img.project-image {
   border-radius: 10px;
 }
 
-section#my-stack-lg {
-  padding: 20px;
-}
 section#my-stack-lg h1 {
   color: #3a5d8b;
   font-size: 2rem;
+}
+@media screen and (min-width: 320px) {
+  section#my-stack-lg {
+    padding: 20px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  section#my-stack-lg {
+    padding: 40px;
+  }
 }
 section#my-stack-lg .my-stack_container {
   padding: 60px;
@@ -419,7 +460,7 @@ section#my-stack-lg .my-stacks-lg img {
   }
 }
 footer h1 {
-  color: #3a5d8b;
+  color: #f2f0e3;
 }
 @media screen and (min-width: 641px) {
   footer h1 {
@@ -440,7 +481,7 @@ footer a {
   padding: 10px 0 5px 0px;
   text-decoration: underline;
   font-weight: 500;
-  color: #f25d26;
+  color: #f2f0e3;
   transition: all 200ms ease-in;
   text-align: center;
 }
