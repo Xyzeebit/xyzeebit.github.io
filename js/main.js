@@ -1,86 +1,74 @@
-(function ($) {
-    let state = {
-        lightMode: true
-    }
-    const id = 'xyzeebit_state'
-    // update state from localStorage
-    const store = JSON.parse(
-    localStorage.getItem(id));
-    
-    if(store) {
-        state = store;
-    } else {
-        localStorage.setItem(id, JSON.stringify(state));
-    }
-    // update site state
-    
-    if(!state.lightMode) {
-        $('#switch').prop('checked', true);
-         $('body, main, .container, .content, .side-nav, .nav').toggleClass('toggle-mode');
-    }
+const state = {
+  menuIsOpen: false,
+};
 
-    
-    
-    $('#switch').on('change', function(e) {
-        
-        $('body, main, .container, .content, .side-nav, .nav').toggleClass('toggle-mode');
-        
-        $('div.card-footer').toggleClass('toggle-f-color f-color');
-        
-        $('div.p-card-desc').toggleClass('f-color toggle-f-color')
-        
-        $('div.projects-list').toggleClass('bg-p-list-light bg-p-list-dark');
-        
-        $('.social-buttons').toggleClass('toggle-f-color');
-        
-        if(e.target.checked) {
-            $('ul.links li a img').css('filter', 'invert(100%)');
-        } else {
-            $('ul.links li a img').css('filter', 'invert(0%)');
-        }
-        
-        $('.selected-img').css('filter', 'invert(55%) sepia(226%) saturate(325%) hue-rotate(151deg) brightness(83%) contrast(61%)')
+const swiper = new Swiper(".swiper", {
+  // Optional parameters
+  direction: "horizontal",
+  loop: true,
+  spaceBetween: 20,
+  effect: "cube",
+  autoplay: {
+    delay: 5000,
+    disableOnInteraction: false,
+  },
+
+  // If we need pagination
+  pagination: {
+    el: ".swiper-pagination",
+  },
+});
+
+function resetOverflow(el) {
+  el.style.height = "100%";
+  el.style.overflow = "auto";
+}
+
+function closeMenu(menuButton, header) {
+    const body = document.querySelector("body");
+
+    setTimeout(function () {
+      menuButton.classList.remove("open-menu");
+    }, 400);
+
+    menuButton.classList.toggle("rotate-menu");
+    state.menuIsOpen = false;
+    header.classList.remove("expand");
+    state.menuIsOpen = false;
+    resetOverflow(body);
+}
+
+function openMenu(menuButton, header) {
+    const body = document.querySelector("body");
+
+    menuButton.classList.add("open-menu");
+    setTimeout(function () {
+      menuButton.classList.toggle("rotate-menu");
+    }, 400);
+    state.menuIsOpen = true;
+    header.classList.add("expand");
+    body.style.height = "100vh";
+    body.style.overflow = "hidden";
+}
+
+function toggleMenu(evt) {
+  const menuContainer = document.getElementById("header");
+
+  if (state.menuIsOpen) {
+    closeMenu(evt, menuContainer)
+  } else {
+    openMenu(evt, menuContainer)
+  }
+}
+
+(() => {
+  const menuLinks = document.querySelectorAll(".menu a");
+  menuLinks.forEach((element) => {
+    element.addEventListener("click", () => {
+        const navButton = document.querySelector(".nav-button");
+        const menuContainer = document.getElementById("header");
+        closeMenu(navButton, menuContainer);
     });
-    
-    $(window).on('scroll', function(e) {
-        if($(this).scrollTop() > 70) {
-            $('.side-logo').addClass('show-side-logo');
-        } else {
-            $('.side-logo').removeClass('show-side-logo');
-        }
-    });
-    
-    $('form').on('submit', function(e) {
-        if(!$('#senders-name').val()) {
-            $('.err-name').addClass('show-err')
-            e.preventDefault();
-        } else {
-            $('.err-name').removeClass('show-err')
-        }
-        if(!isEmail($('#senders-email').val())) {
-            $('.err-email').addClass('show-err').text('Enter a valid email')
-            e.preventDefault();
-        } else {
-            $('.err-email').removeClass('show-err')
-        }
-        if(!$('.message').val()) {
-            $('.err-message').addClass('show-err')
-            e.preventDefault();
-        } else {
-            $('.err-message').removeClass('show-err')
-        }
-    });
-    function sanitized(value) {
-        //const pattern = /(\<(/?[^\>]+)\>)/
-        return value.replace('/(\<(/?[^\>]+)\>)/', '');
-    }
-    function isEmail(email) {
-        const pattern = /(\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,6})/;
-        if(pattern.test(email)) {
-            alert('match')
-            return true;
-        }
-        return false;
-    }
-    
-})(jQuery)
+  });
+  
+})();

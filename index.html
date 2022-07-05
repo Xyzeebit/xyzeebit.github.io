@@ -1,334 +1,420 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>xyzeebit blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="images/logo.svg" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <script src="./js/jquery.min.js"></script>
+    <title>Donald Dominic</title>
+    <link rel="icon" href="./images/logo.svg" />
+    <link rel="stylesheet" href="./swipejs/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script src="./swipejs/swiper-bundle.min.js"></script>
 </head>
-<body>
-    <main>
-        <div class="logo-nav">
-            <div class="img-container">
-                <img src="./images/logo.svg" alt="Logo" class="logo" />
-                <span>xyzeebit</span>
-            </div>
-            
-            <div class="social-buttons">
-                <a href="#">
-                    <img src="images/twitter.svg"
-                         alt="Follow me on twitter"
-                         class="twitter-icon"
-                    />
-                </a>
-                <a href="#">
-                    <img src="images/linkedin.svg"
-                         alt="Follow me on Linkedin"
-                         class="linkedin-icon"
-                    />
-                </a>
-                <a href="#">
-                    <img src="images/github.svg"
-                         alt="Follow me on github"
-                         class="github-icon"
-                    />
-                </a>
-            </div>
-            
-            <div class="mode">
-                <input
-                type="checkbox"
-                id="switch"
+<body class="">
+    <header id="header" class="bg-black-dark">
+        <nav class="bg-black-dark">
+            <div class="nav-brand">
+                <img 
+                    src="./images/logo.svg"
+                    alt="Donald Home Page Logo"
+                    width="50"
+                    height="50"
                 />
-                <label for="switch">
-                    <img src="./images/sun-warm.svg" alt="dark mode" class="moon" />
-                    <img src="./images/sun-color.svg" alt="light mode" class="sun" />
-                    <span class="ball"></span>
-                </label>
+                <span>Donald Dominic</span>
             </div>
-        </div>
-        <nav>
-            <a href="./index.html" class="nav-item active">
-                <img src="./images/blog.svg" alt="Blog" />
-                <span>Blog</span>
-            </a>
-
-            <a href="./projects.html" class="nav-item">
-                <img src="./images/projects.svg" alt="My Projects" />
-                <span>Projects</span>
-            </a>
-
-            <a href="./repo.html" class="nav-item">
-                <img src="./images/repo.svg" alt="Repositories" />
-                <span>Repo</span>
-            </a>
-
-            <a href="./aboutme.html" class="nav-item">
-                <img src="./images/user.svg" alt="About me" />
-                <span>About me</span>
-            </a>
+            <button class="nav-button" onclick="toggleMenu(this)">
+                <div></div>
+                <div></div>
+                <div></div>
+            </button>
         </nav>
-        
-        <div class="container">
-            <div class="side-nav">
-                <div class="nav">
-                    <div class="img-container side-logo">
-                        <img src="./images/logo.svg" alt="Logo" class="logo" />
-                        <span>xyzeebit</span>
+        <div class="menu">
+            <a href="#aboutme">About Me</a>
+            <a href="#project">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </header>
+    <main>
+        <section id="aboutme" class="">
+            <h1>Hello!❤</h1>
+            <h2>My name is Donald</h2>
+            <h3>Welcome to my GitHub Page</h3>
+            <p>Donald is Fullstack developer that is passionate about writing code and watching football</p>
+        </section>
+        <section id="projects" class="">
+            <h1>Projects</h1>
+            <div class="project-list">
+                <article class="">
+                    <img 
+                        src="./images/easybank-image.png"
+                        alt="Easybank project"
+                        width="300"
+                        height="300"
+                        class="project-image"
+                    />
+                    <div class="project-desc">
+                        <p>Responsive Landing Page</p>
+                        <a class="a-1" href="http://easybank-hr6.vercel.app" target="_blank">Visit Site</a>
                     </div>
-                    <div class="new">
-                        <button>
-                            <img src="./images/add.svg"
-                                 alt="Create new post"
-                                 />
-                            <span>Create new</span>
-                        </button>
+                </article>
+                <article>
+                    <img 
+                        src="./images/kopiku-image.png"
+                        alt="Kopiku online store"
+                        width="300"
+                        height="300"
+                        class="project-image"
+                    />
+                    <div class="project-desc">
+                        <!--p>Responsive Landing Page</p-->
+                        <a class="a-2" href="http://easybank-hr6.vercel.app" target="_blank">Visit Site</a>
                     </div>
-                    <ul class="links">
-                        <li class="selected">
-                            <a href="./index.html">
-                                <img src="images/blog.svg"
-                                    alt="Blog"
-                                     class="selected-img"
-                                />
-                                <span>Blog</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./projects.html" class="">
-                                <img src="./images/projects.svg" alt="My Projects" />
-                                <span>Projects</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./repo.html" class="">
-                                <img src="./images/repo.svg" alt="Repositories" />
-                                <span>Repo</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="./contact.html" class="">
-                                <img src="./images/message.svg" alt="Contact" />
-                                <span>Message</span>
-                            </a>
-                        </li>
-                    </ul>
-                    
-                    
-                    <a href="./aboutme.html" class="user-nav">
-                        <img src="images/profile.jpg"
-                             alt="Profile" />
-                        <div class="bio">
-                            <div class="name">
-                                Donald Dominic
-                            </div>
-                            <div class="job">
-                                Full stack developer
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                </article>
+                <article>
+                    <img 
+                        src="./images/onlineedu-image.png"
+                        alt="OnlineEdu"
+                        width="300"
+                        height="300"
+                        class="project-image"
+                    />
+                    <div class="project-desc">
+                        <!--p>Responsive Landing Page</p-->
+                        <a class="a-3" href="http://easybank-hr6.vercel.app" target="_blank">Visit Site</a>
+                    </div>
+                </article>
+                <article>
+                    <img 
+                        src="./images/hey-messenger.PNG"
+                        alt="Hey Messenger"
+                        width="300"
+                        height="300"
+                        class="project-image"
+                    />
+                    <div class="project-desc">
+                        <!--p>Responsive Landing Page</p-->
+                        <a class="a-4" href="http://easybank-hr6.vercel.app" target="_blank">Visit Site</a>
+                    </div>
+                </article>
             </div>
-            
-            <div class="content">
-                <a href="#" class="card">
-                    <div class="card-title">
-                        Understanding React useContext
-                    </div>
-                    <div class="card-footer f-color">
-                        <div class="posted">
-                            <span>posted:</span>
-                            <span> 5 days ago</span>
+        </section>
+        <div class="swiper-container bg-white lg-none">
+            <h1>Technologies I Use</h1>
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide front-end bg-black">
+                        <h3 class="stack-title">Front-End</h3>
+                        <div class="my-stacks">
+                            <img
+                            src="./images/html-1.svg"
+                            width="50"
+                            height="50"
+                            alt="HTML5"
+                            />
+                            <img
+                            src="./images/css-3.svg"
+                            width="50"
+                            height="50"
+                            alt="CSS"
+                            />
+                            <img
+                            src="./images/sass-1.svg"
+                            width="50"
+                            height="50"
+                            alt="SASS"
+                            />
+                            <img
+                            src="./images/bootstrap-5-1.svg"
+                            width="50"
+                            height="50"
+                            alt="Twitter Bootstrap"
+                            />
+                            <img
+                            src="./images/javascript-1.svg"
+                            width="50"
+                            height="50"
+                            alt="JavaScript"
+                            />
+                            <img
+                            src="./images/react-2.svg"
+                            width="50"
+                            height="50"
+                            alt="Reactjs"
+                            /><img
+                            src="./images/redux.svg"
+                            width="50"
+                            height="50"
+                            alt="React Redux"
+                            />
                         </div>
-                        <div class="categories">
-                            <span>Categories:</span>
-                            <span>JS/React</span>
+                        <div class="my-stacks_desc">
+                            <img
+                            src="./images/frontend.webp"
+                            alt="frontend"
+                            width="300"
+                            height="200"
+                            />
                         </div>
-                    </div>
-                </a>
-                
-                <a href="#" class="card">
-                    <div class="card-title">
-                        Understanding React useContext
-                    </div>
-                    <div class="card-footer f-color">
-                        <div class="posted">
-                            <span>posted:</span>
-                            <span> 5 days ago</span>
-                        </div>
-                        <div class="categories">
-                            <span>Categories:</span>
-                            <span>JS/React</span>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="#" class="card">
-                    <div class="card-title">
-                        Understanding React useContext
-                    </div>
-                    <div class="card-footer f-color">
-                        <div class="posted">
-                            <span>posted:</span>
-                            <span> 5 days ago</span>
-                        </div>
-                        <div class="categories">
-                            <span>Categories:</span>
-                            <span>JS/React</span>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="#" class="card">
-                    <div class="card-title">
-                        Understanding React useContext
-                    </div>
-                    <div class="card-footer f-color">
-                        <div class="posted">
-                            <span>posted:</span>
-                            <span> 5 days ago</span>
-                        </div>
-                        <div class="categories">
-                            <span>Categories:</span>
-                            <span>JS/React</span>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="#" class="card">
-                    <div class="card-title">
-                        Understanding React useContext
-                    </div>
-                    <div class="card-footer f-color">
-                        <div class="posted">
-                            <span>posted:</span>
-                            <span> 5 days ago</span>
-                        </div>
-                        <div class="categories">
-                            <span>Categories:</span>
-                            <span>JS/React</span>
+                        <div class="my-stacks_design">
+                            <img 
+                                src="./images/wave-white.svg"
+                                alt="design"
+                                width="300"
+                                height="100"
+                            />
                         </div>
                     </div>
-                </a>
-                
-                <a href="#" class="card">
-                    <div class="card-title">
-                        Understanding React useContext
-                    </div>
-                    <div class="card-footer f-color">
-                        <div class="posted">
-                            <span>posted:</span>
-                            <span> 5 days ago</span>
+                    <div class="swiper-slide back-end bg-gray">
+                        <h3 class="stack-title">Back-End</h3>
+                        <div class="my-stacks">
+                            <img
+                            src="./images/nodejs-2.svg"
+                            width="50"
+                            height="50"
+                            alt="NodeJS"
+                            />
+                            <img
+                            src="./images/mongodb-icon-1.svg"
+                            width="50"
+                            height="50"
+                            alt="Mongo db"
+                            />
+                            <img
+                            src="./images/mysql-6.svg"
+                            width="50"
+                            height="50"
+                            alt="MySql"
+                            />
+                            <img
+                            src="./images/graphql.svg"
+                            width="50"
+                            height="50"
+                            alt="Graphql"
+                            />
+                            <img
+                            src="./images/next-js.svg"
+                            width="50"
+                            height="50"
+                            alt="NextJS"
+                            />
+                            <img
+                            src="./images/php-1.svg"
+                            width="60"
+                            height="60"
+                            alt="PHP"
+                            />
                         </div>
-                        <div class="categories">
-                            <span>Categories:</span>
-                            <span>JS/React</span>
+                        <div class="my-stacks_desc">
+                            <img
+                            src="./images/backend.jpg"
+                            alt="backend"
+                            width="300"
+                            height="200"
+                            />
                         </div>
-                    </div>
-                </a>
-                
-                <a href="#" class="card">
-                    <div class="card-title">
-                        Understanding React useContext
-                    </div>
-                    <div class="card-footer f-color">
-                        <div class="posted">
-                            <span>posted:</span>
-                            <span> 5 days ago</span>
-                        </div>
-                        <div class="categories">
-                            <span>Categories:</span>
-                            <span>JS/React</span>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="#" class="card">
-                    <div class="card-title">
-                        Understanding React useContext
-                    </div>
-                    <div class="card-footer f-color">
-                        <div class="posted">
-                            <span>posted:</span>
-                            <span> 5 days ago</span>
-                        </div>
-                        <div class="categories">
-                            <span>Categories:</span>
-                            <span>JS/React</span>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="#" class="card">
-                    <div class="card-title">
-                        Understanding React useContext
-                    </div>
-                    <div class="card-footer f-color">
-                        <div class="posted">
-                            <span>posted:</span>
-                            <span> 5 days ago</span>
-                        </div>
-                        <div class="categories">
-                            <span>Categories:</span>
-                            <span>JS/React</span>
+                        <div class="my-stacks_design">
+                            <img 
+                                src="./images/wave-white-alt.svg"
+                                alt="design"
+                                width="300"
+                                height="100"
+                            />
                         </div>
                     </div>
-                </a>
-                
-                <a href="#" class="card">
-                    <div class="card-title">
-                        Understanding React useContext
-                    </div>
-                    <div class="card-footer f-color">
-                        <div class="posted">
-                            <span>posted:</span>
-                            <span> 5 days ago</span>
+                    <div class="swiper-slide others bg-green">
+                        <h3 class="stack-title">Other Skills</h3>
+                        <div class="my-stacks">
+                            <img
+                            src="./images/github-icon.svg"
+                            width="50"
+                            height="50"
+                            alt="Github"
+                            />
+                            <img
+                            src="./images/jest-2.svg"
+                            width="50"
+                            height="50"
+                            alt="Mongo db"
+                            />
+                            <img
+                            src="./images/mocha-1.svg"
+                            width="50"
+                            height="50"
+                            alt="MySql"
+                            />
+                            <img
+                            src="./images/git-icon.svg"
+                            width="50"
+                            height="50"
+                            alt="GIT"
+                            />
+                            <img
+                            src="./images/java-4.svg"
+                            width="50"
+                            height="50"
+                            alt="Java"
+                            />
+                            <img
+                            src="./images/python-5.svg"
+                            width="50"
+                            height="50"
+                            alt="Python"
+                            />
                         </div>
-                        <div class="categories">
-                            <span>Categories:</span>
-                            <span>JS/React</span>
+                        <div class="my-stacks_desc">
+                            <img
+                            src="./images/others.jpg"
+                            alt="Others"
+                            width="300"
+                            height="200"
+                            />
+                        </div>
+                        <div class="my-stacks_design">
+                            <img 
+                                src="./images/wave-white.svg"
+                                alt="design"
+                                width="300"
+                                height="100"
+                            />
                         </div>
                     </div>
-                </a>
-                
-                <a href="#" class="card">
-                    <div class="card-title">
-                        Understanding React useContext
-                    </div>
-                    <div class="card-footer f-color">
-                        <div class="posted">
-                            <span>posted:</span>
-                            <span> 5 days ago</span>
-                        </div>
-                        <div class="categories">
-                            <span>Categories:</span>
-                            <span>JS/React</span>
-                        </div>
-                    </div>
-                </a>
-                
-                <a href="#" class="card">
-                    <div class="card-title">
-                        Understanding React useContext
-                    </div>
-                    <div class="card-footer f-color">
-                        <div class="posted">
-                            <span>posted:</span>
-                            <span> 5 days ago</span>
-                        </div>
-                        <div class="categories">
-                            <span>Categories:</span>
-                            <span>JS/React</span>
-                        </div>
-                    </div>
-                </a>
+                </div>
+                <div class="swiper-pagination"></div>
             </div>
         </div>
-        
+
+        <!------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------->
+        <!------------------------------------------------------------------------->
+
+
+        <section id="my-stack-lg" class="mb-none bg-white">
+                <h1>What I Work With</h1>
+                <div class="my-stack_container">
+                    <div class="my-stacks-lg">
+                        <img
+                        src="./images/html-1.svg"
+                        width="50"
+                        height="50"
+                        alt="HTML5"
+                        />
+                        <img
+                        src="./images/css-3.svg"
+                        width="50"
+                        height="50"
+                        alt="CSS"
+                        />
+                        <img
+                        src="./images/sass-1.svg"
+                        width="50"
+                        height="50"
+                        alt="SASS"
+                        />
+                        <img
+                        src="./images/bootstrap-5-1.svg"
+                        width="50"
+                        height="50"
+                        alt="Twitter Bootstrap"
+                        />
+                        <img
+                        src="./images/javascript-1.svg"
+                        width="50"
+                        height="50"
+                        alt="JavaScript"
+                        />
+                        <img
+                        src="./images/react-2.svg"
+                        width="50"
+                        height="50"
+                        alt="Reactjs"
+                        /><img
+                        src="./images/redux.svg"
+                        width="50"
+                        height="50"
+                        alt="React Redux"
+                        />
+                        <img
+                        src="./images/nodejs-2.svg"
+                        width="50"
+                        height="50"
+                        alt="NodeJS"
+                        />
+                        <img
+                        src="./images/mongodb-icon-1.svg"
+                        width="50"
+                        height="50"
+                        alt="Mongo db"
+                        />
+                        <img
+                        src="./images/mysql-6.svg"
+                        width="50"
+                        height="50"
+                        alt="MySql"
+                        />
+                        <img
+                        src="./images/graphql.svg"
+                        width="50"
+                        height="50"
+                        alt="Graphql"
+                        />
+                        <img
+                        src="./images/next-js.svg"
+                        width="50"
+                        height="50"
+                        alt="NextJS"
+                        />
+                        <img
+                        src="./images/php-1.svg"
+                        width="60"
+                        height="60"
+                        alt="PHP"
+                        />
+                        <img
+                        src="./images/github-icon.svg"
+                        width="50"
+                        height="50"
+                        alt="Github"
+                        />
+                        <img
+                        src="./images/jest-2.svg"
+                        width="50"
+                        height="50"
+                        alt="Mongo db"
+                        />
+                        <img
+                        src="./images/mocha-1.svg"
+                        width="50"
+                        height="50"
+                        alt="MySql"
+                        />
+                        <img
+                        src="./images/git-icon.svg"
+                        width="50"
+                        height="50"
+                        alt="GIT"
+                        />
+                        <img
+                        src="./images/java-4.svg"
+                        width="50"
+                        height="50"
+                        alt="Java"
+                        />
+                        
+                    </div>
+                </div>
+            </section>
+
     </main>
-    
-    
+
+    <footer id="contact" class="bg-blue-dark">
+        <h1>Contact</h1>
+        <div class="contact-group">
+            <a href="http://linkedin.com/donaldsunday">LinkedIn</a>
+            <a href="http://twitter.com/@x_donald">Twitter</a>
+            <a href="https://github.com/Xyzeebit">GitHub</a>
+        </div>
+         
+
+        <p>&copy;xyzeebit</p>
+    </footer>
     <script src="./js/main.js"></script>
 </body>
 </html>
