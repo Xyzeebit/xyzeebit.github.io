@@ -268,6 +268,8 @@ nav {
     padding: 30px;
     text-align: center;
     color: #212621;
+    height: 400px;
+    padding-top: 88.8888888889px;
   }
 }
 @media screen and (min-width: 1025px) {
@@ -288,7 +290,12 @@ nav {
 }
 @media screen and (min-width: 801px) {
   section#aboutme p {
-    padding: 0 60px 0 60px;
+    padding: 0 100px 0 100px;
+  }
+}
+@media screen and (min-width: 1025px) {
+  section#aboutme p {
+    padding: 0 300px 0 300px;
   }
 }
 

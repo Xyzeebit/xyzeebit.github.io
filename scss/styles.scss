@@ -291,7 +291,11 @@ section#aboutme {
         padding: 30px;
         text-align: center;
         color: $black;
-        
+        height: 400px;
+        padding-top: calc(400px / 4.5);
+    }
+    @include tablet() {
+        // height: ;
     }
     @include desktop() {
         padding-top: calc(450px / 4);
@@ -305,7 +309,10 @@ section#aboutme {
             padding: 0 50px 0 50px;
         }
         @include tablet-x() {
-            padding: 0 60px 0 60px;
+            padding: 0 100px 0 100px;
+        }
+        @include desktop() {
+            padding: 0 300px 0 300px;
         }
     }
 }
