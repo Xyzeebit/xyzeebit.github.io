@@ -261,6 +261,9 @@ nav {
         //opacity: 0;
         transform: translateY(-100vh);
         opacity: 0;
+        &:hover {
+            text-decoration: none;
+        }
     }
     a:nth-child(1) {
         transition: all 1200ms ease-in-out;
@@ -402,36 +405,52 @@ article {
 }
 
 
-section#my-stack-lg {
+section#my-stack {
     h1 {
         color: $blue;
         font-size: 2rem;
     }
     @include mobile() {
         padding: 20px;
+        margin-bottom: 60px;
     }
     @include tablet() {
         padding: 40px;
+        margin-bottom: 0;
     }
     @include desktop() {
         padding: 40px;
     }
 
     .my-stack_container {
-        padding: 60px;
+        @include mobile() {
+            padding: 30px;
+        }
+        @include tablet() {
+            padding: 50px;
+        }
     }
     
-    .my-stacks-lg {
+    .my-stacks-images {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        column-gap: 25px;
-        row-gap: 30px;
+        @include mobile() {
+            column-gap: 25px;
+            row-gap: 30px;
+        }
+        
     }
     .my-stacks-lg img {
-        width: 60px;
-        height: 60px;
+        @include mobile() {
+            width: 60px;
+            height: 60px;
+        }
+        @include tablet-x() {
+            width: 80px;
+            height: 80px;
+        }
     }
 }
 
@@ -467,11 +486,10 @@ footer {
         @include tablet() {
             
             &:hover {
-                color: lighten($red, 10);
+                color: lighten($red, 20);
+                text-decoration: none;
             }
-            &:visited {
-                color: lighten($red, 10);
-            }
+           
         }
     }
     p {
