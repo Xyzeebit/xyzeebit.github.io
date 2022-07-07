@@ -294,6 +294,17 @@ section#aboutme {
         padding-top: calc(450px / 4);
         height: 450px;
     }
+    p {
+        @include mobile() {
+            padding: 0;
+        }
+        @include tablet() {
+            padding: 0 50px 0 50px;
+        }
+        @include tablet-x() {
+            padding: 0 60px 0 60px;
+        }
+    }
 }
 
 
@@ -390,72 +401,6 @@ article {
     
 }
 
-.swiper-container {
-    @include mobile {
-        width: 100%;
-        padding: 20px;
-        margin-bottom: 100px;
-    }
-    h1 {
-        text-align: center;
-        padding: 10px;
-        color: $blue;
-        
-    }
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
-}
-.swiper {
-    @include mobile {
-        width: 85vw;
-        height: 500px;
-        margin: 0 auto;
-    }
-    span.swiper-pagination-bullet-active {
-        background: $white;
-    }
-}
-.stack-title {
-    color: $red;
-    padding: 10px;
-    //background: $white;
-    text-align: center;
-    margin: 0 10px 0 10px;
-}
-.my-stacks {
-    padding: 10px;
-    background: $white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    img {
-        margin: 5px;
-    }
-}
-.my-stacks_desc {
-    img {
-        @include mobile {
-            width: 100%;
-        }
-    }
-}
-.my-stacks_design {
-    img {
-        @include mobile {
-            width: 100%;
-        }
-    }
-}
-// .front-end {
-//     //border-radius: 10px;
-// }
-.back-end {
-    border-radius: 10px;
-}
-.others {
-    border-radius: 10px;
-}
 
 section#my-stack-lg {
     h1 {

@@ -273,6 +273,21 @@ nav {
     height: 450px;
   }
 }
+@media screen and (min-width: 320px) {
+  section#aboutme p {
+    padding: 0;
+  }
+}
+@media screen and (min-width: 641px) {
+  section#aboutme p {
+    padding: 0 50px 0 50px;
+  }
+}
+@media screen and (min-width: 801px) {
+  section#aboutme p {
+    padding: 0 60px 0 60px;
+  }
+}
 
 @media screen and (min-width: 320px) {
   section#projects {
@@ -364,73 +379,6 @@ article img.project-image {
 }
 .project-desc a:hover {
   background: linear-gradient(to right, #3a5d8b, #212621);
-}
-
-.swiper-container {
-  border-bottom-left-radius: 30px;
-  border-bottom-right-radius: 30px;
-}
-@media screen and (min-width: 320px) {
-  .swiper-container {
-    width: 100%;
-    padding: 20px;
-    margin-bottom: 100px;
-  }
-}
-.swiper-container h1 {
-  text-align: center;
-  padding: 10px;
-  color: #3a5d8b;
-}
-
-@media screen and (min-width: 320px) {
-  .swiper {
-    width: 85vw;
-    height: 500px;
-    margin: 0 auto;
-  }
-}
-.swiper span.swiper-pagination-bullet-active {
-  background: floralwhite;
-}
-
-.stack-title {
-  color: #f25d26;
-  padding: 10px;
-  text-align: center;
-  margin: 0 10px 0 10px;
-}
-
-.my-stacks {
-  padding: 10px;
-  background: floralwhite;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.my-stacks img {
-  margin: 5px;
-}
-
-@media screen and (min-width: 320px) {
-  .my-stacks_desc img {
-    width: 100%;
-  }
-}
-
-@media screen and (min-width: 320px) {
-  .my-stacks_design img {
-    width: 100%;
-  }
-}
-
-.back-end {
-  border-radius: 10px;
-}
-
-.others {
-  border-radius: 10px;
 }
 
 section#my-stack-lg h1 {

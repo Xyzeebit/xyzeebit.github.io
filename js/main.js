@@ -2,23 +2,6 @@ const state = {
   menuIsOpen: false,
 };
 
-const swiper = new Swiper(".swiper", {
-  // Optional parameters
-  direction: "horizontal",
-  loop: true,
-  spaceBetween: 20,
-  effect: "cube",
-  autoplay: {
-    delay: 5000,
-    disableOnInteraction: false,
-  },
-
-  // If we need pagination
-  pagination: {
-    el: ".swiper-pagination",
-  },
-});
-
 function resetOverflow(el) {
   el.style.height = "100%";
   el.style.overflow = "auto";
