@@ -293,10 +293,10 @@ section#aboutme {
         color: $white;
         height: 400px;
 		line-height: 1.5;
-        padding-top: calc(400px / 4.5);
+        //padding-top: calc(400px / 4.5);
     }
     @include tablet() {
-        // height: ;
+        padding-top: calc(400px / 5);
     }
     @include desktop() {
         padding-top: calc(450px / 4);

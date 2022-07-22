@@ -270,7 +270,11 @@ nav {
     color: floralwhite;
     height: 400px;
     line-height: 1.5;
-    padding-top: 88.8888888889px;
+  }
+}
+@media screen and (min-width: 641px) {
+  section#aboutme {
+    padding-top: 80px;
   }
 }
 @media screen and (min-width: 1025px) {
