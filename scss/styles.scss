@@ -282,7 +282,7 @@ nav {
 section#aboutme {
     @include mobile {
         background: {
-            image: url(../images/backend.jpg);
+            image: url(../images/banner-1.jpg);
             repeat: no-repeat;
             attachment: fixed;
             size: cover;
@@ -290,8 +290,9 @@ section#aboutme {
         };
         padding: 30px;
         text-align: center;
-        color: $black;
+        color: $white;
         height: 400px;
+		line-height: 1.5;
         padding-top: calc(400px / 4.5);
     }
     @include tablet() {
@@ -466,6 +467,9 @@ footer {
     @include mobile {
         padding: 40px 20px 30px 20px;
     }
+	@include tablet {
+		padding: 50px 20px 30px 20px;
+	}
     h1 {
         color: $gray;
         @include tablet() {

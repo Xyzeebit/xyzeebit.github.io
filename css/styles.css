@@ -260,15 +260,16 @@ nav {
 
 @media screen and (min-width: 320px) {
   section#aboutme {
-    background-image: url(../images/backend.jpg);
+    background-image: url(../images/banner-1.jpg);
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
     background-position: center;
     padding: 30px;
     text-align: center;
-    color: #212621;
+    color: floralwhite;
     height: 400px;
+    line-height: 1.5;
     padding-top: 88.8888888889px;
   }
 }
@@ -450,6 +451,11 @@ section#my-stack .my-stacks-images {
 @media screen and (min-width: 320px) {
   footer {
     padding: 40px 20px 30px 20px;
+  }
+}
+@media screen and (min-width: 641px) {
+  footer {
+    padding: 50px 20px 30px 20px;
   }
 }
 footer h1 {
