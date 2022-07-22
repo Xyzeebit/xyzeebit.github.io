@@ -21,6 +21,9 @@ function closeMenu(menuButton, header) {
     resetOverflow(body);
 }
 
+const menuButton = document.getElementById('nav-button');
+menuButton.addEventListener('click', toggleMenu);
+
 function openMenu(menuButton, header) {
     const body = document.querySelector("body");
 
@@ -34,17 +37,14 @@ function openMenu(menuButton, header) {
     body.style.overflow = "hidden";
 }
 
-const nav = document.getElementById('nav-button');
-nav.addEventListener('click', toggleMenu);
-
 function toggleMenu(evt) {
   
   const menuContainer = document.getElementById("header");
 
   if (state.menuIsOpen) {
-    closeMenu(evt, menuContainer)
+    closeMenu(menuButton, menuContainer)
   } else {
-    openMenu(evt, menuContainer)
+    openMenu(menuButton, menuContainer)
   }
 }
 
