@@ -34,7 +34,11 @@ function openMenu(menuButton, header) {
     body.style.overflow = "hidden";
 }
 
+const nav = document.getElementById('nav-button');
+nav.addEventListener('click', toggleMenu);
+
 function toggleMenu(evt) {
+  
   const menuContainer = document.getElementById("header");
 
   if (state.menuIsOpen) {
