@@ -12,21 +12,36 @@
             body {
                 padding: 0;
                 margin: 0;
+                font-family: Helvetica, Geneva, Sans-Serif;
             }
             main {
                 width: 100vw;
-                height: 100vh;
+                height: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 padding: 50px 20px 10px 20px;
             }
-            h3 {
+            p {
                 color: #fff;
                 position: absolute;
-                bottom: 10px;
-                left: 20px;
+                bottom: 5px;
+                left: 10px;
                 opacity: 0;
+                font-weight: 500;
+                font-size: 0.5rem;
+                z-index: 1;
+                transition: opacity 1.5s ease-in-out;
+            }
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                left: 0;
+                top: 0;
+                right: 0;
+                bottom: 0;
             }
             article {
                 border-radius: 30px;
@@ -39,31 +54,98 @@
                 
             }
             .expand {
-                width: 200px;
+                width: 400px;
             }
-            .expand h3 {
+            .expand p {
                 opacity: 1;
             }
-            article:nth-child(1) {
-                background-image: url(./images/bridge.jpg);
-                background-size: cover;
-                background-position: center;
-                
+            
+            @media screen and (max-width: 768px) {
+                article:nth-child(4),article:nth-child(5) {
+                    display: none;
+                }
+                .expand {
+                    width: 200px;
+                }
+            }
+            @media screen and (min-width: 769px) {
+                article {
+                    width: 80px;
+                    margin: 10px;
+                }
+                .expand {
+                    300px
+                }
             }
         </style>
     </head>
     <body>
         <main>
-            <article id="one">
-                <h3>Explore the world</h3>
+            <article class="exp">
+                <p>Explore the world</p>
+                <img 
+                    src="./images/architecture-2.jpg"
+                    alt="explore the world"
+                    width="100"
+                    height="100"
+                    class="img"
+                />
+            </article>
+            <article class="exp">
+                <p>Wild forest</p>
+                <img 
+                    src="./images/trees128.jpg"
+                    alt="wild forest"
+                    width="100"
+                    height="100"
+                    class="img"
+                />
+            </article>
+            <article class="exp">
+                <p>Sunny beach</p>
+                <img 
+                    src="./images/beach.jpg"
+                    alt="sunny beach"
+                    width="100"
+                    height="100"
+                    class="img"
+                />
+            </article>
+            <article class="exp">
+                <p>Explore the world</p>
+                <img 
+                    src="./images/architecture.jpg"
+                    alt="architecture"
+                    width="100"
+                    height="100"
+                    class="img"
+                />
+            </article>
+            <article class="exp">
+                <p>Explore the world</p>
+                <img 
+                    src="./images/stream.jpg"
+                    alt="streams"
+                    width="100"
+                    height="100"
+                    class="img"
+                />
             </article>
         </main>
         
         <script>
-            const one = document.getElementById('one');
-            one.onclick = function(e) {
-                one.classList.add('expand')
-                console.log(e)
+            
+            const arts = document.getElementsByClassName('img');
+            function clickHandler(e) {
+                for(let el of arts) {
+                    
+                    el.parentNode.classList.remove('expand');
+                }
+                e.target.parentNode.classList.add('expand');
+            }
+            
+            for(let el of arts) {
+                el.addEventListener('click', clickHandler)
             }
         </script>
     </body>
