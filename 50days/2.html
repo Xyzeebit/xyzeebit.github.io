@@ -5,6 +5,9 @@
     <title>Progress bar</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
+        :root {
+            --success: #6abe82;
+        }
         body {}
         main {
             height: 100%;
@@ -14,13 +17,12 @@
         .container {
             display: grid;
             place-items: center;
-
             padding: 10px;
         }
         .progress-bar {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            position: relative;
+            height: 100px;
+            width: 320px;
         }
         .circle {
             width: 30px;
@@ -32,44 +34,61 @@
             display: grid;
             place-items: center;
             background: #fff;
-
-            position: relative;
+            transition: all 200ms linear;
+            position: absolute;
             z-index: 1;
-
-        }
-        .circle:nth-child(1) {
-            transform: translateX(0px);
-
-        }
-        .circle:nth-child(2) {
-            transform: translateX(0px);
-        }
-        .circle:nth-child(3) {
-            transform: translateX(0px);
-        }
-        .circle:nth-child(4) {
-            transform: translateX(0px);
-        }
-        .bar {
-            width: 60px;
-            height: 10px;
-            background: #ccc;
             
         }
-        #bar-1 {
+        .one {
+            top: 32%;
+            left: 5px;
+        }
+        .two {
+            top: 32%;
+            left: 100px;
+        }
+        .three {
+            top: 32%;
+            right: 90px;
+        }
+        .four {
+            right: 0;
+            top: 32%;
+        }
+        .bar {
+            width: 75px;
             height: 10px;
-            background: #3f72ae;
+            background: #ccc;
+            position: absolute;
+        }
+        .p-bar {
+            height: 10px;
             width: 0px;
             transition: width 1s ease-in;
         }
+        .b-one {
+            top: 45%;
+            left: 30px;
+            
+        }
+        .b-two {
+            left: 50px;
+            top: 45%;
+            transform: translateX(75px);
+        }
+        .b-three {
+            top: 45%;
+            right: 30px;
+        }
+        
         .move {
-            min-width: 100%;
+            width: 100%;
         }
         .c-bar {
-            background: #3f72ae;
+            background: var(--success);
         }
         .c-circle {
-            border-color: #3f72ae;
+            border-color: var(--success);
         }
         .c-btn {
             background: #3f72ae;
@@ -89,30 +108,31 @@
 <body>
     <main>
         <div class="container">
+            <h1>Progress Bar</h1>
             <div class="progress-bar">
-                <div class="circle c-circle">
+                <div class="circle one c-circle">
                     <span>1</span>
                 </div>
-                <div class="bar">
-                    <div id='bar-1'></div>
+                <div class="bar b-one">
+                    <div id='bar-1' class="p-bar"></div>
                 </div>
-                <div class="circle">
+                <div class="circle two">
                     <span>2</span>
                 </div>
-                <div class="bar">
-                    <div id='bar-2'></div>
+                <div class="bar b-two">
+                    <div id='bar-2' class="p-bar"></div>
                 </div>
-                <div class="circle">
+                <div class="circle three">
                     <apan>3</apan>
                 </div>
-                <div class="bar">
-                    <div id='bar-3'></div>
+                <div class="bar b-three">
+                    <div id='bar-3' class="p-bar"></div>
                 </div>
-                <div class="circle">
+                <div class="circle four">
                     <span>4</span>
                 </div>
             </div>
-            <div class="buttons">
+            <div class="buttons b-four">
                 <button id="prev" class="btn">prev</button>
                 <button id="next" class="btn c-btn">next</button>
             </div>
@@ -125,19 +145,38 @@
             const next = document.getElementById('next');
 
             const circles = document.getElementsByClassName('circle');
-            const bar = document.getElementsByClassName('bar');
-            
-            const bar1 = document.getElementById('bar-1');
-            const bar2 = document.getElementById('bar-2');
-            const bar3 = document.getElementById('bar-3');
-            
-            let progress = 1;
-            
+            const bars = document.getElementsByClassName('p-bar');
+
+            let progress = 0;
+
             prev.addEventListener('click', evt => {
-                
+                if(progress > 0) {
+                    
+                    circles[progress].classList.remove('c-circle');
+                    next.classList.add('c-btn');
+                    setTimeout(() => {
+                        bars[--progress].classList.remove('move');
+                        if (progress < 1) {
+                            evt.target.classList.remove('c-btn');
+                        }
+                    }, 100);
+                }
             });
+            
             next.addEventListener('click', evt => {
-                bar1.classList.add('move')
+                if (progress < 3) {
+                    bars[progress].classList.add('c-bar')
+                    bars[progress].classList.add('move');
+                    prev.classList.add('c-btn');
+                    setTimeout(() => {
+                        circles[progress].classList.add('c-circle');
+                        if (progress > 2) {
+                            evt.target.classList.remove('c-btn')
+                        }
+                    }, 1000);
+                    progress++;
+                    
+                }
             });
 
         }
