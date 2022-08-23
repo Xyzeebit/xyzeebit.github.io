@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Progress bar</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {}
+        main {
+            height: 100%;
+            display: grid;
+            place-items: center;
+        }
+        .container {
+            display: grid;
+            place-items: center;
+
+            padding: 10px;
+        }
+        .progress-bar {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .circle {
+            width: 30px;
+            height: 30px;
+            border-style: solid;
+            border-width: 3px;
+            border-color: #ccc;
+            border-radius: 100px;
+            display: grid;
+            place-items: center;
+            background: #fff;
+
+            position: relative;
+            z-index: 1;
+
+        }
+        .circle:nth-child(1) {
+            transform: translateX(0px);
+
+        }
+        .circle:nth-child(2) {
+            transform: translateX(0px);
+        }
+        .circle:nth-child(3) {
+            transform: translateX(0px);
+        }
+        .circle:nth-child(4) {
+            transform: translateX(0px);
+        }
+        .bar {
+            width: 60px;
+            height: 10px;
+            background: #ccc;
+            
+        }
+        #bar-1 {
+            height: 10px;
+            background: #3f72ae;
+            width: 0px;
+            transition: width 1s ease-in;
+        }
+        .move {
+            min-width: 100%;
+        }
+        .c-bar {
+            background: #3f72ae;
+        }
+        .c-circle {
+            border-color: #3f72ae;
+        }
+        .c-btn {
+            background: #3f72ae;
+        }
+        .buttons {
+            margin-block-start: 20px;
+        }
+        .btn {
+            color: #fff;
+            border: none;
+            outline: none;
+            padding: 8px 15px 8px 15px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="progress-bar">
+                <div class="circle c-circle">
+                    <span>1</span>
+                </div>
+                <div class="bar">
+                    <div id='bar-1'></div>
+                </div>
+                <div class="circle">
+                    <span>2</span>
+                </div>
+                <div class="bar">
+                    <div id='bar-2'></div>
+                </div>
+                <div class="circle">
+                    <apan>3</apan>
+                </div>
+                <div class="bar">
+                    <div id='bar-3'></div>
+                </div>
+                <div class="circle">
+                    <span>4</span>
+                </div>
+            </div>
+            <div class="buttons">
+                <button id="prev" class="btn">prev</button>
+                <button id="next" class="btn c-btn">next</button>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        window.onload = function() {
+            const prev = document.getElementById('prev');
+            const next = document.getElementById('next');
+
+            const circles = document.getElementsByClassName('circle');
+            const bar = document.getElementsByClassName('bar');
+            
+            const bar1 = document.getElementById('bar-1');
+            const bar2 = document.getElementById('bar-2');
+            const bar3 = document.getElementById('bar-3');
+            
+            let progress = 1;
+            
+            prev.addEventListener('click', evt => {
+                
+            });
+            next.addEventListener('click', evt => {
+                bar1.classList.add('move')
+            });
+
+        }
+
+    </script>
+</body>
+</html>
