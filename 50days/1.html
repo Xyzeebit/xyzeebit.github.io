@@ -19,28 +19,52 @@
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                padding: 50px 20px 10px 20px;
+            }
+            h3 {
+                color: #fff;
+                position: absolute;
+                bottom: 10px;
+                left: 20px;
+                opacity: 0;
             }
             article {
                 border-radius: 30px;
                 width: 30px;
                 height: 80vh;
                 overflow: hidden;
-                background: black;
+                margin: 5px;
                 transition: all 1s ease-in-out;
+                position: relative;
+                
             }
             .expand {
-                width: 250px;
+                width: 200px;
+            }
+            .expand h3 {
+                opacity: 1;
             }
             article:nth-child(1) {
+                background-image: url(./images/bridge.jpg);
+                background-size: cover;
+                background-position: center;
                 
             }
         </style>
     </head>
     <body>
         <main>
-            <article>
+            <article id="one">
                 <h3>Explore the world</h3>
             </article>
         </main>
+        
+        <script>
+            const one = document.getElementById('one');
+            one.onclick = function(e) {
+                one.classList.add('expand')
+                console.log(e)
+            }
+        </script>
     </body>
 </html>
