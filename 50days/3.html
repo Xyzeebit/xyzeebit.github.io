@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <style>
             :root {
-                --bg-color: black;
+                --bg-color: #1B262C;
                 --disc: #F08080;
                 --bg-article: #fff;
             }
@@ -25,6 +25,7 @@
                 background: var(--bg-article);
                 color: black;
                 position: absolute;
+                z-index: 1;
                 top: 0;
                 left: 0;
                 bottom: 0;
@@ -63,16 +64,16 @@
                 background: var(--disc);
                 width: 200px;
                 height: 200px;
-                position: absolute;
+                position: fixed;
                 border-radius: 100px;
-                z-index: 1;
+                z-index: 2;
                 left: -80px;
                 top: -80px;
                 
                 transition: all 500ms linear;
             }
             .rotate {
-                transform: rotate(-120deg);
+                transform: rotate(-125deg);
             }
             .buttons-container button {
                 width: 40px;
@@ -113,13 +114,20 @@
             
             aside {
                 position: absolute;
-                left: 0;
-                bottom: 0;
+                left: -100px;
+                bottom: 10px;
+                
+                width: 200px;
                 background: var(--bg-color);
                 display: flex;
                 justify-content: center;
-                align-items: center;
+                align-items: flex-start;
                 flex-direction: column;
+                z-index: -1;
+                transition: all 300ms linear;
+            }
+            .slide-a {
+                left: 0;
             }
             aside a {
                 text-decoration: none;
@@ -128,6 +136,26 @@
                 justify-content: flex-start;
                 align-items: center;
                 padding: 10px;
+                margin-bottom: 10px;
+                font-weight: 500;
+            }
+            aside a:nth-child(1) {
+                transition: all 150ms ease-in;
+            }
+            .slide-0 {
+                transform: translateX(5px);
+            }
+            aside a:nth-child(2) {
+                transition: all 200ms ease-in;
+            }
+            .slide-1 {
+                transform: translateX(25px);
+            }
+            aside a:nth-child(3) {
+                transition: all 300ms ease-in;
+            }
+            .slide-2 {
+                transform: translateX(45px);
             }
             aside img {
                 filter: invert(1);
@@ -150,7 +178,7 @@
             </div>
             <article id="article">
                 <h1>Amazing Article</h1>
-                <small><i>Donald Dominuc</i></small>
+                <small><i>Donald Dominic</i></small>
                 <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium quia in ratione dolores cupiditate, maxime aliquid impedit dolorem nam dolor omnis atque fuga labore modi veritatis porro laborum minus, illo, maiores recusandae cumque ipsa quos. Tenetur, consequuntur mollitia labore pariatur sunt quia harum aut. Eum maxime dolorem provident natus veritatis molestiae cumque quod voluptates ab non, tempore cupiditate? Voluptatem, molestias culpa. Corrupti, laudantium iure aliquam rerum sint nam quas dolor dignissimos in error placeat quae temporibus minus optio eum soluta cupiditate! Cupiditate saepe voluptates laudantium. Ducimus consequuntur perferendis consequatur nobis exercitationem molestias fugiat commodi omnis. Asperiores quia tenetur nemo ipsa.
                 </p>
@@ -166,33 +194,33 @@
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit libero deleniti rerum quo, incidunt vel consequatur culpa ullam. Magnam facere earum unde harum. Ea culpa veritatis magnam at aliquid. Perferendis totam placeat molestias illo laudantium? Minus id minima doloribus dolorum fugit deserunt qui vero voluptas, ut quia cum amet temporibus veniam ad ea ab perspiciatis, enim accusamus asperiores explicabo provident. Voluptates sint, neque fuga cum illum, tempore autem maxime similique laborum odio, magnam esse. Aperiam?
                 </p>
             </article>
-            <aside>
+            <aside id="menu">
                 <a href="#">
                     <img
                         src="./images/icon-home.svg"
                         alt="visit home page"
                         width="25"
-                        height="25"
+                        height="20"
                     />
-                    <span>Home</span>
+                    <span>HOME</span>
                 </a>
-                <a>
+                <a href="#">
                     <img
                         src="./images/icon-user.svg"
                         alt="visit about page"
                         width="25"
-                        height="25"
+                        height="20"
                     />
-                    <span>About</span>
+                    <span>ABOUT</span>
                 </a>
-                <a>
+                <a href="#">
                     <img
                         src="./images/icon-message.svg"
                         alt="visit our contact page"
                         width="25"
-                        height="25"
+                        height="20"
                     />
-                    <span>Contact</span>
+                    <span>CONTACT</span>
                 </a>
             </aside>
         </div>
@@ -205,13 +233,26 @@
                 const disc = document.getElementById('disc');
                 const article = document.getElementById('article');
                 
+                const a = document.querySelectorAll('aside a');
+                const aside = document.getElementById('menu');
+                
                 open.onclick = function(e) {
                     disc.classList.add('rotate');
                     article.classList.add('rotate-art');
+                    aside.classList.add('slide-a');
+                    for(let i = 0; i < a.length; i++) {
+                        a[i].classList.add('slide-' + i);
+                        
+                    }
                 }
                 close.onclick = function(e) {
                     disc.classList.remove('rotate');
                     article.classList.remove('rotate-art');
+                    
+                    for(let i = 0; i < a.length; i++) {
+                        a[i].classList.remove('slide-' + i);
+                    }
+                    aside.classList.remove('slide-a');
                 }
             }
         </script>
