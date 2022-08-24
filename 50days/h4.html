@@ -18,11 +18,67 @@
                 height: 100%;
                 width: 100vw;
             }
+            .input-group {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #fff;
+            }
+            .search {
+                background: none;
+                border: none;
+                outline: none;
+                width: 0;
+                transition: width .3s linear;
+            }
+            
+            .input-group button {
+                padding: 10px;
+                background: none;
+                outline: none;
+                border: none;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 50px;
+            }
+            
         </style>
     </head>
     <body>
         <main>
-            <input type="text" placeholder="Seaech..." id="search" />
+            <div class="input-group">
+                <input type="text" placeholder="Search..." class="search" id="search" />
+                <button id="button">
+                    <img
+                    src="./images/icon-search.svg"
+                    width="25"
+                    height="25"
+                    alt="search"
+                    />
+                </button>
+            </div>
+            
         </main>
+        
+        <script>
+            window.onload = function(e) {
+                const search = document.getElementById('search');
+                const button = document.getElementById('button');
+                let focused = false;
+                button.onclick = function(e) {
+                    if(focused) {
+                        search.style.width = '0px';
+                        search.style.paddingLeft = 0;
+                        focused = false;
+                    } else {
+                        search.focus();
+                        search.style.width = '250px';
+                        search.style.paddingLeft = '15px';
+                        focused = true;
+                    }
+                }
+            }
+        </script>
     </body>
 </html>
