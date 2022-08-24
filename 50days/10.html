@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>FAQ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        html,
+        body {
+            background: #F5F5F5;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: Helvetica, Verdana, Georgia, Arial;
+        }
+        article {
+            /*background-image: url('./images/icon-chat-bubble.png');*/
+            background-position: left;
+            background-size: 200px;
+            background-repeat: no-repeat;
+            
+            border: 1px solid gray;
+            border-radius: 10px;
+        }
+        .expand {
+            box-shadow: 0px 0px 3px black;
+        }
+        .faq {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        button {
+            border: none;
+            outline: none;
+            border-radius: 100px;
+            display: grid;
+            place-items: center;
+            padding: 5px;
+        }
+        button img:nth-of-type(1) {
+            
+        }
+        button img:nth-of-type(2) {
+            display: none;
+        }
+        h3 {
+            text-align: center;
+        }
+        .ans {
+            font-weight: 400px;
+            text-align: left;
+            padding-left: 20px;
+            display: none;
+        }
+        .expand .show {
+            display: block;
+        }
+        
+    </style>
+</head>
+<body>
+    <article class="accordion">
+        <div class="faq">
+            <h3>Why shouldn't we trust atoms?</h3>
+            <button>
+                <img
+                src="./images/icon-down.svg"
+                alt="show reply"
+                width="23"
+                height="23"
+                />
+                <img
+                src="./images/icon-close.svg"
+                alt="hide reply"
+                width="30"
+                height="30"
+                />
+            </button>
+        </div>
+        <p class="ans">
+            They make up everything
+        </p>
+    </article>
+    <script>
+        
+        window.onload = function(e) {
+            const buttons = document.querySelector('button');
+            const faqs = document.querySelector('article');
+            
+            buttons.onclick = function(e) {
+                //faqs.children[0].children[1].style.display = 'none';
+                //faqs.children[0].children[2].style.display = 'block';
+                faqs.children[0].children[1].children[0].style.display = 'none';
+                faqs.children[0].children[1].children[1].style.display = 'block';
+                faqs.style.backgroundImage = 'url(./images/icon-chat-bubble.png)' 
+                faqs.classList.add('expand');
+                faqs.children[1].classList.add('show');
+            }
+        }
+    </script>
+</body>
+</html>
