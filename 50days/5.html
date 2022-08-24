@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Blurry Loading</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                background-image: url('./images/tourist.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center;
+                filter: blur(2px);
+            }
+            main {
+                width: 100vw;
+                height: 100%;
+                filter: blur(2px);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            h2 {
+                
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h2 id="counter"></h2>
+        </main>
+        
+        <script>
+            window.onload = function(e) {
+                const counter = document.getElementById('counter');
+                let count = 100;
+                const timer = setInterval(() => {
+                    if(count <= 0) {
+                        clearTimeout(timer);
+                        counter.style.display = 'none';
+                    }
+                    count -= 5;
+                    counter.innerText = count + '%';
+                }, 100);
+            }
+            
+        </script>
+    </body>
+</html>
