@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Dad Jokes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            background: #42A5F5;
+            padding: 0;
+            margin: 0;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: Arial;
+        }
+        main {
+            display: grid;
+            place-items: center;
+            width: 100vw;
+            height: 100%;
+        }
+        .jokes-box {
+
+            padding: 2.5rem 2rem;
+            background: #fff;
+            filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.5));
+            border-radius: 15px;
+        }
+        .instruction {
+            font-weight: 600;
+            color: gray;
+            text-align: center;
+        }
+        .joke {
+            font-size: 1.7rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+@media screen and (max-width: 768px) {
+            .jokes-box {
+                width: 80vw;
+            }
+        }
+@media screen and (min-width: 769px) {
+
+            .jokes-box {
+                max-width: 50vw;
+                min-width: 18rem;
+            }
+        }
+        button {
+            background: #BA68C8;
+            padding: 15px 30px 15px 30px;
+            border: none;
+            outline: none;
+            color: #fff;
+            margin: 0 auto;
+            width: 100%;
+            border-radius: 10px;
+            font-size: 1rem;
+            filter: drop-shadow(0px 0px 5px rgba(0,0,0,0.3));
+        }
+        button:active {
+            background: #EA80FC;
+            /*filter: drop-shadow(0px 0px 0px rgba(0,0,0,0.1));*/
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="jokes-box">
+            <p class="instruction">
+                Don't Laugh Challenge
+            </p>
+            <p class="joke">
+                // Joke goes here
+            </p>
+            <button>Get Another Joke</button>
+        </div>
+    </main>
+    <script>
+        window.addEventListener('DOMContentLoaded', (evt) => {
+            const joke = document.querySelector('.joke');
+            const next = document.querySelector('button');
+
+            next.onclick = function(e) {
+                setJoke(joke);
+            }
+            
+            setJoke(joke);
+
+        })
+
+        function setJoke(el) {
+            getJoke((err, jokes) => {
+                if (err) {
+                    return;
+                } else {
+
+                    const setup = jokes[0].setup;
+                    const punchline = jokes[0].punchline;
+
+                    el.innerText = setup + ' ' + punchline;
+                }
+            });
+        }
+        async function getJoke(cb) {
+            try {
+                const url = 'https://dad-jokes.p.rapidapi.com/random/joke';
+
+                const resp = await fetch(url,
+                    {
+                        method: 'GET',
+                        headers: {
+                            'X-RapidAPI-Key': '77c412b5b5msh0a257201d344193p19f998jsn51b6dee3a8bd',
+                            'X-RapidAPI-Host': 'dad-jokes.p.rapidapi.com'
+                        }
+                    });
+                const jokes = await resp.json();
+                if (jokes.success) {
+                    cb(null, jokes.body)
+                } else {
+                    cb(new Error('cannot fetch jokes'));
+                }
+            } catch (e) {
+                cb(e)
+            }
+        }
+    </script>
+</body>
+</html>
