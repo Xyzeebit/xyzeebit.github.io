@@ -6,10 +6,137 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         
         <style>
-            
+            body {
+                padding: 0;
+                margin: 0;
+                
+                background-image: url('./images/icon-ps5.svg');
+                background-repeat: no-repeat;
+                background-position: center;
+                background-size: 200px;
+            }
+            * {
+                box-sizing: border-box;
+                font-family: Arial, Helvetica;
+            }
+            .container {
+                width: 100vw;
+                overflow: hidden;
+                height: 100%;
+                position: relative;
+            }
+            .ps5 {
+                background: rgba(100, 149, 237, 0.9);
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                width: 50vw;
+                transition: width .8s linear;
+            }
+            .xbox {
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                width: 50vw;
+                background-color: rgba(0, 0, 0, 0.95);
+                transition: width .8s linear;
+            }
+            .expand {
+                width: 70vw;
+            }
+            .collapse {
+                width: 30vw;
+            }
+            .ps5, .xbox {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+            }
+            .box {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                color: #fff;
+            }
+            .box h1 {
+                text-overflow: clip;
+                white-space: nowrap;
+                width: 100%;
+                text-align: center;
+            }
+            .box button {
+                padding: 20px;
+                background: none;
+                border: none;
+                outline: none;
+                border-top: 5px solid #fff;
+                border-bottom: 5px solid #fff;
+                color: #fff;
+                font-weight: 600;
+                width: 100%;
+                transition: all .5s;
+            }
+            .xbutton:hover {
+                width: 150px;
+                background: green;
+                border-top: 5px solid green;
+                border-bottom: 5px solid green;
+            }
+            .pbutton:hover {
+                width: 150px;
+                background: #6A5ACD;
+                border-top: 5px solid #6A5ACD;
+                border-bottom: 5px solid #6A5ACD;
+            }
         </style>
     </head>
     <body>
-        body
+        <div class="container">
+            <div class="ps5">
+                <div class="box">
+                    <h1>Playstation 5</h1>
+                    <button class="pbutton">BUY NOW</button>
+                </div>
+            </div>
+            <div class="xbox">
+                <div class="box">
+                    <h1>XBox Series X</h1>
+                    <button class="xbutton">BUY NOW</button>
+                </div>
+            </div>
+        </div>
+        
+        <script>
+            window.addEventListener('DOMContentLoaded', function(e) {
+                const ps5 = document.querySelector('.ps5');
+                const xbox = document.querySelector('.xbox');
+                
+                const xbutton = document.querySelector('.xbutton');
+                const pbutton = document.querySelector('.pbutton');
+                
+                ps5.onclick = function(e) {
+                    
+                    ps5.classList.add('expand');
+                    ps5.classList.remove('collapse');
+                    
+                    xbox.classList.remove('expand');
+                    xbox.classList.add('collapse');
+                }
+                
+                xbox.onclick = function(e) {
+                    
+                    xbox.classList.add('expand');
+                    xbox.classList.remove('collapse');
+                    
+                    ps5.classList.remove('expand');
+                    ps5.classList.add('collapse');
+                }
+            });
+        </script>
     </body>
 </html>
