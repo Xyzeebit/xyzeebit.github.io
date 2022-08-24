@@ -5,45 +5,64 @@
         <title>Blurry Loading</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <style>
-            body {
+            html,body {
                 padding: 0;
                 margin: 0;
-                background-image: url('./images/tourist.jpg');
+            }
+            #main {
+                background-image: url('./images/stream.jpg');
                 background-size: cover;
                 background-repeat: no-repeat;
-                background-position: center;
-                filter: blur(2px);
-            }
-            main {
+                background-position:  center;
                 width: 100vw;
                 height: 100%;
-                filter: blur(2px);
+                filter: blur(20px);
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                transition: filter 1.5s linear;
             }
-            h2 {
-                
+            h1 {
+                color: #fff;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                font-size: 3rem;
+                z-index: 3;
+                opacity: 1;
+                transform: translate(-50%, -50%);
+                transition: opacity 3.5s linear;
+                transition-delay: 0.5ms;
+            }
+            .fade-out {
+                opacity: 0;
             }
         </style>
     </head>
     <body>
-        <main>
-            <h2 id="counter"></h2>
-        </main>
+        <div id="main"></div>
+        <h1 id="counter"></h1>
         
         <script>
             window.onload = function(e) {
                 const counter = document.getElementById('counter');
-                let count = 100;
-                const timer = setInterval(() => {
-                    if(count <= 0) {
-                        clearTimeout(timer);
-                        counter.style.display = 'none';
+                const main = document.getElementById('main');
+                let count = 1;
+                let opacity = 1;
+                
+                const counterTimer = setInterval(() => {
+                    counter.classList.add('fade-out');
+                    main.style.filter = 'blur(0)'
+                    if(count < 100) {
+                        counter.innerText = count + '%';
+                        count = count + 3;
+                        
+                    } else {
+                        clearInterval(counterTimer);
                     }
-                    count -= 5;
-                    counter.innerText = count + '%';
-                }, 100);
+                    
+                }, 50);
+                
             }
             
         </script>
