@@ -40,8 +40,18 @@
                 bottom: 0;
                 right: 0;
                 width: 50vw;
-                background-color: rgba(0, 0, 0, 0.95);
+                background-color: rgba(0, 0, 0, 0.9);
                 transition: width .8s linear;
+                
+                background-image: url('./images/xbox-dark.jpg');
+                background-repeat: no-repeat;
+                background-position: right;
+                background-size: 300px 100%;
+            }
+            @media screen and (min-width: 769px) {
+                .xbox {
+                    background-size: 100% 100%;
+                }
             }
             .expand {
                 width: 70vw;
