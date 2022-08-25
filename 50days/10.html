@@ -14,11 +14,8 @@
             font-family: Helvetica, Verdana, Georgia, Arial;
         }
         article {
-            /*background-image: url('./images/icon-chat-bubble.png');*/
-            background-position: left;
-            background-size: 200px;
-            background-repeat: no-repeat;
-            
+            position: relative;
+            overflow: hidden;
             border: 1px solid gray;
             border-radius: 10px;
         }
@@ -31,7 +28,7 @@
             align-items: center;
             padding: 20px;
         }
-        
+
         button {
             border: none;
             outline: none;
@@ -39,65 +36,98 @@
             display: grid;
             place-items: center;
             padding: 5px;
+            background: none;
         }
         button img:nth-of-type(1) {
-            
+            display: none;
         }
         button img:nth-of-type(2) {
             display: none;
         }
-        h3 {
-            text-align: center;
+        .faq-text {
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.1rem;
         }
         .ans {
             font-weight: 400px;
             text-align: left;
             padding-left: 20px;
             display: none;
+            margin-block-start: 0.5rem;
+            font-weight: 300;
         }
-        .expand .show {
-            display: block;
+        .show {
+            display: block !important;
         }
-        
+        .hide {
+            display: none;
+        }
+        .bubble {
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            opacity: 0;
+            
+        }
+        .opacity {
+            opacity: 0.5;
+        }
     </style>
 </head>
 <body>
     <article class="accordion">
         <div class="faq">
-            <h3>Why shouldn't we trust atoms?</h3>
+            <div class="faq-text">Why shouldn't we trust atoms?</div>
             <button>
                 <img
                 src="./images/icon-down.svg"
                 alt="show reply"
                 width="23"
                 height="23"
+                class="show"
                 />
                 <img
                 src="./images/icon-close.svg"
                 alt="hide reply"
                 width="30"
                 height="30"
+                class=""
                 />
             </button>
         </div>
         <p class="ans">
             They make up everything
         </p>
+        <img
+        src="./images/icon-chat-bubble.png"
+        alt="faq"
+        width="150"
+        height="150"
+        class="bubble"
+        />
     </article>
     <script>
-        
+
         window.onload = function(e) {
-            const buttons = document.querySelector('button');
-            const faqs = document.querySelector('article');
-            
-            buttons.onclick = function(e) {
+            const buttons = document.querySelectorAll('button');
+            const faqs = document.querySelectorAll('article');
+            const images = document.querySelectorAll('.bubble');
+
+            function handleClick(e) {
                 //faqs.children[0].children[1].style.display = 'none';
                 //faqs.children[0].children[2].style.display = 'block';
-                faqs.children[0].children[1].children[0].style.display = 'none';
-                faqs.children[0].children[1].children[1].style.display = 'block';
-                faqs.style.backgroundImage = 'url(./images/icon-chat-bubble.png)' 
-                faqs.classList.add('expand');
-                faqs.children[1].classList.add('show');
+                this.children[0].children[1].children[0].classList.toggle('show')
+                this.children[0].children[1].children[1].classList.toggle('show')
+                //faqs.children[0].children[1].children[0].classList.toggle('hide')
+                //faqs.children[0].children[1].children[1].classList.toggle('show')
+                this.children[2].classList.toggle('opacity');
+                this.classList.toggle('expand');
+                this.children[1].classList.toggle('show');
+            }
+            
+            for(let faq of faqs) {
+                faq.onclick = handleClick;
             }
         }
     </script>
