@@ -8,6 +8,7 @@
         body {
             padding: 0;
             margin: 0;
+            overflow: hidden;
         }
         * {
             box-sizing: border-box;
@@ -29,25 +30,49 @@
         }
         .menu {
             margin: auto;
-            transform: translateY(-35px);
+            transform: translateY(-40px);
             background: #fff;
             border-radius: 5px;
-            width: 80px;
+            width: 320px;
             height: 80px;
             display: flex;
             justify-content: center;
             align-items: center;
+            transition: width 0.8s linear;
+        }
+        .close {
+            width: 80px;
         }
         nav {
             display: flex;
             justify-content: space-around;
             align-items: center;
-            padding: 25px;
-            width: 90%;
             
+            
+        }
+        .slideR {
+            animation: slideR 1.5s linear;
+        }
+        @keyframes slideR {
+            to {
+                transform: translateX(300px);
+            }
+        }
+        .slideL {
+            animation: slideL 1s linear;
+            animation-fill-mode: both;
+        }
+        @keyframes slideL {
+            to {
+                transform: translateX(-140px);
+            }
         }
         a {
             padding: 0 10px 0 10px;
+            transition: transform 0.3s linear;
+        }
+        .flip {
+            transform: rotateY(180deg);
         }
         button {
             outline: none;
@@ -56,6 +81,7 @@
             width: 30px;
             height: 30px;
             position: relative;
+            
         }
         .line-top, .line-bottom {
             width: 20px;
@@ -65,16 +91,27 @@
             animation-fill-mode: both;
         }
         .line-top {
-            top: 10px;
-            animation: consumeT 0.2s linear;
+            /*top: 10px;*/
+            transform: rotate(45deg);
         }
         .line-bottom {
-            bottom: 10px;
+            /*bottom: 10px;*/
+            transform: rotate(-45deg);
+        }
+        .animateT {
+            animation: consumeT 0.2s linear;
+            animation-iteration-count: 5;
+        }
+        .animateB {
             animation: consumeB 0.2s linear;
+            animation-iteration-count: 5;
         }
         @keyframes consumeT {
             0% {
-                transform: rotate(45deg);
+                transform: rotate(-55deg);
+            }
+            50% {
+                transform: rotate(55deg);
             }
             100% {
                 top: 10px;
@@ -83,7 +120,10 @@
         }
         @keyframes consumeB {
             0% {
-                transform: rotate(-45deg);
+                transform: rotate(55deg);
+            }
+            50% {
+                transform: rotate(-55deg);
             }
             100% {
                 bottom: 10px;
@@ -97,12 +137,12 @@
     <div class="top"></div>
     <div class="bottom">
         <div class="menu">
-            <!--nav>
+            <nav>
                 <a>Home</a>
                 <a>Works</a>
                 <a>About</a>
                 <a>Contact</a>
-            </nav-->
+            </nav>
             <button>
                 <div class="line-top"></div>
                 <div class="line-bottom"></div>
@@ -110,6 +150,20 @@
         </div>
 
     </div>
-    <script></script>
+    <script>
+        const menu = document.querySelector('.menu');
+        const button = document.querySelector('button');
+        const nav = document.querySelector('nav');
+        button.onclick  = function(e) {
+            nav.classList.add('slideR');
+            for(let a of nav.children) {
+                a.classList.add('flip');
+            }
+            this.classList.add('slideL');
+            menu.classList.add('close');
+            this.children[0].classList.add('animateT');
+            this.children[1].classList.add('animateB');
+        }
+    </script>
 </body>
 </html>
