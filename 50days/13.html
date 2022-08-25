@@ -8,7 +8,7 @@
         body {
             padding: 0;
             margin: 0;
-            overflow: hidden;
+
         }
         * {
             box-sizing: border-box;
@@ -16,6 +16,9 @@
         a {
             text-decoration: none;
             color: inherit;
+        }
+        main {
+            overflow-x: hidden;
         }
         .top, .bottom {
             height: 50%;
@@ -27,6 +30,8 @@
         .bottom {
             background: #009688;
             position: relative;
+
+
         }
         .menu {
             margin: auto;
@@ -39,6 +44,7 @@
             justify-content: center;
             align-items: center;
             transition: width 0.8s linear;
+
         }
         .close {
             width: 80px;
@@ -47,29 +53,33 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            
-            
+            opacity: 1;
+
+
         }
         .slideR {
-            animation: slideR 1.5s linear;
+            animation: slideR 1.1s linear;
+            animation-fill-mode: both;
         }
-        @keyframes slideR {
+@keyframes slideR {
             to {
                 transform: translateX(300px);
+                opacity: 0;
             }
         }
         .slideL {
-            animation: slideL 1s linear;
+            animation: slideL .8s linear;
             animation-fill-mode: both;
         }
-        @keyframes slideL {
+@keyframes slideL {
             to {
-                transform: translateX(-140px);
+                transform: translateX(-142px);
             }
         }
         a {
             padding: 0 10px 0 10px;
-            transition: transform 0.3s linear;
+            transition: transform 0.2s linear;
+            /*transition-delay: 0.2s;*/
         }
         .flip {
             transform: rotateY(180deg);
@@ -81,14 +91,14 @@
             width: 30px;
             height: 30px;
             position: relative;
-            
+
         }
         .line-top, .line-bottom {
             width: 20px;
             min-height: 3px;
             background: #009688;
             position: absolute;
-            animation-fill-mode: both;
+
         }
         .line-top {
             /*top: 10px;*/
@@ -100,13 +110,15 @@
         }
         .animateT {
             animation: consumeT 0.2s linear;
-            animation-iteration-count: 5;
+            animation-iteration-count: 4;
+            animation-fill-mode: both;
         }
         .animateB {
             animation: consumeB 0.2s linear;
-            animation-iteration-count: 5;
+            animation-iteration-count: 4;
+            animation-fill-mode: both;
         }
-        @keyframes consumeT {
+@keyframes consumeT {
             0% {
                 transform: rotate(-55deg);
             }
@@ -118,7 +130,7 @@
                 transform: rotate(0deg);
             }
         }
-        @keyframes consumeB {
+@keyframes consumeB {
             0% {
                 transform: rotate(55deg);
             }
@@ -129,40 +141,127 @@
                 bottom: 10px;
                 transform: rotate(0deg);
             }
-            
+
+        }
+        .slideR-U {
+            animation: slideR-U 0.8s linear;
+            animation-fill-mode: both;
+        }
+        @keyframes slideR-U {
+            from {
+                transform: translateX(300px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0px);
+                opacity: 1;
+            }
+        }
+        .slideL-U {
+            animation: slideL-U .8s linear;
+            animation-fill-mode: both;
+        }
+        @keyframes slideL-U {
+            from {
+                transform: translateX(-142px);
+            }
+            to {
+                transform: translateX(0px);
+            }
+        }
+        
+        .animateT-U {
+            animation: consumeT-U 0.2s linear;
+            animation-iteration-count: 4;
+            /*animation-fill-mode: both;*/
+        }
+        .animateB-U {
+            animation: consumeB-U 0.2s linear;
+            animation-iteration-count: 4;
+            /*animation-fill-mode: both;*/
+        }
+@keyframes consumeT-U {
+            0% {
+                transform: rotate(-55deg);
+            }
+            50% {
+                transform: rotate(55deg);
+            }
+            100% {
+                top: 10px;
+                transform: rotate(0deg);
+            }
+        }
+@keyframes consumeB-U {
+            0% {
+                transform: rotate(55deg);
+            }
+            50% {
+                transform: rotate(-55deg);
+            }
+            100% {
+                bottom: 10px;
+                transform: rotate(0deg);
+            }
+
         }
     </style>
 </head>
 <body>
-    <div class="top"></div>
-    <div class="bottom">
-        <div class="menu">
-            <nav>
-                <a>Home</a>
-                <a>Works</a>
-                <a>About</a>
-                <a>Contact</a>
-            </nav>
-            <button>
-                <div class="line-top"></div>
-                <div class="line-bottom"></div>
-            </button>
-        </div>
-
+    <main>
+        <div class="top"></div>
+        <div class="bottom">
+            <div class="menu">
+                <nav>
+                    <a>Home</a>
+                    <a>Works</a>
+                    <a>About</a>
+                    <a>Contact</a>
+                </nav>
+                <button>
+                    <div class="line-top"></div>
+                    <div class="line-bottom"></div>
+                </button>
+            </div>
+        </main>
     </div>
     <script>
         const menu = document.querySelector('.menu');
         const button = document.querySelector('button');
         const nav = document.querySelector('nav');
-        button.onclick  = function(e) {
-            nav.classList.add('slideR');
-            for(let a of nav.children) {
-                a.classList.add('flip');
+        let open = true;
+        button.onclick = function(e) {
+            if (open) {
+                nav.classList.add('slideR');
+                for (let a of nav.children) {
+                    a.classList.add('flip');
+                }
+                this.classList.add('slideL');
+                menu.classList.add('close');
+                this.children[0].classList.add('animateT');
+                this.children[1].classList.add('animateB');
+                open = false;
+                
+                nav.classList.remove('slideR-U');
+                this.classList.remove('slideL-U');
+                this.children[0].classList.remove('animateT-U');
+                this.children[1].classList.remove('animateB-U')
+            } else {
+                nav.classList.add('slideR-U');
+                for (let a of nav.children) {
+                    a.classList.remove('flip');
+                }
+                this.classList.add('slideL-U');
+                menu.classList.remove('close');
+                this.children[0].classList.add('animateT-U');
+                this.children[1].classList.add('animateB-U');
+                open = true;
+                
+                nav.classList.remove('slideR');
+                this.classList.remove('slideL');
+                this.children[0].classList.remove('animateT');
+                this.children[1].classList.remove('animateB')
             }
-            this.classList.add('slideL');
-            menu.classList.add('close');
-            this.children[0].classList.add('animateT');
-            this.children[1].classList.add('animateB');
         }
     </script>
 </body>
