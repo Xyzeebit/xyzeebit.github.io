@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Animation Navigation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        * {
+            box-sizing: border-box;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .top, .bottom {
+            height: 50%;
+            width: 100vw;
+        }
+        .top {
+            background: #EF9A9A;
+        }
+        .bottom {
+            background: #009688;
+            position: relative;
+        }
+        .menu {
+            margin: auto;
+            transform: translateY(-35px);
+            background: #fff;
+            border-radius: 5px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 25px;
+            width: 90%;
+            
+        }
+        a {
+            padding: 0 10px 0 10px;
+        }
+        button {
+            outline: none;
+            border: none;
+            background: none;
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+        .line-top, .line-bottom {
+            width: 20px;
+            min-height: 3px;
+            background: #009688;
+            position: absolute;
+            animation-fill-mode: both;
+        }
+        .line-top {
+            top: 10px;
+            animation: consumeT 0.2s linear;
+        }
+        .line-bottom {
+            bottom: 10px;
+            animation: consumeB 0.2s linear;
+        }
+        @keyframes consumeT {
+            0% {
+                transform: rotate(45deg);
+            }
+            100% {
+                top: 10px;
+                transform: rotate(0deg);
+            }
+        }
+        @keyframes consumeB {
+            0% {
+                transform: rotate(-45deg);
+            }
+            100% {
+                bottom: 10px;
+                transform: rotate(0deg);
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="top"></div>
+    <div class="bottom">
+        <div class="menu">
+            <!--nav>
+                <a>Home</a>
+                <a>Works</a>
+                <a>About</a>
+                <a>Contact</a>
+            </nav-->
+            <button>
+                <div class="line-top"></div>
+                <div class="line-bottom"></div>
+            </button>
+        </div>
+
+    </div>
+    <script></script>
+</body>
+</html>
