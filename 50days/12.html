@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Increment Counter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: black;
+            padding: 0;
+            margin: 0;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: 'Inconsolata', monospace;
+        }
+        main {
+            width: 100vw;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .social {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #fff;
+        }
+        .social img {
+            filter: invert(1);
+        }
+        .counter {
+            font-weight: 500;
+            font-size: 3rem;
+        }
+        .text {}
+    </style>
+</head>
+<body>
+    <main>
+        <div class="social">
+            <img
+            src="./images/icon-twitter.svg"
+            alt="follow on twitter"
+            width="50"
+            height="50"
+            />
+            <p>
+                <tt class="counter">12000</tt>
+            </p>
+            <p>
+                <tt class="text">Twitter Followers</tt>
+            </p>
+        </div>
+    </main>
+    <script></script>
+</body>
+</html>
