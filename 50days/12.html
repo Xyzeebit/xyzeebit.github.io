@@ -23,6 +23,7 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
+            flex-direction: column;
         }
         .social {
             display: flex;
@@ -57,7 +58,58 @@
                 <tt class="text">Twitter Followers</tt>
             </p>
         </div>
+        
+        <div class="social">
+            <img
+            src="./images/icon-youtube.svg"
+            alt="follow on twitter"
+            width="50"
+            height="50"
+            />
+            <p>
+                <tt class="counter">5000</tt>
+            </p>
+            <p>
+                <tt class="text">YouTube Subscribers</tt>
+            </p>
+        </div>
+        
+        <div class="social">
+            <img
+            src="./images/icon-facebook.svg"
+            alt="follow on twitter"
+            width="50"
+            height="50"
+            />
+            <p>
+                <tt class="counter">7500</tt>
+            </p>
+            <p>
+                <tt class="text">Facebook Followers</tt>
+            </p>
+        </div>
     </main>
-    <script></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', evt => {
+            counters = document.querySelectorAll('.counter');
+            
+            let tw = 12000;
+            let yt = 5000;
+            let fb = 7500;
+            
+            counter(6000, tw, counters[0]);
+            counter(1200, yt, counters[1]);
+            counter(3000, fb, counters[2])
+        })
+        
+        function counter(start, end, element) {
+            const timer = setInterval(() => {
+                if(start >= end - 20) {
+                    clearInterval(timer);
+                }
+                element.innerText = start += 20;
+            }, 5);
+        }
+    </script>
 </body>
 </html>
