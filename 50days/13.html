@@ -12,6 +12,7 @@
         }
         * {
             box-sizing: border-box;
+            font-family: Arial Verdana;
         }
         a {
             text-decoration: none;
@@ -78,8 +79,11 @@
         }
         a {
             padding: 0 10px 0 10px;
-            transition: transform 0.2s linear;
-            /*transition-delay: 0.2s;*/
+            transition: transform 0.3s linear;
+            
+        }
+        a:active {
+            color: #EF9A9A;
         }
         .flip {
             transform: rotateY(180deg);
@@ -182,10 +186,10 @@
         }
 @keyframes consumeT-U {
             0% {
-                transform: rotate(-55deg);
+                transform: rotate(55deg);
             }
             50% {
-                transform: rotate(55deg);
+                transform: rotate(-55deg);
             }
             100% {
                 top: 10px;
@@ -194,10 +198,10 @@
         }
 @keyframes consumeB-U {
             0% {
-                transform: rotate(55deg);
+                transform: rotate(-55deg);
             }
             50% {
-                transform: rotate(-55deg);
+                transform: rotate(55deg);
             }
             100% {
                 bottom: 10px;
