@@ -60,12 +60,32 @@
             .empty {
                 background: #fff;
             }
+            .empty-level, .water-level {
+                width: 100%;
+                font-weight: 600;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: height 1s linear;
+            }
+            .empty-level {
+                height: 100%;
+                
+            }
+            .water-level {
+                font-size: 2rem;
+            }
         </style>
     </head>
     <body>
         <main>
             <div class="cup big-cup empty">
-                
+                <div class="empty-level empty">
+                    2L
+                </div>
+                <div class="water-level">
+                    0.0%
+                </div>
             </div>
             <div class="cups">
                 <div class="cup small-cup empty">
@@ -95,7 +115,36 @@
             </div>
         </main>
         <script>
-            
+            window.addEventListener('DOMContentLoaded', evt => {
+                
+                const big = document.querySelector('.big-cup');
+                const small = document.querySelectorAll('.small-cup');
+                
+                let goal = 2000;
+                let height = 0;
+                let prog = (goal / 100);
+                
+                function drink(e) {
+                    if(this.classList.contains('empty')) {
+                        this.classList.remove('empty');
+                        this.classList.add('water');
+                        
+                        big.children[0].style.height = (100 - height) + '%';
+                        big.children[0].innerText = (goal / 1000);
+                        
+                        big.children[1].style.height = (height += 20) + '%';
+                        big.children[1].innerText = (goal / 100)
+                        
+                    } else {
+                        this.classList.remove('water');
+                        this.classList.add('empty');
+                        
+                        big.children[0].style.height = (height += 20) + '%';
+                        big.children[1].style.height = (100 - height) + '%';
+                    }
+                    
+                }
+            })
             
         </script>
     </body>
