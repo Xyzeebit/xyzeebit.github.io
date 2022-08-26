@@ -27,7 +27,7 @@
                 overflow: hidden;
             }
             .big-cup {
-                border: 3px solid blue;
+                border: 3px solid #3949AB;
                 height: 14rem;
                 width: 7rem;
             }
@@ -44,7 +44,7 @@
             .small-cup {
                 width: 3rem;
                 height: 5rem;
-                border: 3px solid blue;
+                border: 3px solid #3949AB;
                 border-radius: 0 0 10px 10px;
                 display: flex;
                 justify-content: center;
@@ -52,6 +52,7 @@
                 color: #039BE5;
                 font-size: 0.8rem;
                 text-align: center;
+                transition: all 0.5s;
             }
             .water {
                 background:#29B6F6;
@@ -61,12 +62,14 @@
                 background: #fff;
             }
             .empty-level, .water-level {
+                overflow: hidden;
+                color: #3949AB;
                 width: 100%;
                 font-weight: 600;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-                transition: height 1s linear;
+                transition: height 0.5s ease-in;
             }
             .empty-level {
                 height: 100%;
@@ -83,7 +86,7 @@
                 <div class="empty-level empty">
                     2L
                 </div>
-                <div class="water-level">
+                <div class="water-level water">
                     0.0%
                 </div>
             </div>
@@ -121,7 +124,7 @@
                 const small = document.querySelectorAll('.small-cup');
                 
                 let goal = 2;
-                let height = 0;
+                let height = 100;
                 let prog = (goal / 8);
                 let sub = 12.5;
                 
@@ -130,8 +133,9 @@
                         this.classList.remove('empty');
                         this.classList.add('water');
                         
-                        big.children[0].style.height = (100 - sub) + '%';
-                        big.children[0].innerText = (goal - prog) + 'ml'
+                        
+                        big.children[0].style.height = (height -= sub) + '%';
+                        big.children[0].innerText = (goal - prog) + 'ml';
                         prog += 0.25;
                         
                         big.children[1].style.height = sub + '%';
@@ -142,8 +146,13 @@
                         this.classList.remove('water');
                         this.classList.add('empty');
                         
-                        big.children[0].style.height = (100 += 20) + '%';
-                        big.children[1].style.height = (100 - height) + '%';
+                        big.children[0].style.height = height + '%';
+                        big.children[0].innerText = (goal += prog) + 'ml';
+                        prog -= 0.25;
+                        
+                        sub -= 0.25;
+                        big.children[1].style.height = (sub) + '%';
+                        big.children[1].innerText = sub + '%';
                     }
                     
                 }
