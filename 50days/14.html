@@ -73,7 +73,7 @@
                 
             }
             .water-level {
-                font-size: 2rem;
+                font-size: 1.5rem;
             }
         </style>
     </head>
@@ -109,7 +109,7 @@
                 <div class="cup small-cup empty">
                     250<br />ml
                 </div>
-                <div class="cup small-cup water">
+                <div class="cup small-cup empty">
                     250<br />ml
                 </div>
             </div>
@@ -120,29 +120,36 @@
                 const big = document.querySelector('.big-cup');
                 const small = document.querySelectorAll('.small-cup');
                 
-                let goal = 2000;
+                let goal = 2;
                 let height = 0;
-                let prog = (goal / 100);
+                let prog = (goal / 8);
+                let sub = 12.5;
                 
                 function drink(e) {
                     if(this.classList.contains('empty')) {
                         this.classList.remove('empty');
                         this.classList.add('water');
                         
-                        big.children[0].style.height = (100 - height) + '%';
-                        big.children[0].innerText = (goal / 1000);
+                        big.children[0].style.height = (100 - sub) + '%';
+                        big.children[0].innerText = (goal - prog) + 'ml'
+                        prog += 0.25;
                         
-                        big.children[1].style.height = (height += 20) + '%';
-                        big.children[1].innerText = (goal / 100)
+                        big.children[1].style.height = sub + '%';
+                        big.children[1].innerText = sub + '%';
+                        sub += 12.5;
                         
                     } else {
                         this.classList.remove('water');
                         this.classList.add('empty');
                         
-                        big.children[0].style.height = (height += 20) + '%';
+                        big.children[0].style.height = (100 += 20) + '%';
                         big.children[1].style.height = (100 - height) + '%';
                     }
                     
+                }
+                
+                for(let glass of small) {
+                    glass.onclick = drink;
                 }
             })
             
