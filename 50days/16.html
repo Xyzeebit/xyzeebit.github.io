@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Background Slider</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('./images/wild.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 0.5s ease-in;
+        }
+        main {
+            width: 100vw;
+            height: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-image: url('./images/bg-trans.svg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+
+        }
+        .button {
+            border: none;
+            border-top: 2px solid yellow;
+            border-bottom: 2px solid yellow;
+            background: none;
+            padding: 10px 15px 10px 15px;
+        }
+        .button:active {
+            background: rgba(0,0,0,0.5);
+        }
+        .button img {
+            filter: invert(1);
+        }
+        .prev img {
+            transform: rotate(180deg);
+        }
+        .img-slide {
+            width: 50vw;
+            height: 70%;
+            background-blend-mode: multiple;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <button class="button prev">
+            <img
+            src="./images/icon-arrow.svg"
+            alt="previous"
+            width="20"
+            height="20"
+            />
+        </button>
+        <div class="img-slide">
+
+        </div>
+        <button class="button next">
+            <img
+            src="./images/icon-arrow.svg"
+            alt="previous"
+            width="20"
+            height="20"
+            />
+        </button>
+    </main>
+    <script>
+        window.onload = function(evt) {
+            const prev = document.querySelector('.prev');
+            const next = document.querySelector('.next');
+            const body = document.querySelector('body');
+
+            const images = [
+                'wild.jpg',
+                'bridge.jpg',
+                'beach.jpg',
+                'stream.jpg'
+            ]
+
+            let pos = 0;
+
+            prev.onclick = function(e) {
+                if (pos > 0) {
+                    body.style.backgroundImage = 'url(./images/' + images[pos--] + ')';
+                }
+            }
+            next.onclick = function(e) {
+                if (pos < images.length) {
+                    body.style.backgroundImage = 'url(./images/' + images[pos++] + ')';
+                }
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,78 +1,88 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>Word Spliting</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <style>
-            body {
-                padding: 0;
-                margin: 0;
-                background: #007EE5;
-            }
-            * {
-                box-sizing: border-box;
-                font-family: helvetica, Verdana;
-            }
-            .container {
-                width: 20rem;
-                margin: 100px auto;
-            }
-            textarea {
-                resize: none;
-                width: 100%;
-                padding: 1rem;
-                font-size: 1rem;
-            }
-            .words {
-                width: 100%;
-                display: flex;
-                justify-content: flex-start;
-                align-items: center;
-                flex-wrap: wrap;
-                margin-top: 20px;
-            }
-            .words span {
-                border-radius: 20px;
-                padding: 8px 12px 8px 12px;
-                color: #fff;
-                background: #DA552F;
-                margin: 5px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <textarea name="text" id=text rows="8" cols="40"></textarea>
-            <div class="words">
-                <span>Hello</span>
-            </div>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Word Spliting</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background: #007EE5;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: helvetica, Verdana;
+        }
+        .container {
+            width: 20rem;
+            margin: 100px auto;
+        }
+        textarea {
+            resize: none;
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+        }
+        .words {
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .words span {
+            border-radius: 20px;
+            padding: 8px 12px 8px 12px;
+            color: #fff;
+            background: #16A085;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <textarea name="text" id=text rows="8" cols="40"></textarea>
+        <div class="words">
+
         </div>
-        <script>
-            window.addEventListener('DOMContentLoaded', evt => {
-                const textarea = document.getElementById('text');
-                const words = document.querySelector('.words');
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', evt => {
+            const textarea = document.getElementById('text');
+            const words = document.querySelector('.words');
+
+            let text = '';
+            let delimeter = ',';
+            let list = [];
+            let s = document.createElement('span');
+            
+            //let last = words.children[words.children.length - 1];
+            //s.style.display = 'none';
+
+            textarea.addEventListener('input', e => {
+                const v = e.target.value;
                 
-                let text = '';
-                let delimeter = ',';
-                
-                textarea.addEventListener('input', e => {
-                    const v = e.target.value;
-                    
-                    if(v.endsWith(delimeter)) {
-                        console.log(v)
-                        let s = document.createElement('span');
-                        s.innerText = text;
-                        words.appendChild(s);
-                        
-                    } else {
-                        let s = v.split(',').length - 1
-                        text = v.split(',')[s];
-                    }
-                    
-                    
-                })
+                if (v.endsWith(delimeter)) {
+                    let t = v.substring(0, v.length - 1).trim().split(',');
+                    //s.innerText = v.substring(0, v.length - 1).trim();
+                    //list.push(s);
+                    //console.log(t.split(','));
+                    //s = document.createElement('span')
+                    console.log(t)
+                    t.map(a => {
+                        list.push(document.createElement('span'));
+                    })
+                } else {
+                    //s.innerText = text;
+                    //s.style.display = 'block';
+                    //words.appendChild(s);
+                }
+
+
             })
-        </script>
-    </body>
+        })
+    </script>
+</body>
 </html>
