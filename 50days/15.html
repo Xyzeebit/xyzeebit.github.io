@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Word Spliting</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                background: #007EE5;
+            }
+            * {
+                box-sizing: border-box;
+                font-family: helvetica, Verdana;
+            }
+            .container {
+                width: 20rem;
+                margin: 100px auto;
+            }
+            textarea {
+                resize: none;
+                width: 100%;
+                padding: 1rem;
+                font-size: 1rem;
+            }
+            .words {
+                width: 100%;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                flex-wrap: wrap;
+                margin: 5px;
+                margin-top: 20px;
+            }
+            .words span {
+                border-radius: 20px;
+                padding: 8px 12px 8px 12px;
+                color: #fff;
+                background: #DA552F;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <textarea name="text" id=text rows="8" cols="40"></textarea>
+            <div class="words">
+                <span>Hello</span>
+            </div>
+        </div>
+        <script>
+            window.addEventListener('DOMContentLoaded', evt => {
+                const textarea = document.getElementById('text');
+                const words = document.querySelector('.word');
+                
+                textarea.addEventListener('change', e => {
+                    
+                })
+            })
+        </script>
+    </body>
+</html>
