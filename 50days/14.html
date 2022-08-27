@@ -133,26 +133,27 @@
                         this.classList.remove('empty');
                         this.classList.add('water');
                         
+                        height -= sub;
+                        big.children[0].style.height = height + '%';
+                        big.children[0].innerText = (goal -= prog) + 'ml';
                         
-                        big.children[0].style.height = (height -= sub) + '%';
-                        big.children[0].innerText = (goal - prog) + 'ml';
-                        prog += 0.25;
+                        let n = 100 - height;
+                        big.children[1].style.height = n + '%';
+                        big.children[1].innerText = n + '%';
                         
-                        big.children[1].style.height = sub + '%';
-                        big.children[1].innerText = sub + '%';
-                        sub += 12.5;
                         
                     } else {
                         this.classList.remove('water');
                         this.classList.add('empty');
                         
+                        height += sub;
                         big.children[0].style.height = height + '%';
                         big.children[0].innerText = (goal += prog) + 'ml';
-                        prog -= 0.25;
                         
-                        sub -= 0.25;
-                        big.children[1].style.height = (sub) + '%';
-                        big.children[1].innerText = sub + '%';
+                        
+                        let n = 100 - height
+                        big.children[1].style.height = n + '%';
+                        big.children[1].innerText = n + '%';
                     }
                     
                 }
