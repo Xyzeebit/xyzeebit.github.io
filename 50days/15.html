@@ -30,7 +30,6 @@
                 justify-content: flex-start;
                 align-items: center;
                 flex-wrap: wrap;
-                margin: 5px;
                 margin-top: 20px;
             }
             .words span {
@@ -38,6 +37,7 @@
                 padding: 8px 12px 8px 12px;
                 color: #fff;
                 background: #DA552F;
+                margin: 5px;
             }
         </style>
     </head>
@@ -51,9 +51,25 @@
         <script>
             window.addEventListener('DOMContentLoaded', evt => {
                 const textarea = document.getElementById('text');
-                const words = document.querySelector('.word');
+                const words = document.querySelector('.words');
                 
-                textarea.addEventListener('change', e => {
+                let text = '';
+                let delimeter = ',';
+                
+                textarea.addEventListener('input', e => {
+                    const v = e.target.value;
+                    
+                    if(v.endsWith(delimeter)) {
+                        console.log(v)
+                        let s = document.createElement('span');
+                        s.innerText = text;
+                        words.appendChild(s);
+                        
+                    } else {
+                        let s = v.split(',').length - 1
+                        text = v.split(',')[s];
+                    }
+                    
                     
                 })
             })
