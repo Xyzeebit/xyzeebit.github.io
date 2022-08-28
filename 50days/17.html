@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Hidden Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        main {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            overflow: hidden;
+        }
+        .left {
+            height: 100vh;
+            width: 35%;
+            position: relative;
+            /*transition: transform 0.5s linear;*/
+        }
+        .right {
+            height: 100vh;
+            width: 65%;
+            position: relative;
+        }
+        .slide {
+            overflow: hidden;
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #fff;
+            transition: transform 0.5s linear;
+        }
+        h1 {
+            text-align: center;
+            margin-block-end: 0.5rem;
+        }
+        p {
+            text-align: right;
+            margin-block-start: 0.5rem;
+        }
+        .left-slide {
+            height: 400vh;
+            transition: transform 0.4s linear;
+        }
+        .l-1 {
+            background: skyblue;
+            height: 100vh;
+        }
+        .l-2 {
+            background: #000000c5;
+            /*transform: translateY(100vh);*/
+            height: 100vh;
+        }
+        .l-3 {
+            background: pink;
+            height: 100vh;
+        }
+        .l-4 {
+            background: #FFCA28;
+            height: 100vh;
+        }
+
+        .tl-100 {
+            transform: translateY(-25vh);
+        }
+        .tl-200 {
+            transform: translateY(-50vh);
+        }
+        .tl-300 {
+            transform: translateY(-75vh);
+        }
+        .tl-400 {
+            transform: translateY(-100vh);
+        }
+
+        .up {
+            position: absolute;
+            top: 43%;
+            border-radius: 0 5px 5px 0;
+            border: none;
+            padding: 10px;
+            z-index: 5;
+        }
+        .up img {
+            transform: rotate(-90deg);
+        }
+        .down {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            border-radius: 5px 0 0 5px;
+            border: none;
+            padding: 10px;
+            z-index: 5;
+        }
+        .down img {
+            transform: rotate(90deg);
+        }
+        .right-slide {
+            height: 400vh;
+            transform: translateY(-300vh);
+            transition: transform 0.4s linear;
+        }
+        .r-4 {
+            height: 100vh;
+            background: red;
+            /*transform: translateY(50vh);*/
+            background-image: url('./images/eagle.jpg');
+            background-size: cover;
+            background-position: left;
+            background-repeat: no-repeat;
+        }
+        .r-3 {
+            height: 100vh;
+            background: blue;
+            background-image: url('./images/flower.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .r-2 {
+            height: 100vh;
+            background: green;
+            
+            background-image: url('./images/castle.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .r-1 {
+            height: 100vh;
+            background: black;
+            
+            background-image: url('./images/mountain.jpg');
+            background-size: cover;
+            background-position: center;
+            background-clip: content-box;
+            background-repeat: no-repeat;
+        }
+
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="left">
+
+            <button class="down">
+                <img
+                src="./images/icon-arrow.svg"
+                alt="slide up"
+                width="25"
+                height="30"
+                />
+            </button>
+            <div class="left-slide">
+                <div class="slide l-1 sl">
+                    <h1>Bluuue Sky</h1>
+                    <p>
+                        with its mountains
+                    </p>
+                </div>
+                <div class="slide l-2 sl">
+                    <h1>Lonely Castle</h1>
+                    <p>
+                        in the wilderness
+                    </p>
+                </div>
+                <div class="slide l-3 sl">
+                    <h1>Nature Flower</h1>
+                    <p>
+                        all in pink
+                    </p>
+                </div>
+                <div class="slide l-4 sl">
+                    <h1>Flying eagle</h1>
+                    <p>
+                        in the sun set
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="right">
+            <button class="up">
+                <img
+                src="./images/icon-arrow.svg"
+                alt="slide down"
+                width="25"
+                height="30"
+                />
+            </button>
+            <div class="right-slide">
+                <div class="r-4 slide">
+                    
+                </div>
+                <div class="r-3 slide">
+
+                </div>
+                <div class="r-2 slide">
+
+                </div>
+                <div class="r-1 slide">
+
+                </div>
+            </div>
+        </div>
+
+    </main>
+    <script>
+        window.onload = function() {
+            const up = document.querySelector('.up');
+            const down = document.querySelector('.down');
+
+            const left = document.querySelector('.left-slide');
+            const right = document.querySelector('.right-slide');
+            let pos = 0;
+            let step = [200, 100, 0, 300];
+            let step2 = [100, 200, 300, 0]
+            //let i = 0
+
+            up.onclick = function(e) {
+                if (pos < step.length) {
+                    right.style.transform = `translateY(${-step[pos]}vh)`;
+                    left.style.transform = `translateY(-${step2[pos++]}vh)`;
+                
+                    console.log(pos)
+                    if(pos === step.length) {
+                        pos = 0;
+                    }
+                } else {
+                    pos = 0
+                    //right.style.transform = `translateY(${-step[pos]}vh)`;
+                    //left.style.transform = `translateY(${step[pos]}vh)`;
+                    console.log('else',pos)
+                    //pos = 0;
+                    
+                }
+            }
+            down.onclick = function(e) {
+                if (pos > 0) {
+                    right.style.transform = `translateY(${-step[pos]}vh)`;
+                    left.style.transform = `translateY(-${step2[pos--]}vh)`;
+                
+                    console.log('d',pos)
+                    if(pos === 0) {
+                        pos = step.length - 1;
+                    }
+                } else {
+                    //pos = step.length - 1;
+                    //right.style.transform = `translateY(${0}vh)`;
+                    //left.style.transform = `translateY(${-300}vh)`;
+                    
+                    //console.log('d-else',pos)
+                    //pos = step.length - 1;
+                }
+
+            }
+        }
+    </script>
+</body>
+</html>
