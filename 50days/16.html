@@ -88,12 +88,14 @@
 
             prev.onclick = function(e) {
                 if (pos > 0) {
-                    body.style.backgroundImage = 'url(./images/' + images[pos--] + ')';
+                    body.style.backgroundImage = 'url(./images/' + images[--pos] + ')';
                 }
             }
             next.onclick = function(e) {
                 if (pos < images.length) {
                     body.style.backgroundImage = 'url(./images/' + images[pos++] + ')';
+                } else {
+                    pos = 0;
                 }
             }
         }

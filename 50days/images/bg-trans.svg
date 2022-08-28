@@ -3,8 +3,8 @@
 	version="1.1"
 	xmlns="http://www.w3.org/2000/svg"
 	xmlns:xlink="http://www.w3.org/1999/xlink"
-	x="0px" y="0px"
-	width="600.0px" height="1000.0px"
+	x="0%" y="0%"
+	width="100%" height="100%"
 	viewBox="0 0 600.0 1000.0"
 	enable-background="new 0 0 600.0 1000.0"
 	xml:space="preserve">
@@ -21,41 +21,41 @@
 	<path
 		fill="#000000"
 		stroke="#000000"
-		fill-opacity="0.573"
+		fill-opacity="0.631"
 		stroke-opacity="0.008"
 		fill-rule="nonzero"
 		stroke-width="0.0"
 		stroke-linejoin="miter"
 		stroke-linecap="square"
-		d="M-14.81,-2.57L617.66,-2.57L617.66,134.21L-14.81,134.21z"/>
+		d="M-14.81,-2.57L620.79,-2.57L620.79,130.35L-14.81,130.35z"/>
 	<path
 		fill="#000000"
 		stroke="#000000"
-		fill-opacity="0.573"
+		fill-opacity="0.631"
 		stroke-opacity="1.000"
 		fill-rule="nonzero"
 		stroke-width="0.0"
 		stroke-linejoin="miter"
 		stroke-linecap="square"
-		d="M-6.39,865.25L604.64,865.25L604.64,1006.71L-6.39,1006.71z"/>
+		d="M-9.91,863.80L604.64,863.80L604.64,1006.71L-9.91,1006.71z"/>
 	<path
 		fill="#000000"
 		stroke="#000000"
-		fill-opacity="0.573"
+		fill-opacity="0.631"
 		stroke-opacity="1.000"
 		fill-rule="nonzero"
 		stroke-width="0.0"
 		stroke-linejoin="miter"
 		stroke-linecap="square"
-		d="M-36.64,134.21L116.69,134.21L116.69,865.43L-36.64,865.43z"/>
+		d="M-44.07,130.35L139.76,130.35L139.76,864.03L-44.07,864.03z"/>
 	<path
 		fill="#000000"
 		stroke="#000000"
-		fill-opacity="0.573"
+		fill-opacity="0.631"
 		stroke-opacity="1.000"
 		fill-rule="nonzero"
 		stroke-width="0.0"
 		stroke-linejoin="miter"
 		stroke-linecap="square"
-		d="M476.22,134.21L629.55,134.21L629.55,867.22L476.22,867.22z"/>
+		d="M460.82,130.35L604.03,130.35L604.03,864.07L460.82,864.07z"/>
 </svg>
