@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Hidden Search</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            body {
+                background: #FFFAFA;
+                padding: 0;
+                margin: 0;
+            }
+            * {
+                box-sizing: border-box;
+                font-family: arial;
+            }
+            .container {
+                display: grid;
+                place-items: center;
+                padding: 1rem;
+                width: 100vw;
+                height: 100%;
+            }
+            
+            .card {
+                width: 20rem;
+                background: #4682B4;
+                padding: 1rem;
+                filter: drop-shadow(0px 0px 5px #000000c8);
+            }
+            h2 {
+                text-align: center;
+                color: #fff;
+            }
+            .card-header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0.5rem;
+                margin-bottom: 1rem;
+                background: #FFFAFA;
+            }
+            .card-header button {
+                height: 50px;
+                width: 50px;
+                background: #B0C4DE;
+                border: none;
+                
+            }
+            .card-header button img {
+                filter: invert(1) brightness(100);
+            }
+            .card-stack {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                margin-block-start: 0.8rem;
+                margin-block-end: 0.8rem;
+                color: #fff;
+            }
+            input[type="number"] {
+                width: 50px;
+            }
+            input[type="checkbox"] {
+                width: 20px;
+                height: 20px;
+            }
+            .btn {
+                width: 100%;
+                padding: 10px;
+                background: #B0C4DE;
+                border: none;
+                margin-block-start: 0.8rem;
+                margin-block-end: 0.8rem;
+                color: #fff;
+                font-size: 1rem;
+            }
+            button:active {
+                background: #ADD8E6;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="card">
+                <h2>Password Generator</h2>
+                <div class="card-header">
+                    <p>gsYr6#&fY</p>
+                    <button>
+                        <img 
+                        src="./images/icon-copy.svg"
+                        alt="copy generated password"
+                        width="25"
+                        height="30"
+                        />
+                    </button>
+                </div>
+                <div class="card-stack">
+                    <label for="range">Password length</label>
+                    <input type="number" id="range" value="8" />
+                </div>
+                <div class="card-stack">
+                    <label for="upper">Include uppercase letters</label>
+                    <input type="checkbox" id="upper" />
+                </div>
+                <div class="card-stack">
+                    <label for="lower">Include lowercase letters</label>
+                    <input type="checkbox" id="lower" />
+                </div>
+                <div class="card-stack">
+                    <label for="numbers">Include numbers</label>
+                    <input type="checkbox" id="numbers" />
+                </div>
+                <div  class="card-stack">
+                    <label for="symbols">Include symbols</label>
+                    <input type="checkbox" id="symbols" />
+                </div>
+                <button class="btn" id="generate">
+                    Generate Password
+                </button>
+            </div>
+        </div>
+        <script></script>
+    </body>
+</html>
