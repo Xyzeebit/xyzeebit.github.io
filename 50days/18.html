@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>GitHub User Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background: #F5F5F5;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: arial;
+        }
+        main {
+            display: grid;
+            place-items: center;
+        }
+        form {
+            padding: 1rem;
+        }
+        input[type="text"] {
+            padding: 10px 15px 10px 20px;
+            border-radius: 20px;
+            width: 18rem;
+            height: 45px;
+            border: none;
+            outline: none;
+            background: #C0C0C0;
+        }
+        .user {
+            filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.5));
+            border-radius: 20px;
+            background: #fff;
+            width: 20rem;
+            margin-top: 5rem;
+            margin-bottom: 5rem;
+            padding: 2rem;
+            display: flex;
+            justify-content: space-around;
+            align-self: center;
+        }
+
+        img {
+            border-radius: 100px;
+            width: 150px;
+            height: 150px;
+            border: 5px solid #EF9A9A;
+        }
+        .details-container {
+            padding-bottom: 3rem;
+        }
+        .name {
+            font-weight: 600;
+            font-size: 1.2rem;
+        }
+        .details {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-wrap: wrap;
+            column-gap: 1rem;
+            row-gap: 1rem;
+        }
+        .details p {
+
+            margin: 0;
+        }
+        .details p span:first-child {
+            font-weight: 500;
+        }
+        .bio {
+            line-height: 1.5;
+        }
+@media screen and (max-width: 768px) {
+            .user {
+                flex-direction: column;
+            }
+        }
+@media screen and (min-width: 769px) {
+            .user {
+                width: auto;
+                margin: 5rem;
+                column-gap: 2rem;
+                flex-direction: row;
+                height: 300px;
+            }
+            .details {}
+
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <form id="form">
+            <input
+            type="text"
+            id="search"
+            name="search"
+            placeholder="Search GitHub user"
+            />
+        </form>
+        <div class="container"></div>
+    </main>
+    <script>
+        window.addEventListener('DOMContentLoaded', evt => {
+
+            const main = document.querySelector('.container');
+            const form = document.getElementById('form');
+            
+            form.addEventListener('submit', e => {
+                e.preventDefault();
+                const fd = new FormData(form)
+                const data = fd.get('search');
+                if(data) {
+                    findUser(data, main);
+                }
+
+            })
+
+        });
+        
+        async function findUser(user, main) {
+            const data = await getUser(user);
+            if(data.name) {
+                const { name, followers, following, bio, repos, avatar, twitter, location } = data;
+                const card = `
+            <div class="user">
+
+            <img
+            src="${avatar}"
+            alt="${name}"
+            width="75"
+            height="75"
+            />
+
+            <div class="details-container">
+            <p class="name">
+            ${name}
+            </p>
+            <div class="details">
+            <p>
+            <span>followers:</span> <span>${followers}</span>
+            </p>
+            <p>
+            <span>following:</span> <span>${following}</span>
+            </p>
+            <p>
+            <span>Repos:</span> <span>${repos}</span>
+            </p>
+            <p>
+            <span>Twitter:</span> ${twitter ? '@' + twitter : 'N/A'}
+            </p>
+            <p>
+            <span>Location:</span> ${location ? location : 'N/A'}
+            </p>
+            </div>
+            <p class="bio">
+            ${bio ? bio : ''}
+            </p>
+            </div>
+            </div>
+            `;
+            main.innerHTML = card;
+            }
+            
+        }
+        
+        
+        async function getUser(username) {
+            const result = {};
+            try {
+                const resp = await fetch('https://api.github.com/users/' + username)
+
+                const user = await resp.json();
+
+                result.name = user.name;
+                result.bio = user.bio;
+                result.twitter = user.twitter;
+                result.location = user.location;
+                result.repos = user.public_repos;
+                result.followers = user.followers;
+                result.following = user.following;
+                result.avatar = user.avatar_url;
+
+
+                return result;
+            } catch(error) {
+                console.log(error.message)
+            }
+        }
+    </script>
+</body>
+</html>

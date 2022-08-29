@@ -224,45 +224,60 @@
             const left = document.querySelector('.left-slide');
             const right = document.querySelector('.right-slide');
             let pos = 0;
-            let step = [200, 100, 0, 300];
-            let step2 = [100, 200, 300, 0]
-            //let i = 0
+            
+            let stepup = [200, 100, 0, 300];
+            let stepdown = [100, 200, 300, 0]
+            
+            let downre = [0, 100, 200, 300];
+            let upre = []
+            let i = 0;
 
             up.onclick = function(e) {
-                if (pos < step.length) {
+                right.style.transform = `translateY(${-stepup[pos]}vh)`;
+                left.style.transform = `translateY(-${stepdown[pos++]}vh)`;
+                i = pos - 1;
+                if(pos === stepup.length) {
+                    pos = 0;
+                }
+                /*if (pos < step.length) {
                     right.style.transform = `translateY(${-step[pos]}vh)`;
-                    left.style.transform = `translateY(-${step2[pos++]}vh)`;
+                    left.style.transform = `translateY(-${step[pos++]}vh)`;
                 
                     console.log(pos)
-                    if(pos === step.length) {
+                    /*if(pos === step.length) {
                         pos = 0;
-                    }
-                } else {
+                    }*/
+                /*} else {
                     pos = 0
-                    //right.style.transform = `translateY(${-step[pos]}vh)`;
-                    //left.style.transform = `translateY(${step[pos]}vh)`;
+                    right.style.transform = `translateY(${-step[pos]}vh)`;
+                    left.style.transform = `translateY(${step[pos]}vh)`;
                     console.log('else',pos)
                     //pos = 0;
                     
-                }
+                }*/
             }
             down.onclick = function(e) {
-                if (pos > 0) {
-                    right.style.transform = `translateY(${-step[pos]}vh)`;
-                    left.style.transform = `translateY(-${step2[pos--]}vh)`;
                 
-                    console.log('d',pos)
-                    if(pos === 0) {
-                        pos = step.length - 1;
-                    }
-                } else {
-                    //pos = step.length - 1;
-                    //right.style.transform = `translateY(${0}vh)`;
-                    //left.style.transform = `translateY(${-300}vh)`;
-                    
-                    //console.log('d-else',pos)
-                    //pos = step.length - 1;
+                left.style.transform = `translateY(-${downre[i]}vh)`;
+                //right.style.transform = `translateY(${-stepup[pos]}vh)`;
+                //pos = i--;
+                console.log(i)
+                if(i === 0) {
+                    i = pos - 1;
                 }
+                /*if (pos > 0) {
+                    //right.style.transform = `translateY(${-step[--pos]}vh)`;
+                    left.style.transform = `translateY(-${100}vh)`;
+                
+                    console.log(pos)
+                } else {
+                    pos = step.length - 1;
+                    //right.style.transform = `translateY(${step[pos]}vh)`;
+                    left.style.transform = `translateY(${-step2[pos]}vh)`;
+                    
+                    console.log('d-else',pos)
+                    //pos = step.length - 1;
+                }*/
 
             }
         }
