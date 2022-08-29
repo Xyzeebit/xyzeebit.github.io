@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Image Carousel</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        main {
+            
+            width: 100vw;
+            height: 100%;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+        }
+        .carousel-container {
+            position: relative;
+            width: 100vw;
+            height: 500px;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            /*transition: transform 0.5s ease-in;*/
+        }
+        .carousel {
+            position: absolute;
+            left: 0;
+            background: #000;
+            width: 400vw;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            
+            transition: transform 0.5s ease-in;
+        }
+        .img-box img {
+            width: 100%;
+            height: 100%;
+        }
+        .img-box {
+            width: 100vw;
+            height: 100%;
+
+        }
+        .control {
+            position: absolute;
+            bottom: 0;
+            
+        }
+        button {
+            width: 100px;
+            border: none;
+            outline: none;
+            color: #fff;
+            background: #1E88E5;
+            padding: 8px 10px 8px 10px;
+        }
+        button:active {
+            background: #64B5F6;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="img-box">
+                    <img
+                    src="./images/xbox-pad.jpg"
+                    alt="carousel"
+                    width="300"
+                    height="300"
+                    />
+                </div>
+                <div class="img-box">
+                    <img
+                    src="./images/trees128.jpg"
+                    alt="carousel"
+                    width="300"
+                    height="300"
+                    />
+                </div>
+                <div class="img-box">
+                    <img
+                    src="./images/architecture.jpg"
+                    alt="carousel"
+                    width="300"
+                    height="300"
+                    />
+                </div>
+                <div class="img-box">
+                    <img
+                    src="./images/mountain.jpg"
+                    alt="carousel"
+                    width="300"
+                    height="300"
+                    />
+                </div>
+
+            </div>
+            <div class="control">
+                <button class="prev" id="prev">previous</button>
+                <button class="next" id="next">next</button>
+            </div>
+        </div>
+    </main>
+    <script>
+        window.onload = function(evt) {
+            const carousel = document.querySelector('.carousel');
+            const slides = [
+                100,
+                200,
+                300, 0];
+            let i = 0;
+            
+            setInterval(() => {
+                carousel.style.transform = `translateX(${-slides[i++]}vw)`;
+            
+                if(i === slides.length) {
+                    i = 0;
+                }
+            }, 1500)
+            next.onclick = function(e) {
+                
+                carousel.style.transform = `translateX(${-slides[i++]}vw)`;
+                if(i === slides.length) {
+                    i = 0;
+                }
+            }
+            prev.onclick = function(e) {
+                if(i < 0) {
+                    i = slides.length - 1;
+                }
+                carousel.style.transform = `translateX(${-slides[--i]}vw)`;
+            }
+        }
+    </script>
+</body>
+</html>
