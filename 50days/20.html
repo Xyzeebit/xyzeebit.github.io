@@ -1,125 +1,240 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>Hidden Search</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <style>
-            body {
-                background: #FFFAFA;
-                padding: 0;
-                margin: 0;
-            }
-            * {
-                box-sizing: border-box;
-                font-family: arial;
-            }
-            .container {
-                display: grid;
-                place-items: center;
-                padding: 1rem;
-                width: 100vw;
-                height: 100%;
-            }
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Hidden Search</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            background: #FFFAFA;
+            padding: 0;
+            margin: 0;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: arial;
+        }
+        .container {
+            display: grid;
+            place-items: center;
+            padding: 1rem;
+            width: 100vw;
+            height: 100%;
+        }
+
+        .card {
+            width: 20rem;
+            background: #4682B4;
+            padding: 1rem;
+            filter: drop-shadow(0px 0px 5px #000000c8);
+        }
+        h2 {
+            text-align: center;
+            color: #fff;
+        }
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.2rem 0.5rem 0.2rem 0.5rem;
+            margin-bottom: 1rem;
+            background: #FFFAFA;
+        }
+        .card-header button {
+            height: 40px;
+            width: 40px;
+            background: #B0C4DE;
+            border: none;
+
+        }
+        .card-header button img {
+            filter: invert(1) brightness(100);
+        }
+        .card-stack {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-block-start: 0.8rem;
+            margin-block-end: 0.8rem;
+            color: #fff;
+        }
+        input[type="number"] {
+            width: 50px;
+            background: #FFFAFA;
+            border: none;
+        }
+        input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background: #B0C4DE;
+            border: none;
+            margin-block-start: 0.8rem;
+            margin-block-end: 0.8rem;
+            color: #fff;
+            font-size: 1rem;
+        }
+        button:active {
+            background: #ADD8E6;
+        }
+        #pwd {
+            font-size: 1.1rem;
+            font-weight: 500;
+            word-wrap: wrap;
             
-            .card {
-                width: 20rem;
-                background: #4682B4;
-                padding: 1rem;
-                filter: drop-shadow(0px 0px 5px #000000c8);
-            }
-            h2 {
-                text-align: center;
-                color: #fff;
-            }
-            .card-header {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 0.5rem;
-                margin-bottom: 1rem;
-                background: #FFFAFA;
-            }
-            .card-header button {
-                height: 50px;
-                width: 50px;
-                background: #B0C4DE;
-                border: none;
-                
-            }
-            .card-header button img {
-                filter: invert(1) brightness(100);
-            }
-            .card-stack {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                margin-block-start: 0.8rem;
-                margin-block-end: 0.8rem;
-                color: #fff;
-            }
-            input[type="number"] {
-                width: 50px;
-            }
-            input[type="checkbox"] {
-                width: 20px;
-                height: 20px;
-            }
-            .btn {
-                width: 100%;
-                padding: 10px;
-                background: #B0C4DE;
-                border: none;
-                margin-block-start: 0.8rem;
-                margin-block-end: 0.8rem;
-                color: #fff;
-                font-size: 1rem;
-            }
-            button:active {
-                background: #ADD8E6;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="card">
-                <h2>Password Generator</h2>
-                <div class="card-header">
-                    <p>gsYr6#&fY</p>
-                    <button>
-                        <img 
-                        src="./images/icon-copy.svg"
-                        alt="copy generated password"
-                        width="25"
-                        height="30"
-                        />
-                    </button>
-                </div>
-                <div class="card-stack">
-                    <label for="range">Password length</label>
-                    <input type="number" id="range" value="8" />
-                </div>
-                <div class="card-stack">
-                    <label for="upper">Include uppercase letters</label>
-                    <input type="checkbox" id="upper" />
-                </div>
-                <div class="card-stack">
-                    <label for="lower">Include lowercase letters</label>
-                    <input type="checkbox" id="lower" />
-                </div>
-                <div class="card-stack">
-                    <label for="numbers">Include numbers</label>
-                    <input type="checkbox" id="numbers" />
-                </div>
-                <div  class="card-stack">
-                    <label for="symbols">Include symbols</label>
-                    <input type="checkbox" id="symbols" />
-                </div>
-                <button class="btn" id="generate">
-                    Generate Password
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2>Password Generator</h2>
+            <div class="card-header">
+                <p id="pwd">
+                    
+                </p>
+                <button id="copy">
+                    <img
+                    src="./images/icon-copy.svg"
+                    alt="copy generated password"
+                    width="25"
+                    height="30"
+                    />
                 </button>
             </div>
+            <div class="card-stack">
+                <label for="range">Password length</label>
+                <input type="number" id="range" value="8" />
+            </div>
+            <div class="card-stack">
+                <label for="upper">Include uppercase letters</label>
+                <input type="checkbox" id="upper" />
+            </div>
+            <div class="card-stack">
+                <label for="lower">Include lowercase letters</label>
+                <input type="checkbox" id="lower" />
+            </div>
+            <div class="card-stack">
+                <label for="numbers">Include numbers</label>
+                <input type="checkbox" id="numbers" />
+            </div>
+            <div class="card-stack">
+                <label for="symbols">Include symbols</label>
+                <input type="checkbox" id="symbols" />
+            </div>
+            <button class="btn" id="generate">
+                Generate Password
+            </button>
         </div>
-        <script></script>
-    </body>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', evt => {
+            const pwd = document.getElementById('pwd');
+            const data = {};
+            const values = [];
+            
+            for(let i = 33; i <= 126; i++) {
+                values.push(i);
+            }
+            
+            const isUpper = n => n >= 65 && n <= 90;
+            const isLower = n => n >= 97 && n <= 122;
+            const isNumber = n => n >= 48 && n <= 57;
+            const isSymbol = n => ((n >= 33 && n <= 47) || 
+            (n >= 58 && n <= 64) || (n >= 123 && n <= 126));
+            const invalid = n => (n === 58 || n === 59 || n === 34 || n === 46  || n === 96 || n === 47 || n === 92 || n === 39 );
+            
+    
+
+            range.onblur = function(e) {
+                data.range = parseInt(e.target.value);
+            }
+            upper.onchange = function(e) {
+                data.upper = (e.target.checked);
+            }
+            lower.onchange = function(e) {
+                data.lower = e.target.checked;
+            }
+            numbers.onchange = function(e) {
+                data.numbers = e.target.checked;
+            }
+            symbols.onchange = function(e) {
+                data.symbols = e.target.checked;
+            }
+
+            generate.onclick = function(e) {
+                
+                const len = values.length;
+                let pd = '';
+                //for(let i in data) {
+                    //console.log(i)
+                //}
+                
+                const limit = parseInt(document.getElementById('range').value);           
+                for(let i = 0; i < limit; i++) {
+                    let n = Math.floor(Math.random() * len);
+                    //alert(String.fromCharCode(n))
+                    if(invalid(n)) {
+                        --i;
+                        continue;
+                    }
+                    if(data.lower) {
+                        if(isLower(values[n])) {
+                            
+                            pd += String.fromCharCode(values[n]);
+                        }
+                    }
+                    if(data.upper) {
+                        if(isUpper(values[n])) {
+                            
+                            pd += String.fromCharCode(values[n]);
+                        }
+                    }
+                    if(data.numbers) {
+                        if(isNumber(values[n])) {
+                            
+                            pd += String.fromCharCode(values[n]);
+                        }
+                    }
+                    if(data.symbols) {
+                        if(isSymbol(n) && !invalid(values[n])) {
+                            
+                            pd += String.fromCharCode(values[n]);
+                        }
+                    }
+                    
+                }
+                pwd.textContent = pd;
+            }   
+
+            copy.onclick = function(e) {
+                try {
+                    
+                    const input = document.createElement('input');
+                    
+                    document.body.appendChild(input);
+                    input.value = pwd.innerText;
+                    input.focus();
+                    input.select();
+                    input.blur();
+                    const result = document.execCommand('copy');
+                    input.style.display = 'none';
+                    if (result === 'unsuccessful') {
+                        console.error('Failed to copy text.');
+                    } else {
+                        console.log(result)
+                    }
+                    
+                } catch(error) {
+                    console.log(error.message)
+                }
+            }
+        });
+        
+        
+    </script>
+</body>
 </html>
