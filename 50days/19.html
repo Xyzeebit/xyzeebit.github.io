@@ -22,7 +22,7 @@
         .carousel-container {
             position: relative;
             width: 100vw;
-            height: 500px;
+            height: 600px;
             overflow: hidden;
             display: flex;
             justify-content: center;
@@ -35,7 +35,7 @@
             left: 0;
             background: #000;
             width: 400vw;
-            height: 400px;
+            height: 500px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -53,7 +53,7 @@
         }
         .control {
             position: absolute;
-            bottom: 0;
+            bottom: 3rem
             
         }
         button {
@@ -128,7 +128,7 @@
                 if(i === slides.length) {
                     i = 0;
                 }
-            }, 1500)
+            }, 2000)
             next.onclick = function(e) {
                 
                 carousel.style.transform = `translateX(${-slides[i++]}vw)`;
@@ -137,10 +137,11 @@
                 }
             }
             prev.onclick = function(e) {
-                if(i < 0) {
+                if(i <= 0) {
                     i = slides.length - 1;
                 }
-                carousel.style.transform = `translateX(${-slides[--i]}vw)`;
+                let back = [0, 100, 200, 300]
+                carousel.style.transform = `translateX(-${back[--i]}vw)`;
             }
         }
     </script>
