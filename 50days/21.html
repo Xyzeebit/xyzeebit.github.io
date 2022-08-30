@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Good | Cheap | Fast</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        .container {
+            width: 100vw;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .input-group {
+            width: 200px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 10px;
+        }
+        label {
+            display: block;
+            position: relative;
+            width: 90px;
+            height: 40px;
+            transition: background 0.3s ease;
+            background: #ccc;
+            border-radius: 20px;
+        }
+        span {
+            
+            font-weight: 450;
+        }
+        .circle {
+            width: 35px;
+            height: 35px;
+            background: #fff;
+            border-radius: 100px;
+            position: absolute;
+            top: 2px;
+            left: 3px;
+            transition: transform 0.3s linear;
+        }
+        input:checked + label .circle {
+            transform: translateX(49px);
+        }
+        input:checked + label {
+            background: blue;
+        }
+        input {
+            display: none;
+        }
+        h1 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>How do you want your project to be?</h1>
+        <div class="input-group">
+            <input type="checkbox" id="good" />
+            <label for="good">
+                <div class="circle">
+
+                </div>
+            </label>
+            <span>Good</span>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" id="cheap" />
+            <label for="cheap">
+                <div class="circle">
+
+                </div>
+            </label>
+            <span>Cheap</span>
+        </div>
+
+        <div class="input-group">
+            <input type="checkbox" id="fast" />
+            <label for="fast">
+                <div class="circle">
+
+                </div>
+            </label>
+            <span>Fast</span>
+        </div>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', evt => {
+
+
+            const inputGood = document.getElementById('good');
+            const inputCheap = document.getElementById('cheap');
+            const inputFast = document.getElementById('fast');
+
+            inputGood.onchange = toggle;
+            inputCheap.onchange = toggle;
+            inputFast.onchange = toggle;
+
+            let good = false;
+            let cheap = false;
+            let fast = false;
+
+            function toggle(e) {
+                const attr = this.getAttribute('id');
+
+                switch (attr) {
+                    case 'good':
+                        if (this.checked) {
+
+                            good = true;
+                            if (cheap && fast) {
+                                inputFast.checked = false;
+                                fast = false;
+                                
+                            } else if(fast && cheap) {
+                                inputCheap.checked = false;
+                                cheap = false
+                            }
+                        } else {
+                            good = false
+                        }
+                        break;
+                    case 'cheap':
+                        if (this.checked) {
+
+                            cheap = true;
+                            if (good && fast) {
+                                inputGood.checked = false;
+                                good = false
+                                //console.log(inputCheap.checked)
+                            }
+                            
+                        } else {
+                            cheap = false
+                        }
+                        break;
+                    case 'fast':
+                        if (this.checked) {
+
+                            fast = true;
+                            if (cheap && good) {
+                                inputCheap.checked = false
+                                cheap = false
+                            }
+                        } else {
+                            fast = false
+                        }
+                        break;
+                    default: return;
+                    }
+
+                }
+
+
+            })
+        </script>
+    </body>
+</html>

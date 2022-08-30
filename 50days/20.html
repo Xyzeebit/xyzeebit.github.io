@@ -173,9 +173,22 @@
                     //console.log(i)
                 //}
                 
-                const limit = parseInt(document.getElementById('range').value);           
-                for(let i = 0; i < limit; i++) {
+                const limit = parseInt(document.getElementById('range').value);   
+                
+                //let n = Math.floor(Math.random() * len);
+                let i = 0;
+                while(i < limit) {
                     let n = Math.floor(Math.random() * len);
+                    while(!isLower(values[n])) {
+                        n = Math.floor(Math.random() * len);
+                        
+                    }
+                    pd += String.fromCharCode(values[n]);
+                    i++
+                }
+                
+                /*for(let i = 0; i < limit; i++) {
+                    
                     //alert(String.fromCharCode(n))
                     if(invalid(n)) {
                         --i;
@@ -206,8 +219,8 @@
                         }
                     }
                     
-                }
-                pwd.textContent = pd;
+                }*/
+                pwd.innerText = pd;
             }   
 
             copy.onclick = function(e) {
