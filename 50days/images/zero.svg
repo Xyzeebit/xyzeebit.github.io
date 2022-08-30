@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg
+	version="1.1"
+	xmlns="http://www.w3.org/2000/svg"
+	xmlns:xlink="http://www.w3.org/1999/xlink"
+	x="0px" y="0px"
+	width="100.0px" height="100.0px"
+	viewBox="0 0 100.0 100.0"
+	enable-background="new 0 0 100.0 100.0"
+	xml:space="preserve"> 
+
+	<text 
+		font-size="97.65087"
+		font-family="default"
+		fill="#7E7E7E"
+		stroke-width="0"
+		fill-opacity="0.882"
+		text-anchor="start"
+  		transform="rotate(-180.32433 51.10679 42.3361) scale(0.93437093 1.0)" >
+
+		<tspan x="27.255962" y="69.8006">0</tspan>
+	</text>
+</svg>

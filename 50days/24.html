@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Verify Account</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        .container {
+            width: 19rem;
+            border: 2px solid #666;
+            border-radius: 20px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+        .input-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            width: 18rem;
+            row-gap: 20px;
+            column-gap: 20px;
+        }
+        .input {
+            
+            width: 65px;
+            height: 80px;
+            border: 1px solid #666;
+            border-radius: 5px;
+            outline: none;
+            font-size: 3.5rem;
+            font-weight: 300;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            
+        }
+        .bg {
+            background-image: url('./images/zero.svg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
+        .input:focus {
+            border: 2px solid #FFA500;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="input-group">
+            <input type="number" id="one" class="input bg" maxlength="1" />
+            <input type="number" id="two" class="input bg" maxlength="1" />
+            <input type="number" id="three" class="input bg" maxlength="1" />
+            
+            <input type="number" id="four" class="input bg" maxlength="1" />
+            <input type="number" id="five" class="input bg" maxlength="1" />
+            <input type="number" id="six" class="input bg" maxlength="1" />
+        </form>
+    </div>
+    <script>
+        window.addEventListener('DOMContentLoaded', evt => {
+            const inputs = document.querySelectorAll('input');
+            const len = inputs.length;
+            let value;
+            function handleInput(e) {
+                if(this.value) {
+                    this.classList.remove('bg');
+                    this.style.border = '1px solid #7B68EE'
+                } else {
+                    this.classList.add('bg'); 
+                    this.style.border = '1px solid #ccc'
+                }
+                if(this.value.length > 1) {
+                    console.log(this.value)
+                    this.value = value
+                }
+                switch(this.id) {
+                    case 'one':
+                        inputs[1].focus();
+                        break;
+                    case 'two':
+                        inputs[2].focus();
+                        break;
+                    case 'three':
+                        inputs[3].focus();
+                        break;
+                    case 'four':
+                        inputs[4].focus();
+                        break;
+                    case 'five':
+                        inputs[5].focus();
+                        break;
+                    case 'six':
+                        this.blur();
+                        break;
+                    default: return;
+                }
+            }
+            
+            function focus(e) {
+                this.style.border = '2px solid #FFA500';
+                value = this.value;
+            }
+            
+            for(let input of inputs) {
+                input.oninput = handleInput;
+                input.onfocus = focus;
+            }
+        })
+    </script>
+</body>
+</html>
