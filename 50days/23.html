@@ -9,6 +9,9 @@
             padding: 0;
             margin: 0;
         }
+        * {
+            font-family: Arial, Verdana, Helvetica, Tahoma;
+        }
         main {
             width: 100vw;
             height: 100%;
@@ -40,60 +43,133 @@
             left: 0;
             bottom: 0;
             z-index: 1;
-            /*overflow-y: auto;*/
-            width: 75%;
+            
+            width: 88%;
 
-            transition: transform 0.8s linear;
+            transition: transform 0.25s linear;
         }
         .inner {
-            width: 90%;
-            height: 100%;
+            width: 81%;
+            z-index: 2;
             background: #DF2029;
-
-
+            transition: transform 0.25s linear;
+            transition-delay: 0.3s;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
         }
         .menu {
             background: #fff;
             height: 100%;
-            width: 90%;
-
+            width: 74%;
+            transition: transform 0.25s linear;
+            transition-delay: 0.6s;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            overflow-y: auto;
+            z-index: 3;
+        }
+        @media screen and (min-width: 769px) {
+            aside {
+                width: 45%;
+            }
+            .inner {
+                width: 40%;
+            }
+            .menu {
+                width: 35%;
+            }
         }
         .nav-brand {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem;
+            padding: 1.5rem;
         }
-        .logo {
+        .hide-menu {
+            transform: translateX(-100%);
+        }
+        /*.hide-menu .inner {
+            transform: translateX(-100%);
+        }
+        .hide-menu .inner .menu {
+            transform: translateX(100%);
+        }*/
+        
+        nav {
+            padding: 1.5rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            font-size: 1rem;
+            font-weight: 380;
+            display: block;
+            margin-block-end: 0.5rem;
+        }
+        a:active {
+            background: skyblue;
+        }
+        ul {
+            list-style-type: none;
+            padding-left: 1.1rem;
+        }
+        li {
             
         }
     </style>
 </head>
 <body>
     <main>
-        <aside>
-            <div class="inner">
-                <div class="menu">
-                    <div class="nav-brand">
-                        <img
-                        src="./images/netflix-logo.png"
-                        alt="Netflix logo"
-                        width="80"
-                        height="50"
-                        class="logo"
-                        />
+        <aside class=" hide-menu">
 
-                        <button class="close-button">
-                            <img
-                            src="./images/icon-close.svg"
-                            alt="open menu sidebar"
-                            width="30"
-                            height="30" />
-                        </button>
-                    </div>
-                </div>
-            </div>
         </aside>
+        <div class="inner hide-menu">
+
+
+        </div>
+        <div class="menu hide-menu">
+            <div class="nav-brand">
+                <img
+                src="./images/netflix-logo.png"
+                alt="Netflix logo"
+                width="80"
+                height="50"
+                class="logo"
+                />
+
+                <button class="close-button">
+                    <img
+                    src="./images/icon-close.svg"
+                    alt="open menu sidebar"
+                    width="30"
+                    height="30" />
+                </button>
+            </div>
+            <nav>
+                <a>TEAMS</a>
+                <a>LOCATIONS</a>
+                <a>LIVE AT NETFLIX</a>
+                <ul>
+                    <li>
+                        <a>NETFLIX CULTURE MEMO</a>
+                    </li>
+                    <li>
+                        <a>WORK LIFE BALANCE</a>
+                    </li>
+                    <li>
+                        <a>INCLUSION AND DIVERSITY</a>
+                    </li>
+                    <li>
+                        <a>BLOG</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
         <button class="open-button">
             <img
             src="./images/icon-menu.svg"
@@ -110,6 +186,35 @@
             MOBILE NAVIGATION
         </p>
     </main>
-    <script></script>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', evt => {
+            const open = document.querySelector('.open-button');
+            const close = document.querySelector('.close-button');
+            const sidebar = document.querySelector('aside');
+            const inner = document.querySelector('.inner');
+            const menu = document.querySelector('.menu');
+
+            open.onclick = function(e) {
+                sidebar.style.transitionDelay = '0.0s';
+                inner.style.transitionDelay = '0.3s';
+                menu.style.transitionDelay = '0.6s';
+                
+                sidebar.classList.remove('hide-menu');
+                inner.classList.remove('hide-menu');
+                menu.classList.remove('hide-menu');
+            }
+
+            close.onclick = function(e) {
+                sidebar.style.transitionDelay = '0.6s';
+                inner.style.transitionDelay = '0.3s';
+                menu.style.transitionDelay = '0.0s';
+                
+                menu.classList.add('hide-menu');
+                inner.classList.add('hide-menu');
+                sidebar.classList.add('hide-menu');
+            }
+        })
+    </script>
 </body>
 </html>
