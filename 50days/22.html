@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Live user filter</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                background: #FFFAFA;
+            }
+            * {
+                box-sizing: border-box;
+                font-family: Verdana;
+            }
+            main {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100%;
+            }
+            .card {
+                overflow: hidden;
+                width: 18rem;
+                border-radius: 5px;
+                box-shadow: 0px 0px 4px #ccc;
+            }
+            .card-header {
+                background: #1565C0;
+                color: #fff;
+                padding: 1rem;
+            }
+            .card-header h4 {
+                margin-block-end: 0.3rem;
+            }
+            .card-header p {
+                margin-block-start: 0.2rem;
+                margin-block-end: 1.5rem;
+            }
+            input {
+                border-radius: 25px;
+                padding: 10px 8px 10px 15px;
+                background: #303F9F;
+                color: #fff;
+                width: 100%;
+                border: none;
+                outline: none;
+            }
+            .card-body {
+                
+            }
+            .loading {
+                padding-left: 1rem;
+            }
+            article {
+                padding: 1rem;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                
+            }
+            article:not(:last-child) {
+                border-bottom: 1px solid #ccc;
+                border-collapse: collapse;
+            }
+            .group h3, p {
+                margin-block-start: 0.2rem;
+                margin-block-end: 0.5rem;
+            }
+            .group h3 {
+                font-size: 1.05rem;
+            }
+            .group p {
+                color: gray;
+                font-size: 0.8rem;
+            }
+            article img {
+                border-radius: 100px;
+                margin-right: 10px;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <main class="">
+            <div class="card">
+                <div class="card-header">
+                    <h4>Live user filter</h4>
+                    <p>Search by name and/or location</p>
+                    <form>
+                        <input type="text" id="input" autocomplete="off" placeholder="Search..." />
+                    </form>
+                </div>
+                <div class="card-body">
+                    <h3 class="loading">Loading...</h3>
+                    <div class="body-content">
+                        <article>
+                            <img src="./images/dog.jpg" alt="user" width="60" height="60" />
+                            <div class="group">
+                                <h3>John Doe</h3>
+                                <p>Bronx, New York</p>
+                            </div>
+                            
+                        </article>
+                        
+                        <article>
+                            <img src="./images/dog.jpg" alt="user" width="60" height="60" />
+                            <div class="group">
+                                <h3>John Doe</h3>
+                                <p>Bronx, New York</p>
+                            </div>
+                            
+                        </article>
+                        
+                        <article>
+                            <img src="./images/dog.jpg" alt="user" width="60" height="60" />
+                            <div class="group">
+                                <h3>John Doe</h3>
+                                <p>Bronx, New York</p>
+                            </div>
+                            
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <script></script>
+    </body>
+</html>
