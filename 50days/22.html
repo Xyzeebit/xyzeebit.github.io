@@ -13,6 +13,7 @@
             * {
                 box-sizing: border-box;
                 font-family: Verdana;
+                scroll-behavior: smooth;
             }
             main {
                 display: flex;
@@ -48,7 +49,9 @@
                 outline: none;
             }
             .card-body {
-                
+                background: #fff;
+                overflow-y: auto;
+                max-height: 400px;
             }
             .loading {
                 padding-left: 1rem;
@@ -88,44 +91,75 @@
                 <div class="card-header">
                     <h4>Live user filter</h4>
                     <p>Search by name and/or location</p>
-                    <form>
+                    <form form>
                         <input type="text" id="input" autocomplete="off" placeholder="Search..." />
                     </form>
                 </div>
                 <div class="card-body">
                     <h3 class="loading">Loading...</h3>
                     <div class="body-content">
-                        <article>
-                            <img src="./images/dog.jpg" alt="user" width="60" height="60" />
-                            <div class="group">
-                                <h3>John Doe</h3>
-                                <p>Bronx, New York</p>
-                            </div>
-                            
-                        </article>
+                    
                         
-                        <article>
-                            <img src="./images/dog.jpg" alt="user" width="60" height="60" />
-                            <div class="group">
-                                <h3>John Doe</h3>
-                                <p>Bronx, New York</p>
-                            </div>
-                            
-                        </article>
-                        
-                        <article>
-                            <img src="./images/dog.jpg" alt="user" width="60" height="60" />
-                            <div class="group">
-                                <h3>John Doe</h3>
-                                <p>Bronx, New York</p>
-                            </div>
-                            
-                        </article>
                     </div>
                 </div>
             </div>
         </main>
         
-        <script></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', evt => {
+                const container = document.querySelector('.body-content');
+                const loader = document.querySelector('.loading');
+                let list = [];
+                
+                
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+                    if()
+                })
+                
+                async function fetchUsers(cb) {
+                    try {
+                        const resp = await fetch(`https://randomuser.me/api/?results=20`);
+                        const users = await resp.json();
+                        if(resp.ok && users) {
+                            cb(null, users.results);
+                        } else {
+                            cb(new Error('request error'));
+                        }
+                    } catch(error) {
+                        cb(error)
+                    }
+                }
+                fetchUsers((err, results) => {
+                    if(err) return;
+                    loader.style.display = 'none';
+                    
+                    list = results.map(user => {
+                        const article = document.createElement('article');
+                        const img  = document.createElement('img');
+                        img.setAttribute('src', user.picture.thumbnail);
+                        img.setAttribute('width', 60);
+                        img.setAttribute('height', 60);
+                        img.setAttribute('alt', user.name.first);
+                        article.appendChild(img);
+                        
+                        const div = document.createElement('div');
+                        div.setAttribute('class', 'group');
+                        const h3 = document.createElement('h3');
+                        h3.innerText = `${user.name.first} ${user.name.last}`;
+                        div.appendChild(h3);
+                        const p = document.createElement('p');
+                        p.innerText = `${user.location.city}, ${user.location.state}`;
+                        div.appendChild(p);
+                        article.appendChild(div);
+                        
+                        container.appendChild(article);
+                        
+                        return article;
+                        
+                    })
+                });
+            })
+        </script>
     </body>
 </html>
