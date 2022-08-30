@@ -1,37 +1,115 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>Netflix Mobile Navigation</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <style>
-            body {
-                padding: 0;
-                margin: 0;
-            }
-            main {
-                width: 100vw;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                flex-direction: column;
-            }
-            main p {
-                font-size: 1.2rem;
-                font-weight: 300;
-            }
-        </style>
-    </head>
-    <body>
-        <main>
-            <img src="./images/netflix-logo.png"
-            alt="netflix"
-            width="200"
-            height="150"
-            />
-            <p>MOBILE NAVIGATION</p>
-        </main>
-        <script></script>
-    </body>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Netflix Mobile Navigation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        main {
+            width: 100vw;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+        }
+        main p {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+        .open-button {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            background: none;
+            border: none;
+        }
+        .close-button {
+            background: none;
+            border: none;
+        }
+        aside {
+            background: #000;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            z-index: 1;
+            /*overflow-y: auto;*/
+            width: 75%;
+
+            transition: transform 0.8s linear;
+        }
+        .inner {
+            width: 90%;
+            height: 100%;
+            background: #DF2029;
+
+
+        }
+        .menu {
+            background: #fff;
+            height: 100%;
+            width: 90%;
+
+        }
+        .nav-brand {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+        .logo {
+            
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <aside>
+            <div class="inner">
+                <div class="menu">
+                    <div class="nav-brand">
+                        <img
+                        src="./images/netflix-logo.png"
+                        alt="Netflix logo"
+                        width="80"
+                        height="50"
+                        class="logo"
+                        />
+
+                        <button class="close-button">
+                            <img
+                            src="./images/icon-close.svg"
+                            alt="open menu sidebar"
+                            width="30"
+                            height="30" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <button class="open-button">
+            <img
+            src="./images/icon-menu.svg"
+            alt="open menu sidebar"
+            width="25"
+            height="25" />
+        </button>
+        <img src="./images/netflix-logo.png"
+        alt="netflix"
+        width="200"
+        height="150"
+        />
+        <p>
+            MOBILE NAVIGATION
+        </p>
+    </main>
+    <script></script>
+</body>
 </html>
