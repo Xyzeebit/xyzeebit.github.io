@@ -91,7 +91,7 @@
                 <div class="card-header">
                     <h4>Live user filter</h4>
                     <p>Search by name and/or location</p>
-                    <form form>
+                    <form id="form">
                         <input type="text" id="input" autocomplete="off" placeholder="Search..." />
                     </form>
                 </div>
@@ -109,12 +109,30 @@
             window.addEventListener('DOMContentLoaded', evt => {
                 const container = document.querySelector('.body-content');
                 const loader = document.querySelector('.loading');
+                const input = document.querySelector('#input');
                 let list = [];
                 
                 
                 form.addEventListener('submit', e => {
                     e.preventDefault();
-                    if()
+                })
+                input.addEventListener('input', e => {
+                    const value = input.value;
+                    if(value) {
+                        let result = list.filter(a => {
+                            let name = a.children[1].children[0].innerText;
+                            
+                            let location = a.children[1].children[1].innerText;
+                            return (name.toLowerCase().includes(value.toLowerCase()) || 
+                            location.toLowerCase().includes(value.toLowerCase()));
+                        });
+                        container.innerHTML = '';
+                        result.map(a => {
+                            
+                            container.appendChild(a)
+                        });
+                    }
+                    console.log(list)
                 })
                 
                 async function fetchUsers(cb) {
