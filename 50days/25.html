@@ -58,7 +58,36 @@
         </main>
         
         <script>
-            
+            window.addEventListener('DOMContentLoaded', evt => {
+                const text = document.querySelector('h1');
+                
+                let interval = 100;
+                
+                /*speed.addEventListener('input', function(e) {
+                    interval = parseInt(this.value);
+                });*/
+                
+                ((el, intv) => {
+                    let value = 'We Love Programming';
+                    let len = value.length;
+                    let i = 0;
+                    el.innerText = '';
+                    
+                    speed.addEventListener('input', function(e) {
+                        intv = parseInt(this.value);
+                        console.log(intv)
+                    });
+                    
+                    setInterval(() => {
+                        
+                        el.textContent += value.charAt(i++);
+                        if(i > len) {
+                            i = 0;
+                            el.innerText = '';
+                        }
+                    }, intv);
+                })(text, interval);
+            });
         </script>
     </body>
 </html>
