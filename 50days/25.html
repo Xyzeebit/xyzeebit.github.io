@@ -1,93 +1,108 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>Auto Text Effect</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <style>
-            body {
-                padding: 0;
-                margin: 0;
-                background: #FFA07A;
-                
-            }
-            * {
-                box-sizing: border-box;
-            }
-            main {
-                position: relative;
-                width: 100vw;
-                height: 100%;
-                display: grid;
-                place-items: center;
-            }
-            .control {
-                position: absolute;
-                bottom: 2rem;
-                left: 50%;
-                width: 10rem;
-                transform: translateX(-50%);
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                background: #E9967A;
-                padding: 0.5rem;
-            }
-            label {
-                padding-right: 0.2rem;
-            }
-            input {
-                width: 70px;
-                height: 40px;
-                text-align: center;
-                background: #FFA07A;
-                border: none;
-                outline: none;
-                font-size: 1rem;
-            }
-        </style>
-    </head>
-    <body>
-        <main>
-            <h1>Hello World</h1>
-            
-            <div class="control">
-                <label for="speed">Speed:</label>
-                <input type="number" id="speed" />
-            </div>
-        </main>
-        
-        <script>
-            window.addEventListener('DOMContentLoaded', evt => {
-                const text = document.querySelector('h1');
-                
-                let interval = 100;
-                
-                /*speed.addEventListener('input', function(e) {
-                    interval = parseInt(this.value);
-                });*/
-                
-                ((el, intv) => {
-                    let value = 'We Love Programming';
-                    let len = value.length;
-                    let i = 0;
-                    el.innerText = '';
-                    
-                    speed.addEventListener('input', function(e) {
-                        intv = parseInt(this.value);
-                        console.log(intv)
-                    });
-                    
-                    setInterval(() => {
-                        
-                        el.textContent += value.charAt(i++);
-                        if(i > len) {
-                            i = 0;
-                            el.innerText = '';
-                        }
-                    }, intv);
-                })(text, interval);
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Auto Text Effect</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            background: #FFA07A;
+
+        }
+        * {
+            box-sizing: border-box;
+        }
+        main {
+            position: relative;
+            width: 100vw;
+            height: 100%;
+            display: grid;
+            place-items: center;
+        }
+        .control {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            width: 10rem;
+            transform: translateX(-50%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #E9967A;
+            padding: 0.5rem;
+        }
+        label {
+            padding-right: 0.2rem;
+        }
+        input {
+            width: 70px;
+            height: 40px;
+            text-align: center;
+            background: #FFA07A;
+            border: none;
+            outline: none;
+            font-size: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>We Love Programming</h1>
+
+        <div class="control">
+            <label for="speed">Speed:</label>
+            <input type="number" id="speed" />
+        </div>
+    </main>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', evt => {
+            const text = document.querySelector('h1');
+
+            let interval = 100;
+
+            speed.addEventListener('input', function(e) {
+                interval = parseInt(this.value);
             });
-        </script>
-    </body>
+
+            let value = 'We Love Programming';
+            let len = value.length;
+            text.innerText = '';
+            let i = 0;
+            
+            wait(interval).then(() => {
+                text.textContent += value.charAt(i++);
+                if(i > len) {
+                    i = 0;
+                    text.innerText = '';
+                }
+            })
+
+            /*for (let i = 0; i < len; i++) {
+                (function (el, char, timer) {
+                    setTimeout(() => {
+                        console.log(char)
+                        el.textContent += char;
+                    }, timer);
+
+                })(text, value.charAt(i), interval * i);
+
+                /*if (i >= len) {
+                    i = 0;
+                    text.innerText = '';
+                }*/
+
+            //}
+
+        });
+        
+        const wait = n => new Promise((resolve) => {
+            setTimeout(resolve, n);
+        });
+
+
+    </script>
+</body>
 </html>
