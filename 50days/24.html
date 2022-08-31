@@ -5,14 +5,23 @@
     <title>Verify Account</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <style>
+        body {
+            display: grid;
+            place-items: center;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: Helvetica, Verdana, Tahoma, Arial;
+        }
         .container {
             width: 19rem;
             border: 2px solid #666;
             border-radius: 20px;
-            margin: 0 auto;
+            margin: 25% auto;
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             padding: 1rem;
         }
         .input-group {
@@ -25,7 +34,7 @@
             column-gap: 20px;
         }
         .input {
-            
+
             width: 65px;
             height: 80px;
             border: 1px solid #666;
@@ -36,7 +45,7 @@
             text-align: center;
             position: relative;
             z-index: 1;
-            
+
         }
         .bg {
             background-image: url('./images/zero.svg');
@@ -47,20 +56,55 @@
         .input:focus {
             border: 2px solid #FFA500;
         }
+        h2 {
+            margin-block-end: 0.5rem;
+        }
+        p {
+            text-align: center;
+            color: #666;
+            font-weight: 300;
+            padding: 0 1rem 0 1rem;
+        }
+        p:nth-of-type(1) {
+            margin-block-end: 0.1rem;
+        }
+        p:nth-of-type(2) {
+            margin-block-start: 0.1rem;
+        }
+        p:nth-of-type(3) {
+            background: #ddd;
+            padding: 1rem;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            margin: 1.5rem 0.5rem 1rem 0.5rem;
+        }
 
     </style>
 </head>
 <body>
     <div class="container">
+        <h2>Verify your account</h2> 
+        <p>
+            We email you the six digits code to 
+            cool_guy@email.com
+        </p>
+        <p>
+            Enter the code below to confirm your email address.
+        </p>
         <form class="input-group">
             <input type="number" id="one" class="input bg" maxlength="1" />
             <input type="number" id="two" class="input bg" maxlength="1" />
             <input type="number" id="three" class="input bg" maxlength="1" />
-            
+
             <input type="number" id="four" class="input bg" maxlength="1" />
             <input type="number" id="five" class="input bg" maxlength="1" />
             <input type="number" id="six" class="input bg" maxlength="1" />
         </form>
+        
+        <p>
+            This is design only. We didn't actually send you an email as we don't have 
+            your email, right?
+        </p>
     </div>
     <script>
         window.addEventListener('DOMContentLoaded', evt => {
@@ -68,50 +112,87 @@
             const len = inputs.length;
             let value;
             function handleInput(e) {
-                if(this.value) {
+                if (this.value) {
                     this.classList.remove('bg');
                     this.style.border = '1px solid #7B68EE'
+                    this.style.boxShadow = '0px 0px 3px #000000c5'
                 } else {
-                    this.classList.add('bg'); 
+                    this.classList.add('bg');
                     this.style.border = '1px solid #ccc'
+                    this.style.boxShadow = 'none'
                 }
-                if(this.value.length > 1) {
-                    console.log(this.value)
+                if (this.value.length > 1) {
+                    //console.log(this.value)
                     this.value = value
                 }
-                switch(this.id) {
-                    case 'one':
-                        inputs[1].focus();
-                        break;
-                    case 'two':
-                        inputs[2].focus();
-                        break;
-                    case 'three':
-                        inputs[3].focus();
-                        break;
-                    case 'four':
-                        inputs[4].focus();
-                        break;
-                    case 'five':
-                        inputs[5].focus();
-                        break;
-                    case 'six':
-                        this.blur();
-                        break;
-                    default: return;
+                if (this.value) {
+                    switch (this.id) {
+                        case 'one':
+                            inputs[1].focus();
+                            break;
+                        case 'two':
+                            inputs[2].focus();
+                            break;
+                        case 'three':
+                            inputs[3].focus();
+                            break;
+                        case 'four':
+                            inputs[4].focus();
+                            break;
+                        case 'five':
+                            inputs[5].focus();
+                            break;
+                        case 'six':
+                            this.blur();
+                            break;
+                        default: return;
+                        }
+                    }
                 }
-            }
-            
-            function focus(e) {
-                this.style.border = '2px solid #FFA500';
-                value = this.value;
-            }
-            
-            for(let input of inputs) {
-                input.oninput = handleInput;
-                input.onfocus = focus;
-            }
-        })
-    </script>
-</body>
-</html>
+
+                function focus(e) {
+                    if(this.value) {
+                        this.style.border = '2px solid #FFA500';
+                        value = this.value;
+                    }
+                }
+
+                function back(e) {
+                    const key = e.key;
+                    //console.log(key, this)
+                    if (key === 'Backspace' || key === 'backspace') {
+                        switch (this.id) {
+                            case 'one':
+                                
+                                break;
+                            case 'two':
+                                
+                                inputs[0].focus();
+                                break;
+                            case 'three':
+                                inputs[1].focus();
+                                break;
+                            case 'four':
+                                inputs[2].focus();
+                                break;
+                            case 'five':
+                                inputs[3].focus();
+                                break;
+                            case 'six':
+                                inputs[4].focus();
+
+                                break;
+                            default: return;
+                            }
+                    }
+                }
+
+                for (let input of inputs) {
+                    input.oninput = handleInput;
+                    input.onfocus = focus;
+                    input.onkeyup = back;
+                }
+            });
+        </script>
+        </body>
+    </html>
