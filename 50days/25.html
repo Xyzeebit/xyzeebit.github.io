@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+        <title>Auto Text Effect</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            body {
+                padding: 0;
+                margin: 0;
+                background: #FFA07A;
+                
+            }
+            * {
+                box-sizing: border-box;
+            }
+            main {
+                position: relative;
+                width: 100vw;
+                height: 100%;
+                display: grid;
+                place-items: center;
+            }
+            .control {
+                position: absolute;
+                bottom: 2rem;
+                left: 50%;
+                width: 10rem;
+                transform: translateX(-50%);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background: #E9967A;
+                padding: 0.5rem;
+            }
+            label {
+                padding-right: 0.2rem;
+            }
+            input {
+                width: 70px;
+                height: 40px;
+                text-align: center;
+                background: #FFA07A;
+                border: none;
+                outline: none;
+                font-size: 1rem;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <h1>Hello World</h1>
+            
+            <div class="control">
+                <label for="speed">Speed:</label>
+                <input type="number" id="speed" />
+            </div>
+        </main>
+        
+        <script>
+            
+        </script>
+    </body>
+</html>
