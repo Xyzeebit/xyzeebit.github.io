@@ -64,21 +64,37 @@
             let interval = 100;
 
             speed.addEventListener('input', function(e) {
-                interval = parseInt(this.value);
+                let n = parseFloat(this.value);
+                //interval = Math.floor(n / 1000);
+                if(n < 1) {
+                    interval = parseInt(n * 10000);
+                } else if(n >= 1 && n <= 1000) {
+                    interval = parseInt(n);
+                } else {
+                    interval = parseInt(n / 100);
+                }
             });
 
             let value = 'We Love Programming';
             let len = value.length;
             text.innerText = '';
             let i = 0;
-            
-            wait(interval).then(() => {
-                text.textContent += value.charAt(i++);
-                if(i > len) {
-                    i = 0;
-                    text.innerText = '';
+
+            auto()
+
+            function auto() {
+                if (true) {
+                    wait(interval).then(() => {
+                        text.textContent += value.charAt(i++);
+                        if (i > len) {
+                            i = 0;
+                            text.innerText = '';
+                        }
+                        auto()
+                    })
                 }
-            })
+            }
+
 
             /*for (let i = 0; i < len; i++) {
                 (function (el, char, timer) {
@@ -97,10 +113,12 @@
             //}
 
         });
-        
+
         const wait = n => new Promise((resolve) => {
-            setTimeout(resolve, n);
+            setTimeout(resolve,
+                n);
         });
+
 
 
     </script>
