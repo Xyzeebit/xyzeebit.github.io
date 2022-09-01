@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Sticky Navigation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+        * {
+            box-sizing: border-box;
+            font-family: Helvetica, Tahoma, Arial;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        main {
+            width: 100vw;
+            position: relative;
+            background: #fffafa;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0.2rem 1rem 0.2rem;
+            transition: all 0.5s;
+            background: #212121;
+            color: #fff;
+            width: 100vw;
+            overflow: hidden;
+            position: sticky;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 3;
+        }
+
+        header h1 {
+            margin: 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav a {
+            margin: 0 1rem 0 1rem;
+        }
+        .active {
+            color: #D84315;
+        }
+        .intro {
+            position: relative;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-self: center;
+            height: 100vh;
+        }
+        .intro .text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            color: #fff;
+            text-align: center;
+            width: 100%;
+
+        }
+        .intro .text h1 {
+            font-size: 3rem;
+            text-align: center;
+            padding: 0 0.5rem 0rem 0.5rem;
+            margin-block-end: 0.2rem;
+        }
+        .intro .text p {
+            line-height: 1.3;
+            font-size: 1.2rem;
+            padding: 2rem;
+            margin-block-start: 0.2rem;
+        }
+        .intro img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+        .content {
+            padding: 2rem 1rem 5rem 1rem;
+        }
+        .content p {
+            line-height: 2;
+        }
+        .elevate {
+            box-shadow: 0px 0px 4px #000000c5;
+            background: #fff;
+            color: #212121;
+            padding: 0.5rem 0.2rem 0.5rem 0.2rem;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+            <h1>My Website</h1>
+            <nav>
+                <a href="#" class="active">Home</a>
+                <a href="#">About</a>
+                <a href="#">Services</a>
+                <a href="#">Contact</a>
+            </nav>
+        </header>
+        <section class="intro">
+            <div class="text">
+                <h1>Welcome To My Website</h1>
+                <p>
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores, consequuntur?
+                </p>
+
+            </div>
+            <img
+            src="./images/laptop.jpg"
+            alt="laptop background"
+            width="300"
+            height="300"
+            />
+        </section>
+        <section class="content">
+            <h1>Content One</h1>
+            <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ratione dolorem voluptates eveniet tempora ut cupiditate magnam, sapiente, hic quo in ipsum iste soluta eaque perferendis nihil recusandae dolore officia aperiam corporis similique. Facilis quos tempore labore totam! Consectetur molestiae iusto ducimus error reiciendis aspernatur dolor, modi dolorem sit architecto, voluptate magni sunt unde est quas? Voluptates a dolorum voluptatum quo perferendis aut sit. Aspernatur libero laboriosam ab eligendi omnis delectus earum labore, placeat officiis sint illum rem voluptas ipsum repellendus iste eius recusandae quae excepturi facere, iure rerum sequi? Illum velit delectus dicta et iste dolorum obcaecati minus odio eligendi!
+            </p>
+            
+            <h1>Content Two</h1>
+            <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Pariatur provident nostrum possimus inventore nisi laboriosam consequatur modi nulla eos, commodi, omnis distinctio! Maxime distinctio impedit provident, voluptates illo odio nostrum minima beatae similique a sint sapiente voluptatum atque optio illum est! Tenetur tempora doloremque quae iste aperiam hic cumque repellat?
+            </p>
+        </section>
+    </main>
+    <script>
+        window.addEventListener('DOMContentLoaded', evt => {
+            const header = document.querySelector('header');
+            
+            window.addEventListener('scroll', e => {
+                if(document.documentElement.scrollTop > 400 || document.body.scrollTop > 400) {
+                    header.classList.add('elevate');
+                } else {
+                    header.classList.remove('elevate');
+                }
+            })
+        })
+    </script>
+</body>
+</html>
