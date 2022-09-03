@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Hover Board</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        main {
+            width: 100vw;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            background: #000;
+            /*padding: 5rem 0 5rem 0*/
+        }
+        .container {
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(18, 16px);
+            /*grid-template-rows: repeat(25 16px);*/
+            grid-column-gap: 4px;
+            grid-row-gap: 4px;
+            
+
+        }
+        .box {
+            /*margin: 3px;*/
+            width: 16px;
+            height: 16px;
+            background: #212121;
+            justify-self: center;
+            transition: box-shadow .5s;
+        }
+        .hover {
+            box-shadow: 0px 0px 3px 3px #E3C800;
+            background: #E3C800;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="container">
+
+        </div>
+    </main>
+    <script>
+        window.addEventListener('DOMContentLoaded', evt => {
+            const boxes = [];
+            const board = document.querySelector('.container');
+
+            for (let i = 0; i < 480; i++) {
+                let box = Object.assign(document.createElement('div'), {
+                    className: 'box',
+                    id: boxes.length,
+                    onmouseenter: onEnter,
+                });
+                boxes.push(box);
+                board.appendChild(box);
+            }
+            
+            function onEnter(e) {
+                this.classList.add('hover');
+                setTimeout(() => {
+                    this.classList.remove('hover');
+                }, 1500);
+            }
+        })
+    </script>
+</body>
+</html>
