@@ -462,6 +462,64 @@ section#my-stack {
     }
 }
 
+section.fun-projects {
+    h1 {
+        color: #fff;
+    }
+    @include mobile() {
+        padding: 20px;
+        background: #f25d26;
+    }
+    @include tablet() {
+        padding: 50px 50px 30px 50px;
+    }
+    .days {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        row-gap: 1rem;
+        column-gap: 1rem;
+    }
+    .fun {
+        @include mobile {
+            width: 100%;
+            height: 200px;
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        @include tablet() {
+            width: 18rem;
+        }
+        &:hover div {
+           z-index: 1;
+        }
+        img {
+            width: 100%;
+        }
+        div {
+            z-index: -1;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background: #212621c3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: #fff;
+        }
+        div a {
+            background: #f25d26;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+    }
+}
+
 footer {
     // background: $gray;
     @include mobile {
