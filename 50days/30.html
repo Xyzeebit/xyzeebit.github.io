@@ -20,7 +20,7 @@
             
             overflow: hidden;
             position: relative;
-            overflow: hidden;
+            
             height: 100%;
             transition: all 500ms;
             
@@ -65,7 +65,7 @@
             transition: all 0.5s;
             left: 4rem;
             top: 3rem;
-            bottom: 3rem !important;
+            
             right: 0;
         }
         .fill {
@@ -75,12 +75,13 @@
             bottom: 0;
             border-radius: 0;
             height: 100%;
+            transition: all 0.5s;
         }
 
         article {
             display: flex;
             justify-content: flex-start;
-            align-items: center;
+            
             padding: 0 0.5rem 0 0.5rem;
             
         }
@@ -115,6 +116,69 @@
             padding: 0.5rem;
             border: none;
             margin-right: 1rem;
+        }
+        
+        @media screen and (max-width: 768px) {
+            section {
+                bottom: 3rem !important;
+            }
+            article {
+                align-items: flex-start;
+            }
+        }
+        
+        @media screen and (min-width: 769px) {
+            aside {
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 80vh;
+                width: 100%;
+                height: 4rem;
+                flex-direction: row;
+                
+            }
+            .link-group {
+                flex-direction: row;
+            }
+            section {
+                top: 4rem;
+                right: 4rem;
+                bottom: 0;
+                
+                border-bottom-left-radius: 0;
+                border-top-right-radius: 20px;
+            }
+            
+            .fill {
+                right: 0;
+            }
+            .article {
+                justify-content: flex-start;
+                align-items: center;
+                margin-bottom: 2rem;
+                
+            }
+            .article img {
+                width: 180px;
+                height: 150px;
+            }
+            .content-group {
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding-top: 0;
+            }
+            .content-group h4 {
+                font-size: 1.2rem;
+                margin-block-end: 1rem;
+            }
+            .content-group small {
+                font-size: 0.8rem;
+            }
+            .content-group p {
+                font-size: 1rem;
+                margin-block-start: 1rem;
+            }
         }
     </style>
 </head>
@@ -181,7 +245,7 @@
 
             </div>
         </aside>
-        <section>
+        <section class="fill">
             <div class="app-bar">
                 <button>
                     <img class="open-btn" 
@@ -214,7 +278,7 @@
                         <article class="article">
                 <img
                 class=""
-                src="./images/architecture.jpg"
+                src="./images/bridge-2.jpg"
                 alt="News"
                 width="100"
                 height="100"
@@ -231,7 +295,7 @@
                         <article class="article">
                 <img
                 class=""
-                src="./images/architecture.jpg"
+                src="./images/ship.jpg"
                 alt="News"
                 width="100"
                 height="100"
@@ -248,7 +312,7 @@
                         <article class="article">
                 <img
                 class=""
-                src="./images/architecture.jpg"
+                src="./images/pineapple.jpg"
                 alt="News"
                 width="100"
                 height="100"
@@ -265,7 +329,7 @@
                         <article class="article">
                 <img
                 class=""
-                src="./images/architecture.jpg"
+                src="./images/laptop.jpg"
                 alt="News"
                 width="100"
                 height="100"
@@ -297,6 +361,11 @@
             for(let a of closeBtns) {
                 a.onclick = close
             }
+            
+            const timer = setTimeout(() => {
+                section.classList.remove('fill');
+                clearTimeout(timer);
+            }, 1000);
             
         })
     </script>
