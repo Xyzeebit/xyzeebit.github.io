@@ -14,7 +14,7 @@
         }
         main {
             width: 100vw;
-            height: 100%;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -82,6 +82,18 @@
             .menu {
                 width: 35%;
             }
+            .netflix {
+                width: 20rem;
+            }
+            .logo {
+                width: 10rem;
+            }
+            li {
+                margin-block-end: 1rem;
+            }
+            nav a:not(ul li a) {
+                margin-block-end: 1rem;
+            }
         }
         .nav-brand {
             display: flex;
@@ -92,12 +104,6 @@
         .hide-menu {
             transform: translateX(-100%);
         }
-        /*.hide-menu .inner {
-            transform: translateX(-100%);
-        }
-        .hide-menu .inner .menu {
-            transform: translateX(100%);
-        }*/
         
         nav {
             padding: 1.5rem;
@@ -116,9 +122,7 @@
             list-style-type: none;
             padding-left: 1.1rem;
         }
-        li {
-            
-        }
+        
     </style>
 </head>
 <body>
@@ -177,8 +181,9 @@
         </button>
         <img src="./images/netflix-logo.png"
         alt="netflix"
-        width="200"
+        width="250"
         height="150"
+        class="netflix"
         />
         <p>
             MOBILE NAVIGATION

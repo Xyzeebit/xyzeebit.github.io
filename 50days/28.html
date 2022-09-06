@@ -11,7 +11,7 @@
         }
         main {
             width: 100vw;
-            height: 100%;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -20,17 +20,16 @@
             /*padding: 5rem 0 5rem 0*/
         }
         .container {
+
             width: 100%;
-            display: grid;
-            grid-template-columns: repeat(18, 16px);
-            /*grid-template-rows: repeat(25 16px);*/
-            grid-column-gap: 4px;
-            grid-row-gap: 4px;
-            
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           flex-wrap: wrap;
 
         }
         .box {
-            /*margin: 3px;*/
+            margin: 3px;
             width: 16px;
             height: 16px;
             background: #212121;
@@ -38,8 +37,13 @@
             transition: box-shadow .5s;
         }
         .hover {
-            box-shadow: 0px 0px 3px 3px #E3C800;
+            box-shadow: 0px 0px 3px 2px #E3C800;
             background: #E3C800;
+        }
+        @media screen and (min-width: 769px) {
+            .container {
+                width: 50%;
+            }
         }
     </style>
 </head>
@@ -53,6 +57,7 @@
         window.addEventListener('DOMContentLoaded', evt => {
             const boxes = [];
             const board = document.querySelector('.container');
+            const colors = ['#2834de', '#75a635', '#f2533a', '#7cadc2'];
 
             for (let i = 0; i < 480; i++) {
                 let box = Object.assign(document.createElement('div'), {
@@ -65,9 +70,14 @@
             }
             
             function onEnter(e) {
-                this.classList.add('hover');
+                const i = Math.floor(Math.random() * colors.length);
+                // this.classList.add('hover');
+                this.style.boxShadow = `0px 0px 3px 2px ${colors[i]};`;
+                this.style.background = colors[i];
                 setTimeout(() => {
-                    this.classList.remove('hover');
+                    // this.classList.remove('hover');
+                    this.style.boxShadow = ` box-shadow: 0px 0px 0px 0px ${colors[i]};`;
+                    this.style.background = '#212121';
                 }, 1500);
             }
         })

@@ -13,16 +13,30 @@
             box-sizing: border-box;
             font-family: Helvetica, Verdana, Tahoma, Arial;
         }
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
         .container {
             width: 19rem;
             border: 2px solid #666;
             border-radius: 20px;
-            margin: 25% auto;
+            margin: 10% auto;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             padding: 1rem;
+        }
+        @media screen and (min-width: 769px) {
+            .container {
+                width: 24rem;
+            }
+            .container p:nth-of-type(2) {
+                margin-block-start: 1rem;
+            }
         }
         .input-group {
             display: flex;
