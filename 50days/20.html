@@ -24,7 +24,7 @@
 
         .card {
             width: 20rem;
-            background: #4682B4;
+            background: #090844;
             padding: 1rem;
             filter: drop-shadow(0px 0px 5px #000000c8);
         }
@@ -43,7 +43,7 @@
         .card-header button {
             height: 40px;
             width: 40px;
-            background: #B0C4DE;
+            background: #1c3a60;
             border: none;
 
         }
@@ -70,7 +70,7 @@
         .btn {
             width: 100%;
             padding: 10px;
-            background: #B0C4DE;
+            background: #1c3a60;
             border: none;
             margin-block-start: 0.8rem;
             margin-block-end: 0.8rem;
@@ -78,7 +78,7 @@
             font-size: 1rem;
         }
         button:active {
-            background: #ADD8E6;
+            background: #447687;
         }
         #pwd {
             font-size: 1.1rem;
@@ -168,59 +168,29 @@
             generate.onclick = function(e) {
                 
                 const len = values.length;
-                let pd = '';
-                //for(let i in data) {
-                    //console.log(i)
-                //}
-                
-                const limit = parseInt(document.getElementById('range').value);   
-                
-                //let n = Math.floor(Math.random() * len);
-                let i = 0;
-                while(i < limit) {
-                    let n = Math.floor(Math.random() * len);
-                    while(!isLower(values[n])) {
-                        n = Math.floor(Math.random() * len);
+                const LIMIT = data.range || parseInt(document.getElementById('range').value);
+                let password = '';
+
+                for(let i = 0; i < LIMIT; i++) {
+                    if(LIMIT === 3) {
                         
+                        if(data.lower) {
+                            password += getLower(len);
+                        }
+                        if(data.upper) {
+                            password  += getUpper(len);
+                        }
+                        if(data.symbols) {
+                            password += getSymbol(len);
+                        }
+                        if(data.numbers) {
+                            password += getNumber(len);
+                        }
                     }
-                    pd += String.fromCharCode(values[n]);
-                    i++
                 }
+               
                 
-                /*for(let i = 0; i < limit; i++) {
-                    
-                    //alert(String.fromCharCode(n))
-                    if(invalid(n)) {
-                        --i;
-                        continue;
-                    }
-                    if(data.lower) {
-                        if(isLower(values[n])) {
-                            
-                            pd += String.fromCharCode(values[n]);
-                        }
-                    }
-                    if(data.upper) {
-                        if(isUpper(values[n])) {
-                            
-                            pd += String.fromCharCode(values[n]);
-                        }
-                    }
-                    if(data.numbers) {
-                        if(isNumber(values[n])) {
-                            
-                            pd += String.fromCharCode(values[n]);
-                        }
-                    }
-                    if(data.symbols) {
-                        if(isSymbol(n) && !invalid(values[n])) {
-                            
-                            pd += String.fromCharCode(values[n]);
-                        }
-                    }
-                    
-                }*/
-                pwd.innerText = pd;
+                
             }   
 
             copy.onclick = function(e) {
@@ -244,6 +214,62 @@
                 } catch(error) {
                     console.log(error.message)
                 }
+            }
+
+            function compute(r) { 
+                const len = values.length;
+                const p = [];
+                let i = 0;
+                
+                while (i < r) {
+                    let n = Math.floor(Math.random() * len);
+                    p.push(values[n]);
+                }
+                p;
+            }
+
+            
+            function verify(arr, lower, upper, number, symbol){
+                const lw = arr.filter( a => isLower(a));
+                const up = arr.filter(a => isUpper(a));
+                const nu = arr.filter(a => isNumber(a));
+                const sy = arr.filter(a => isSymbol(a));
+
+
+                if(lw.length > lower) {
+                    
+                }
+                return
+            
+            }
+
+            function getLower(len){
+                let n = Math.floor(Math.random() * len);
+                while(!isLower(n)) {
+                    n = Math.floor(Math.random() * len);
+                }
+                return String.fromCharCode(n);
+            }
+            function getUpper(len) {
+                let n = Math.floor(Math.random() * len);
+                while(!isUpper(n)) {
+                    n = Math.floor(Math.random() * len);
+                }
+                return String.fromCharCode(n);
+            }
+            function getSymbol(len) {
+                let n = Math.floor(Math.random() * len);
+                while(!isSymbol(n)) {
+                    n = Math.floor(Math.random() * len);
+                }
+                return String.fromCharCode(n);
+            }
+            function getNumber(len) {
+                let n = Math.floor(Math.random() * len);
+                while(!isNumber(n)) {
+                    n = Math.floor(Math.random() * len);
+                }
+                return String.fromCharCode(n);
             }
         });
         
