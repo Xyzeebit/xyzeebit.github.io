@@ -16,9 +16,9 @@
         }
         main {
             width: 100vw;
-            height: 100%;
+            height: 100vh;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             background-image: url('./images/bg-trans.svg');
             background-size: cover;
@@ -43,9 +43,14 @@
             transform: rotate(180deg);
         }
         .img-slide {
-            width: 50vw;
+            width: 54vw;
             height: 70%;
             background-blend-mode: multiple;
+        }
+        @media screen and (max-width: 768px) {
+            main {
+                justify-content: space-between;
+            }
         }
     </style>
 </head>
@@ -78,16 +83,19 @@
             const body = document.querySelector('body');
 
             const images = [
-                'wild.jpg',
                 'bridge.jpg',
                 'beach.jpg',
-                'stream.jpg'
+                'stream.jpg',
+                'wild.jpg',
             ]
 
             let pos = 0;
 
             prev.onclick = function(e) {
                 if (pos > 0) {
+                    body.style.backgroundImage = 'url(./images/' + images[--pos] + ')';
+                } else {
+                    pos = images.length;
                     body.style.backgroundImage = 'url(./images/' + images[--pos] + ')';
                 }
             }
@@ -96,6 +104,7 @@
                     body.style.backgroundImage = 'url(./images/' + images[pos++] + ')';
                 } else {
                     pos = 0;
+                    body.style.backgroundImage = 'url(./images/' + images[pos++] + ')';
                 }
             }
         }
