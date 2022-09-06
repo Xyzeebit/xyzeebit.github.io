@@ -454,11 +454,13 @@ section#my-stack .my-stacks-images {
 
 section.fun-projects h1 {
   color: #fff;
+  padding-bottom: 1.5rem;
 }
 @media screen and (min-width: 320px) {
   section.fun-projects {
     padding: 20px;
     background: #f25d26;
+    padding-bottom: 5rem;
   }
 }
 @media screen and (min-width: 641px) {

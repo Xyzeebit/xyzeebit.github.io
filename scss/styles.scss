@@ -465,10 +465,12 @@ section#my-stack {
 section.fun-projects {
     h1 {
         color: #fff;
+        padding-bottom: 1.5rem;
     }
     @include mobile() {
         padding: 20px;
         background: #f25d26;
+        padding-bottom: 5rem;
     }
     @include tablet() {
         padding: 50px 50px 30px 50px;
