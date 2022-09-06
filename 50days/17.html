@@ -60,7 +60,7 @@
             height: 100vh;
         }
         .l-3 {
-            background: pink;
+            background: #3e8b2b;
             height: 100vh;
         }
         .l-4 {
@@ -177,7 +177,7 @@
                 <div class="slide l-3 sl">
                     <h1>Nature Flower</h1>
                     <p>
-                        all in pink
+                        all in green
                     </p>
                 </div>
                 <div class="slide l-4 sl">
@@ -229,56 +229,24 @@
             let stepdown = [100, 200, 300, 0]
             
             let downre = [0, 100, 200, 300];
-            let upre = []
+            
             let i = 0;
 
             up.onclick = function(e) {
                 right.style.transform = `translateY(${-stepup[pos]}vh)`;
                 left.style.transform = `translateY(-${stepdown[pos++]}vh)`;
-                i = pos - 1;
                 if(pos === stepup.length) {
                     pos = 0;
                 }
-                /*if (pos < step.length) {
-                    right.style.transform = `translateY(${-step[pos]}vh)`;
-                    left.style.transform = `translateY(-${step[pos++]}vh)`;
                 
-                    console.log(pos)
-                    /*if(pos === step.length) {
-                        pos = 0;
-                    }*/
-                /*} else {
-                    pos = 0
-                    right.style.transform = `translateY(${-step[pos]}vh)`;
-                    left.style.transform = `translateY(${step[pos]}vh)`;
-                    console.log('else',pos)
-                    //pos = 0;
-                    
-                }*/
             }
             down.onclick = function(e) {
                 
-                left.style.transform = `translateY(-${downre[i]}vh)`;
-                //right.style.transform = `translateY(${-stepup[pos]}vh)`;
-                //pos = i--;
-                console.log(i)
-                if(i === 0) {
-                    i = pos - 1;
+                if(pos === 0) {
+                    pos = stepdown.length;
                 }
-                /*if (pos > 0) {
-                    //right.style.transform = `translateY(${-step[--pos]}vh)`;
-                    left.style.transform = `translateY(-${100}vh)`;
-                
-                    console.log(pos)
-                } else {
-                    pos = step.length - 1;
-                    //right.style.transform = `translateY(${step[pos]}vh)`;
-                    left.style.transform = `translateY(${-step2[pos]}vh)`;
-                    
-                    console.log('d-else',pos)
-                    //pos = step.length - 1;
-                }*/
-
+                right.style.transform = `translateY(${-stepup[--pos]}vh)`;
+                left.style.transform = `translateY(-${stepdown[pos]}vh)`;
             }
         }
     </script>
