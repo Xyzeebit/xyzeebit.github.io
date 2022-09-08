@@ -377,10 +377,28 @@ article img.project-image {
 }
 
 .project-desc p {
-  color: #181814;
+  color: #212621;
   font-weight: 500;
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding-top: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.project-desc p .arrow-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  width: 30px;
+  height: 30px;
+  border-radius: 100px;
+  border: 1px solid lightgray;
+  margin-right: 0.5rem;
+}
+.project-desc p .arrow-wrapper img {
+  filter: invert(0.5);
 }
 .project-desc a {
   display: block;
