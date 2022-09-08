@@ -377,9 +377,9 @@ article img.project-image {
 }
 
 .project-desc p {
-  color: #3a5d8b;
+  color: #181814;
   font-weight: 500;
-  font-size: 1rem;
+  font-size: 1.2rem;
   padding-top: 10px;
 }
 .project-desc a {
@@ -459,7 +459,7 @@ section.fun-projects h1 {
 @media screen and (min-width: 320px) {
   section.fun-projects {
     padding: 20px;
-    background: #f25d26;
+    background: #000b1a;
     padding-bottom: 5rem;
   }
 }

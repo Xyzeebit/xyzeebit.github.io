@@ -390,9 +390,9 @@ article {
 }
 .project-desc {
     p {
-        color: $blue;
+        color: #181814;
         font-weight: 500;
-        font-size: 1rem;
+        font-size: 1.2rem;
         padding-top: 10px;
     }
     a {
@@ -469,7 +469,7 @@ section.fun-projects {
     }
     @include mobile() {
         padding: 20px;
-        background: #f25d26;
+        background: #000b1a;
         padding-bottom: 5rem;
     }
     @include tablet() {
