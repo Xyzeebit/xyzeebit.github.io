@@ -175,11 +175,11 @@
                 data.range = data.range || parseInt(document.getElementById('range').value);
                 let password = '';
                 const computed = compute(data, values);
-                console.log('computed', computed)
+                
                 for(let i = 0; i < computed.length; i++) {
                     password += computed[i]
                 }
-                // console.log(password);
+                
                 pwd.innerText = password;
                 
             }   
@@ -209,36 +209,34 @@
 
             function compute(data, values) { 
                 const { range, lower, upper, numbers, symbols } = data;
-                
-                const len = values.length;
-                const p = [];
-                
-                // if(lower) {
-                //     const l = getLower(len, range);
-                //     p.push(...l);
-                    
-                // }
-                // if(upper) {
-                //     const u = getUpper(len, range);
-                //     p.push(...u);
-                    
-                // }
-                // if (numbers) {
-                //     const n = getNumber(len, range);
-                //     p.push(...n);
-                // }
-                // if (symbols) {
-                //     const s = getSymbol(len, range);
-                //     p.push(...s)
-                    
-                    
-                // }
-                
-                // const arr = verify(p, 3, 3, 1, 1);
                 const arr = [];
-                const lw = getLower()
+                
                 for(let i = 0; i < range; i++) {
-                    arr.push(lw.next().value);
+                    
+                    if(lower) {
+                        arr.push(getLower().next().value);
+                        if(arr.length === range) {
+                            break;
+                        }
+                    }
+                    if(upper) {
+                        arr.push(getUpper().next().value);
+                        if (arr.length === range) {
+                            break;
+                        }
+                    }
+                    if(numbers) {
+                        arr.push(getNumber().next().value);
+                        if (arr.length === range) {
+                            break;
+                        }
+                    }
+                    if(symbols) {
+                        arr.push(getSymbol().next().value);
+                        if (arr.length === range) {
+                            break;
+                        }
+                    }
                 }
                 
                 shuffle(arr);
@@ -246,35 +244,7 @@
             }
 
             
-            function verify(arr, lower, upper, numbers, symbol){
-                if(arr.length === 0) {
-                    return [];
-                }
-                const lw = arr.filter( a => isLower(a));
-                const up = arr.filter(a => isUpper(a));
-                const num = arr.filter(a => isNumber(a));
-                const sym = arr.filter(a => isSymbol(a));
-
-                // console.log('filtered', lw)
-
-                while(lw.length > lower) {
-                    lw.pop();
-                }
-                while(up.length > upper) {
-                    up.pop();
-                }
-                while(num.length > numbers) {
-                    num.pop();
-                }
-                while(sym.length > symbol) {
-                    sym.pop();
-                }
-
-                // console.log('reduced', lw, up, sym, num)
-                
-                return lw.concat(up).concat(num).concat(sym);
             
-            }
 
             function shuffle(arr) {
                 for(let i = 0; i < arr.length; i++) {
@@ -284,21 +254,6 @@
                     arr[n] = tmp;
                 }
             }
-
-            // function getLower(len, r){
-            //     const arr = [];
-            //     for (let i = 0; i < r; i++) {
-            //         let n = Math.floor(Math.random() * len);
-            //         while (n >= 97 && n >= 122) {
-            //             n = Math.floor(Math.random() * len);
-            //         }
-            //         arr.push(n);
-
-            //     }
-            //     return arr;
-            // }
-
-            
 
             function* getLower() {
                 const chars = [];
@@ -324,7 +279,7 @@
                     yield chars[n];
                 }
             }
-            function getSymbol(len, r) {
+            function* getSymbol() {
                 const chars = [];
                 for (let i = 33; i <= 47; i++) {
                     chars.push(String.fromCharCode(i));
@@ -341,17 +296,15 @@
                     yield chars[n];
                 }
             }
-            function getNumber(len, r) {
-                const arr = [];
-                for (let i = 0; i < r; i++) {
-                    let n = Math.floor(Math.random() * len);
-                    while (!isNumber(n)) {
-                        n = Math.floor(Math.random() * len);
-                    }
-                    arr.push(n);
-
+            function* getNumber() {
+                const chars = [];
+                for (let i = 48; i <= 57; i++) {
+                    chars.push(String.fromCharCode(i));
                 }
-                return arr;
+                while (true) {
+                    let n = Math.floor(Math.random() * chars.length);
+                    yield chars[n];
+                }
             }
         });
         
