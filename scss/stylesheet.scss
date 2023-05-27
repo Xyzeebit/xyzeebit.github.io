@@ -1,0 +1,86 @@
+$font-family: 'Montserrat', sans-serif;
+$page-start-bg-image: '../images/banner-1.jpg';
+$white: #fff;
+$nav-brand-font-size: 1.5rem;
+
+%flex-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: $font-family;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@mixin mobile {
+  @media screen and (max-width: 700px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 701px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet-x {
+  @media (min-width: 701px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1025px) {
+    @content;
+  }
+}
+
+.page-start {
+  width: 100vw;
+  height: 100vh;
+  background: {
+    image: url(#{$page-start-bg-image});
+    position: center;
+    size: cover;
+    repeat: no-repeat;
+  };
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .nav-brand {
+    @extend %flex-c;
+    font-weight: 600;
+    color: $white;
+    font-size: $nav-brand-font-size;
+  }
+
+  ul {
+    list-style-type: none;
+    @extend %flex-c;
+  }
+  li a {
+    padding: 12px 10px;
+    color: $white;
+    font-weight: 500;
+  }
+  .cv-button {
+    @extend %flex-c;
+  }
+}
