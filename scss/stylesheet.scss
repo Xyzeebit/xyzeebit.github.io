@@ -1,5 +1,7 @@
 $font-family: 'Montserrat', sans-serif;
 $page-start-bg-image: '../images/banner-1.jpg';
+$page-start-bg-image-mobile: '../images/banner-mobile.jpg';
+
 $white: #fff;
 $white-transparent: #fffa;
 $black: #111;
@@ -60,6 +62,18 @@ a {
   }
 }
 
+@mixin landscape {
+  @media (orientation: landscape) and (max-height: 500px) {
+    @content;
+  }
+}
+
+.hide {
+  @include tablet {
+    display: none;
+  }
+}
+
 .page-start {
   position: relative;
   width: 100vw;
@@ -70,6 +84,12 @@ a {
     size: cover;
     repeat: no-repeat;
   };
+  @include mobile {
+    background-image: url(#{$page-start-bg-image-mobile});
+  }
+  @include landscape {
+    height: 150vh;
+  }
 }
 nav {
   display: flex;
@@ -96,6 +116,9 @@ nav {
     list-style-type: none;
     @extend %flex-c;
     column-gap: 1rem;
+    @include mobile {
+      display: none;
+    }
     @include tablet {
       column-gap: 0.5rem;
     }
@@ -134,47 +157,66 @@ nav {
 }
 
 section.page-about {
+  background: {
+    image: linear-gradient(hsla(0,0%,0%,0.2),hsla(0,0%,0%,0));
+  }
+  box-shadow:
+          0 -0.125em 0.25em hsla(0,0%,0%,0.2),
+          0 0.25em 0.25em hsla($h,$s,$l,0.5),
+          0 0 0 0.25em hsla($h,$s,$l,0.5),
+          0 0.375em 0.5em hsla($h,$s,$l,0.5) inset,
+          0 -0.125em 0.375em hsla($h,$s,$l,0.4) inset,
+          0 -1.25em 2em 0.5em hsla($h,$s,$l,0.3) inset,
+          0 1.25em 0 hsla($h,$s,$l,0.3) inset,
+          0 5em 3em hsla(0,0%,0%,0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70vw;
+  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    @include mobile {
+      width: 90%;
+    }
+    z-index: -1;
+    background-image: linear-gradient(-45deg,hsla($h, $s, $l,0.8),hsla($h, $s, $l,0.2) 67%);
+    border-radius: 0.25em;
+    box-shadow:
+            -0.125em -0.125em 0.25em hsla($h, $s, $l,0.5) inset,
+            0.3em 0.3em 0 hsla($h, $s, $l,0.2) inset,
+            0.375em 0.375em 0.5em hsla(0,0%,0%,0.3),
+            0.5em 0.5em 0.75em hsla($h, $s, 80%,0.7);
+  }
+  @include mobile {
+    width: 90vw;
+    height: 70vh;
+  }
+  @include landscape {
+    width: 70vw;
+    height: 25rem !important;
+  }
+  h1, h2, h3, p, blockquote {
+    @include mobile {
+      width: 80%;
+      text-align: center;
+      color: #f25d26;
+      text-shadow: 0px 2px 3px #fff;
+    }
+  }
   @include tablet-x {
     height: 30rem;
-    background: {
-      image: linear-gradient(hsla(0,0%,0%,0.2),hsla(0,0%,0%,0));
-    }
-    box-shadow:
-            0 -0.125em 0.25em hsla(0,0%,0%,0.2),
-            0 0.25em 0.25em hsla($h,$s,$l,0.5),
-            0 0 0 0.25em hsla($h,$s,$l,0.5),
-            0 0.375em 0.5em hsla($h,$s,$l,0.5) inset,
-            0 -0.125em 0.375em hsla($h,$s,$l,0.4) inset,
-            0 -1.25em 2em 0.5em hsla($h,$s,$l,0.3) inset,
-            0 1.25em 0 hsla($h,$s,$l,0.3) inset,
-            0 5em 3em hsla(0,0%,0%,0.4);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 70vw;
-    margin: 0 auto;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    &::before {
-      content: '';
-      position: absolute;
-      width: 80%;
-      height: 80%;
-      z-index: -1;
-      background-image: linear-gradient(-45deg,hsla($h, $s, $l,0.8),hsla($h, $s, $l,0.2) 67%);
-      border-radius: 0.25em;
-      box-shadow:
-              -0.125em -0.125em 0.25em hsla($h, $s, $l,0.5) inset,
-              0.3em 0.3em 0 hsla($h, $s, $l,0.2) inset,
-              0.375em 0.375em 0.5em hsla(0,0%,0%,0.3),
-              0.5em 0.5em 0.75em hsla($h, $s, 80%,0.7);
-    }
   }
   @include tablet-x {
     h1, h2, h3, p, blockquote {
@@ -186,15 +228,28 @@ section.page-about {
       font-weight: 600;
       margin-block-start: 2rem;
       margin-block-end: 1rem;
+      @include landscape {
+        margin-block-start: 1rem;
+        margin-block-end: 1rem;
+      }
     }
     p {
       width: 50%;
+      @include landscape {
+        width: 70%;
+        margin-block-start: 0.5rem;
+      }
       margin: 0 auto;
     }
     blockquote {
       width: 50%;
+
       margin: 0 auto;
       padding: 0.3rem 2rem;
+      @include landscape {
+        padding: 0.3rem 1rem;
+        width: 70%;
+      }
       font-weight: 200;
     }
   }
