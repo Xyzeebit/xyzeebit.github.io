@@ -1,11 +1,22 @@
 $font-family: 'Montserrat', sans-serif;
 $page-start-bg-image: '../images/banner-1.jpg';
 $white: #fff;
+$white-transparent: #fffa;
+$black: #111;
 $nav-brand-font-size: 1.5rem;
+$nav-a-border: 3px solid $black;
+$h: 33;
+$s: 90%;
+$l: 90%;
 
 %flex-c {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+%flex-a {
+  display: flex;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -50,6 +61,7 @@ a {
 }
 
 .page-start {
+  position: relative;
   width: 100vw;
   height: 100vh;
   background: {
@@ -63,24 +75,128 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0 1.5rem 0 1.5rem;
+  background: {
+    image: linear-gradient(hsla(0,0%,0%,0.2),hsla(0,0%,0%,0));
+  }
+  //backdrop-filter: blur(12px);
+  //-webkit-backdrop-filter: blur(12px);
 
   .nav-brand {
     @extend %flex-c;
     font-weight: 600;
     color: $white;
     font-size: $nav-brand-font-size;
+    @include tablet {
+      font-size: 1rem;
+    }
   }
 
   ul {
     list-style-type: none;
     @extend %flex-c;
+    column-gap: 1rem;
+    @include tablet {
+      column-gap: 0.5rem;
+    }
+    padding: 0;
   }
   li a {
     padding: 12px 10px;
     color: $white;
-    font-weight: 500;
+    font-weight: 600;
+    transition: background 0.5s;
+    @include tablet {
+      font-size: 0.9rem;
+    }
+    &:hover {
+      background-image: linear-gradient(-45deg,hsla($h, $s, $l,0.8),hsla($h, $s, $l,0.2) 67%);
+
+    }
+  }
+  li a:not(.cv-button) {
+    border-bottom: $nav-a-border;
   }
   .cv-button {
-    @extend %flex-c;
+    @extend %flex-a;
+    width: 100px;
+    @include tablet {
+      width: 60px;
+    }
+    box-shadow: 0px 0px 2px $white;
+    background-image: linear-gradient(-45deg,hsla($h, $s, $l,0.8),hsla($h, $s, $l,0.2) 67%);
+    color: $black;
+    transition: box-shadow 0.5s;
+    &:hover {
+      box-shadow: 1px 1px 1px $black;
+    }
   }
+}
+
+section.page-about {
+  @include tablet-x {
+    height: 30rem;
+    background: {
+      image: linear-gradient(hsla(0,0%,0%,0.2),hsla(0,0%,0%,0));
+    }
+    box-shadow:
+            0 -0.125em 0.25em hsla(0,0%,0%,0.2),
+            0 0.25em 0.25em hsla($h,$s,$l,0.5),
+            0 0 0 0.25em hsla($h,$s,$l,0.5),
+            0 0.375em 0.5em hsla($h,$s,$l,0.5) inset,
+            0 -0.125em 0.375em hsla($h,$s,$l,0.4) inset,
+            0 -1.25em 2em 0.5em hsla($h,$s,$l,0.3) inset,
+            0 1.25em 0 hsla($h,$s,$l,0.3) inset,
+            0 5em 3em hsla(0,0%,0%,0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70vw;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    &::before {
+      content: '';
+      position: absolute;
+      width: 80%;
+      height: 80%;
+      z-index: -1;
+      background-image: linear-gradient(-45deg,hsla($h, $s, $l,0.8),hsla($h, $s, $l,0.2) 67%);
+      border-radius: 0.25em;
+      box-shadow:
+              -0.125em -0.125em 0.25em hsla($h, $s, $l,0.5) inset,
+              0.3em 0.3em 0 hsla($h, $s, $l,0.2) inset,
+              0.375em 0.375em 0.5em hsla(0,0%,0%,0.3),
+              0.5em 0.5em 0.75em hsla($h, $s, 80%,0.7);
+    }
+  }
+  @include tablet-x {
+    h1, h2, h3, p, blockquote {
+      text-align: center;
+      color: lightyellow;
+    }
+    h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+      margin-block-start: 2rem;
+      margin-block-end: 1rem;
+    }
+    p {
+      width: 50%;
+      margin: 0 auto;
+    }
+    blockquote {
+      width: 50%;
+      margin: 0 auto;
+      padding: 0.3rem 2rem;
+      font-weight: 200;
+    }
+  }
+
 }
