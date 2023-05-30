@@ -19,6 +19,7 @@ body {
 * {
   box-sizing: border-box;
   font-family: "Montserrat", sans-serif;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -32,6 +33,23 @@ a {
   }
 }
 
+.slide-in {
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .page-start {
   position: relative;
   width: 100vw;
@@ -159,6 +177,9 @@ section.page-about::before {
     width: 70vw;
     height: 25rem !important;
   }
+}
+section.page-about h1, section.page-about h2, section.page-about h3, section.page-about p, section.page-about blockquote {
+  opacity: 0;
 }
 @media screen and (max-width: 700px) {
   section.page-about h1, section.page-about h2, section.page-about h3, section.page-about p, section.page-about blockquote {

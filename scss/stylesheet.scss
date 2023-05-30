@@ -31,6 +31,7 @@ body {
 * {
   box-sizing: border-box;
   font-family: $font-family;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -71,6 +72,24 @@ a {
 .hide {
   @include tablet {
     display: none;
+  }
+}
+
+.slide-in {
+  animation-name: slideIn;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
@@ -207,7 +226,9 @@ section.page-about {
     width: 70vw;
     height: 25rem !important;
   }
+
   h1, h2, h3, p, blockquote {
+    opacity: 0;
     @include mobile {
       width: 80%;
       text-align: center;
