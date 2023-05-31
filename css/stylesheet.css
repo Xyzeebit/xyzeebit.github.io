@@ -1,4 +1,4 @@
-nav ul, nav .nav-brand {
+section.page-about, nav ul, nav .nav-brand, .menu-header .cv-button {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,6 +50,136 @@ a {
     opacity: 1;
   }
 }
+main {
+  position: relative;
+}
+
+.container {
+  width: 100vw;
+}
+
+.menu-header {
+  height: 100vh;
+  position: relative;
+  z-index: 12;
+  background: #023202;
+  transition: transform 0.5s ease-in;
+}
+.menu-header ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 5rem;
+}
+.menu-header li {
+  padding: 1rem;
+}
+.menu-header li a {
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.menu-header .cv-button {
+  position: absolute;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  width: 80%;
+  margin: 0 auto;
+  box-shadow: 0px 0px 2px #fff;
+  background-image: linear-gradient(-45deg, rgba(252, 232, 207, 0.8), rgba(252, 232, 207, 0.2) 67%);
+  color: #111;
+  transition: box-shadow 0.5s;
+}
+.menu-header .cv-button:hover {
+  box-shadow: 1px 1px 1px #111;
+}
+@media (min-width: 701px) {
+  .menu-header {
+    display: none;
+  }
+}
+
+.mb-menu-btn {
+  width: 35px;
+  height: 25px;
+  background: none;
+  outline: none;
+  position: relative;
+  border: none;
+}
+.mb-menu-btn .menu-btn-group span {
+  transition: all 0.5s linear;
+}
+.mb-menu-btn .menu-btn-group span:nth-child(1) {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 35px;
+  height: 5px;
+  background: #111;
+  position: absolute;
+  border-radius: 0px 2px 0px 2px;
+}
+.mb-menu-btn .menu-btn-group span:nth-child(2) {
+  position: absolute;
+  top: 10px;
+  right: 0;
+  margin: 0 auto;
+  width: 25px;
+  height: 5px;
+  background: #111;
+  position: absolute;
+  border-radius: 2px;
+}
+.mb-menu-btn .menu-btn-group span:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 35px;
+  height: 5px;
+  background: #111;
+  position: absolute;
+  border-radius: 2px 0px 2px 0px;
+}
+.mb-menu-btn input[type=checkbox]:checked + label span:nth-child(1) {
+  animation-name: md;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+}
+.mb-menu-btn input[type=checkbox]:not(:checked) + label span:nth-child(1) {
+  animation-name: mu;
+  animation-duration: 0.3s;
+  animation-fill-mode: both;
+  animation-timing-function: linear;
+}
+@keyframes md {
+  0% {
+    top: 0;
+  }
+  50% {
+    transform: translateY(9px);
+  }
+  100% {
+    transform: translateY(9px) rotate(45deg);
+  }
+}
+@keyframes mu {
+  0% {
+    top: 0;
+  }
+  50% {
+    transform: translateY(9px) rotate(-45deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+.mb-menu-btn input[type=checkbox] {
+  display: none;
+}
+
 .page-start {
   position: relative;
   width: 100vw;
@@ -71,6 +201,9 @@ a {
 }
 
 nav {
+  position: relative;
+  width: 100vw;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -136,106 +269,66 @@ nav .cv-button:hover {
 }
 
 section.page-about {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0));
-  box-shadow: 0 -0.125em 0.25em rgba(0, 0, 0, 0.2), 0 0.25em 0.25em rgba(252, 232, 207, 0.5), 0 0 0 0.25em rgba(252, 232, 207, 0.5), 0 0.375em 0.5em rgba(252, 232, 207, 0.5) inset, 0 -0.125em 0.375em rgba(252, 232, 207, 0.4) inset, 0 -1.25em 2em 0.5em rgba(252, 232, 207, 0.3) inset, 0 1.25em 0 rgba(252, 232, 207, 0.3) inset, 0 5em 3em rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 70vw;
+  background: #0a0301b3;
+  width: 55vw;
+  height: 100%;
   margin: 0 auto;
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
+  bottom: 0;
   right: 0;
+  flex-direction: column;
 }
-section.page-about::before {
-  content: "";
+@media (min-width: 701px) {
+  section.page-about {
+    width: 65vw;
+  }
+}
+section.page-about h1 {
+  font-size: 8rem;
+  font-weight: 700;
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  filter: drop-shadow(0px 0px -3px #e9af74b3);
+  color: #fff;
+}
+section.page-about h2,
+section.page-about h3 {
+  margin: 0;
+  font-weight: 200;
+  font-size: 1.2rem;
+  color: #fff;
+  filter: drop-shadow(0px 0px -3px #e9af74b3);
+}
+section.page-about h2 {
+  padding-top: 2rem;
+}
+section.page-about h3 {
+  padding-top: 0.5rem;
+}
+section.page-about p {
+  margin: 0;
+  text-align: center;
+  color: #fff;
+  filter: drop-shadow(0px 0px -3px #e9af74b3);
+  padding: 3rem 4rem 0rem 4rem;
+}
+section.page-about a {
   position: absolute;
-  width: 80%;
-  height: 80%;
-  z-index: -1;
-  background-image: linear-gradient(-45deg, rgba(252, 232, 207, 0.8), rgba(252, 232, 207, 0.2) 67%);
-  border-radius: 0.25em;
-  box-shadow: -0.125em -0.125em 0.25em rgba(252, 232, 207, 0.5) inset, 0.3em 0.3em 0 rgba(252, 232, 207, 0.2) inset, 0.375em 0.375em 0.5em rgba(0, 0, 0, 0.3), 0.5em 0.5em 0.75em rgba(250, 209, 158, 0.7);
+  bottom: 2rem;
+  margin: 0 auto;
+  animation: pointer 0.8s linear infinite alternate;
 }
-@media screen and (max-width: 700px) {
-  section.page-about::before {
-    width: 90%;
+@keyframes pointer {
+  0% {
+    transform: translateY(-5px);
   }
-}
-@media screen and (max-width: 700px) {
-  section.page-about {
-    width: 90vw;
-    height: 70vh;
+  50% {
+    transform: translateY(5px);
   }
-}
-@media (orientation: landscape) and (max-height: 500px) {
-  section.page-about {
-    width: 70vw;
-    height: 25rem !important;
-  }
-}
-section.page-about h1, section.page-about h2, section.page-about h3, section.page-about p, section.page-about blockquote {
-  opacity: 0;
-}
-@media screen and (max-width: 700px) {
-  section.page-about h1, section.page-about h2, section.page-about h3, section.page-about p, section.page-about blockquote {
-    width: 80%;
-    text-align: center;
-    color: #f25d26;
-    text-shadow: 0px 2px 3px #fff;
-  }
-}
-@media (min-width: 701px) {
-  section.page-about {
-    height: 30rem;
-  }
-}
-@media (min-width: 701px) {
-  section.page-about h1, section.page-about h2, section.page-about h3, section.page-about p, section.page-about blockquote {
-    text-align: center;
-    color: lightyellow;
-  }
-  section.page-about h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-block-start: 2rem;
-    margin-block-end: 1rem;
-  }
-}
-@media (min-width: 701px) and (orientation: landscape) and (max-height: 500px) {
-  section.page-about h1 {
-    margin-block-start: 1rem;
-    margin-block-end: 1rem;
-  }
-}
-@media (min-width: 701px) {
-  section.page-about p {
-    width: 50%;
-    margin: 0 auto;
-  }
-}
-@media (min-width: 701px) and (orientation: landscape) and (max-height: 500px) {
-  section.page-about p {
-    width: 70%;
-    margin-block-start: 0.5rem;
-  }
-}
-@media (min-width: 701px) {
-  section.page-about blockquote {
-    width: 50%;
-    margin: 0 auto;
-    padding: 0.3rem 2rem;
-    font-weight: 200;
-  }
-}
-@media (min-width: 701px) and (orientation: landscape) and (max-height: 500px) {
-  section.page-about blockquote {
-    padding: 0.3rem 1rem;
-    width: 70%;
+  100% {
+    transform: translateY(10px);
   }
 }
 

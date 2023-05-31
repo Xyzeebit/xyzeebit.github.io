@@ -5,6 +5,8 @@ $page-start-bg-image-mobile: '../images/banner-mobile.jpg';
 $white: #fff;
 $white-transparent: #fffa;
 $black: #111;
+$wood-light: #e9af74b3;
+$black-transparent: #0a0301b3;
 $nav-brand-font-size: 1.5rem;
 $nav-a-border: 3px solid $black;
 $h: 33;
@@ -93,6 +95,175 @@ a {
   }
 }
 
+main {
+  position: relative;
+}
+.container {
+  width: 100vw;
+}
+
+.menu-header {
+  height: 100vh;
+  position: relative;
+  //top: 0;
+  //right: 0;
+  //bottom: 0;
+  z-index: 12;
+  background: #023202;
+  //transform: translateX(400px);
+  transition: transform 0.5s ease-in;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 5rem;
+  }
+  li {
+    padding: 1rem;
+  }
+  li a {
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .cv-button {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 2px $white;
+    background-image: linear-gradient(-45deg,hsla($h, $s, $l,0.8),hsla($h, $s, $l,0.2) 67%);
+    color: $black;
+    transition: box-shadow 0.5s;
+    &:hover {
+      box-shadow: 1px 1px 1px $black;
+    }
+    @extend %flex-c;
+  }
+
+
+
+  @include tablet-x {
+    display: none;
+  }
+
+}
+
+.mb-menu-btn {
+  @include tablet-x {
+    //display: none;
+  }
+  width: 35px;
+  height: 25px;
+  background: none;
+  outline: none;
+  position: relative;
+  border: none;
+  .menu-btn-group {
+
+    span {
+      transition: all 0.5s linear;
+    }
+    span:nth-child(1) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 35px;
+      height: 5px;
+      background: $black;
+      position: absolute;
+      border-radius: 0px 2px 0px 2px;
+    }
+    span:nth-child(2) {
+      position: absolute;
+      top: 10px;
+      right: 0;
+      margin: 0 auto;
+      width: 25px;
+      height: 5px;
+      background: $black;
+      position: absolute;
+      border-radius: 2px;
+    }
+    span:nth-child(3) {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 35px;
+      height: 5px;
+      background: $black;
+      position: absolute;
+      border-radius: 2px 0px 2px 0px;
+    }
+  }
+
+  input[type="checkbox"]:checked + label {
+    span:nth-child(1) {
+      animation-name: md;
+      animation-duration: 0.3s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+
+    span:nth-child(2) {
+
+    }
+    span:nth-child(3) {
+
+    }
+
+  }
+
+  input[type="checkbox"]:not(:checked) + label {
+    span:nth-child(1) {
+      animation-name: mu;
+      animation-duration: 0.3s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+
+    span:nth-child(2) {
+
+    }
+    span:nth-child(3) {
+
+    }
+  }
+
+  @keyframes md {
+    0% {
+      top: 0;
+    }
+    50% {
+      transform: translateY(9px);
+    }
+    100% {
+      transform: translateY(9px) rotate(45deg);
+    }
+  }
+
+  @keyframes mu {
+    0% {
+      //transform: translateY(9px) rotate(45deg);
+      top: 0;
+    }
+    50% {
+      transform: translateY(9px) rotate(-45deg);;
+    }
+    100% {
+      transform: translateY(0px) rotate(0deg);
+    }
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+}
+
 .page-start {
   position: relative;
   width: 100vw;
@@ -111,6 +282,9 @@ a {
   }
 }
 nav {
+  position: relative;
+  width: 100vw;
+  z-index: 10;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -176,102 +350,68 @@ nav {
 }
 
 section.page-about {
-  background: {
-    image: linear-gradient(hsla(0,0%,0%,0.2),hsla(0,0%,0%,0));
-  }
-  box-shadow:
-          0 -0.125em 0.25em hsla(0,0%,0%,0.2),
-          0 0.25em 0.25em hsla($h,$s,$l,0.5),
-          0 0 0 0.25em hsla($h,$s,$l,0.5),
-          0 0.375em 0.5em hsla($h,$s,$l,0.5) inset,
-          0 -0.125em 0.375em hsla($h,$s,$l,0.4) inset,
-          0 -1.25em 2em 0.5em hsla($h,$s,$l,0.3) inset,
-          0 1.25em 0 hsla($h,$s,$l,0.3) inset,
-          0 5em 3em hsla(0,0%,0%,0.4);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 70vw;
+  background: $black-transparent;
+  width: 55vw;
+  height: 100%;
   margin: 0 auto;
   position: absolute;
-  bottom: 0;
+  top: 0;
   left: 0;
+  bottom: 0;
   right: 0;
+  @include tablet-x {
+    width: 65vw;
+  }
 
-  &::before {
-    content: '';
+  @extend %flex-c;
+  flex-direction: column;
+
+  h1 {
+    font-size: 8rem;
+    font-weight: 700;
+    margin: 0;
+    font-family: 'Space Grotesk', sans-serif;
+    filter: drop-shadow(0px 0px -3px $wood-light);
+    color: $white;
+  }
+  h2,
+  h3 {
+    margin: 0;
+    font-weight: 200;
+    font-size: 1.2rem;
+    color: $white;
+    filter: drop-shadow(0px 0px -3px $wood-light);
+
+  }
+  h2 {
+    padding-top: 2rem;
+  }
+  h3 {
+    padding-top: 0.5rem;
+  }
+  p {
+    margin: 0;
+    text-align: center;
+    color: $white;
+    filter: drop-shadow(0px 0px -3px $wood-light);
+    padding: 3rem 4rem 0rem 4rem;
+  }
+  a {
     position: absolute;
-    width: 80%;
-    height: 80%;
-    @include mobile {
-      width: 90%;
-    }
-    z-index: -1;
-    background-image: linear-gradient(-45deg,hsla($h, $s, $l,0.8),hsla($h, $s, $l,0.2) 67%);
-    border-radius: 0.25em;
-    box-shadow:
-            -0.125em -0.125em 0.25em hsla($h, $s, $l,0.5) inset,
-            0.3em 0.3em 0 hsla($h, $s, $l,0.2) inset,
-            0.375em 0.375em 0.5em hsla(0,0%,0%,0.3),
-            0.5em 0.5em 0.75em hsla($h, $s, 80%,0.7);
-  }
-  @include mobile {
-    width: 90vw;
-    height: 70vh;
-  }
-  @include landscape {
-    width: 70vw;
-    height: 25rem !important;
+    bottom: 2rem;
+    margin: 0 auto;
+    animation: pointer 0.8s linear infinite alternate;
   }
 
-  h1, h2, h3, p, blockquote {
-    opacity: 0;
-    @include mobile {
-      width: 80%;
-      text-align: center;
-      color: #f25d26;
-      text-shadow: 0px 2px 3px #fff;
+  @keyframes pointer {
+    0% {
+      transform: translateY(-5px);
     }
-  }
-  @include tablet-x {
-    height: 30rem;
-  }
-  @include tablet-x {
-    h1, h2, h3, p, blockquote {
-      text-align: center;
-      color: lightyellow;
+    50% {
+      transform: translateY(5px);
     }
-    h1 {
-      font-size: 2.5rem;
-      font-weight: 600;
-      margin-block-start: 2rem;
-      margin-block-end: 1rem;
-      @include landscape {
-        margin-block-start: 1rem;
-        margin-block-end: 1rem;
-      }
-    }
-    p {
-      width: 50%;
-      @include landscape {
-        width: 70%;
-        margin-block-start: 0.5rem;
-      }
-      margin: 0 auto;
-    }
-    blockquote {
-      width: 50%;
-
-      margin: 0 auto;
-      padding: 0.3rem 2rem;
-      @include landscape {
-        padding: 0.3rem 1rem;
-        width: 70%;
-      }
-      font-weight: 200;
+    100% {
+      transform: translateY(10px);
     }
   }
 

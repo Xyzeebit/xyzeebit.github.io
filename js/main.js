@@ -2,11 +2,15 @@ window.addEventListener("DOMContentLoaded", contentLoaded);
 
 function contentLoaded(event) {
     window.appState = {
-        aboutMe: [false, false, false, false]
+        open: false,
+        aboutMe: [false, false, false, false],
     };
 
     const aboutMe = document.querySelector('.page-about');
     observeElement(aboutMe, window.appState.aboutMe, true);
+
+    const menuBtn = document.querySelector(".mb-menu-btn input[type='checkbox']");
+    menuBtn.onclick = toggleMenu;
 }
 
 function observeElement(el, state, isList) {
@@ -41,4 +45,13 @@ function elementObserve(visible, setVisible) {
         })
     }, { threshold: 1 });
     return inter;
+}
+
+function toggleMenu() {
+    const menu = document.querySelector('aside.menu-aside');
+    if(this.checked) {
+        menu.style.transform = 'translateX(0)';
+    } else {
+        menu.style.transform = 'translateX(400px)';
+    }
 }
