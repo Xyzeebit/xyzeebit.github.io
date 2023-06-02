@@ -60,9 +60,13 @@
             border-radius: 50%;
             border: 1px solid #1c1533;
             background: #fff;
+            transition: border 0.3s;
         }
         .selected {
-            border: 5px solid #1c1533;
+            filter: drop-shadow(0px 0px 1px #1c1533);
+        }
+        .selected .radio {
+            border: 6px solid #1c1533;
         }
         .card-choice {
             background: #deeced;
@@ -70,6 +74,7 @@
             border-radius: 10px;
             border: 1px solid #8d8d9a;
             margin-block-end: 1rem;
+            transition: all 0.3s;
         }
         .choice-header {
             display: flex;
@@ -97,9 +102,9 @@
     <main>
         <div class="card">
             <h1>Choose a trial plan</h1>
-            <div class="card-choice">
+            <div class="card-choice selected">
                 <div class="choice-header">
-                    <div class="radio selected">
+                    <div class="radio">
                     </div>
                     <h2>Standard</h2>
                 </div>
@@ -128,6 +133,17 @@
     </main>
 
 
-    <script></script>
+    <script>
+        window.addEventListener('DOMContentLoaded', evt => {
+            const plans = document.querySelectorAll('.card-choice');
+            for(let choice of plans) {
+                choice.onclick = selectPlan;
+            }
+        });
+        
+        function selectPlan() {
+            this.classList.toggle('selected');
+        }
+    </script>
 </body>
 </html>
