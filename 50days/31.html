@@ -46,6 +46,7 @@
 @media (min-width: 701px) {
             .card {
                 width: 30rem;
+                padding: 3rem;
             }
         }
         .card h1 {
@@ -118,6 +119,27 @@
             font-size: 0.85rem;
             padding-left: 1rem;
         }
+        button.submit {
+            width: 100%;
+            padding: 12px;
+            background: #1c1533;
+            color: #fff;
+            border: none;
+            outline: none;
+            font-weight: 450;
+            margin: 1rem 0 0.5rem 0;
+            transition: background 0.3s;
+        
+            box-shadow: 0px 1px 1px #5c7c7c;
+        }
+        button.submit:active {
+            background: #8d8d9a;
+        }
+        .info {
+            font-weight: 450;
+            text-align: center;
+            margin-block-end: 2rem;
+        }
 
     </style>
 </head>
@@ -168,6 +190,10 @@
                 </label>
 
             </div>
+            <button class="submit">
+                Start free trial
+            </button>
+            <p class="info">no credit card needed</p>
         </div>
     </main>
 
