@@ -152,6 +152,9 @@
                     this.classList.add('selected');
                     prev.classList.remove('selected');
                     prev = this;
+                } else {
+                    this.classList.toggle('selected');
+                    prev = this;
                 }
             } else {
                 this.classList.add('selected');
