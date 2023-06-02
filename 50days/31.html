@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Choose trial plan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        html,body {
+            padding: 0;
+            margin: 0;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: Helvetica, Sans-Serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        body {
+            background: #deeced;
+        }
+
+        main {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            width: 20rem;
+            background: #fff;
+            padding: 1rem;
+            border-radius: 10px;
+        }
+@media (min-width: 701px) {
+            .card {
+                width: 30rem;
+                padding: 3rem;
+            }
+        }
+        .card h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            margin-block-start: 1.5rem;
+            margin-block-end: 1.5rem;
+        }
+        .radio {
+            width: 23px;
+            height: 23px;
+            border-radius: 50%;
+            border: 1px solid #1c1533;
+            background: #fff;
+            transition: border 0.3s;
+        }
+        .selected {
+            filter: drop-shadow(0px 0px 1px #1c1533);
+        }
+        .selected .radio {
+            border: 6px solid #1c1533;
+        }
+        .card-choice {
+            background: #deeced;
+            padding: 1.2rem;
+            border-radius: 10px;
+            border: 1px solid #8d8d9a;
+            margin-block-end: 1rem;
+            transition: all 0.3s;
+        }
+        .choice-header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            column-gap: 0.7rem;
+        }
+        .choice-header h2 {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        .choice-body {
+            padding-left: 2rem;
+            padding-right: 1.5rem;
+        }
+        .choice-body p {
+            margin: 0;
+            padding-top: 0.5rem;
+            font-size: 0.9rem;
+            font-weight: 450;
+        }
+        .tc a {
+            text-decoration: underline;
+        }
+        .tc {
+             display: flex;
+             justify-items: flex-start;
+             align-items: flex-start;
+             margin-block-end: 1rem;
+             padding-left: 1.5rem;
+        }
+        .top {
+            margin-top: 2.5rem;
+        }
+        .tc input {
+            margin: 0;
+            
+        }
+        .tc label {
+            margin: 0;
+            font-size: 0.85rem;
+            padding-left: 1rem;
+        }
+        button.submit {
+            width: 100%;
+            padding: 12px;
+            background: #1c1533;
+            color: #fff;
+            border: none;
+            outline: none;
+            font-weight: 450;
+            margin: 1rem 0 0.5rem 0;
+            transition: background 0.3s;
+        
+            box-shadow: 0px 1px 1px #5c7c7c;
+        }
+        button.submit:active {
+            background: #8d8d9a;
+        }
+        .info {
+            font-weight: 450;
+            text-align: center;
+            margin-block-end: 2rem;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="card">
+            <h1>Choose a trial plan</h1>
+            <div class="card-choice" name="standard">
+                <div class="choice-header">
+                    <div class="radio">
+                    </div>
+                    <h2>Standard</h2>
+                </div>
+                <div class="choice-body">
+                    <p>
+                        5 TB of space with easy-to-us team management
+                        and collaboration tools.
+                    </p>
+                </div>
+            </div>
+
+            <div class="card-choice" name="advance">
+                <div class="choice-header">
+                    <div class="radio">
+                    </div>
+                    <h2>Advance</h2>
+                </div>
+                <div class="choice-body">
+                    <p>
+                        As much space as your team needs with sophisticated
+                        admin, audit, security and integrated capabilities.
+                    </p>
+                </div>
+            </div>
+
+            <div class="tc top">
+                <input type="checkbox" name="terms" id="terms">
+                <label for="terms">
+                    I agree to the <a href="#">Terms and Conditions.</a> Find out more about
+                    how we can use and protect your data in <a href="#">our privacy policy</a>
+                </label>
+
+            </div>
+            <div class="tc">
+                <input type="checkbox" name="marketing" id="marketing">
+                <label for="marketing">
+                    I'd like to receive direct marketing email updates.
+                </label>
+
+            </div>
+            <button class="submit">
+                Start free trial
+            </button>
+            <p class="info">no credit card needed</p>
+        </div>
+    </main>
+
+
+    <script>
+        let prev;
+        window.addEventListener('DOMContentLoaded', evt => {
+            const plans = document.querySelectorAll('.card-choice');
+            for (let choice of plans) {
+                choice.onclick = selectPlan;
+            }
+        });
+
+        function selectPlan() {
+            const data = this.getAttribute("name")
+
+            if (prev) {
+                const pdata = prev.getAttribute("name");
+
+                if (pdata !== data) {
+                    this.classList.add('selected');
+                    prev.classList.remove('selected');
+                    prev = this;
+                } else {
+                    this.classList.toggle('selected');
+                    prev = this;
+                }
+            } else {
+                this.classList.add('selected');
+                prev = this;
+            }
+
+
+
+        }
+    </script>
+</body>
+</html>
