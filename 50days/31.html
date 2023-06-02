@@ -79,7 +79,7 @@
         .choice-header {
             display: flex;
             justify-content: flex-start;
-            align-items: center;
+            align-items: flex-start;
             column-gap: 0.7rem;
         }
         .choice-header h2 {
@@ -94,6 +94,24 @@
             margin: 0;
             padding-top: 0.5rem;
             font-size: 0.9rem;
+        }
+        .tc a {
+            text-decoration: underline;
+        }
+        .tc {
+             display: flex;
+             justify-items: flex-start;
+             align-items: flex-start;
+             margin-block-end: 1rem;
+        }
+        .tc input {
+            margin: 0;
+            margin-top: 0.2rem;
+        }
+        .tc p {
+            margin: 0;
+            font-size: 0.85rem;
+            padding-left: 1rem;
         }
 
     </style>
@@ -129,6 +147,22 @@
                     </p>
                 </div>
             </div>
+
+            <div class="tc">
+                <input type="checkbox" name="terms" id="terms">
+                <p>
+                    I agree to the <a href="#">Terms and Conditions.</a> Find out more about
+                    how we can use and protect your data in <a href="#">our privacy policy</a>
+                </p>
+
+            </div>
+            <div class="tc">
+                <input type="checkbox" name="terms" id="terms">
+                <p>
+                    I'd like to receive direct marketing email updates.
+                </p>
+
+            </div>
         </div>
     </main>
 
@@ -144,10 +178,10 @@
 
         function selectPlan() {
             const data = this.getAttribute("name")
-            
+
             if (prev) {
                 const pdata = prev.getAttribute("name");
-                
+
                 if (pdata !== data) {
                     this.classList.add('selected');
                     prev.classList.remove('selected');
