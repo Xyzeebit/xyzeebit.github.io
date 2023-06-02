@@ -102,7 +102,7 @@
     <main>
         <div class="card">
             <h1>Choose a trial plan</h1>
-            <div class="card-choice selected">
+            <div class="card-choice" name="standard">
                 <div class="choice-header">
                     <div class="radio">
                     </div>
@@ -116,7 +116,7 @@
                 </div>
             </div>
 
-            <div class="card-choice">
+            <div class="card-choice" name="advance">
                 <div class="choice-header">
                     <div class="radio">
                     </div>
@@ -124,7 +124,7 @@
                 </div>
                 <div class="choice-body">
                     <p>
-                        As much space as your team needs with sophisticated 
+                        As much space as your team needs with sophisticated
                         admin, audit, security and integrated capabilities.
                     </p>
                 </div>
@@ -134,15 +134,32 @@
 
 
     <script>
+        let prev;
         window.addEventListener('DOMContentLoaded', evt => {
             const plans = document.querySelectorAll('.card-choice');
-            for(let choice of plans) {
+            for (let choice of plans) {
                 choice.onclick = selectPlan;
             }
         });
-        
+
         function selectPlan() {
-            this.classList.toggle('selected');
+            const data = this.getAttribute("name")
+            
+            if (prev) {
+                const pdata = prev.getAttribute("name");
+                
+                if (pdata !== data) {
+                    this.classList.add('selected');
+                    prev.classList.remove('selected');
+                    prev = this;
+                }
+            } else {
+                this.classList.add('selected');
+                prev = this;
+            }
+
+
+
         }
     </script>
 </body>
