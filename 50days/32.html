@@ -1,153 +1,227 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <title>Card members expansion</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <style>
-            * {
-                box-sizing: border-box;
-            }
-            body {
-                background: #E0FFFF;
-            }
-            main {
-                display: grid;
-                place-items: center;
-                height: 100vh;
-            }
-            .card {
-                width: 20rem;
-                border-radius: 10px;
-                box-shadow: 0px 1px 1px -1px #111;
-                display: flex;
-                justify-items: flex-start;
-                align-items: flex-start;
-                flex-wrap: wrap;
-                column-gap: 1rem;
-                row-gap: 1rem;
-                background: #F5F5F5;
-                padding: 1rem;
-            }
-            .panel {
-                background: #fff;
-                border-radius: 5px;
-                position: relative;
-                box-shadow: 0px 0px 1px #000;
-                transition: all 0.8s;
-            }
-            .card-left {
-                width: 10rem;
-                height: 3rem;
-                
-            }
-            .card-left::before {
-                content: '';
-                position: absolute;
-                width: 80%;
-                height: 0.5rem;
-                background: #87CEEB;
-                top: 8px;
-                left: 5px;
-                border-radius: 3px;
-            }
-            .card-left::after {
-                content: '';
-                position: absolute;
-                width: 50%;
-                height: 0.5rem;
-                background: #87CEEB;
-                bottom: 8px;
-                left: 5px;
-                border-radius: 3px;
-            }
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Card members expansion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background: #E0FFFF;
+        }
+        main {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+        .card {
+            width: 20rem;
+            border-radius: 10px;
+            box-shadow: 0px 1px 1px -1px #111;
+            display: flex;
+            justify-items: flex-start;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            column-gap: 1rem;
+            row-gap: 1rem;
+            background: #FFB6C1;
+            padding: 1rem;
+            position: relative;
+        }
+        .panel {
+            background: #fff;
+            border-radius: 5px;
+            position: relative;
+            box-shadow: 0px 0px 1px #000;
+            transition: all 0.8s;
+        }
+        .cl {
+            min-width: 10rem;
+            min-height: 3rem;
+           
+        }
+        .card-left {
+            width: 10rem;
+            height: 3rem;
+
+        }
+        .card-left::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 0.5rem;
+            background: #87CEEB;
+            top: 8px;
+            left: 5px;
+            border-radius: 3px;
+        }
+        .card-left::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 0.5rem;
+            background: #87CEEB;
+            bottom: 8px;
+            left: 5px;
+            border-radius: 3px;
+        }
+
+        .cr {
+            min-width: 7rem;
+            min-height: 5rem;
             
-            .card-right {
+        }
+        .card-right {
+            width: 7rem;
+            height: 5rem;
+        }
+        .card-right::before {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 80%;
+            background: #87CEEB;
+            top: 8px;
+            left: 8px;
+            border-radius: 3px;
+        }
+        .card-right::after {
+            content: '';
+            position: absolute;
+            width: 1rem;
+            height: 80%;
+            background: #87CEEB;
+            top: 8px;
+            right: 8px;
+            border-radius: 3px;
+        }
+        
+        .c {
+            min-width: 100%;
+            min-height: 5rem;
+            
+        }
+        .card-center {
+            width: 100%;
+            height: 5rem;
+        }
+        .card-center::before {
+            content: '';
+            position: absolute;
+            width: 65px;
+            height: 80%;
+            background: #87CEEB;
+            top: 8px;
+            left: 8px;
+            border-radius: 50%;
+        }
+        .card-center::after {
+            content: '';
+            position: absolute;
+            width: 65%;
+            height: 80%;
+            background: #87CEEB;
+            top: 8px;
+            right: 8px;
+            border-radius: 3px;
+        }
+
+        .exp-r {
+            animation-name: expr;
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+            animation-timing-function: linear;
+            
+        }
+        @keyframes expr {
+            from {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                z-index: 99;
+            }
+            to {
+                position: absolute;
+                top: 0;
+                right: 0;
+                
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+            }
+        }
+        .shrink-r {
+            animation-name: shrinkr;
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+            animation-timing-function: linear;
+        }
+        @keyframes shrinkr {
+            from {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+            }
+            to {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                z-index: 99;
                 width: 7rem;
                 height: 5rem;
             }
-            .card-right::before {
-                content: '';
-                position: absolute;
-                width: 60%;
-                height: 80%;
-                background: #87CEEB;
-                top: 8px;
-                left: 8px;
-                border-radius: 3px;
-            }
-            .card-right::after {
-                content: '';
-                position: absolute;
-                width: 1rem;
-                height: 80%;
-                background: #87CEEB;
-                top: 8px;
-                right: 8px;
-                border-radius: 3px;
-            }
-            
-            .card-center {
-                width: 100%;
-                height: 5rem;
-            }
-            .card-center::before {
-                content: '';
-                position: absolute;
-                width: 65px;
-                height: 80%;
-                background: #87CEEB;
-                top: 8px;
-                left: 8px;
-                border-radius: 50%;
-            }
-            .card-center::after {
-                content: '';
-                position: absolute;
-                width: 65%;
-                height: 80%;
-                background: #87CEEB;
-                top: 8px;
-                right: 8px;
-                border-radius: 3px;
-            }
-            .expand {
-                z-index: 99;
-                transform: scale3d(1.2, 3, 5);
-                perspective: 50%;
-                transform-origin: 1px;
-
-            }
-        </style>
-    </head>
-    <body>
-        <main>
-            <div class="card">
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="card">
+            <div class="cl">
                 <div class="card-left panel">
-                    
-                </div>
-                <div class="card-right panel">
-                    
-                </div>
-                <div class="card-center panel">
-                    
+
                 </div>
             </div>
-        </main>
-        <script>
-            window.addEventListener("DOMContentLoaded", contentLoaded);
-            
-            function contentLoaded() {
-                const panels = document.querySelectorAll('.panel');
-                for(let card of panels) {
-                    card.onclick = expandCard;
+
+            <div class="cr">
+                <div class="card-right panel">
+
+                </div>
+            </div>
+
+            <div class="c">
+                <div class="card-center panel">
+
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        window.addEventListener("DOMContentLoaded", contentLoaded);
+
+        function contentLoaded() {
+            const panels = document.querySelectorAll('.panel');
+            for (let card of panels) {
+                card.onclick = expandCard;
+            }
+
+        }
+
+        function expandCard() {
+            if(this.classList.contains('card-right')) {
+                if(this.classList.contains('exp-r')) {
+                    this.classList.remove('exp-r');
+                    this.classList.add('shrink-r')
+                } else {
+                    this.classList.add('exp-r');
+                    this.classList.remove('shrink-r')
                 }
-                
             }
-            
-            function expandCard() {
-                this.classList.toggle('expand');
-            }
-        </script>
-    </body>
+        }
+    </script>
+</body>
 </html>
