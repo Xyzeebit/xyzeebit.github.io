@@ -4,10 +4,52 @@
         <meta http-equiv="content-type" content="text/html; charset=utf-8">
         <title>Card members expansion</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <style></style>
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            body {
+                background: #E0FFFF;
+            }
+            main {
+                display: grid;
+                place-items: center;
+                height: 100vh;
+            }
+            .card {
+                width: 20rem;
+                border-radius: 10px;
+                box-shadow: 0px 1px 1px 2px #111a;
+                display: flex;
+                justify-items: flex-start;
+                align-items: flex-start;
+                flex-wrap: wrap;
+                column-gap: 1rem;
+                row-gap: 1rem;
+                background: #F5F5F5;
+                padding: 1rem;
+            }
+            .cleft {
+                width: 10rem;
+                height: 3rem;
+                background: #fff;
+                border-radius: 5px;
+                position: relative;
+                
+            }
+            .cleft::before {
+                content: '';
+            }
+        </style>
     </head>
     <body>
-        body
+        <main>
+            <div class="card">
+                <div class="cleft">
+                    
+                </div>
+            </div>
+        </main>
         <script></script>
     </body>
 </html>
