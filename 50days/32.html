@@ -52,7 +52,9 @@
             position: absolute;
             width: 80%;
             height: 50%;
-            background: #87CEEB;
+            background-image: url('./images/mount.jpg');
+            background-position: center;
+            background-size: cover;
             top: 8px;
             left: 5px;
             border-radius: 3px;
@@ -62,7 +64,10 @@
             position: absolute;
             width: 50%;
             height: 10%;
-            background: #87CEEB;
+            /*background: #87CEEB;*/
+            background-image: url('./images/mountain.jpg');
+            background-position: center;
+            background-size: cover;
             bottom: 8px;
             left: 5px;
             border-radius: 3px;
@@ -82,8 +87,9 @@
             position: absolute;
             width: 60%;
             height: 80%;
-            background: #87CEEB;
-            
+            background-image: url('./images/flower.jpg');
+            background-position: center;
+            background-size: cover;
             left: 8px;
             bottom: 8px;
             border-radius: 3px;
@@ -93,7 +99,9 @@
             position: absolute;
             width: 15%;
             height: 70%;
-            background: #87CEEB;
+            background-image: url('./images/eagle.jpg');
+            background-position: center;
+            background-size: cover;
             bottom: 8px;
             right: 8px;
             border-radius: 3px;
@@ -113,7 +121,9 @@
             position: absolute;
             width: 65px;
             height: 80%;
-            background: #87CEEB;
+            background-image: url('./images/dog.jpg');
+            background-position: center;
+            background-size: cover;
             top: 8px;
             left: 8px;
             border-radius: 50%;
@@ -123,7 +133,9 @@
             position: absolute;
             width: 65%;
             height: 80%;
-            background: #87CEEB;
+            background-image: url('./images/stream.jpg');
+            background-position: center;
+            background-size: cover;
             bottom: 8px;
             right: 8px;
             border-radius: 3px;
@@ -307,10 +319,10 @@
         }
         
         .exp-c::before {
-            width: 65px;
-            height: 65px;
+            width: 75px;
+            height: 75px;
             border-radius: 50%;
-            top: 2rem;
+            top: 20%;
         }
         .shrink-c::before {
             width: 65px;
@@ -472,18 +484,15 @@
             if(this.parentNode.classList.contains('card-right')) {
                 this.parentNode.classList.contains('exp-r') ? this.parentNode.classList.remove('exp-r') : console.log(this.parentNode.classList);
                 this.parentNode.classList.add('shrink-r');
-                //this.parentNode.style.zIndex = 0;
             }
             
             if(this.parentNode.classList.contains('card-left')) {
                 this.parentNode.classList.contains('exp-l') ? this.parentNode.classList.remove('exp-l') : console.log(this.parentNode.classList);
                 this.parentNode.classList.add('shrink-l');
-                //this.parentNode.style.zIndex = 0;
             }
             if(this.parentNode.classList.contains('card-center')) {
                 this.parentNode.classList.contains('exp-c') ? this.parentNode.classList.remove('exp-c') : console.log(this.parentNode.classList);
                 this.parentNode.classList.add('shrink-c');
-                //this.parentNode.style.zIndex = 0;
             }
         }
     </script>
