@@ -51,7 +51,7 @@
             content: '';
             position: absolute;
             width: 80%;
-            height: 0.5rem;
+            height: 50%;
             background: #87CEEB;
             top: 8px;
             left: 5px;
@@ -61,7 +61,7 @@
             content: '';
             position: absolute;
             width: 50%;
-            height: 0.5rem;
+            height: 10%;
             background: #87CEEB;
             bottom: 8px;
             left: 5px;
@@ -128,6 +128,100 @@
             right: 8px;
             border-radius: 3px;
         }
+        
+        
+        .exp-l {
+            animation-name: expl;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+            animation-timing-function: linear;
+            
+        }
+        
+        @keyframes expl {
+            from {
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                z-index: 99;
+            }
+            to {
+                position: absolute;
+                top: 0;
+                left: 0;
+                
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+            }
+        }
+        .shrink-l {
+            animation-name: shrinkl;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+            animation-timing-function: linear;
+        }
+        @keyframes shrinkl {
+            from {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+            }
+            to {
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                z-index: 99;
+                width: 10rem;
+                height: 3rem;
+            }
+        }
+        .exp-l span {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #fafafa;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            box-shadow: 0px 0px 1px #111;
+        }
+        .exp-l span::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 4px;
+            background: #000;
+            border-radius: 2px;
+            top: 46%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: rotate(45deg);
+            transform-origin: 50%;
+        }
+        .exp-l span::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 4px;
+            background: #000;
+            border-radius: 2px;
+            bottom: 40%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            z-index: 1;
+            transform: rotate(-45deg);
+        }
+        
+        
+        
+        
+        
 
         .exp-r {
             animation-name: expr;
@@ -223,7 +317,7 @@
         <div class="card">
             <div class="cl">
                 <div class="card-left panel">
-
+                  <span></span>
                 </div>
             </div>
 
@@ -262,6 +356,10 @@
                 this.classList.contains('shrink-r') ? this.classList.remove('shrink-r') : console.log(this.classList);
                 this.classList.add('exp-r');
             }
+            if(this.classList.contains('card-left')) {
+                this.classList.contains('shrink-l') ? this.classList.remove('shrink-l') : console.log(this.classList);
+                this.classList.add('exp-l');
+            }
         }
         
         function closeCard() {
@@ -269,6 +367,11 @@
             if(this.parentNode.classList.contains('card-right')) {
                 this.parentNode.classList.contains('exp-r') ? this.parentNode.classList.remove('exp-r') : console.log(this.parentNode.classList);
                 this.parentNode.classList.add('shrink-r');
+            }
+            
+            if(this.parentNode.classList.contains('card-left')) {
+                this.parentNode.classList.contains('exp-l') ? this.parentNode.classList.remove('exp-l') : console.log(this.parentNode.classList);
+                this.parentNode.classList.add('shrink-l');
             }
         }
     </script>
