@@ -83,17 +83,18 @@
             width: 60%;
             height: 80%;
             background: #87CEEB;
-            top: 8px;
+            
             left: 8px;
+            bottom: 8px;
             border-radius: 3px;
         }
         .card-right::after {
             content: '';
             position: absolute;
-            width: 1rem;
-            height: 80%;
+            width: 15%;
+            height: 70%;
             background: #87CEEB;
-            top: 8px;
+            bottom: 8px;
             right: 8px;
             border-radius: 3px;
         }
@@ -130,11 +131,12 @@
 
         .exp-r {
             animation-name: expr;
-            animation-duration: 0.8s;
+            animation-duration: 0.5s;
             animation-fill-mode: both;
             animation-timing-function: linear;
             
         }
+        
         @keyframes expr {
             from {
                 position: absolute;
@@ -154,7 +156,7 @@
         }
         .shrink-r {
             animation-name: shrinkr;
-            animation-duration: 0.8s;
+            animation-duration: 0.5s;
             animation-fill-mode: both;
             animation-timing-function: linear;
         }
@@ -176,6 +178,40 @@
                 height: 5rem;
             }
         }
+        .exp-r span {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #fafafa;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            box-shadow: 0px 0px 1px #111;
+        }
+        .exp-r span::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 4px;
+            background: #000;
+            border-radius: 2px;
+            top: 4px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
+        .exp-r span::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 4px;
+            background: #000;
+            border-radius: 2px;
+            bottom: 4px;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -189,7 +225,7 @@
 
             <div class="cr">
                 <div class="card-right panel">
-
+                    <span></span>
                 </div>
             </div>
 
