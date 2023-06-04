@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Card members expansion</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        body {
+            background: #E0FFFF;
+        }
+        main {
+            display: grid;
+            place-items: center;
+            height: 100vh;
+        }
+        .card {
+            width: 20rem;
+            border-radius: 10px;
+            box-shadow: 0px 1px 1px -1px #111;
+            display: flex;
+            justify-items: flex-start;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            column-gap: 1rem;
+            row-gap: 1rem;
+            background: #FFB6C1;
+            padding: 1rem;
+            position: relative;
+        }
+        .panel {
+            background: #fff;
+            border-radius: 5px;
+            position: relative;
+            box-shadow: 0px 0px 1px #000;
+            transition: all 0.8s;
+        }
+        .cl {
+            min-width: 10rem;
+            min-height: 3rem;
+           
+        }
+        .card-left {
+            width: 10rem;
+            height: 3rem;
+
+        }
+        .card-left::before {
+            content: '';
+            position: absolute;
+            width: 80%;
+            height: 50%;
+            background-image: url('./images/mount.jpg');
+            background-position: center;
+            background-size: cover;
+            top: 8px;
+            left: 5px;
+            border-radius: 3px;
+        }
+        .card-left::after {
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 10%;
+            /*background: #87CEEB;*/
+            background-image: url('./images/mountain.jpg');
+            background-position: center;
+            background-size: cover;
+            bottom: 8px;
+            left: 5px;
+            border-radius: 3px;
+        }
+
+        .cr {
+            min-width: 7rem;
+            min-height: 5rem;
+            
+        }
+        .card-right {
+            width: 7rem;
+            height: 5rem;
+        }
+        .card-right::before {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 80%;
+            background-image: url('./images/flower.jpg');
+            background-position: center;
+            background-size: cover;
+            left: 8px;
+            bottom: 8px;
+            border-radius: 3px;
+        }
+        .card-right::after {
+            content: '';
+            position: absolute;
+            width: 15%;
+            height: 70%;
+            background-image: url('./images/eagle.jpg');
+            background-position: center;
+            background-size: cover;
+            bottom: 8px;
+            right: 8px;
+            border-radius: 3px;
+        }
+        
+        .c {
+            min-width: 100%;
+            min-height: 5rem;
+            
+        }
+        .card-center {
+            width: 100%;
+            height: 5rem;
+        }
+        .card-center::before {
+            content: '';
+            position: absolute;
+            width: 65px;
+            height: 80%;
+            background-image: url('./images/dog.jpg');
+            background-position: center;
+            background-size: cover;
+            top: 8px;
+            left: 8px;
+            border-radius: 50%;
+        }
+        .card-center::after {
+            content: '';
+            position: absolute;
+            width: 65%;
+            height: 80%;
+            background-image: url('./images/stream.jpg');
+            background-position: center;
+            background-size: cover;
+            bottom: 8px;
+            right: 8px;
+            border-radius: 3px;
+        }
+        
+        
+        .exp-l {
+            animation-name: expl;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+            animation-timing-function: linear;
+            
+        }
+        
+        @keyframes expl {
+            from {
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                z-index: 99;
+            }
+            to {
+                position: absolute;
+                top: 0;
+                left: 0;
+                
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+            }
+        }
+        .shrink-l {
+            animation-name: shrinkl;
+            animation-duration: 0.5s;
+            animation-fill-mode: alternate;
+            animation-timing-function: linear;
+        }
+        @keyframes shrinkl {
+            from {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+            }
+            to {
+                position: absolute;
+                top: 1rem;
+                left: 1rem;
+                z-index: 99;
+                width: 10rem;
+                height: 3rem;
+            }
+        }
+        .exp-l span {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #fafafa;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            box-shadow: 0px 0px 1px #111;
+        }
+        .exp-l span::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 4px;
+            background: #000;
+            border-radius: 2px;
+            top: 46%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: rotate(45deg);
+            transform-origin: 50%;
+        }
+        .exp-l span::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 4px;
+            background: #000;
+            border-radius: 2px;
+            bottom: 40%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            z-index: 1;
+            transform: rotate(-45deg);
+        }
+
+        .exp-r {
+            animation-name: expr;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+            animation-timing-function: linear;
+            
+        }
+        
+        @keyframes expr {
+            from {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                z-index: 99;
+            }
+            to {
+                position: absolute;
+                top: 0;
+                right: 0;
+                
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+            }
+        }
+        .shrink-r {
+            animation-name: shrinkr;
+            animation-duration: 0.5s;
+            animation-fill-mode: alternate;
+            animation-timing-function: linear;
+        }
+        @keyframes shrinkr {
+            from {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+            }
+            to {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+                z-index: 99;
+                width: 7rem;
+                height: 5rem;
+            }
+        }
+        .exp-r span {
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            background: #fafafa;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            box-shadow: 0px 0px 1px #111;
+        }
+        .exp-r span::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 4px;
+            background: #000;
+            border-radius: 2px;
+            top: 46%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: rotate(45deg);
+            transform-origin: 50%;
+        }
+        .exp-r span::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 4px;
+            background: #000;
+            border-radius: 2px;
+            bottom: 40%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            z-index: 1;
+            transform: rotate(-45deg);
+        }
+        
+        .exp-c::before {
+            width: 75px;
+            height: 75px;
+            border-radius: 50%;
+            top: 20%;
+        }
+        .shrink-c::before {
+            width: 65px;
+            height: 65px;
+            top: 8px;
+        }
+        .exp-c::after {
+            height: 75%;
+        }
+        .exp-c {
+            animation-name: expc;
+            animation-duration: 0.5s;
+            animation-fill-mode: both;
+            animation-timing-function: linear;
+            
+        }
+        
+        @keyframes expc {
+            from {
+                position: absolute;
+                bottom: 1rem;
+                left: 1rem;
+                width: 90%;
+                z-index: 99;
+            }
+            to {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+            }
+        }
+        .shrink-c {
+            animation-name: shrinkc;
+            animation-duration: 0.5s;
+            animation-fill-mode: alternate;
+            animation-timing-function: linear;
+        }
+        @keyframes shrinkc {
+            from {
+                position: absolute;
+                /*top: 0;*/
+                left: 0;
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 99;
+            }
+            to {
+                position: absolute;
+                left: 1rem;
+                bottom: 1rem;
+                z-index: 99;
+                width: 90%;
+                height: 5rem;
+            }
+        }
+        .exp-c span {
+            position: absolute;
+            z-index: 2;
+            top: 8px;
+            right: 8px;
+            background: #fafafa;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            box-shadow: 0px 0px 1px #111;
+        }
+        .exp-c span::before {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 4px;
+            background: #000;
+            border-radius: 2px;
+            top: 46%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: rotate(45deg);
+            transform-origin: 50%;
+        }
+        .exp-c span::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 4px;
+            background: #000;
+            border-radius: 2px;
+            bottom: 40%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            z-index: 1;
+            transform: rotate(-45deg);
+        }
+        
+    </style>
+</head>
+<body>
+    <main>
+        <div class="card">
+            <div class="cl">
+                <div class="card-left panel">
+                  <span></span>
+                </div>
+            </div>
+
+            <div class="cr">
+                <div class="card-right panel">
+                    <span></span>
+                </div>
+            </div>
+
+            <div class="c">
+                <div class="card-center panel">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        window.addEventListener("DOMContentLoaded", contentLoaded);
+
+        function contentLoaded() {
+            const panels = document.querySelectorAll('.panel');
+            for (let card of panels) {
+                card.addEventListener('click', expandCard, true);
+            }
+            
+            const spans = document.querySelectorAll('.card span');
+            
+            for (let span of spans) {
+                span.onclick = closeCard;
+            }
+
+        }
+
+        function expandCard() {
+            if(this.classList.contains('card-right')) {
+                this.classList.contains('shrink-r') ? this.classList.remove('shrink-r') : console.log(this.classList);
+                this.classList.add('exp-r');
+            }
+            if(this.classList.contains('card-left')) {
+                this.classList.contains('shrink-l') ? this.classList.remove('shrink-l') : console.log(this.classList);
+                this.classList.add('exp-l');
+            }
+            if(this.classList.contains('card-center')) {
+                this.classList.contains('shrink-c') ? this.classList.remove('shrink-c') : console.log(this.classList);
+                this.classList.add('exp-c');
+            }
+        }
+        
+        function closeCard() {
+            
+            if(this.parentNode.classList.contains('card-right')) {
+                this.parentNode.classList.contains('exp-r') ? this.parentNode.classList.remove('exp-r') : console.log(this.parentNode.classList);
+                this.parentNode.classList.add('shrink-r');
+            }
+            
+            if(this.parentNode.classList.contains('card-left')) {
+                this.parentNode.classList.contains('exp-l') ? this.parentNode.classList.remove('exp-l') : console.log(this.parentNode.classList);
+                this.parentNode.classList.add('shrink-l');
+            }
+            if(this.parentNode.classList.contains('card-center')) {
+                this.parentNode.classList.contains('exp-c') ? this.parentNode.classList.remove('exp-c') : console.log(this.parentNode.classList);
+                this.parentNode.classList.add('shrink-c');
+            }
+        }
+    </script>
+</body>
+</html>
