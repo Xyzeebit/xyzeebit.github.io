@@ -195,10 +195,12 @@
             height: 4px;
             background: #000;
             border-radius: 2px;
-            top: 4px;
+            top: 46%;
             left: 0;
             right: 0;
             margin: 0 auto;
+            transform: rotate(45deg);
+            transform-origin: 50%;
         }
         .exp-r span::after {
             content: '';
@@ -207,10 +209,12 @@
             height: 4px;
             background: #000;
             border-radius: 2px;
-            bottom: 4px;
+            bottom: 40%;
             left: 0;
             right: 0;
             margin: 0 auto;
+            z-index: 1;
+            transform: rotate(-45deg);
         }
     </style>
 </head>
@@ -242,20 +246,29 @@
         function contentLoaded() {
             const panels = document.querySelectorAll('.panel');
             for (let card of panels) {
-                card.onclick = expandCard;
+                card.addEventListener('click', expandCard, true);
+            }
+            
+            const spans = document.querySelectorAll('.card span');
+            
+            for (let span of spans) {
+                span.onclick = closeCard;
             }
 
         }
 
         function expandCard() {
             if(this.classList.contains('card-right')) {
-                if(this.classList.contains('exp-r')) {
-                    this.classList.remove('exp-r');
-                    this.classList.add('shrink-r')
-                } else {
-                    this.classList.add('exp-r');
-                    this.classList.remove('shrink-r')
-                }
+                this.classList.contains('shrink-r') ? this.classList.remove('shrink-r') : console.log(this.classList);
+                this.classList.add('exp-r');
+            }
+        }
+        
+        function closeCard() {
+            
+            if(this.parentNode.classList.contains('card-right')) {
+                this.parentNode.classList.contains('exp-r') ? this.parentNode.classList.remove('exp-r') : console.log(this.parentNode.classList);
+                this.parentNode.classList.add('shrink-r');
             }
         }
     </script>
