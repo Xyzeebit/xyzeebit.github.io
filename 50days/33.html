@@ -77,11 +77,9 @@
             flex-wrap: wrap;
             border: 1px solid #000;
         }
-        .input-box .chip {
-            
-        }
+        .input-box .chip {}
         .input-box input {
-            
+
             height: 40px;
             border: none;
             outline: none;
@@ -112,6 +110,55 @@
             </div>
         </div>
     </div>
-    <script></script>
+    <script>
+        const userList = [];
+        window.addEventListener('DOMContentLoaded', pageLoaded);
+        function pageLoaded() {
+            users();
+        }
+        function users() {
+            fetch('https://dummyjson.com/users')
+            .then(res => res.json())
+            .then(json => populateList(json));
+        }
+        function populateList(list) {
+            const {
+                users
+            } = list;
+            for (let u of users) {
+                userList.push(
+                    {
+                        name: `${u.firstName} ${u.lastName}`,
+                        photo: u.image
+                    }
+                );
+            }
+            addUsers(userList);
+        }
+
+        function addUsers(users) {
+            const el = document.querySelector('.user-list');
+            user.setAttribute('class', 'user');
+            for (let u of users) {
+                const user = document.createElement('div');
+                const img = document.createElement('img');
+                img.alt = u.name;
+                img.src = u.photo
+                img.width = 50;
+                img.height = 50
+                const span = document.createElement('span');
+                span.innerText = u.name;
+                user.append(img);
+                user.append(span);
+                el.append(user);
+                el.onclick = addChip;
+            }
+
+        }
+        
+        function addChip() {
+            const chips = document.querySelector('.chips');
+        }
+    </script>
 </body>
 </html>
