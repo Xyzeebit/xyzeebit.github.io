@@ -1,13 +1,117 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8">
-        <title>Chips</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <style></style>
-    </head>
-    <body>
-        body
-        <script></script>
-    </body>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Chips</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .chip {
+            background: #ccc;
+            padding: 0rem 0.5rem 0rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 30px;
+            min-width: fit-content;
+            height: 35px;
+            font-weight: 500;
+        }
+        .chip img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+        }
+        .chip .uname {
+            padding: 0 0.5rem 0 0.3rem;
+            font-size: 0.9rem;
+        }
+        .chip .close {
+            width: 25px;
+            height: 25px;
+            position: relative;
+            background: #fff;
+            border-radius: 50%;
+        }
+        .chip .close::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            background: #000;
+            border-radius: 2px;
+            top: 43%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: rotate(45deg);
+        }
+        .chip .close::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            background: #000;
+            border-radius: 2px;
+            bottom: 45%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: rotate(-45deg);
+        }
+        .input-box {
+            display: flex;
+            column-gap: 0.5rem;
+            justify-content: flex-start;
+            align-items: center;
+            flex-shrink: 1;
+            flex-grow: 1;
+            flex-wrap: wrap;
+            border: 1px solid #000;
+        }
+        .input-box .chip {
+            
+        }
+        .input-box input {
+            
+            height: 40px;
+            border: none;
+            outline: none;
+            font-weight: 400;
+            font-size: 1rem;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Input Chips</h1>
+    <div class="container">
+        <div class="chips">
+
+        </div>
+        <div class="input-box">
+            <div class="chip">
+                <img src="./images/flower.jpg" alt="name" width="25" height="25">
+                <span class="uname">Lica Young</span>
+                <span class="close"></span>
+            </div>
+            <input type="text" name="user" id="user" value="" placeholder="search user">
+        </div>
+        <div class="user-list">
+            <div class="user">
+                <img src="./images/dog.jpg" alt="user" width="50" height="50">
+                <span>Lucy Rock</span>
+            </div>
+        </div>
+    </div>
+    <script></script>
+</body>
 </html>
