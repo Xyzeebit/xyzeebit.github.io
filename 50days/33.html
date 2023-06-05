@@ -180,6 +180,12 @@
             chip.append(close);
             chip.setAttribute('class', 'chip')
             chips.append(chip);
+            
+            close.onclick = removeChip;
+        }
+        
+        function removeChip() {
+            this.parentNode.remove();
         }
     </script>
 </body>
