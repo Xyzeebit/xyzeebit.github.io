@@ -95,6 +95,9 @@
             font-weight: 400;
             font-size: 1rem;
         }
+        .user-list {
+            display: none;
+        }
 
     </style>
 </head>
@@ -105,11 +108,7 @@
 
         </div>
         <div class="input-box">
-            <div class="chip">
-                <img src="./images/flower.jpg" alt="name" width="25" height="25">
-                <span class="uname">Lica Young</span>
-                <span class="close"></span>
-            </div>
+            
             <input type="text" name="user" id="user" value="" placeholder="search user">
         </div>
         <div class="user-list">
@@ -117,9 +116,12 @@
     </div>
     <script>
         const userList = [];
+        let currentChip;
         window.addEventListener('DOMContentLoaded', pageLoaded);
         function pageLoaded() {
             users();
+            const input = document.querySelector('.input-box input');
+            input.addEventListener('keyup', filterList);
         }
         function users() {
             fetch('https://dummyjson.com/users')
@@ -138,14 +140,15 @@
                     }
                 );
             }
-            addUsers(userList);
+            
         }
 
         function addUsers(users) {
             const el = document.querySelector('.user-list');
-            user.setAttribute('class', 'user');
+            
             for (let u of users) {
                 const user = document.createElement('div');
+                user.setAttribute('class', 'user');
                 const img = document.createElement('img');
                 img.alt = u.name;
                 img.src = u.photo
@@ -156,14 +159,15 @@
                 user.append(img);
                 user.append(span);
                 el.append(user);
+                
                 user.onclick = addChip;
             }
 
         }
         
         function addChip() {
-            console.log(this.children[0])
-            const chips = document.querySelector('.chips');
+            const inputBox = document.querySelector('.input-box');
+
             const chip = document.createElement('div');
             const img = document.createElement('img');
             const name = document.createElement('span');
@@ -179,13 +183,39 @@
             close.setAttribute('class', 'close');
             chip.append(close);
             chip.setAttribute('class', 'chip')
-            chips.append(chip);
+            if(currentChip) {
+                //currentChip.remove();
+                currentChip = chip;
+                inputBox.prepend(currentChip);
+                //currentChip = chip;
+            } else {
+                currentChip = chip;
+                inputBox.prepend(chip)
+            }
+            chip.onclick = addChips;
             
             close.onclick = removeChip;
         }
         
+        function addChips() {
+            const chips = document.querySelector('.chips');
+            chips.append(this)
+        }
+        
         function removeChip() {
             this.parentNode.remove();
+        }
+        
+        function filterList() {
+            const list = document.querySelector('.user-list');
+            list.style.display = 'block';
+            const newList = userList.filter(u => u.name.toLowerCase()
+                .includes(this.value.toLowerCase()));
+                
+            addUsers(newList);
+            if(newList.length < 1) {
+                list.style.display = 'none';
+            }
         }
     </script>
 </body>
