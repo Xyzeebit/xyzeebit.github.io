@@ -18,6 +18,7 @@
         @media (mix-width: 701px) {
             .container {
                 width: 30rem;
+                margin: 0 auto;
             }
         }
         .chips {
@@ -83,8 +84,8 @@
             transform: rotate(-45deg);
         }
         .input-box {
-            margin-top: 0.5rem;
-            width: 100%;
+            margin: 0.5rem auto;
+            width: 90%;
             display: flex;
             column-gap: 0.5rem;
             justify-content: flex-start;
@@ -92,7 +93,8 @@
             flex-shrink: 1;
             flex-grow: 1;
             flex-wrap: wrap;
-            border: 1px solid #000;
+            border: 1px solid #000a;
+            padding: 0.5rem;
         }
         .input-box .chip {}
         .input-box input {
@@ -121,6 +123,17 @@
             border-bottom: 1px solid #111;
             border-collapse: collapse;
         }
+        .user-info {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            row-gap: 0.25rem;
+        }
+        .user-info span:last-child {
+            font-weight: 0.7rem;
+            color: #ccc;
+        }
 
     </style>
 </head>
@@ -139,6 +152,7 @@
     </div>
     <script>
         const userList = [];
+        let selectedChips = [];
         let currentChip;
         window.addEventListener('DOMContentLoaded', pageLoaded);
         function pageLoaded() {
@@ -159,7 +173,8 @@
                 userList.push(
                     {
                         name: `${u.firstName} ${u.lastName}`,
-                        photo: u.image
+                        photo: u.image,
+                        email: u.email
                     }
                 );
             }
@@ -177,10 +192,16 @@
                 img.src = u.photo
                 img.width = 50;
                 img.height = 50
-                const span = document.createElement('span');
-                span.innerText = u.name;
+                const div = document.createElement('div');
+                div.setAttribute('class', 'user-info');
+                const name = document.createElement('span');
+                const email = document.createElement('span');
+                name.innerText = u.name;
+                email.innerText = u.email;
+                div.append(name);
+                div.append(email);
                 user.append(img);
-                user.append(span);
+                user.append(div);
                 el.append(user);
                 
                 user.onclick = addChip;
@@ -189,6 +210,7 @@
         }
         
         function addChip() {
+            
             const inputBox = document.querySelector('.input-box');
 
             const chip = document.createElement('div');
@@ -200,7 +222,7 @@
             img.height = 25
             img.alt = this.children[0].getAttribute('alt');
             chip.append(img);
-            name.innerText = this.children[1].innerText;
+            name.innerText = this.children[1].children[0].innerText;
             name.setAttribute('class', 'uname');
             chip.append(name);
             close.setAttribute('class', 'close');
@@ -215,28 +237,56 @@
                 inputBox.prepend(currentChip)
             }
             name.onclick = addToChips;
-            
             close.onclick = removeChip;
+            this.remove();
         }
         
         function addToChips() {
             const chips = document.querySelector('.chips');
             chips.append(this.parentNode)
             currentChip = undefined;
+            const list = document.querySelector('.user-list');
+            list.style.display = 'none';
+            const value = this.parentNode.children[1].innerText;
+            selectedChips.push(value.toLowerCase());
         }
         
         function removeChip() {
+            const value = this.parentNode.children[1].innerText;
+            const idx = selectedChips.indexOf(value.toLowerCase());
+            if(idx != -1) {
+                selectedChips = [...selectedChips.splice(0, idx), 
+                ...selectedChips.splice(idx + 1)];
+                console.log(selectedChips)
+            }
             this.parentNode.remove();
         }
         
         function filterList() {
+            if(this.value.trim().length < 1) return;
+            
             const list = document.querySelector('.user-list');
-            list.style.display = 'block';
-            const newList = userList.filter(u => u.name.toLowerCase()
-                .startsWith(this.value.toLowerCase()));
-                
-            addUsers(newList);
-            if(newList.length < 1) {
+            
+            const newList = userList.filter(u => {
+                const name = u.name.toLowerCase();
+                const email = u.email.toLowerCase();
+                const v = this.value.toLowerCase();
+                if(selectedChips.indexOf(name) != -1) {
+                    return false;
+                }
+                if(name.indexOf(v) != -1) {
+                    return true;
+                } else if(email.indexOf(v) != -1) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+            console.log(newList)
+            if(newList.length > 0) {
+                list.style.display = 'block';
+                addUsers(newList)
+            } else {
                 list.style.display = 'none';
             }
         }
