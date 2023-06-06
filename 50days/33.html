@@ -15,7 +15,7 @@
             flex-direction: column;
             width: 100%;
         }
-        @media (mix-width: 701px) {
+@media (min-width: 701px) {
             .container {
                 width: 30rem;
                 margin: 0 auto;
@@ -144,7 +144,7 @@
 
         </div>
         <div class="input-box">
-            
+
             <input type="text" name="user" id="user" value="" placeholder="search user">
         </div>
         <div class="user-list">
@@ -152,7 +152,7 @@
     </div>
     <script>
         const userList = [];
-        let selectedChips = [];
+        const selectedChips = [];
         let currentChip;
         window.addEventListener('DOMContentLoaded', pageLoaded);
         function pageLoaded() {
@@ -178,12 +178,12 @@
                     }
                 );
             }
-            
+
         }
 
         function addUsers(users) {
             const el = document.querySelector('.user-list');
-            
+            el.innerHTML = "";
             for (let u of users) {
                 const user = document.createElement('div');
                 user.setAttribute('class', 'user');
@@ -203,14 +203,14 @@
                 user.append(img);
                 user.append(div);
                 el.append(user);
-                
+
                 user.onclick = addChip;
             }
 
         }
-        
+
         function addChip() {
-            
+
             const inputBox = document.querySelector('.input-box');
 
             const chip = document.createElement('div');
@@ -228,7 +228,7 @@
             close.setAttribute('class', 'close');
             chip.append(close);
             chip.setAttribute('class', 'chip')
-            if(currentChip) {
+            if (currentChip) {
                 currentChip.remove();
                 currentChip = chip;
                 inputBox.prepend(currentChip);
@@ -240,7 +240,7 @@
             close.onclick = removeChip;
             this.remove();
         }
-        
+
         function addToChips() {
             const chips = document.querySelector('.chips');
             chips.append(this.parentNode)
@@ -250,40 +250,38 @@
             const value = this.parentNode.children[1].innerText;
             selectedChips.push(value.toLowerCase());
         }
-        
+
         function removeChip() {
             const value = this.parentNode.children[1].innerText;
             const idx = selectedChips.indexOf(value.toLowerCase());
-            if(idx != -1) {
-                selectedChips = [...selectedChips.splice(0, idx), 
-                ...selectedChips.splice(idx + 1)];
-                console.log(selectedChips)
+            if (idx != -1) {
+                selectedChips.splice(idx, 1);
             }
             this.parentNode.remove();
         }
-        
+
         function filterList() {
-            if(this.value.trim().length < 1) return;
-            
+            if (this.value.trim().length < 1) return;
+
             const list = document.querySelector('.user-list');
-            
+
             const newList = userList.filter(u => {
                 const name = u.name.toLowerCase();
                 const email = u.email.toLowerCase();
                 const v = this.value.toLowerCase();
-                if(selectedChips.indexOf(name) != -1) {
+                if (selectedChips.indexOf(name) != -1) {
                     return false;
                 }
-                if(name.indexOf(v) != -1) {
+                if (name.includes(v)) {
                     return true;
-                } else if(email.indexOf(v) != -1) {
+                } else if (email.includes(v)) {
                     return true;
                 } else {
                     return false;
                 }
             });
-            console.log(newList)
-            if(newList.length > 0) {
+
+            if (newList.length > 0) {
                 list.style.display = 'block';
                 addUsers(newList)
             } else {
