@@ -184,22 +184,22 @@
             chip.append(close);
             chip.setAttribute('class', 'chip')
             if(currentChip) {
-                //currentChip.remove();
+                currentChip.remove();
                 currentChip = chip;
                 inputBox.prepend(currentChip);
-                //currentChip = chip;
             } else {
                 currentChip = chip;
-                inputBox.prepend(chip)
+                inputBox.prepend(currentChip)
             }
-            chip.onclick = addChips;
+            name.onclick = addToChips;
             
             close.onclick = removeChip;
         }
         
-        function addChips() {
+        function addToChips() {
             const chips = document.querySelector('.chips');
-            chips.append(this)
+            chips.append(this.parentNode)
+            currentChip = undefined;
         }
         
         function removeChip() {
