@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Chips</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        h1 {
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+        }
+        @media (min-width: 701px) {
+            .container {
+                width: 30rem;
+                margin: 0 auto;
+            }
+        }
+        .chips {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            column-gap: 1rem;
+            row-gap: 1rem;
+            width: 100%;
+        }
+        .chip {
+            background: #ccc;
+            padding: 0rem 0.5rem 0rem 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-radius: 30px;
+            min-width: fit-content;
+            height: 35px;
+            font-weight: 500;
+        }
+        .chip img {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+        }
+        .chip .uname {
+            padding: 0 0.5rem 0 0.3rem;
+            font-size: 0.9rem;
+        }
+        .chip .close {
+            width: 25px;
+            height: 25px;
+            position: relative;
+            background: #fff;
+            border-radius: 50%;
+        }
+        .chip .close::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            background: #000;
+            border-radius: 2px;
+            top: 43%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: rotate(45deg);
+        }
+        .chip .close::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 3px;
+            background: #000;
+            border-radius: 2px;
+            bottom: 45%;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            transform: rotate(-45deg);
+        }
+        .input-box {
+            margin: 0.5rem auto;
+            width: 90%;
+            display: flex;
+            column-gap: 0.5rem;
+            justify-content: flex-start;
+            align-items: center;
+            flex-shrink: 1;
+            flex-grow: 1;
+            flex-wrap: wrap;
+            border: 1px solid #000a;
+            padding: 0.5rem;
+        }
+        .input-box .chip {}
+        .input-box input {
+
+            height: 40px;
+            border: none;
+            outline: none;
+            font-weight: 400;
+            font-size: 1rem;
+        }
+        .user-list {
+            display: none;
+            width: 100%;
+        }
+        .user {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            column-gap: 1rem;
+        }
+        .user span {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+        .user:not(:last-child) {
+            border-bottom: 1px solid #111;
+            border-collapse: collapse;
+        }
+        .user-info {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            row-gap: 0.25rem;
+        }
+        .user-info span:last-child {
+            font-weight: 0.7rem;
+            color: #ccc;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Input Chips</h1>
+    <div class="container">
+        <div class="chips">
+
+        </div>
+        <div class="input-box">
+
+            <input type="text" name="user" id="user" value="" placeholder="search user">
+        </div>
+        <div class="user-list">
+        </div>
+    </div>
+    <script>
+        const userList = [];
+        const selectedChips = [];
+        let currentChip;
+        window.addEventListener('DOMContentLoaded', pageLoaded);
+        function pageLoaded() {
+            users();
+            const input = document.querySelector('.input-box input');
+            input.addEventListener('keyup', filterList);
+        }
+        function users() {
+            fetch('https://dummyjson.com/users')
+            .then(res => res.json())
+            .then(json => populateList(json));
+        }
+        function populateList(list) {
+            const {
+                users
+            } = list;
+            for (let u of users) {
+                userList.push(
+                    {
+                        name: `${u.firstName} ${u.lastName}`,
+                        photo: u.image,
+                        email: u.email
+                    }
+                );
+            }
+
+        }
+
+        function addUsers(users) {
+            const el = document.querySelector('.user-list');
+            el.innerHTML = "";
+            for (let u of users) {
+                const user = document.createElement('div');
+                user.setAttribute('class', 'user');
+                const img = document.createElement('img');
+                img.alt = u.name;
+                img.src = u.photo
+                img.width = 50;
+                img.height = 50
+                const div = document.createElement('div');
+                div.setAttribute('class', 'user-info');
+                const name = document.createElement('span');
+                const email = document.createElement('span');
+                name.innerText = u.name;
+                email.innerText = u.email;
+                div.append(name);
+                div.append(email);
+                user.append(img);
+                user.append(div);
+                el.append(user);
+
+                user.onclick = addChip;
+            }
+
+        }
+
+        function addChip() {
+
+            const inputBox = document.querySelector('.input-box');
+
+            const chip = document.createElement('div');
+            const img = document.createElement('img');
+            const name = document.createElement('span');
+            const close = document.createElement('span');
+            img.src = this.children[0].getAttribute('src');
+            img.width = 25;
+            img.height = 25
+            img.alt = this.children[0].getAttribute('alt');
+            chip.append(img);
+            name.innerText = this.children[1].children[0].innerText;
+            name.setAttribute('class', 'uname');
+            chip.append(name);
+            close.setAttribute('class', 'close');
+            chip.append(close);
+            chip.setAttribute('class', 'chip')
+            if (currentChip) {
+                currentChip.remove();
+                currentChip = chip;
+                inputBox.prepend(currentChip);
+            } else {
+                currentChip = chip;
+                inputBox.prepend(currentChip)
+            }
+            name.onclick = addToChips;
+            close.onclick = removeChip;
+            this.remove();
+        }
+
+        function addToChips() {
+            const chips = document.querySelector('.chips');
+            chips.append(this.parentNode)
+            currentChip = undefined;
+            const list = document.querySelector('.user-list');
+            list.style.display = 'none';
+            const value = this.parentNode.children[1].innerText;
+            selectedChips.push(value.toLowerCase());
+        }
+
+        function removeChip() {
+            const value = this.parentNode.children[1].innerText;
+            const idx = selectedChips.indexOf(value.toLowerCase());
+            if (idx != -1) {
+                selectedChips.splice(idx, 1);
+            }
+            this.parentNode.remove();
+        }
+
+        function filterList() {
+            if (this.value.trim().length < 1) return;
+
+            const list = document.querySelector('.user-list');
+
+            const newList = userList.filter(u => {
+                const name = u.name.toLowerCase();
+                const email = u.email.toLowerCase();
+                const v = this.value.toLowerCase();
+                if (selectedChips.indexOf(name) != -1) {
+                    return false;
+                }
+                if (name.includes(v)) {
+                    return true;
+                } else if (email.includes(v)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            });
+
+            if (newList.length > 0) {
+                list.style.display = 'block';
+                addUsers(newList)
+            } else {
+                list.style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
