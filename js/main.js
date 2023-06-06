@@ -48,10 +48,14 @@ function elementObserve(visible, setVisible) {
 }
 
 function toggleMenu() {
-    const menu = document.querySelector('aside.menu-aside');
+    const menu = document.querySelector('.mb-nav');
+    const spans = document.querySelector('.menu-btn-group');
+    for(let i = 0; i < spans.children.length; i++) {
+        spans.children[i].classList.toggle('no-animation');
+    }
     if(this.checked) {
-        menu.style.transform = 'translateX(0)';
+        menu.style = 'height: 300px; padding-top: 3rem';
     } else {
-        menu.style.transform = 'translateX(400px)';
+        menu.style = 'height: 0px; padding-top: 0';
     }
 }

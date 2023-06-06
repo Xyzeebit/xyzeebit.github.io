@@ -24,34 +24,9 @@
         <script src="./js/main.js"></script>
     </head>
     <body>
-    <header class="menu-header">
-        <ul>
-            <li>
-                <a href="#aboutme">About Me</a>
-            </li>
-            <li>
-                <a href="#projects">My Projects</a>
-            </li>
-            <li>
-                <a href="#funcode">Fun Code</a>
-            </li>
-            <li class="hide">
-                <a href="#mystack">My Stack</a>
-            </li>
-            <li>
-                <a href="#contact">Contact</a>
-            </li>
-            <li>
-                <a download="CV Donald" href="./cv/fullstack.pdf" class="cv-button">
-                    <img src="./images/icon-download.svg" width="25" height="20" alt="Download my CV">
-                    <span>CV</span>
-                </a>
-            </li>
-        </ul>
-    </header>
         <main>
             <div class="container">
-                <div class="page-start">
+                <header>
                     <nav>
                         <div class="nav-brand">
                             <img src="./images/logo.svg" width="50" height="50" alt="Donald Dominic">
@@ -83,17 +58,24 @@
                         <button class="mb-menu-btn" aria-label="mobile menu button">
                             <input type="checkbox" id="menuBtn">
                             <label class="menu-btn-group" for="menuBtn">
-                                <span></span>
-                                <span></span>
-                                <span></span>
+                                <span class="no-animation"></span>
+                                <span class="no-animation"></span>
+                                <span class="no-animation"></span>
                             </label>
                         </button>
                     </nav>
-
+                    <div class="mb-nav">
+                        <a href="#aboutme">About Me</a>
+                        <a href="#project">Projects</a>
+                        <a href="./blog/index.html">Blog</a>
+                        <a href="#funcodes">Fun Codes</a>
+                        <a href="#contact">Contact</a>
+                    </div>
+                </header>
+                <div class="page-start">
                     <section id="aboutme" class="page-about">
-                        <h1>Donald</h1>
-                        <h2>My name is Donald Dominic</h2>
-                        <h3>Welcome to my GitHub Page</h3>
+                        <h1 aria-label="Donald"><span>D</span>ONAL<span>D</span></h1>
+                        <h2 aria-label="software developer"><span>S</span>OFTWARE DEVELOPE<span>R</span></h2>
                         <p>
                             Donald is a software developer based in Nigeria. This is what he has to say about himself
                             <i>
@@ -107,6 +89,7 @@
                     </section>
                 </div>
             </div>
+
         </main>
     </body>
 </html>
