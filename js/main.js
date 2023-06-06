@@ -51,10 +51,10 @@ function toggleMenu() {
     const menu = document.querySelector('.mb-nav');
     const spans = document.querySelector('.menu-btn-group');
     for(let i = 0; i < spans.children.length; i++) {
-        spans.children[i].classList.toggle('no-animation');
+        spans.children[i].classList.remove('no-animation');
     }
     if(this.checked) {
-        menu.style = 'height: 300px; padding-top: 3rem';
+        menu.style = 'height: 350px; padding-top: 3rem';
     } else {
         menu.style = 'height: 0px; padding-top: 0';
     }

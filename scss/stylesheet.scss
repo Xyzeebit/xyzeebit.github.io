@@ -4,7 +4,7 @@ $page-start-bg-image-mobile: '../images/banner-mobile.jpg';
 
 $white: #fff;
 $white-transparent: #fffa;
-$black: #111;
+$black: #000;
 $brown: #f25d26;
 $wood-light: #df9155;
 $black-transparent: #0a0301b3;
@@ -155,8 +155,8 @@ main {
 }
 
 .no-animation {
-  -webkit-animation: none;
-  animation: none;
+  -webkit-animation: none !important;
+  animation: none !important;
 }
 
 .mb-menu-btn {
@@ -180,18 +180,18 @@ main {
       left: 0;
       right: 0;
       width: 35px;
-      height: 5px;
+      height: 4px;
       background: $black;
       position: absolute;
       border-radius: 0px 2px 0px 2px;
     }
     span:nth-child(2) {
       position: absolute;
-      top: 10px;
+      top: 0.68rem;
       right: 0;
       margin: 0 auto;
       width: 25px;
-      height: 5px;
+      height: 4px;
       background: $black;
       position: absolute;
       border-radius: 2px;
@@ -201,10 +201,11 @@ main {
       bottom: 0;
       left: 0;
       width: 35px;
-      height: 5px;
+      height: 4px;
       background: $black;
       position: absolute;
       border-radius: 2px 0px 2px 0px;
+
     }
   }
 
@@ -229,19 +230,6 @@ main {
       animation-timing-function: linear;
     }
 
-  }
-
-  input[type="checkbox"]:not(:checked) + label {
-    span:nth-child(1) {
-
-    }
-
-    span:nth-child(2) {
-
-    }
-    span:nth-child(3) {
-
-    }
   }
 
   @keyframes md {
@@ -272,10 +260,73 @@ main {
       bottom: 0;
     }
     50% {
-      transform: translateY(-9px) rotate(0deg);;
+      transform: translateY(-11px) rotate(0deg);
+
     }
     100% {
-      transform: translateY(-9px) rotate(-45deg);
+      transform: translateY(-11px) rotate(-45deg);
+    }
+  }
+
+  input[type="checkbox"]:not(:checked) + label {
+    span:nth-child(1) {
+      animation-name: rmd;
+      animation-duration: 0.3s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+
+    span:nth-child(2) {
+      animation-name: rsc-d;
+      animation-duration: 0.3s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+    span:nth-child(3) {
+      animation-name: rmu;
+      animation-duration: 0.3s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+  }
+
+  @keyframes rmd {
+    0% {
+      transform: translateY(9px) rotate(45deg);
+    }
+    50% {
+      transform: translateY(9px) rotate(0deg);
+
+    }
+    100% {
+      transform: translateY(0px) rotate(0deg);
+      top: 0;
+    }
+  }
+  @keyframes rsc-d {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes rmu {
+    0% {
+      bottom: 0;
+      transform: translateY(-11px) rotate(-45deg);
+    }
+    50% {
+      transform: translateY(-11px) rotate(0deg);
+
+    }
+    100% {
+      transform: translateY(0px) rotate(0deg);
+      //bottom: 0;
     }
   }
 
@@ -297,7 +348,9 @@ main {
 }
 
 header {
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 12;
   border-bottom: 5px solid $black;
   display: flex;
   flex-direction: column;
@@ -323,6 +376,19 @@ header {
     font-weight: 600;
     font-size: 1.2rem;
   }
+  .cv-button {
+    width: 150px;
+    padding: 0.5rem;
+    box-shadow: 0px 0px 2px $white;
+    background-image: linear-gradient(-45deg,hsla($h, $s, $l,0.8),hsla($h, $s, $l,0.2) 67%);
+    color: $black;
+    @include flex-c;
+    transition: box-shadow 0.5s;
+    &:hover {
+      box-shadow: 0px 0px 1px $black;
+    }
+  }
+
   @include tablet-x {
     display: none;
   }
