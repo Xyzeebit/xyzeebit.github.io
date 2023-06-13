@@ -54,7 +54,7 @@ function toggleMenu() {
         spans.children[i].classList.remove('no-animation');
     }
     if(this.checked) {
-        menu.style = 'height: 350px; padding-top: 3rem';
+        menu.style = 'height: 320px; padding-top: 3rem';
     } else {
         menu.style = 'height: 0px; padding-top: 0';
     }

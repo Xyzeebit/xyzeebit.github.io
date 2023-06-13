@@ -129,12 +129,8 @@ main {
 .menu-header {
   height: 100vh;
   position: relative;
-  //top: 0;
-  //right: 0;
-  //bottom: 0;
   z-index: 12;
   background: #023202;
-  //transform: translateX(400px);
   transition: transform 0.5s ease-in;
 
   ul {
@@ -365,7 +361,10 @@ main {
     repeat: no-repeat;
   };
   @include mobile {
-    background-image: url(#{$page-start-bg-image-mobile});
+    background: {
+      image: url(#{$page-start-bg-image-mobile});
+      attachment: fixed;
+    }
   }
 }
 
@@ -545,7 +544,7 @@ section.page-about {
 
   }
   h1, h2 {
-    font-family: cursive;
+    font-family: "Bruno Ace", cursive;
     opacity: 0;
   }
   p {
@@ -570,6 +569,7 @@ section.page-about {
     @include landscape {
       bottom: 3rem;
     }
+    @include flex-c;
     width: 5rem;
     left: 0;
     right: 0;
@@ -617,18 +617,24 @@ section.projects {
   padding-top: 4rem;
   h1 {
     text-align: center;
-    font-size: 3rem;
+    font-size: 3.5rem;
   }
   .projects-intro {
     position: relative;
     width: 25rem;
     padding: 2rem;
+    @include mobile {
+      width: 100%;
+    }
     p {
       font-size: 1rem;
       font-weight: 600;
       padding: 1rem 1rem 1rem 4rem;
       background: $wood-light;
       line-height: 1.3rem;
+      @include mobile {
+        padding: 1rem 1rem 1rem 1rem;
+      }
     }
   }
 
@@ -651,12 +657,21 @@ section.projects {
     font-family: "Space Grotesk", sans-serif;
     position: absolute;
     font-size: 5rem;
-    left: -140px;
     top: 160px;
     z-index: -1;
     color: $brown;
+    @include mobile {
+      font-size: 3.5rem;
+      right: -100px;
+      top: 120px;
+      //display: none;
+    }
+    @include tablet-x {
+      left: -140px;
+    }
     p {
       transform: rotate(-90deg);
+      font-family: Monoton, "Great Vibes", cursive, sans-serif;
     }
   }
 }
@@ -667,6 +682,11 @@ section.projects {
   align-items: flex-start;
   padding: 4rem 2rem 4rem 8rem;
   gap: 4rem;
+  @include mobile {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 4rem 1rem 6rem 1rem;
+  }
 
   picture {
     position: relative;
@@ -675,6 +695,14 @@ section.projects {
     border-top: 1px solid $black;
     border-left: 1px solid $black;
     border-right: 1px solid $black;
+    @include mobile {
+      width: 100%;
+      height: 16rem;
+    }
+    @include tablet-x {
+      width: 55%;
+      height: 20rem;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -692,20 +720,46 @@ section.projects {
     z-index: -1;
     top: 3rem;
     left: -3rem;
+    @include mobile {
+      top: 1.5rem;
+      left: -1.5rem;
+    }
   }
 
   article {
     width: 28%;
     height: 30rem;
     position: relative;
+    @include mobile {
+      width: 100%;
+      height: auto;
+    }
+    @include tablet {
+      width: 30%;
+      height: 25rem;
+    }
     h2 {
       padding: 2rem 0 1rem 0;
       font-size: 2.5rem;
+      @include mobile {
+        padding: 0;
+        font-size: 2rem;
+      }
+      @include tablet {
+        padding: 1rem 0 1rem 0;
+        font-size: 2rem;
+      }
     }
     p {
       padding: 2rem 0rem 4rem 0;
       line-height: 1.3rem;
       font-weight: 300;
+      @include mobile {
+        padding: 1rem 0rem 3rem 0;
+      }
+      @include tablet {
+        padding: 1rem 0rem 3rem 0;
+      }
     }
     a {
       position: relative;
@@ -752,6 +806,14 @@ section.projects {
     top: 5rem;
     transform: rotate(45deg);
     z-index: -1;
+    @include mobile {
+      top: 4rem;
+    }
+    @include tablet {
+      width: 200px;
+      height: 200px;
+      right: -200px;
+    }
   }
   article::after {
     content: '';
@@ -763,7 +825,15 @@ section.projects {
     top: 5rem;
     transform: rotate(45deg);
     z-index: -2;
+    @include mobile {
+      top: 4rem;
+    }
     animation: slide 10s linear infinite alternate;
+    @include tablet {
+      width: 200px;
+      height: 200px;
+      right: -200px;
+    }
   }
 
   @keyframes slide {
