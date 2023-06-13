@@ -7,7 +7,11 @@ function contentLoaded(event) {
         projectOne: [false, false, false],
         projectTwo: [false, false, false],
         uiElements: [false, false, false, false, false, false, false, false, false, false, false, false],
+        contactInfo: [false, false, false],
     };
+
+    const year = new Date().getFullYear();
+    document.getElementById("year").innerText = year;
 
     const aboutMe = document.querySelector('.page-about');
     observeElement(aboutMe, window.appState.aboutMe, true);
@@ -22,6 +26,12 @@ function contentLoaded(event) {
 
     const uiElements = document.querySelector('.ui-list');
     observeElement(uiElements, window.appState.uiElements, true);
+
+    // const contactInfo = document.querySelector('.contact-info');
+    // observeElement(contactInfo, window.appState.contactInfo, true);
+
+    const mobileLinks = document.querySelectorAll('.mb-nav a');
+    attachListeners(mobileLinks);
 }
 
 function observeElement(el, state, isList) {
@@ -69,4 +79,21 @@ function toggleMenu() {
     } else {
         menu.style = 'height: 0px; padding-top: 0';
     }
+}
+
+/**
+ * Attach click listeners to the mobile anchor tags
+ *
+ * @param elements
+ */
+function attachListeners(elements) {
+    for (let el of elements) {
+        el.addEventListener('click', closeMenu);
+    }
+}
+
+function closeMenu() {
+    const menuBtn = document.querySelector(".mb-menu-btn input[type='checkbox']");
+    menuBtn.checked = false;
+    toggleMenu.call(menuBtn);
 }
