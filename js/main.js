@@ -4,19 +4,30 @@ function contentLoaded(event) {
     window.appState = {
         open: false,
         aboutMe: [false, false, false, false],
+        projectOne: [false, false, false],
+        projectTwo: [false, false, false],
+        uiElements: [false, false, false, false, false, false, false, false, false, false, false, false],
     };
 
     const aboutMe = document.querySelector('.page-about');
     observeElement(aboutMe, window.appState.aboutMe, true);
 
+    const projects = document.querySelectorAll('.project-container');
+    observeElement(projects[0], window.appState.projectOne, true);
+    observeElement(projects[1], window.appState.projectTwo, true);
+
+
     const menuBtn = document.querySelector(".mb-menu-btn input[type='checkbox']");
     menuBtn.onclick = toggleMenu;
+
+    const uiElements = document.querySelector('.ui-list');
+    observeElement(uiElements, window.appState.uiElements, true);
 }
 
 function observeElement(el, state, isList) {
     if(isList) {
         for(let i = 0; i < el.children.length; i++) {
-            const observer = elementObserve(state[i], flag => {
+            const observer = elementObserver(state[i], flag => {
                 if(flag) {
                    state[i] = flag;
                    el.children[i].classList.add('slide-in');
@@ -25,7 +36,7 @@ function observeElement(el, state, isList) {
             observer.observe(el.children[i]);
         }
     } else {
-        const observe = elementObserve(state, flag => {
+        const observe = elementObserver(state, flag => {
             if(flag) {
                 state = flag;
                 el.classList.add('slide-in');
@@ -36,7 +47,7 @@ function observeElement(el, state, isList) {
     }
 }
 
-function elementObserve(visible, setVisible) {
+function elementObserver(visible, setVisible) {
     const inter = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if(entry.isIntersecting && !visible) {
