@@ -12,7 +12,7 @@
         <meta name="description" content="Donald's GitHub Page">
         <meta name="keywords" content="Fullstack developer, Web developer, Nodejs, HTML, CSS, JavaScript, Reactjs">
         <meta name="author" content="Donald Dominic">
-        <link rel="icon" type="image/svg+xml" href="./images/logo.svg">
+        <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,9 +28,6 @@
     <body>
         <main>
             <section class="intro">
-<!--                <a href="../index.html">-->
-<!--                    <img src="./images/icon-home.svg" width="30" height="30" alt="Back to home">-->
-<!--                </a>-->
                 <picture>
                     <source media="all" srcset="./images/kopiku-intro.jpeg">
                     <img src="./images/kopiku-intro.jpeg" width="300" height="250" alt="Kopiku">
@@ -175,5 +172,12 @@
         <footer>
             <p>&copy; Copyright <span id="year"></span> xyzeebit</p>
         </footer>
+
+        <script>
+            window.onload = function() {
+                const year = new Date().getFullYear();
+                document.getElementById("year").innerText = year;
+            }
+        </script>
     </body>
 </html>
