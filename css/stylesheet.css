@@ -6,7 +6,7 @@ body {
 
 * {
   box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Bruno Ace", "Montserrat", sans-serif;
   scroll-behavior: smooth;
 }
 
@@ -441,7 +441,7 @@ section.page-about h1 {
 }
 @media screen and (max-width: 700px) {
   section.page-about h1 {
-    font-size: 4rem;
+    font-size: 3rem;
   }
 }
 section.page-about h1 span {
@@ -462,7 +462,7 @@ section.page-about h2 {
 }
 @media screen and (max-width: 700px) {
   section.page-about h2 {
-    font-size: 25px;
+    font-size: 16px;
   }
 }
 section.page-about h2 span {
@@ -481,9 +481,10 @@ section.page-about h1, section.page-about h2 {
 section.page-about p {
   margin: 0 auto;
   opacity: 0;
+  font-family: "Montserrat", sans-serif;
   text-align: center;
   color: #fff;
-  padding: 3rem 4rem 0rem 4rem;
+  padding: 3rem 3rem 0rem 3rem;
   width: 30rem;
   line-height: 1.3rem;
 }
@@ -599,7 +600,7 @@ section.projects h1 {
   position: relative;
 }
 .project-item .side-text {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: Monoton, cursive;
   position: absolute;
   font-size: 5rem;
   top: 160px;
@@ -846,6 +847,7 @@ section.projects h1 {
   justify-content: center;
   align-items: center;
   transition: all 0.5s;
+  font-size: 0.9rem;
 }
 .btn-link:hover {
   background: #f25d26;
@@ -870,6 +872,7 @@ section.daily-ui {
 section.daily-ui h1 {
   font-size: 3.5rem;
   text-align: center;
+  padding-bottom: 1.2rem;
 }
 section.daily-ui .ui-text {
   text-align: center;
@@ -954,7 +957,7 @@ section.daily-ui .ui-text::after {
   width: 100%;
   height: 4rem;
   font-weight: 100;
-  font-size: 1.5rem;
+  font-size: 1rem;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -964,7 +967,7 @@ section.daily-ui .ui-text::after {
 .ui-list .ui-comp .line-up a {
   margin-left: 1.5rem;
   font-weight: 400;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 .ui-list .ui-comp img {
   width: 16rem;

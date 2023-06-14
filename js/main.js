@@ -7,7 +7,7 @@ function contentLoaded(event) {
         projectOne: [false, false, false],
         projectTwo: [false, false, false],
         uiElements: [false, false, false, false, false, false, false, false, false, false, false, false],
-        contactInfo: [false, false, false],
+        contactInfo: [false, false, false, false],
     };
 
     const year = new Date().getFullYear();
