@@ -1,0 +1,205 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Bruno Ace", "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.none {
+  display: none;
+}
+
+section.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #df9155;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+@media screen and (max-width: 700px) {
+  section.intro {
+    height: 20rem;
+  }
+}
+@media (min-width: 701px) and (max-width: 1024px) {
+  section.intro {
+    height: 100vh;
+  }
+}
+@media screen and (min-width: 1025px) {
+  section.intro {
+    height: 100vh;
+  }
+}
+section.intro picture {
+  border: 3px solid #000;
+}
+@media screen and (max-width: 700px) {
+  section.intro picture {
+    width: 80vw;
+    height: 18rem;
+  }
+}
+@media (min-width: 701px) and (max-width: 1024px) {
+  section.intro picture {
+    width: 70vw;
+    height: 30rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  section.intro picture {
+    width: 80vw;
+    height: 30rem;
+  }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  section.intro picture {
+    width: 80vw;
+    height: 80vh;
+  }
+}
+section.intro picture img {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-collapse: collapse;
+}
+@media screen and (max-width: 700px) {
+  .container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
+.container .left {
+  border-collapse: collapse;
+}
+@media screen and (max-width: 700px) {
+  .container .left {
+    width: 100%;
+    padding: 1rem;
+    border-right: 3px solid #000;
+  }
+}
+@media (min-width: 701px) and (max-width: 1024px) {
+  .container .left {
+    width: 50%;
+    padding: 2rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .container .left {
+    width: 50%;
+    padding: 3rem;
+    border-right: 3px solid #000;
+  }
+}
+.container .left picture {
+  width: 80%;
+  height: 400px;
+  margin: 0 auto;
+}
+.container .left picture img {
+  width: 100%;
+  height: 100%;
+}
+.container .right {
+  border-collapse: collapse;
+}
+@media screen and (max-width: 700px) {
+  .container .right {
+    width: 100%;
+    padding: 1rem;
+    border-left: 3px solid #000;
+  }
+}
+@media (min-width: 701px) and (max-width: 1024px) {
+  .container .right {
+    width: 50%;
+    padding: 2rem;
+    border-left: 3px solid #000;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .container .right {
+    width: 50%;
+    padding: 3rem;
+  }
+}
+.container .right img {
+  width: 100%;
+  height: 300px;
+}
+
+section.closing {
+  background-color: #df9155;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+@media screen and (max-width: 700px) {
+  section.closing {
+    padding: 2rem 3rem 4rem 3rem;
+  }
+}
+@media (min-width: 701px) and (max-width: 1024px) {
+  section.closing {
+    padding: 2rem 4rem 4rem 4rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  section.closing {
+    padding: 2rem 4rem 4rem 4rem;
+  }
+}
+section.closing p {
+  background: #fff;
+}
+@media screen and (max-width: 700px) {
+  section.closing p {
+    padding: 2rem 3rem 2rem 3rem;
+  }
+}
+@media (min-width: 701px) and (max-width: 1024px) {
+  section.closing p {
+    padding: 2rem 4rem 2rem 4rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  section.closing p {
+    padding: 2rem 4rem 2rem 4rem;
+  }
+}
+section.closing .link {
+  margin: 2rem auto;
+}
+
+.btn-link {
+  width: 200px;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border: 2px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  font-size: 0.9rem;
+  background: #df9155;
+}
+.btn-link:hover {
+  background: #f25d26;
+  box-shadow: 0px 0px 3px 3px #f25d26;
+}
+
+/*# sourceMappingURL=projects.css.map */

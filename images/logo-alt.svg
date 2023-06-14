@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="820"
+   height="462"
+   viewBox="0 0 820 462"
+   version="1.1"
+   id="svg5"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs2" />
+  <g
+     id="layer1">
+    <rect
+       style="fill:#973300;fill-opacity:0.01204819;stroke:#080503;stroke-width:25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect846"
+       width="182.4649"
+       height="173.50241"
+       x="316.91214"
+       y="-310.94754"
+       ry="0.059844669"
+       transform="scale(1,-1)" />
+    <ellipse
+       style="fill:#612715;fill-opacity:1;stroke:#612715;stroke-width:25;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path1208"
+       cx="492.22806"
+       cy="287.65756"
+       rx="54.1325"
+       ry="57.279736" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:60.5174px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#ffd5d5;fill-opacity:1;stroke:none;stroke-width:1.51293"
+       x="496.51904"
+       y="-41.84507"
+       id="text1930"
+       transform="matrix(0.85768321,0.61928109,-0.5533596,0.7663842,0,0)"><tspan
+         id="tspan1928"
+         x="496.51904"
+         y="-41.84507"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:60.5174px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:1.51293;fill:#ffd5d5">{}</tspan></text>
+  </g>
+</svg>
