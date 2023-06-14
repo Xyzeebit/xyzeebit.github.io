@@ -207,3 +207,233 @@ section.closing {
     box-shadow: 0px 0px 3px 3px $brown;
   }
 }
+
+section.others {
+  h1 {
+    @include mobile {
+      padding:  2rem;
+    }
+    @include tablet-x {
+      padding: 4rem;
+    }
+  }
+}
+.others-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  @include mobile {
+    margin-bottom: 0;
+  }
+  @include tablet {
+    margin-bottom: 3rem;
+  }
+  @include desktop {
+    margin-bottom: 6.5rem;
+  }
+  article {
+    @include mobile {
+      width: 50%;
+      column-gap: 2rem;
+      padding: 0 2rem 2rem 2rem;
+    }
+    @include tablet {
+      width: 23rem;
+      height: 18rem;
+      column-gap: 4rem;
+      padding: 0 4rem 4rem 4rem;
+    }
+    @include desktop {
+      width: 25rem;
+      height: 16rem;
+      column-gap: 4rem;
+      padding: 0 4rem 4rem 4rem;
+    }
+    img {
+      display: block;
+      @include mobile {
+        width: 100%;
+        height: 7rem;
+      }
+      @include tablet {
+        width: 100%;
+        height: 10rem;
+      }
+      @include desktop {
+        width: 100%;
+        height: 12rem;
+      }
+    }
+    a {
+      display: block;
+      color: $brown;
+      padding: 1rem 0 0 0;
+      &:hover {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+section.contact {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  background: $wood-light;
+  h1 {
+    font-size: 3.5rem;
+    text-align: center;
+  }
+
+  .contact-text {
+    width: 50vw;
+    margin: 0 auto;
+
+    p {
+      padding: 2rem;
+      line-height: 1.3rem;
+      background: $brown;
+      border-radius: 20px 20px 0 0;
+    }
+  }
+  .contact-info {
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    @include mobile {
+      flex-direction: column-reverse;
+    }
+  }
+  form {
+    position: relative;
+    border: 3px solid $black;
+    width: 25rem;
+    padding: 2rem;
+    background: $wood-light;
+    //opacity: 0;
+    @include mobile {
+      width: 88vw;
+      padding: 1rem;
+    }
+    .input-group {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      row-gap: 1rem;
+      flex-direction: column;
+      margin-bottom: 2rem;
+
+      @include mobile {
+        row-gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+    }
+    label {
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      height: 3rem;
+      padding-left: 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    button[type="submit"] {
+      font-weight: 600;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+    textarea {
+      width: 100%;
+      height: 10rem;
+      padding: 1rem;
+      line-height: 1.3rem;
+    }
+  }
+  form::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include dash-pattern;
+    top: 3rem;
+    left: -3rem;
+    z-index: -1;
+    @include mobile {
+      top: 2rem;
+      display: none;
+    }
+  }
+}
+
+.socials {
+  position: relative;
+  width: 25rem;
+  height: 35rem;
+  border: 3px solid $black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background: $wood-light;
+  @include mobile {
+    width: 88vw;
+  }
+  p {
+    padding: 1rem;
+    margin: 1rem;
+    line-height: 1.3rem;
+    text-align: center;
+    border: 3px dotted $black;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .social-group {
+    width: 100%;
+  }
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-collapse: collapse;
+    border-top: 2px solid $black;
+    padding: 0.5rem 1rem 0.5em 1rem;
+    transition: all 0.5s;
+
+    &:hover {
+      background: $brown;
+    }
+  }
+  .tg {
+    display: none;
+  }
+}
+.socials::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 3rem;
+  right: -3rem;
+  @include dash-pattern;
+  z-index: -1;
+  @include mobile {
+    top: 2rem;
+    display: none;
+  }
+}
+
+footer {
+  border-top: 5px solid $black;
+  @include dash-pattern;
+  p {
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0 auto;
+    background: $wood-light;
+    width: fit-content;
+  }
+}
