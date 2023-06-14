@@ -11,7 +11,7 @@ function contentLoaded(event) {
     };
 
     const year = new Date().getFullYear();
-    document.getElementById("year").innerText = year;
+    document.getElementById("year").innerText = year + '';
 
     const aboutMe = document.querySelector('.page-about');
     observeElement(aboutMe, window.appState.aboutMe, true);

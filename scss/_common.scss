@@ -1,0 +1,50 @@
+$font-family: "Bruno Ace", 'Montserrat', sans-serif;
+$white: #fff;
+$black: #000;
+$brown: #f25d26;
+$wood-light: #df9155;
+
+
+@mixin dash-pattern {
+  background-color: $wood-light;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+@mixin dash-pattern-white {
+  background-color: $white;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+@mixin btn-link {
+  width: 200px;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border: 2px solid $black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  font-size: 0.9rem;
+  background: $wood-light;
+  &:hover {
+    background: $brown;
+    box-shadow: 0px 0px 3px 3px $brown;
+  }
+}
+
+@mixin flex-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin footer {
+  border-top: 5px solid $black;
+  @include dash-pattern;
+  p {
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0 auto;
+    background: $wood-light;
+    width: fit-content;
+  }
+}

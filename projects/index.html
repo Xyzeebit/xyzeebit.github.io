@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta property="og:title" content="Donald Dominic">
+        <meta property="og:url" content="https://xyzeebit.github.io">
+        <meta property="og:img" content="https://logo.png">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="Software Developer, Fullstack Developer">
+        <meta name="description" content="Donald's GitHub Page">
+        <meta name="keywords" content="Fullstack developer, Web developer, Nodejs, HTML, CSS, JavaScript, Reactjs">
+        <meta name="author" content="Donald Dominic">
+        <link rel="icon" type="image/svg+xml" href="../images/logo.svg">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;0,700;1,100;1,200&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Monoton&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="../css/pcss.css">
+        <title>Projects and UIs</title>
+    </head>
+    <body>
+        <main>
+            <section class="header">
+                <a href="../index2.html">
+                    <img src="./images/icon-home.svg" width="30" height="30" alt="Back to home">
+                </a>
+                <h1>PROJECTS</h1>
+                <p>
+                    Have A Look
+                </p>
+            </section>
+            <section class="list">
+                <article>
+                    <div>
+                        <img src="./images/online-edu-desktop-mobile.png" alt="Online Learning resource app" width="300" height="200"
+                             onmouseenter="handleFocusGain(this)" onmouseleave="handleFocusLost(this)">
+                    </div>
+                    <a href="#" target="_blank">Online Learning resource landing page</a>
+                </article>
+
+                <article>
+                    <div>
+                        <img src="./images/kopiku-desktop-mobile.png" alt="Kopiku online store" width="300" height="200"
+                             onmouseenter="handleFocusGain(this)" onmouseleave="handleFocusLost(this)">
+                    </div>
+                    <a href="#" target="_blank">Buy coffee beans and snacks from Kopiku store</a>
+                </article>
+
+                <article>
+                    <div>
+                        <img src="./images/hey-messenger-desktop-mobile.png" alt="Hey messenger messaging app" width="300" height="200"
+                             onmouseenter="handleFocusGain(this)" onmouseleave="handleFocusLost(this)">
+                    </div>
+                    <a href="#" target="_blank">Hey! Messenger messaging application</a>
+                </article>
+
+                <article>
+                    <div>
+                        <img src="./images/rest-country-search-desktop-mobile.png" alt="REST country API search repository" width="300" height="200"
+                             onmouseenter="handleFocusGain(this)" onmouseleave="handleFocusLost(this)">
+                    </div>
+                    <a href="#" target="_blank">Search for any country's information with this app</a>
+                </article>
+
+                <article>
+                    <div>
+                        <img src="./images/easy-bank-desktop-mobile.png" alt="Easy bank landing page" width="300" height="200"
+                             onmouseenter="handleFocusGain(this)" onmouseleave="handleFocusLost(this)">
+                    </div>
+                    <a href="#" target="_blank">Easy bank landing page, a frontend mentor project</a>
+                </article>
+
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; Copyright <span id="year"></span> xyzeebit</p>
+        </footer>
+
+        <script>
+            window.onload = function () {
+                const year = new Date().getFullYear();
+                document.getElementById("year").innerText = year + '';
+            }
+
+            function handleFocusGain(evt) {
+                evt.style.transform = 'scale(1.05)';
+            }
+            function handleFocusLost(evt) {
+                evt.style.transform = 'scale(1)';
+            }
+        </script>
+    </body>
+</html>
