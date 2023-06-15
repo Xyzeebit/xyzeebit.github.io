@@ -48,3 +48,119 @@ $wood-light: #df9155;
     width: fit-content;
   }
 }
+
+@mixin daily-ui-mix {
+
+  section.daily-ui {
+    padding: 4rem 0 4rem 0;
+    h1 {
+      font-size: 3.5rem;
+      text-align: center;
+      padding-bottom: 1.2rem;
+    }
+    .ui-text {
+      text-align: center;
+      position: relative;
+      width: 18rem;
+      margin: 0 auto;
+      p {
+        padding: 1rem;
+        line-height: 1.3rem;
+        background: $brown;
+        font-weight: 500;
+      }
+    }
+    .ui-text::before {
+      content: '';
+      position: absolute;
+      width: 12rem;
+      height: 12rem;
+      background: $brown;
+      border-radius: 20px;
+      top: -40px;
+      left: -100px;
+      z-index: -1;
+      transform: rotate(45deg);
+    }
+    .ui-text::after {
+      content: '';
+      position: absolute;
+      width: 12rem;
+      height: 12rem;
+      background: $brown;
+      border-radius: 20px;
+      top: -40px;
+      right: -100px;
+      z-index: -1;
+      transform: rotate(45deg);
+    }
+  }
+
+  .ui-list {
+    padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 2rem;
+
+    @include mobile {
+      flex-direction: column;
+    }
+    @include tablet-x {
+      flex-wrap: wrap;
+    }
+
+    .ui-comp {
+      position: relative;
+      width: 18rem;
+      height: 16rem;
+      border: 3px solid $black;
+      //opacity: 0;
+      @include mobile {
+        width: 20rem;
+      }
+      .line-down {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4rem;
+        height: 100%;
+        border-right: 3px solid $black;
+        @include dash-pattern;
+      }
+      .line-up {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 4rem;
+        font-weight: 100;
+        font-size: 1rem;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        border-bottom: 3px solid $black;
+        padding-left: 0.8rem;
+      }
+      .line-up a {
+        margin-left: 2rem;
+        font-weight: 400;
+        font-size: 0.9rem;
+        @include btn-link;
+      }
+
+      img {
+        width: 16rem;
+        height: 10rem;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 4.5rem auto;
+        border: 3px solid $black;
+      }
+    }
+  }
+}
