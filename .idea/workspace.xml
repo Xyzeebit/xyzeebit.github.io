@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="93e76118-19a7-4552-b3a0-4211f4fd4240" name="Changes" comment="Add a form redirect thank-you page">
+      <change beforePath="$PROJECT_DIR$/css/pcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/pcss.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/pcss.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/pcss.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/domlaw.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/domlaw.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projects/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/_common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_common.scss" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+        <option value="HTML File" />
+        <option value="SCSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="GoLibraries">
+    <option name="indexEntireGoPath" value="false" />
+  </component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="v7e29nwa" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectId" id="2QOOa5FeCKKfxmkNPRL9lIXsRnV" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="go.format.on.save.advertiser.fired" value="true" />
+    <property name="go.formatter.settings.were.checked" value="true" />
+    <property name="go.import.settings.migrated" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="SCSS" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="93e76118-19a7-4552-b3a0-4211f4fd4240" name="Changes" comment="" />
+      <created>1685221224540</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1685221224540</updated>
+      <workItem from="1685221227012" duration="1030000" />
+      <workItem from="1685223614571" duration="6842000" />
+      <workItem from="1685295843378" duration="656000" />
+      <workItem from="1685300776755" duration="10220000" />
+      <workItem from="1685468446289" duration="5613000" />
+      <workItem from="1685476597235" duration="1632000" />
+      <workItem from="1685551003401" duration="5286000" />
+      <workItem from="1686071371057" duration="594000" />
+      <workItem from="1686076402245" duration="15562000" />
+      <workItem from="1686322468626" duration="2025000" />
+      <workItem from="1686383896307" duration="1553000" />
+      <workItem from="1686588614724" duration="11004000" />
+      <workItem from="1686676296446" duration="5163000" />
+      <workItem from="1686683146850" duration="34139000" />
+      <workItem from="1686719184632" duration="232000" />
+      <workItem from="1686755612031" duration="1568000" />
+      <workItem from="1686777455225" duration="1330000" />
+      <workItem from="1686779666798" duration="10910000" />
+      <workItem from="1686858853989" duration="1089000" />
+      <workItem from="1686928987842" duration="6067000" />
+      <workItem from="1686937524572" duration="4292000" />
+      <workItem from="1686944134442" duration="1254000" />
+    </task>
+    <task id="LOCAL-00001" summary="page redesign">
+      <created>1685228275916</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1685228275917</updated>
+    </task>
+    <task id="LOCAL-00002" summary="page redesign">
+      <created>1685305822900</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1685305822900</updated>
+    </task>
+    <task id="LOCAL-00003" summary="page redesign">
+      <created>1685308586670</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1685308586670</updated>
+    </task>
+    <task id="LOCAL-00004" summary="page redesign stylesheet">
+      <created>1685469706640</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1685469706640</updated>
+    </task>
+    <task id="LOCAL-00005" summary="page redesign">
+      <created>1685555221636</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1685555221636</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Add intro page design&#10;- Add responsive background&#10;- Add header component with nav links&#10;- Add about me text&#10;- Add mobile menu">
+      <created>1686086950536</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1686086950536</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Add style to mobile header component&#10;- Add download CV button&#10;- Change toggle height to accommodate CV button&#10;- Add menu button animation&#10;- Change border color from #111 to #000">
+      <created>1686089776697</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1686089776697</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Add project item markup&#10;- Add project picture container&#10;- Add project side text&#10;- Add project description container&#10;- Style projects container element">
+      <created>1686594824125</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1686594824125</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add projects&#10;- Add main projects&#10;- Add more projects button&#10;- Add animations to projects pseudo-elements&#10;- Add project item images">
+      <created>1686599665352</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1686599665352</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Add responsive style&#10;- Add responsive style for tablet and laptops screen&#10;- Add responsive style for mobile screen&#10;- Adjust component widths and heights&#10;- Add image attachment to mobile background">
+      <created>1686679855108</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1686679855108</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Add Daily UI section&#10;- Add styles to components&#10;- Add UI markup">
+      <created>1686687135584</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1686687135585</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add JS animations&#10;Add viewport animations to projects and daily ui components">
+      <created>1686689385015</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1686689385015</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Add contact component&#10;- Implement contact form&#10;- Social media handles&#10;- Style contact component">
+      <created>1686696404926</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1686696404926</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Add anchor Listeners&#10;- Implement close menu for mobile links&#10;- Add mobile styles for contact elements">
+      <created>1686699623215</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1686699623215</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Add Fonts&#10;- Add new fonts&#10;- Adjust styles to fit font">
+      <created>1686702910464</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1686702910464</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Add Kopiku project description&#10;- Add header image&#10;- Add project text description&#10;- Add link to project&#10;- Add stylesheet">
+      <created>1686712111257</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686712111257</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Add other projects and contact&#10;Add others projects and contact form">
+      <created>1686716004621</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1686716004621</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Fix bug&#10;Add copyright year to footer component">
+      <created>1686755972437</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1686755972437</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Add /projects/index route &#10;- Implement a header&#10;- Add projects to main body&#10;- Add footer&#10;- Attach image listeners&#10;- Add page styles&#10;- Fix bug on footer year">
+      <created>1686785089324</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1686785089324</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Add daily UI and contact components&#10;- Add daily ui item&#10;- Style ui item&#10;- Add contact component&#10;- Style contact component">
+      <created>1686789730031</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1686789730031</updated>
+    </task>
+    <task id="LOCAL-00021" summary="Update Style&#10;- Add border to body element&#10;- Add border-top to section elements&#10;- Add intersection listeners to section components">
+      <created>1686929972305</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1686929972305</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Fix styling bug&#10;- Add opacity to contact elements&#10;- Remove header width that was causing it to overflow on mobile screen&#10;- Remove border radius from header paragraph&#10;- Skip header paragraph animation&#10;- Hide mobile overflow-x">
+      <created>1686930677110</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1686930677110</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Fix styling bug on mobile landscape orientation&#10;- Change socials element height to 40rem on landscape mode&#10;- Change flex gap to 3rem">
+      <created>1686931024824</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1686931024825</updated>
+    </task>
+    <task id="LOCAL-00024" summary="Fix broken links&#10;- update link to some projects listings&#10;- Add new project to listings">
+      <created>1686931783914</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1686931783914</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Fix bug on project description and landscape orientation styling">
+      <created>1686933024445</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1686933024445</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Add domlaw project description page&#10;- Add images for project detail&#10;- Reuse markup from kopiku">
+      <created>1686941141711</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1686941141711</updated>
+    </task>
+    <task id="LOCAL-00027" summary="Add a form redirect thank-you page">
+      <created>1686942373498</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1686942373498</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="page redesign stylesheet" />
+    <MESSAGE value="page redesign" />
+    <MESSAGE value="Add intro page design&#10;- Add responsive background&#10;- Add header component with nav links&#10;- Add about me text&#10;- Add mobile menu" />
+    <MESSAGE value="Add style to mobile header component&#10;- Add download CV button&#10;- Change toggle height to accommodate CV button&#10;- Add menu button animation&#10;- Change border color from #111 to #000" />
+    <MESSAGE value="Add project item markup&#10;- Add project picture container&#10;- Add project side text&#10;- Add project description container&#10;- Style projects container element" />
+    <MESSAGE value="Add projects&#10;- Add main projects&#10;- Add more projects button&#10;- Add animations to projects pseudo-elements&#10;- Add project item images" />
+    <MESSAGE value="Add responsive style&#10;- Add responsive style for tablet and laptops screen&#10;- Add responsive style for mobile screen&#10;- Adjust component widths and heights&#10;- Add image attachment to mobile background" />
+    <MESSAGE value="Add Daily UI section&#10;- Add styles to components&#10;- Add UI markup" />
+    <MESSAGE value="Add JS animations&#10;Add viewport animations to projects and daily ui components" />
+    <MESSAGE value="Add contact component&#10;- Implement contact form&#10;- Social media handles&#10;- Style contact component" />
+    <MESSAGE value="Add anchor Listeners&#10;- Implement close menu for mobile links&#10;- Add mobile styles for contact elements" />
+    <MESSAGE value="Add Fonts&#10;- Add new fonts&#10;- Adjust styles to fit font" />
+    <MESSAGE value="Add Kopiku project description&#10;- Add header image&#10;- Add project text description&#10;- Add link to project&#10;- Add stylesheet" />
+    <MESSAGE value="Add other projects and contact&#10;Add others projects and contact form" />
+    <MESSAGE value="Fix bug&#10;Add copyright year to footer component" />
+    <MESSAGE value="Add /projects/index route &#10;- Implement a header&#10;- Add projects to main body&#10;- Add footer&#10;- Attach image listeners&#10;- Add page styles&#10;- Fix bug on footer year" />
+    <MESSAGE value="Add daily UI and contact components&#10;- Add daily ui item&#10;- Style ui item&#10;- Add contact component&#10;- Style contact component" />
+    <MESSAGE value="Update Style&#10;- Add border to body element&#10;- Add border-top to section elements&#10;- Add intersection listeners to section components" />
+    <MESSAGE value="Fix styling bug&#10;- Add opacity to contact elements&#10;- Remove header width that was causing it to overflow on mobile screen&#10;- Remove border radius from header paragraph&#10;- Skip header paragraph animation&#10;- Hide mobile overflow-x" />
+    <MESSAGE value="Fix styling bug on mobile landscape orientation&#10;- Change socials element height to 40rem on landscape mode&#10;- Change flex gap to 3rem" />
+    <MESSAGE value="Fix broken links&#10;- update link to some projects listings&#10;- Add new project to listings" />
+    <MESSAGE value="Fix bug on project description and landscape orientation styling" />
+    <MESSAGE value="Add domlaw project description page&#10;- Add images for project detail&#10;- Reuse markup from kopiku" />
+    <MESSAGE value="Add a form redirect thank-you page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add a form redirect thank-you page" />
+  </component>
+  <component name="VgoProject">
+    <integration-enabled>true</integration-enabled>
+  </component>
+</project>
