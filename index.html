@@ -1,728 +1,322 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donald Dominic</title>
-    <meta name="description" content="Donald's GitHub Page">
-    <meta name="keywords" content="Fullstack developer, Web developer, Nodejs, HTML, CSS, JavaScript, Reactjs">
-    <meta name="author" content="Donald Dominic">
-    <link rel="icon" type="image/svg+xml" href="./images/logo.svg">
-    <link rel="stylesheet" href="./css/styles.css">
-</head>
-<body class="">
-    <header id="header" class="bg-white-alt">
-        <nav class="bg-white-alt">
-            <div class="nav-brand">
-                <img 
-                    src="./images/logo.svg"
-                    alt="Donald Home Page Logo"
-                    width="50"
-                    height="50"
-                />
-                <span>Donald Dominic</span>
+    <head>
+        <meta charset="UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Donald Dominic</title>
+        <meta property="og:title" content="Donald Dominic">
+        <meta property="og:url" content="https://xyzeebit.github.io">
+        <meta property="og:img" content="https://logo.png">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="Software Developer, Fullstack Developer">
+        <meta name="description" content="Donald's GitHub Page">
+        <meta name="keywords" content="Fullstack developer, Web developer, Nodejs, HTML, CSS, JavaScript, Reactjs">
+        <meta name="author" content="Donald Dominic">
+        <link rel="icon" type="image/svg+xml" href="./images/logo.svg">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,300;0,400;0,600;0,700;1,100;1,200&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Monoton&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="./css/stylesheet.css">
+        <script src="./js/main.js"></script>
+    </head>
+    <body>
+        <main>
+            <div class="container">
+                <header>
+                    <nav>
+                        <div class="nav-brand">
+                            <img src="./images/logo.svg" width="50" height="50" alt="Donald Dominic">
+                            <span>Donald</span>
+                        </div>
+                        <ul>
+                            <li>
+                                <a href="#aboutme">About</a>
+                            </li>
+                            <li>
+                                <a href="#projects">My Projects</a>
+                            </li>
+                            <li>
+                                <a href="#daily-ui">Daily UI</a>
+                            </li>
+                            <li class="hide none">
+                                <a href="./blog/index.html">Blog</a>
+                            </li>
+                            <li>
+                                <a href="#contact">Contact</a>
+                            </li>
+                            <li>
+                                <a download="CV Donald" href="./cv/fullstack.pdf" class="cv-button">
+                                    <img src="./images/icon-download.svg" width="25" height="20" alt="Download my CV">
+                                    <span>CV</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <button class="mb-menu-btn" aria-label="mobile menu button">
+                            <input type="checkbox" id="menuBtn">
+                            <label class="menu-btn-group" for="menuBtn">
+                                <span class="no-animation"></span>
+                                <span class="no-animation"></span>
+                                <span class="no-animation"></span>
+                            </label>
+                        </button>
+                    </nav>
+                    <div class="mb-nav">
+                        <a href="#aboutme">About</a>
+                        <a href="#projects">Projects</a>
+                        <a href="./blog/index.html" class="hide none">Blog</a>
+                        <a href="#daily-ui">Daily UI</a>
+                        <a href="#contact">Contact</a>
+                        <a download="CV Donald" href="./cv/fullstack.pdf" class="cv-button">
+                            <img src="./images/icon-download.svg" width="25" height="20" alt="Download my CV">
+                            <span>CV</span>
+                        </a>
+                    </div>
+                </header>
+                <div class="page-start">
+                    <section id="aboutme" class="page-about">
+                        <h1 aria-label="Donald"><span>D</span>ONAL<span>D</span></h1>
+                        <h2 aria-label="software developer"><span>S</span>OFTWARE DEVELOPE<span>R</span></h2>
+                        <p>
+                            Donald is a software developer based in Nigeria. This is what he has to say about himself
+                            <i>
+                                "There are two things I like doing most, coding and following my favorite
+                                football team."
+                            </i>
+                        </p>
+                        <a href="#projects">
+                            <img src="images/arrow-down.svg" alt="my projects" width="100" height="50">
+                        </a>
+                    </section>
+                </div>
             </div>
-            <button id="nav-button" class="nav-button">
-                <div></div>
-                <div></div>
-                <div></div>
-            </button>
-        </nav>
-        <div class="menu">
-            <a href="#aboutme">About Me</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact</a>
-            <a download="cv-donald" href="https://drive.google.com/file/d/1wck3aMEqcWqy66c4BY-jQON10svttjRF/view?usp=drivesdk">CV</a>
-        </div>
-    </header>
-    <main>
-        <section id="aboutme" class="">
-            <h1>Hello!</h1>
-            <h2>My name is Donald</h2>
-            <h3>Welcome to my GitHub Page</h3>
-            <p>
-                Donald is a Full stack developer based in Nigeria. This is what he has to say about himself
-                <blockquote>
-					<i>"There are two things I like doing most, coding and following my favorite 
-                football team."</i>
-				</blockquote>
-            </p>
-        </section>
-        <section id="projects" class="">
-            <h1>Projects</h1>
-            <div class="project-list">
-                <article class="">
-                    <img 
-                        src="./images/easybank-image.PNG"
-                        alt="Easybank project"
-                        width="300"
-                        height="300"
-                        class="project-image"
-                    />
-                    <div class="project-desc">
+
+            <section id="projects" class="projects">
+                <h1>PORTFOLIO</h1>
+
+                <div class="sec-intro">
+                    <p>
+                        Checkout some of the projects I have been working on.
+                    </p>
+                </div>
+
+                <div class="project-item">
+                    <div class="side-text">
+                        <p>PROJECT</p>
+                    </div>
+                    <div class="project-container">
+                        <picture>
+                            <img src="./images/kopiku-intro.jpeg" alt="Kopiku store" width="300" height="250">
+                        </picture>
+                        <article>
+                            <h2>Kopiku Web App</h2>
+                            <p>
+                                Kopiku is a web app store that sales beans and snacks. Click the link below to learn
+                                how and why I made it.
+                            </p>
+
+                            <a class="btn-link" href="./projects/kopiku.html">
+                                <img src="./images/right-arrow.svg" width="30" height="20" alt="Learn why I made kopiku web app">
+                            </a>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="project-item">
+                    <div class="side-text">
+                        <p>PROJECT</p>
+                    </div>
+                    <div class="project-container">
+                        <picture>
+                            <img src="./images/domlaw-intro.jpeg" alt="Kopiku store" width="300" height="250">
+                        </picture>
+                        <article>
+                            <h2>DomLaw Investment</h2>
+                            <p>
+                                DomLaw is a web application I made for my brother's company. Click the link below to learn
+                                how and why I made it.
+                            </p>
+
+                            <a class="btn-link" href="./projects/domlaw.html">
+                                <img src="./images/right-arrow.svg" width="30" height="20" alt="Learn why I made domlaw investment">
+                            </a>
+                        </article>
+                    </div>
+                </div>
+
+                <div class="more-projects">
+                    <a class="btn-link" href="./projects/index.html">
+                        more projects
+                    </a>
+                </div>
+
+            </section>
+
+            <section id="daily-ui" class="daily-ui">
+                <h1>DAILY UI</h1>
+                <div class="ui-text">
+                    <p>
+                        Daily UI is a recreation of some of the most common UI components you would find on most web applications
+                    </p>
+                </div>
+                
+                <div class="ui-list">
+                    <div class="ui-comp">
+                        <div class="line-down"></div>
+                        <div class="line-up">
+                            <span>001</span>
+                            <a class="btn-link" href="./50days/22.html" target="_blank">Filter List</a>
+                        </div>
+                        <img src="./images/d22.jpeg" width="300" height="250" alt="Filter list">
+                    </div>
+
+                    <div class="ui-comp">
+                        <div class="line-down"></div>
+                        <div class="line-up">
+                            <span>002</span>
+                            <a class="btn-link" href="./50days/10.html" target="_blank">FAQ</a>
+                        </div>
+                        <img src="./images/d10.jpeg" width="300" height="250" alt="FAQ">
+                    </div>
+
+                    <div class="ui-comp">
+                        <div class="line-down"></div>
+                        <div class="line-up">
+                            <span>003</span>
+                            <a class="btn-link" href="./50days/12.html" target="_blank">Followers</a>
+                        </div>
+                        <img src="./images/d12.jpeg" width="300" height="250" alt="Social media followers">
+                    </div>
+
+                    <div class="ui-comp">
+                        <div class="line-down"></div>
+                        <div class="line-up">
+                            <span>004</span>
+                            <a class="btn-link" href="./50days/17.html" target="_blank">Image Slider</a>
+                        </div>
+                        <img src="./images/d17.jpeg" width="300" height="250" alt="Image Slider">
+                    </div>
+
+                    <div class="ui-comp">
+                        <div class="line-down"></div>
+                        <div class="line-up">
+                            <span>005</span>
+                            <a class="btn-link" href="./50days/20.html" target="_blank">Password Gen.</a>
+                        </div>
+                        <img src="./images/d20.jpeg" width="300" height="250" alt="Password generator">
+                    </div>
+
+                    <div class="ui-comp">
+                        <div class="line-down"></div>
+                        <div class="line-up">
+                            <span>006</span>
+                            <a class="btn-link" href="./50days/30.html" target="_blank">Drawer App</a>
+                        </div>
+                        <img src="./images/d30.jpeg" width="300" height="250" alt="Drawer app">
+                    </div>
+
+                    <div class="ui-comp">
+                        <div class="line-down"></div>
+                        <div class="line-up">
+                            <span>007</span>
+                            <a class="btn-link" href="./50days/21.html" target="_blank">Toggle</a>
+                        </div>
+                        <img src="./images/d21.jpeg" width="300" height="250" alt="Toggle options">
+                    </div>
+
+                    <div class="ui-comp">
+                        <div class="line-down"></div>
+                        <div class="line-up">
+                            <span>008</span>
+                            <a class="btn-link" href="./50days/14.html" target="_blank">Drink Water</a>
+                        </div>
+                        <img src="./images/d14.jpeg" width="300" height="250" alt="Drinking goal">
+                    </div>
+                </div>
+
+                <div class="more-projects">
+                    <a class="btn-link" href="./projects/index.html#daily-ui">
+                        more ui awaits
+                    </a>
+                </div>
+
+            </section>
+
+            <section id="contact" class="contact">
+                    <h1>CONTACT</h1>
+                <div class="contact-text none">
+                    <p>
+                        Do you have a project you might want me to be a part of? any questions/suggestions or you just want to
+                        say hi, I'm available all day every day, send me a mail, connect with me on Twitter, LinkedIn, GitHub or on Telegram
+                    </p>
+                </div>
+                <div class="contact-info">
+                    <form action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="3b019ea5-71b3-4136-a3f1-2df2c9adcc56">
+                        <div class="input-group">
+                            <label for="name">Name*</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email*</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="message">Message*</label>
+                            <textarea id="message" name="message" required></textarea>
+                        </div>
+                        <input type="hidden" name="redirect" value="https://xyzeebit.github.io/thanks.html">
+                        <div class="h-captcha" data-captcha="true"></div>
+                        <div class="input-group">
+                            <button class="btn-link" type="submit">Submit Form</button>
+                        </div>
+
+                    </form>
+                    
+                    <div class="socials">
+                        <h2>Social Media Handles</h2>
                         <p>
-                            <span class="arrow-wrapper">
-                                <img src="./images/icon-arrow.svg" alt="" width="25" height="20"/>
-                            </span>
-                            <span>EasyBank Landing Page, a <i>frontendmentor</i> project with responsive design.</span>
+                            Do you have a project you might want me to be a part of? any questions/suggestions or you just want to
+                            say hi, I'm available all day every day, send me a mail, connect with me on Twitter, LinkedIn, GitHub or on Telegram
                         </p>
-                        <a class="a-1" href="https://easy-bank-rho.vercel.app" target="_blank" rel="noopener">Visit Site</a>
-                    </div>
-                </article>
-                <article>
-                    <img 
-                        src="./images/kopiku-image.png"
-                        alt="Kopiku online store"
-                        width="300"
-                        height="300"
-                        class="project-image"
-                    />
-                    <div class="project-desc">
-                        <p>
-                            <span class="arrow-wrapper">
-                                <img src="./images/icon-arrow.svg" alt="" width="25" height="20"/>
-                            </span>
-                            <span>Kopiku, online shop for coffees, beans and snacks.</span>
-                        </p>
-                        <a class="a-2" href="https://bit.ly/3No5JMb" target="_blank" rel="noopener">Visit Site</a>
-                    </div>
-                </article>
-                <article>
-                    <img 
-                        src="./images/onlineedu-image.PNG"
-                        alt="OnlineEdu Project"
-                        width="300"
-                        height="300"
-                        class="project-image"
-                    />
-                    <div class="project-desc">
-                        <p>
-                            <span class="arrow-wrapper">
-                                <img src="./images/icon-arrow.svg" alt="" width="25" height="20"/>
-                            </span>
-                            <span>OnlineEdu, Free learning resource center.</span>
-                        </p>
-                        <a class="a-3" href="https://online-edu-six.vercel.app/" target="_blank" rel="noopener">Visit Site</a>
-                    </div>
-                </article>
-                <article>
-                    <img 
-                        src="./images/hey-messenger.PNG"
-                        alt="Hey Messenger"
-                        width="300"
-                        height="300"
-                        class="project-image"
-                    />
-                    <div class="project-desc">
-                        <p>
-                            <span class="arrow-wrapper">
-                                <img src="./images/icon-arrow.svg" alt="" width="25" height="20"/>
-                            </span>
-                            <span><i>Hey!</i> Messenger, messaging application.</span>
-                        </p>
-                        <a class="a-4" href="https://bit.ly/3B9yF7B" target="_blank" rel="noopener">Visit Site</a>
-                    </div>
-                </article>
-                <article>
-                    <img 
-                        src="./images/search-country-image.PNG"
-                        alt="Find Country Project"
-                        width="300"
-                        height="300"
-                        class="project-image"
-                    />
-                    <div class="project-desc">
-                        <p>
-                            <span class="arrow-wrapper">
-                                <img src="./images/icon-arrow.svg" alt="" width="25" height="20"/>
-                            </span>
-                            <span>Find Country, a <i>frontendmentor</i> project for querying REST API.</span>
-                        </p>
-                        <a class="a-4" href="https://bit.ly/3v7Nxjc" target="_blank" rel="noopener">Visit Site</a>
-                    </div>
-                </article>
-            </div>
-        </section>
-
-        <section id="fun" class="fun-projects">
-            <h1>33 Fun Projects With HTML - CSS - Vanilla JS</h1>
-
-            <div class="days">
-                <div class="fun">
-                    <img 
-                        src="./images/d1.jpeg"
-                        alt="expand panel"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Expand Panel</h2>
-                        <a href="./50days/1.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d2.jpeg"
-                        alt="progress bar"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Progress Bar</h2>
-                        <a href="./50days/2.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d3.jpeg"
-                        alt="Rotational navigation"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Rotation Navigation</h2>
-                        <a href="./50days/3.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d4.jpeg"
-                        alt="expanded Input"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Expand Search Input</h2>
-                        <a href="./50days/4.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d5.jpeg"
-                        alt="Blurry Loader"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Blurry Loader</h2>
-                        <a href="./50days/5.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d6.jpeg"
-                        alt="Scroll animation"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Scroll Animation</h2>
-                        <a href="./50days/6.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d7.jpeg"
-                        alt="Split Landing page"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Split Landing Page</h2>
-                        <a href="./50days/7.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d8.jpeg"
-                        alt="Sound Board"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Audio Board</h2>
-                        <a href="./50days/8.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d9.jpeg"
-                        alt="Dad Jokes"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Dad Jokes</h2>
-                        <a href="./50days/9.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d10.jpeg"
-                        alt="FAQ"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>FAQ</h2>
-                        <a href="./50days/10.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d11.jpeg"
-                        alt="Login wave input"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Wave Input</h2>
-                        <a href="./50days/11.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d12.jpeg"
-                        alt="Social Medial followers"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Followers Counter</h2>
-                        <a href="./50days/12.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d13.jpeg"
-                        alt="Navigation animation"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Navigation Animation</h2>
-                        <a href="./50days/13.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d14.jpeg"
-                        alt="Drink water"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Drink Water</h2>
-                        <a href="./50days/14.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d15.jpeg"
-                        alt="Password strength"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Password Strength</h2>
-                        <a href="./50days/15.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d16.png"
-                        alt="Slider"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Background Fade</h2>
-                        <a href="./50days/16.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d17.jpeg"
-                        alt="Split Slider"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Split Slider</h2>
-                        <a href="./50days/17.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d18.jpeg"
-                        alt="Github user search"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>GitHub User Search</h2>
-                        <a href="./50days/18.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img 
-                        src="./images/d19.jpeg"
-                        alt="Carousel"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Carousel</h2>
-                        <a href="./50days/19.html" target="_blank">view</a>
-                    </div>
-                </div>
-                <div class="fun">
-                    <img 
-                        src="./images/d20.jpeg"
-                        alt="Password generator"
-                        width="300"
-                        height="200"
-                    />
-                    <div>
-                        <h2>Password Generator</h2>
-                        <a href="./50days/20.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img src="./images/d21.jpeg" alt="Good cheap and fast"
-                        width="300" height="200" />
-                    <div>
-                        <h2>Good Cheap and Fast</h2>
-                        <a href="./50days/21.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img src="./images/d22.jpeg" alt="Live User filter"
-                        width="300" height="200" />
-                    <div>
-                        <h2>Filter User</h2>
-                        <a href="./50days/22.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img src="./images/d23.jpeg" alt="Netflix Sidebar Navigation"
-                        width="300" height="200" />
-                    <div>
-                        <h2>Netflix Navigation</h2>
-                        <a href="./50days/23.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img src="./images/d24.jpeg" alt="Account validator"
-                        width="300" height="200" />
-                    <div>
-                        <h2>Account verifier</h2>
-                        <a href="./50days/24.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img src="./images/d25.jpeg" alt="Auto Writer"
-                        width="300" height="200" />
-                    <div>
-                        <h2>Auto Writer</h2>
-                        <a href="./50days/25.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img src="./images/d26.jpeg" alt="Portfolio page"
-                        width="300" height="200" />
-                    <div>
-                        <h2>Landing Page</h2>
-                        <a href="./50days/26.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img src="./images/d27.jpeg" alt="Todo App"
-                        width="300" height="200" />
-                    <div>
-                        <h2>Todos App</h2>
-                        <a href="./50days/27.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img src="./images/d28.jpeg" alt="Hover Board" width="300" height="200" />
-                    <div>
-                        <h2>Hover Board</h2>
-                        <a href="./50days/28.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img src="./images/d29.jpeg" alt="Custom warning" width="300" height="200" />
-                    <div>
-                        <h2>Custom Warning</h2>
-                        <a href="./50days/29.html" target="_blank">view</a>
-                    </div>
-                </div>
-
-                <div class="fun">
-                    <img src="./images/d30.jpeg" alt="Drawer App" width="300" height="200" />
-                    <div>
-                        <h2>Drawer App</h2>
-                        <a href="./50days/30.html" target="_blank">view</a>
-                    </div>
-                </div>
-                
-                <div class="fun">
-                    <img src="./images/d31.jpg" alt="Choose trial plan" width="300" height="200" />
-                    <div>
-                        <h2>Choose subscription</h2>
-                        <a href="./50days/31.html" target="_blank">view</a>
-                    </div>
-                </div>
-                
-                <div class="fun">
-                    <img src="./images/d32.jpg" alt="Card expansion" width="300" height="200" />
-                    <div>
-                        <h2>Card expansion</h2>
-                        <a href="./50days/32.html" target="_blank">view</a>
-                    </div>
-                </div>
-                
-                <div class="fun">
-                    <img src="./images/d33.jpg" alt="Card expansion" width="300" height="200" />
-                    <div>
-                        <h2>Input Chips</h2>
-                        <a href="./50days/33.html" target="_blank">view</a>
-                    </div>
-                </div>
-                
-                
-                
-            </div>
-            
-
-        </section>
-
-        <!------------------------------------------------------------------------->
-        <!------------------------------------------------------------------------->
-
-
-        <section id="my-stack" class="bg-gray">
-                <h1>What I Work With</h1>
-                <div class="my-stack_container">
-                    <div class="my-stacks-images">
-                        <img
-                        src="./images/html-1.svg"
-                        width="50"
-                        height="50"
-                        alt="HTML5"
-                        />
-                        <img
-                        src="./images/css-3.svg"
-                        width="50"
-                        height="50"
-                        alt="CSS"
-                        />
-                        <img
-                        src="./images/sass-1.svg"
-                        width="50"
-                        height="50"
-                        alt="SASS"
-                        />
-                        <img
-                        src="./images/bootstrap-5-1.svg"
-                        width="50"
-                        height="50"
-                        alt="Twitter Bootstrap"
-                        />
-                        <img
-                        src="./images/javascript-1.svg"
-                        width="50"
-                        height="50"
-                        alt="JavaScript"
-                        />
-                        <img
-                        src="./images/react-2.svg"
-                        width="50"
-                        height="50"
-                        alt="Reactjs"
-                        /><img
-                        src="./images/redux.svg"
-                        width="50"
-                        height="50"
-                        alt="React Redux"
-                        />
-                        <img
-                        src="./images/nodejs-2.svg"
-                        width="50"
-                        height="50"
-                        alt="NodeJS"
-                        />
-                        <img
-                        src="./images/mongodb-icon-1.svg"
-                        width="50"
-                        height="50"
-                        alt="Mongo db"
-                        />
-                        <img
-                        src="./images/mysql-6.svg"
-                        width="50"
-                        height="50"
-                        alt="MySql"
-                        />
-                        <img
-                        src="./images/graphql.svg"
-                        width="50"
-                        height="50"
-                        alt="Graphql"
-                        />
-                        <img
-                        src="./images/next-js.svg"
-                        width="50"
-                        height="50"
-                        alt="NextJS"
-                        />
-                        <img
-                        src="./images/git-icon.svg"
-                        width="50"
-                        height="50"
-                        alt="GIT"
-                        />
-                        <img
-                        src="./images/github-icon.svg"
-                        width="50"
-                        height="50"
-                        alt="Github"
-                        />
-                        <img
-                        src="./images/jest-2.svg"
-                        width="50"
-                        height="50"
-                        alt="Mongo db"
-                        />
-                        <img
-                        src="./images/mocha-1.svg"
-                        width="50"
-                        height="50"
-                        alt="MySql"
-                        />
-                        <img
-                        src="./images/php-1.svg"
-                        width="60"
-                        height="60"
-                        alt="PHP"
-                        />
-                        <img
-                        src="./images/java-4.svg"
-                        width="50"
-                        height="50"
-                        alt="Java"
-                        />
-                        
+                        <div class="social-group">
+                            <a href="https://twitter.com/_xdonald?t=xHT7usARVwcoCORHKOb1TA&s=09" target="_blank">
+                                <span>TWITTER</span>
+                                <img src="./images/twitter.png" width="50" height="50" alt="Follow me on twitter">
+                            </a>
+                            <a href="https://linkedin.com/in/donald-sunday" target="_blank">
+                                <span>LINKEDIN</span>
+                                <img src="./images/linkedin.png" width="50" height="50" alt="Follow me on LinkedIn">
+                            </a>
+                            <a href="https://github.com/Xyzeebit" target="_blank">
+                                <span>GITHUB</span>
+                                <img src="./images/github.png" width="50" height="50" alt="Follow me on twitter">
+                            </a>
+                            <a class="tg" href="#" target="_blank">
+                                <span>TELEGRAM</span>
+                                <img src="./images/icon-send.svg" width="50" height="50" alt="Follow me on twitter">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </section>
 
-    </main>
+        </main>
 
-    <footer id="contact" class="bg-red">
-        <h1>Contact</h1>
-        <div class="contact-group">
-			<a href="mailto:gotodonald@gmail.com">gotodonald@gmail.com</a>
-            <a href="https://linkedin.com/in/donald-sunday">LinkedIn</a>
-            <a href="https://twitter.com/_xdonald?t=xHT7usARVwcoCORHKOb1TA&s=09">Twitter</a>
-            <a href="https://github.com/Xyzeebit">GitHub</a>
-        </div>
-         
+        <footer>
+            <p>&copy; Copyright <span id="year"></span> xyzeebit</p>
+        </footer>
 
-        <p>&copy;xyzeebit</p>
-    </footer>
-	
-	<script>
-		const menuButton = document.getElementById('nav-button');
-		menuButton.addEventListener('click', toggleMenu);
-		
-		const state = {
-			menuIsOpen: false,
-		};
-
-		function resetOverflow(el) {
-		  el.style.height = "100%";
-		  el.style.overflow = "auto";
-		}
-
-		function closeMenu(menuButton, header) {
-			const body = document.querySelector("body");
-
-			setTimeout(function () {
-			  menuButton.classList.remove("open-menu");
-			}, 400);
-
-			menuButton.classList.toggle("rotate-menu");
-			state.menuIsOpen = false;
-			header.classList.remove("expand");
-			state.menuIsOpen = false;
-			resetOverflow(body);
-		}
-		function openMenu(menuButton, header) {
-			const body = document.querySelector("body");
-
-			menuButton.classList.add("open-menu");
-			setTimeout(function () {
-			  menuButton.classList.toggle("rotate-menu");
-			}, 400);
-			state.menuIsOpen = true;
-			header.classList.add("expand");
-			body.style.height = "100vh";
-			body.style.overflow = "hidden";
-		}
-
-		function toggleMenu(evt) {
-		  
-		  const menuContainer = document.getElementById("header");
-
-		  if (state.menuIsOpen) {
-			closeMenu(menuButton, menuContainer)
-		  } else {
-			openMenu(menuButton, menuContainer)
-		  }
-		}
-
-		(() => {
-		  const menuLinks = document.querySelectorAll(".menu a");
-		  menuLinks.forEach((element) => {
-			element.addEventListener("click", () => {
-				const navButton = document.querySelector(".nav-button");
-				const menuContainer = document.getElementById("header");
-				closeMenu(navButton, menuContainer);
-			});
-		  });
-		  
-		})();
-
-	</script>
-    
-</body>
+        <script src="https://web3forms.com/client/script.js" async defer></script>
+    </body>
 </html>
