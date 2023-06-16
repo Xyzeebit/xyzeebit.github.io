@@ -1023,6 +1023,9 @@ section.contact {
     @include mobile {
       flex-direction: column-reverse;
     }
+    @include landscape {
+      gap: 3rem;
+    }
   }
   form {
     position: relative;
@@ -1097,6 +1100,9 @@ section.contact {
   background: $wood-light;
   @include mobile {
     width: 88vw;
+  }
+  @include landscape {
+    height: 40rem;
   }
   //opacity: 0;
   p {
