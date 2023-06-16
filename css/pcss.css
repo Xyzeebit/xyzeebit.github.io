@@ -12,6 +12,7 @@ body {
 
 body {
   background: #df9155;
+  border: 5px solid #000;
 }
 
 a {
@@ -29,6 +30,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 5px solid #000;
 }
 @media screen and (max-width: 700px) {
   .header {
@@ -48,6 +50,7 @@ a {
 }
 .header a {
   position: absolute;
+  opacity: 0;
 }
 @media screen and (max-width: 700px) {
   .header a {
@@ -68,6 +71,7 @@ a {
 }
 .header h1 {
   color: #fff;
+  opacity: 0;
 }
 @media screen and (max-width: 700px) {
   .header h1 {
@@ -81,12 +85,14 @@ a {
 }
 .header p {
   position: absolute;
+  opacity: 0;
   left: 0;
   right: 0;
   text-align: center;
   color: #f25d26;
-  border: 5px solid #f25d26;
+  border: 5px solid #000;
   border-radius: 0 0 30px 30px;
+  z-index: 2;
 }
 @media screen and (max-width: 700px) {
   .header p {
@@ -159,6 +165,7 @@ section.list {
 section.list article {
   margin-bottom: 5rem;
   position: relative;
+  opacity: 0;
 }
 @media screen and (max-width: 700px) {
   section.list article {
@@ -223,7 +230,7 @@ section.list article a {
 }
 @media screen and (max-width: 700px) {
   section.list article a {
-    bottom: 0rem;
+    bottom: 0;
   }
 }
 @media (min-width: 701px) and (max-width: 1024px) {
@@ -280,8 +287,15 @@ section.list article::before {
 
 section.daily-ui {
   border-top: 5px solid #000;
-  padding: 4rem 0 4rem 0;
   overflow-x: hidden;
+}
+
+.ui-comp {
+  opacity: 0;
+}
+
+section.daily-ui {
+  padding: 4rem 0 4rem 0;
 }
 section.daily-ui h1 {
   font-size: 3.5rem;
@@ -324,51 +338,8 @@ section.daily-ui .ui-text::after {
   z-index: -1;
   transform: rotate(45deg);
 }
-section.daily-ui section.daily-ui {
-  padding: 4rem 0 4rem 0;
-}
-section.daily-ui section.daily-ui h1 {
-  font-size: 3.5rem;
-  text-align: center;
-  padding-bottom: 1.2rem;
-}
-section.daily-ui section.daily-ui .ui-text {
-  text-align: center;
-  position: relative;
-  width: 18rem;
-  margin: 0 auto;
-}
-section.daily-ui section.daily-ui .ui-text p {
-  padding: 1rem;
-  line-height: 1.3rem;
-  background: #f25d26;
-  font-weight: 500;
-}
-section.daily-ui section.daily-ui .ui-text::before {
-  content: "";
-  position: absolute;
-  width: 12rem;
-  height: 12rem;
-  background: #f25d26;
-  border-radius: 20px;
-  top: -40px;
-  left: -100px;
-  z-index: -1;
-  transform: rotate(45deg);
-}
-section.daily-ui section.daily-ui .ui-text::after {
-  content: "";
-  position: absolute;
-  width: 12rem;
-  height: 12rem;
-  background: #f25d26;
-  border-radius: 20px;
-  top: -40px;
-  right: -100px;
-  z-index: -1;
-  transform: rotate(45deg);
-}
-section.daily-ui .ui-list {
+
+.ui-list {
   padding: 4rem 2rem;
   display: flex;
   justify-content: center;
@@ -376,27 +347,27 @@ section.daily-ui .ui-list {
   gap: 2rem;
 }
 @media screen and (max-width: 700px) {
-  section.daily-ui .ui-list {
+  .ui-list {
     flex-direction: column;
   }
 }
 @media (min-width: 701px) {
-  section.daily-ui .ui-list {
+  .ui-list {
     flex-wrap: wrap;
   }
 }
-section.daily-ui .ui-list .ui-comp {
+.ui-list .ui-comp {
   position: relative;
   width: 18rem;
   height: 16rem;
   border: 3px solid #000;
 }
 @media screen and (max-width: 700px) {
-  section.daily-ui .ui-list .ui-comp {
+  .ui-list .ui-comp {
     width: 20rem;
   }
 }
-section.daily-ui .ui-list .ui-comp .line-down {
+.ui-list .ui-comp .line-down {
   position: absolute;
   left: 0;
   top: 0;
@@ -406,7 +377,7 @@ section.daily-ui .ui-list .ui-comp .line-down {
   background-color: #df9155;
   background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
 }
-section.daily-ui .ui-list .ui-comp .line-up {
+.ui-list .ui-comp .line-up {
   position: absolute;
   left: 0;
   top: 0;
@@ -420,7 +391,7 @@ section.daily-ui .ui-list .ui-comp .line-up {
   border-bottom: 3px solid #000;
   padding-left: 0.8rem;
 }
-section.daily-ui .ui-list .ui-comp .line-up a {
+.ui-list .ui-comp .line-up a {
   margin-left: 2rem;
   font-weight: 400;
   font-size: 0.9rem;
@@ -434,11 +405,11 @@ section.daily-ui .ui-list .ui-comp .line-up a {
   font-size: 0.9rem;
   background: #df9155;
 }
-section.daily-ui .ui-list .ui-comp .line-up a:hover {
+.ui-list .ui-comp .line-up a:hover {
   background: #f25d26;
   box-shadow: 0px 0px 3px 3px #f25d26;
 }
-section.daily-ui .ui-list .ui-comp img {
+.ui-list .ui-comp img {
   width: 16rem;
   height: 10rem;
   position: absolute;
@@ -523,6 +494,19 @@ section.contact form button[type=submit] {
   font-weight: 600;
   margin: 0 auto;
   font-size: 1rem;
+  width: 200px;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border: 2px solid #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  font-size: 0.9rem;
+  background: #df9155;
+}
+section.contact form button[type=submit]:hover {
+  background: #f25d26;
+  box-shadow: 0px 0px 3px 3px #f25d26;
 }
 section.contact form textarea {
   width: 100%;
@@ -603,6 +587,24 @@ footer p {
   margin: 0 auto;
   background: #df9155;
   width: fit-content;
+}
+
+.slide-in {
+  animation-name: slideIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 /*# sourceMappingURL=pcss.css.map */

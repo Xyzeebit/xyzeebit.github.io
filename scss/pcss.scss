@@ -14,6 +14,7 @@ body {
 
 body {
   background: $wood-light;
+  border: 5px solid $black;
 }
 
 a {
@@ -21,35 +22,6 @@ a {
   color: inherit;
 }
 
-@mixin mobile {
-  @media screen and (max-width: 700px) {
-    @content;
-  }
-}
-
-@mixin tablet {
-  @media (min-width: 701px) and (max-width: 1024px) {
-    @content;
-  }
-}
-
-@mixin tablet-x {
-  @media (min-width: 701px) {
-    @content;
-  }
-}
-
-@mixin desktop {
-  @media screen and (min-width: 1025px) {
-    @content;
-  }
-}
-
-@mixin landscape {
-  @media (orientation: landscape) and (max-height: 500px) {
-    @content;
-  }
-}
 .none {
   display: none;
 }
@@ -60,6 +32,7 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-bottom: 5px solid $black;
   @include mobile {
     width: 100vw;
     height: 80vh;
@@ -73,6 +46,7 @@ a {
 
   a {
     position: absolute;
+    opacity: 0;
     @include mobile {
       top: 2rem;
       left: 2rem;
@@ -90,6 +64,7 @@ a {
 
   h1 {
     color: $white;
+    opacity: 0;
     @include mobile {
       font-size: 3rem;
     }
@@ -99,12 +74,14 @@ a {
   }
   p {
     position: absolute;
+    opacity: 0;
     left: 0;
     right: 0;
     text-align: center;
     color: $brown;
-    border: 5px solid $brown;
+    border: 5px solid $black;
     border-radius: 0 0 30px 30px;
+    z-index: 2;
 
     @include mobile {
       background: $white;
@@ -162,6 +139,7 @@ section.list {
   article {
     margin-bottom: 5rem;
     position: relative;
+    opacity: 0;
     @include mobile {
       width: 100%;
       padding: 1.5rem;
@@ -209,7 +187,7 @@ section.list {
       right: 0;
       text-decoration: underline;
       @include mobile {
-        bottom: 0rem;
+        bottom: 0;
       }
       @include tablet {
         bottom: -2rem;
@@ -255,196 +233,21 @@ section.list {
 
 }
 
+
 section.daily-ui {
   border-top: 5px solid $black;
-  padding: 4rem 0 4rem 0;
   overflow-x: hidden;
-  h1 {
-    font-size: 3.5rem;
-    text-align: center;
-    padding-bottom: 1.2rem;
-  }
-  .ui-text {
-    text-align: center;
-    position: relative;
-    width: 18rem;
-    margin: 0 auto;
-
-    p {
-      padding: 1rem;
-      line-height: 1.3rem;
-      background: $brown;
-      font-weight: 500;
-    }
-  }
-
-  .ui-text::before {
-    content: '';
-    position: absolute;
-    width: 12rem;
-    height: 12rem;
-    background: $brown;
-    border-radius: 20px;
-    top: -40px;
-    left: -100px;
-    z-index: -1;
-    transform: rotate(45deg);
-  }
-  .ui-text::after {
-    content: '';
-    position: absolute;
-    width: 12rem;
-    height: 12rem;
-    background: $brown;
-    border-radius: 20px;
-    top: -40px;
-    right: -100px;
-    z-index: -1;
-    transform: rotate(45deg);
-  }
-
-  @include daily-ui-mix;
+}
+.ui-comp {
+  opacity: 0;
 }
 
-section.contact {
-  border-top: 5px solid $black;
-  padding-top: 4rem;
-  padding-bottom: 2rem;
-  background: $wood-light;
-  h1 {
-    font-size: 3.5rem;
-    text-align: center;
-  }
-
-  .contact-text {
-    width: 50vw;
-    margin: 0 auto;
-
-    p {
-      padding: 2rem;
-      line-height: 1.3rem;
-      background: $brown;
-      border-radius: 20px 20px 0 0;
-    }
-  }
-  .contact-info {
-    padding: 2rem 4rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-    @include mobile {
-      flex-direction: column-reverse;
-    }
-  }
-  form {
-    position: relative;
-    border: 3px solid $black;
-    width: 25rem;
-    padding: 2rem;
-    background: $wood-light;
-    //opacity: 0;
-    @include mobile {
-      width: 88vw;
-      padding: 1rem;
-    }
-    .input-group {
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-start;
-      row-gap: 1rem;
-      flex-direction: column;
-      margin-bottom: 2rem;
-
-      @include mobile {
-        row-gap: 0.5rem;
-        margin-bottom: 1rem;
-      }
-    }
-    label {
-      font-weight: 600;
-    }
-    input {
-      width: 100%;
-      height: 3rem;
-      padding-left: 1.5rem;
-      font-size: 1rem;
-      font-weight: 600;
-    }
-    button[type="submit"] {
-      font-weight: 600;
-      margin: 0 auto;
-      font-size: 1rem;
-    }
-    textarea {
-      width: 100%;
-      height: 10rem;
-      padding: 1rem;
-      line-height: 1.3rem;
-    }
-  }
-  form::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    @include dash-pattern;
-    top: 3rem;
-    left: -3rem;
-    z-index: -1;
-    @include mobile {
-      top: 2rem;
-      display: none;
-    }
-  }
-}
-
-.socials {
-  position: relative;
-  width: 25rem;
-  height: 35rem;
-  border: 3px solid $black;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
-  background: $wood-light;
-  @include mobile {
-    width: 88vw;
-  }
-  p {
-    padding: 1rem;
-    margin: 1rem;
-    line-height: 1.3rem;
-    text-align: center;
-    border: 3px dotted $black;
-    font-weight: 600;
-    font-size: 0.85rem;
-  }
-
-  .social-group {
-    width: 100%;
-  }
-
-  a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-collapse: collapse;
-    border-top: 2px solid $black;
-    padding: 0.5rem 1rem 0.5em 1rem;
-    transition: all 0.5s;
-
-    &:hover {
-      background: $brown;
-    }
-  }
-  .tg {
-    display: none;
-  }
-}
+@include daily-ui-mix;
+@include contact-min;
 
 
 footer {
   @include footer;
 }
+
+@include slide-in;
