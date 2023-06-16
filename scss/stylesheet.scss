@@ -718,6 +718,10 @@ section.projects {
     @include mobile {
       width: 100%;
     }
+    @include landscape {
+      width: 55%;
+      height: 16rem;
+    }
   }
   picture::before {
     content: '';
@@ -731,6 +735,10 @@ section.projects {
     @include mobile {
       top: 1.5rem;
       left: -1.5rem;
+    }
+    @include landscape {
+      top: 2.5rem;
+      left: -2.5rem;
     }
   }
 
@@ -747,6 +755,10 @@ section.projects {
       width: 30%;
       height: 25rem;
     }
+    @include landscape {
+      width: 40%;
+      height: 20rem;
+    }
     h2 {
       padding: 2rem 0 1rem 0;
       font-size: 2.5rem;
@@ -758,6 +770,10 @@ section.projects {
         padding: 1rem 0 1rem 0;
         font-size: 2rem;
       }
+      @include landscape {
+        padding: 0rem 0 1rem 0;
+        font-size: 1.5rem;
+      }
     }
     p {
       padding: 2rem 0rem 4rem 0;
@@ -768,6 +784,9 @@ section.projects {
       }
       @include tablet {
         padding: 1rem 0rem 3rem 0;
+      }
+      @include landscape {
+        padding: 1rem 0rem 2rem 0;
       }
     }
     a {
@@ -1024,7 +1043,7 @@ section.contact {
       flex-direction: column-reverse;
     }
     @include landscape {
-      gap: 3rem;
+      gap: 2.5rem;
     }
   }
   form {
@@ -1037,6 +1056,9 @@ section.contact {
     @include mobile {
       width: 88vw;
       padding: 1rem;
+    }
+    @include landscape {
+      width: 28rem;
     }
     .input-group {
       display: flex;
@@ -1102,7 +1124,8 @@ section.contact {
     width: 88vw;
   }
   @include landscape {
-    height: 40rem;
+    width: 28rem;
+    height: 38rem;
   }
   //opacity: 0;
   p {

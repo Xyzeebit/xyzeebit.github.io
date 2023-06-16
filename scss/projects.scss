@@ -21,6 +21,10 @@ body {
   scroll-behavior: smooth;
 }
 
+body {
+  border: 5px solid $black;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -304,6 +308,10 @@ section.contact {
     @include mobile {
       flex-direction: column-reverse;
     }
+    @include landscape {
+      gap: 2.5rem;
+      padding: 2rem 2rem 4rem 2rem;
+    }
   }
   form {
     position: relative;
@@ -315,6 +323,9 @@ section.contact {
     @include mobile {
       width: 88vw;
       padding: 1rem;
+    }
+    @include landscape {
+      width: 28rem;
     }
     .input-group {
       display: flex;
@@ -379,6 +390,10 @@ section.contact {
   background: $wood-light;
   @include mobile {
     width: 88vw;
+  }
+  @include landscape {
+    width: 28rem;
+    height: 38rem;
   }
   p {
     padding: 1rem;

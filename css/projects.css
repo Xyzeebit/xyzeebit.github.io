@@ -10,6 +10,10 @@ body {
   scroll-behavior: smooth;
 }
 
+body {
+  border: 5px solid #000;
+}
+
 a {
   text-decoration: none;
   color: inherit;
@@ -317,6 +321,12 @@ section.contact .contact-info {
     flex-direction: column-reverse;
   }
 }
+@media (orientation: landscape) and (max-height: 500px) {
+  section.contact .contact-info {
+    gap: 2.5rem;
+    padding: 2rem 2rem 4rem 2rem;
+  }
+}
 section.contact form {
   position: relative;
   border: 3px solid #000;
@@ -328,6 +338,11 @@ section.contact form {
   section.contact form {
     width: 88vw;
     padding: 1rem;
+  }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  section.contact form {
+    width: 28rem;
   }
 }
 section.contact form .input-group {
@@ -397,6 +412,12 @@ section.contact form::before {
 @media screen and (max-width: 700px) {
   .socials {
     width: 88vw;
+  }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  .socials {
+    width: 28rem;
+    height: 38rem;
   }
 }
 .socials p {
