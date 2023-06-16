@@ -13,7 +13,7 @@ function contentLoaded(event) {
 
     const projectsHeader = document.querySelector('.header');
     if(projectsHeader) {
-        observeElement(projectsHeader, window.appState.projectsHeader, true);
+        observeElement(projectsHeader, window.appState.projectsHeader, true, 2);
     }
 
     const projectsList = document.querySelector('.list');
@@ -32,9 +32,10 @@ function contentLoaded(event) {
     }
 }
 
-function observeElement(el, state, isList) {
+function observeElement(el, state, isList, skipElement) {
     if(isList) {
         for(let i = 0; i < el.children.length; i++) {
+            if (skipElement == i) return;
             const observer = elementObserver(state[i], flag => {
                 if(flag) {
                     state[i] = flag;
