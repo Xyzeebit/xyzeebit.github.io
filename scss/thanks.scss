@@ -1,0 +1,48 @@
+@import "common";
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: $font-family;
+  scroll-behavior: smooth;
+}
+
+body {
+  border: 5px solid $black;
+  background: $wood-light;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 98.5vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: $brown;
+  border: 5px solid $black;
+  width: 20rem;
+  height: 20rem;
+
+  h1 {
+    text-align: center;
+    font-size: 2rem;
+    span {
+      font-size: 4rem;
+    }
+  }
+}

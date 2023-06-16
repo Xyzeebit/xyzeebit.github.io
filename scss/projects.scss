@@ -1,0 +1,459 @@
+$font-family: "Bruno Ace", 'Montserrat', sans-serif;
+$white: #fff;
+$black: #000;
+$brown: #f25d26;
+$wood-light: #df9155;
+
+@mixin dash-pattern {
+  background-color: $wood-light;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: $font-family;
+  scroll-behavior: smooth;
+}
+
+body {
+  border: 5px solid $black;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@mixin mobile {
+  @media screen and (max-width: 700px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 701px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet-x {
+  @media (min-width: 701px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin landscape {
+  @media (orientation: landscape) and (max-height: 500px) {
+    @content;
+  }
+}
+.none {
+  display: none;
+}
+
+section.intro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include dash-pattern;
+  @include mobile {
+    height: 20rem;
+  }
+  @include tablet {
+    height: 100vh;
+  }
+  @include desktop {
+    height: 100vh;
+  }
+
+
+  picture {
+    border: 3px solid $black;
+    @include mobile {
+      width: 80vw;
+      height: 18rem;
+    }
+    @include tablet {
+      width: 70vw;
+      height: 30rem;
+    }
+    @include desktop {
+      width: 80vw;
+      height: 30rem;
+    }
+    @include landscape {
+      width: 80vw;
+      height: 80vh;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-collapse: collapse;
+
+  @include mobile {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .left {
+    border-collapse: collapse;
+    @include mobile {
+      width: 100%;
+      padding: 1rem;
+      border-right: 3px solid $black;
+    }
+    @include tablet {
+      width: 50%;
+      padding: 2rem;
+    }
+    @include desktop {
+      width: 50%;
+      padding: 3rem;
+      border-right: 3px solid $black;
+    }
+
+    picture {
+      width: 80%;
+      height: 400px;
+      margin: 0 auto;
+       img {
+         width: 100%;
+         height: 100%;
+       }
+    }
+    .domlaw-img {
+      @include desktop {
+        height: 300px !important;
+      }
+    }
+  }
+  .right {
+
+    border-collapse: collapse;
+    @include mobile {
+      width: 100%;
+      padding: 1rem;
+      border-left: 3px solid $black;
+    }
+    @include tablet {
+      width: 50%;
+      padding: 2rem;
+      border-left: 3px solid $black;
+    }
+    @include desktop {
+      width: 50%;
+      padding: 3rem;
+    }
+
+    img {
+      width: 100%;
+      height: 300px;
+    }
+  }
+}
+section.closing {
+  @include dash-pattern;
+  @include mobile {
+    padding: 2rem 3rem 4rem 3rem;
+  }
+  @include tablet {
+    padding: 2rem 4rem 4rem 4rem;
+  }
+  @include desktop {
+    padding: 2rem 4rem 4rem 4rem;
+  }
+  p {
+    @include mobile {
+      padding: 2rem 3rem 2rem 3rem;
+    }
+    @include tablet {
+      padding: 2rem 4rem 2rem 4rem;
+    }
+    @include desktop {
+      padding: 2rem 4rem 2rem 4rem;
+    }
+    background: $white;
+  }
+  .link {
+    margin: 2rem auto;
+  }
+}
+
+.btn-link {
+  width: 200px;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border: 2px solid $black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s;
+  font-size: 0.9rem;
+  background: $wood-light;
+  &:hover {
+    background: $brown;
+    box-shadow: 0px 0px 3px 3px $brown;
+  }
+}
+
+section.others {
+  h1 {
+    @include mobile {
+      padding:  2rem;
+    }
+    @include tablet-x {
+      padding: 4rem;
+    }
+  }
+}
+.others-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  @include mobile {
+    margin-bottom: 0;
+  }
+  @include tablet {
+    margin-bottom: 3rem;
+  }
+  @include desktop {
+    margin-bottom: 6.5rem;
+  }
+  article {
+    @include mobile {
+      width: 50%;
+      column-gap: 2rem;
+      padding: 0 2rem 2rem 2rem;
+    }
+    @include tablet {
+      width: 23rem;
+      height: 18rem;
+      column-gap: 4rem;
+      padding: 0 4rem 4rem 4rem;
+    }
+    @include desktop {
+      width: 25rem;
+      height: 16rem;
+      column-gap: 4rem;
+      padding: 0 4rem 4rem 4rem;
+    }
+    img {
+      display: block;
+      @include mobile {
+        width: 100%;
+        height: 7rem;
+      }
+      @include tablet {
+        width: 100%;
+        height: 10rem;
+      }
+      @include desktop {
+        width: 100%;
+        height: 12rem;
+      }
+    }
+    a {
+      display: block;
+      color: $brown;
+      padding: 1rem 0 0 0;
+      &:hover {
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+section.contact {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  background: $wood-light;
+  h1 {
+    font-size: 3.5rem;
+    text-align: center;
+  }
+
+  .contact-text {
+    width: 50vw;
+    margin: 0 auto;
+
+    p {
+      padding: 2rem;
+      line-height: 1.3rem;
+      background: $brown;
+      border-radius: 20px 20px 0 0;
+    }
+  }
+  .contact-info {
+    padding: 2rem 4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+    @include mobile {
+      flex-direction: column-reverse;
+    }
+    @include landscape {
+      gap: 2.5rem;
+      padding: 2rem 2rem 4rem 2rem;
+    }
+  }
+  form {
+    position: relative;
+    border: 3px solid $black;
+    width: 25rem;
+    padding: 2rem;
+    background: $wood-light;
+    //opacity: 0;
+    @include mobile {
+      width: 88vw;
+      padding: 1rem;
+    }
+    @include landscape {
+      width: 28rem;
+    }
+    .input-group {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      row-gap: 1rem;
+      flex-direction: column;
+      margin-bottom: 2rem;
+
+      @include mobile {
+        row-gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+    }
+    label {
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      height: 3rem;
+      padding-left: 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    button[type="submit"] {
+      font-weight: 600;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+    textarea {
+      width: 100%;
+      height: 10rem;
+      padding: 1rem;
+      line-height: 1.3rem;
+    }
+  }
+  form::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include dash-pattern;
+    top: 3rem;
+    left: -3rem;
+    z-index: -1;
+    @include mobile {
+      top: 2rem;
+      display: none;
+    }
+  }
+}
+
+.socials {
+  position: relative;
+  width: 25rem;
+  height: 35rem;
+  border: 3px solid $black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background: $wood-light;
+  @include mobile {
+    width: 88vw;
+  }
+  @include landscape {
+    width: 28rem;
+    height: 38rem;
+  }
+  p {
+    padding: 1rem;
+    margin: 1rem;
+    line-height: 1.3rem;
+    text-align: center;
+    border: 3px dotted $black;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .social-group {
+    width: 100%;
+  }
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-collapse: collapse;
+    border-top: 2px solid $black;
+    padding: 0.5rem 1rem 0.5em 1rem;
+    transition: all 0.5s;
+
+    &:hover {
+      background: $brown;
+    }
+  }
+  .tg {
+    display: none;
+  }
+}
+.socials::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 3rem;
+  right: -3rem;
+  @include dash-pattern;
+  z-index: -1;
+  @include mobile {
+    top: 2rem;
+    display: none;
+  }
+}
+
+footer {
+  border-top: 5px solid $black;
+  @include dash-pattern;
+  p {
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0 auto;
+    background: $wood-light;
+    width: fit-content;
+  }
+}

@@ -1,0 +1,1186 @@
+$font-family: "Bruno Ace", 'Montserrat', sans-serif;
+$page-start-bg-image: '../images/banner-1.jpg';
+$page-start-bg-image-mobile: '../images/banner-mobile.jpg';
+
+$white: #fff;
+$white-transparent: #fffa;
+$black: #000;
+$brown: #f25d26;
+$wood-light: #df9155;
+$black-transparent: #0a0301b3;
+$nav-brand-font-size: 1.5rem;
+$nav-a-border: 3px solid $black;
+$h: 33;
+$s: 90%;
+$l: 90%;
+
+@mixin flex-c {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@mixin flex-a {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+@mixin curly-pattern {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg width='52' height='26' viewBox='0 0 52 26' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23000000' fill-opacity='1'%3E%3Cpath d='M10 10c0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6h2c0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4 3.314 0 6 2.686 6 6 0 2.21 1.79 4 4 4v2c-3.314 0-6-2.686-6-6 0-2.21-1.79-4-4-4-3.314 0-6-2.686-6-6zm25.464-1.95l8.486 8.486-1.414 1.414-8.486-8.486 1.414-1.414z' /%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+@mixin dot-pattern {
+  background-color: $brown;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='0.9' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+@mixin dash-pattern {
+  background-color: $wood-light;
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23000000' fill-opacity='1' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: $font-family;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: $wood-light;
+  border: 5px solid $black;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+@mixin mobile {
+  @media screen and (max-width: 700px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 701px) and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin tablet-x {
+  @media (min-width: 701px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin landscape {
+  @media (orientation: landscape) and (max-height: 500px) {
+    @content;
+  }
+}
+.none {
+  display: none;
+}
+.hide {
+  @include tablet {
+    display: none;
+  }
+}
+
+.slide-in {
+  animation-name: slideIn;
+  animation-duration: 1s;
+  animation-timing-function: ease-in;
+  animation-fill-mode: both;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(80px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+}
+.container {
+  width: 100%;
+}
+
+.menu-header {
+  height: 100vh;
+  position: relative;
+  z-index: 12;
+  background: #023202;
+  transition: transform 0.5s ease-in;
+
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 5rem;
+  }
+  li {
+    padding: 1rem;
+  }
+  li a {
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
+
+  .cv-button {
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    right: 0;
+    width: 80%;
+    margin: 0 auto;
+    box-shadow: 0px 0px 2px $white;
+    background-image: linear-gradient(-45deg,hsla($h, $s, $l,0.8),hsla($h, $s, $l,0.2) 67%);
+    color: $black;
+    transition: box-shadow 0.5s;
+    &:hover {
+      box-shadow: 1px 1px 1px $black;
+    }
+    @include flex-c;
+  }
+
+
+
+  @include tablet-x {
+    display: none;
+  }
+
+}
+
+.no-animation {
+  -webkit-animation: none !important;
+  animation: none !important;
+}
+
+.mb-menu-btn {
+  @include tablet-x {
+    display: none;
+  }
+  width: 35px;
+  height: 25px;
+  background: none;
+  outline: none;
+  position: relative;
+  border: none;
+  .menu-btn-group {
+
+    span {
+      transition: all 0.5s linear;
+    }
+    span:nth-child(1) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 35px;
+      height: 4px;
+      background: $black;
+      position: absolute;
+      border-radius: 0px 2px 0px 2px;
+    }
+    span:nth-child(2) {
+      position: absolute;
+      top: 0.68rem;
+      right: 0;
+      margin: 0 auto;
+      width: 25px;
+      height: 4px;
+      background: $black;
+      position: absolute;
+      border-radius: 2px;
+    }
+    span:nth-child(3) {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 35px;
+      height: 4px;
+      background: $black;
+      position: absolute;
+      border-radius: 2px 0px 2px 0px;
+
+    }
+  }
+
+  input[type="checkbox"]:checked + label {
+    span:nth-child(1) {
+      animation-name: md;
+      animation-duration: 0.3s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+
+    span:nth-child(2) {
+      animation-name: sc-d;
+      animation-duration: 0.3s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+    span:nth-child(3) {
+      animation-name: mu;
+      animation-duration: 0.3s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+
+  }
+
+  @keyframes md {
+    0% {
+      top: 0;
+    }
+    50% {
+      transform: translateY(9px);
+    }
+    100% {
+      transform: translateY(9px) rotate(45deg);
+    }
+  }
+  @keyframes sc-d {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+
+    100% {
+      transform: scale(0);
+      opacity: 0;
+    }
+  }
+
+  @keyframes mu {
+    0% {
+      bottom: 0;
+    }
+    50% {
+      transform: translateY(-11px) rotate(0deg);
+
+    }
+    100% {
+      transform: translateY(-11px) rotate(-45deg);
+    }
+  }
+
+  input[type="checkbox"]:not(:checked) + label {
+    span:nth-child(1) {
+      animation-name: rmd;
+      animation-duration: 0.3s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+
+    span:nth-child(2) {
+      animation-name: rsc-d;
+      animation-duration: 0.3s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+    span:nth-child(3) {
+      animation-name: rmu;
+      animation-duration: 0.3s;
+      animation-fill-mode: both;
+      animation-timing-function: linear;
+    }
+  }
+
+  @keyframes rmd {
+    0% {
+      transform: translateY(9px) rotate(45deg);
+    }
+    50% {
+      transform: translateY(9px) rotate(0deg);
+
+    }
+    100% {
+      transform: translateY(0px) rotate(0deg);
+      top: 0;
+    }
+  }
+  @keyframes rsc-d {
+    0% {
+      transform: scale(0);
+      opacity: 0;
+    }
+
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @keyframes rmu {
+    0% {
+      bottom: 0;
+      transform: translateY(-11px) rotate(-45deg);
+    }
+    50% {
+      transform: translateY(-11px) rotate(0deg);
+
+    }
+    100% {
+      transform: translateY(0px) rotate(0deg);
+      //bottom: 0;
+    }
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+}
+
+.container {
+  background: {
+    image: url(#{$page-start-bg-image});
+    position: center;
+    size: cover;
+    repeat: no-repeat;
+  };
+  @include mobile {
+    background: {
+      image: url(#{$page-start-bg-image-mobile});
+      attachment: fixed;
+    }
+  }
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 12;
+  border-bottom: 5px solid $black;
+  display: flex;
+  flex-direction: column;
+  background: {
+    image: linear-gradient(hsla(0,0%,0%,0.2),hsla(0,0%,0%,0));
+  }
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.mb-nav {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  row-gap: 1rem;
+  flex-direction: column;
+  padding-left: 2rem;
+  position: relative;
+  overflow-y: hidden;
+  height: 0px;
+  transition: all 0.3s linear;
+  a {
+    padding: 0.25rem;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  .cv-button {
+    width: 150px;
+    padding: 0.5rem;
+    box-shadow: 0px 0px 2px $white;
+    background-image: linear-gradient(-45deg,hsla($h, $s, $l,0.8),hsla($h, $s, $l,0.2) 67%);
+    color: $black;
+    @include flex-c;
+    transition: box-shadow 0.5s;
+    &:hover {
+      box-shadow: 0px 0px 1px $black;
+    }
+  }
+
+  @include tablet-x {
+    display: none;
+  }
+}
+nav {
+  position: relative;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem 0 1.5rem;
+  border-bottom: 1px solid $black;
+
+  .nav-brand {
+    @include flex-c;
+    font-weight: 600;
+    color: $white;
+    font-size: $nav-brand-font-size;
+    @include tablet {
+      font-size: 1rem;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    @include flex-c;
+    column-gap: 1rem;
+    @include mobile {
+      display: none;
+    }
+    @include tablet {
+      column-gap: 0.5rem;
+    }
+    padding: 0;
+  }
+  li a {
+    padding: 12px 10px;
+    color: $white;
+    font-weight: 600;
+    transition: background 0.5s;
+    @include tablet {
+      font-size: 0.9rem;
+    }
+    &:hover {
+      background-image: linear-gradient(-45deg,hsla($h, $s, $l,0.8),hsla($h, $s, $l,0.2) 67%);
+      border-radius: 5px;
+    }
+  }
+  li a:not(.cv-button) {
+    //border-bottom: $nav-a-border;
+  }
+  .cv-button {
+    @include flex-a;
+    width: 100px;
+    @include tablet {
+      width: 60px;
+    }
+    box-shadow: 0px 0px 2px $white;
+    background-image: linear-gradient(-45deg,hsla($h, $s, $l,0.8),hsla($h, $s, $l,0.2) 67%);
+    color: $black;
+    transition: box-shadow 0.5s;
+    &:hover {
+      box-shadow: 1px 1px 1px $black;
+    }
+  }
+}
+
+.page-start {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  @include landscape {
+    height: 150vh;
+  }
+}
+
+section.page-about {
+  margin: 0 auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+
+  h1 {
+    position: relative;
+    margin: 3rem 0 0 0;
+    @include mobile {
+      margin: 5rem 0 0 0;
+    }
+    @include tablet-x {
+      margin: 7rem 0 0 0;
+    }
+    @include landscape {
+      margin: 3rem 0 0 0;
+    }
+    font-family: 'Space Grotesk', sans-serif;
+    color: $brown;
+    text-shadow: 1px 1px #df9155;
+    font-size: 5rem;
+    text-align: center;
+    @include mobile {
+      font-size: 3rem;
+    }
+    span {
+      font-size: 7rem;
+      @include mobile {
+        font-size: 6rem;
+      }
+    }
+  }
+
+  h2 {
+    position: relative;
+    font-size: 3rem;
+    @include mobile {
+      font-size: 16px;
+    }
+    span {
+      font-size: 6rem;
+      text-shadow: 1px 1px #df9155;
+      @include mobile {
+        font-size: 4rem;
+      }
+    }
+    margin: 0;
+    text-align: center;
+    font-weight: 700;
+    color: $brown;
+
+  }
+  h1, h2 {
+    font-family: "Bruno Ace", cursive;
+    opacity: 0;
+  }
+  p {
+    margin: 0 auto;
+    opacity: 0;
+    font-family: 'Montserrat', sans-serif;
+    @include mobile {
+      margin: 2.5rem auto;
+    }
+    text-align: center;
+    color: $white;
+    padding: 3rem 3rem 0rem 3rem;
+    width: 30rem;
+    @include mobile {
+      width: 100%;
+    }
+    line-height: 1.3rem;
+
+  }
+  a {
+    position: absolute;
+    bottom: 5rem;
+    @include landscape {
+      bottom: 3rem;
+    }
+    @include flex-c;
+    width: 5rem;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    animation: bouncer 0.8s linear infinite alternate;
+  }
+  a img:hover {
+    filter: invert(1);
+  }
+
+  @keyframes bouncer {
+    0% {
+      transform: translateY(-5px);
+    }
+    50% {
+      transform: translateY(5px);
+    }
+    100% {
+      transform: translateY(10px);
+    }
+  }
+
+}
+
+.page-start::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: 0 auto;
+  width: 30rem;
+  @include mobile {
+    width: 18rem;
+  }
+  height: 100vh;
+  background: $black-transparent;
+  @include landscape {
+    height: 150vh;
+  }
+}
+
+section.projects {
+  padding-top: 4rem;
+  h1 {
+    text-align: center;
+    font-size: 3.5rem;
+  }
+
+}
+
+.sec-intro {
+  position: relative;
+  width: 25rem;
+  padding: 2rem;
+  @include mobile {
+    width: 100%;
+  }
+
+  p {
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 1rem 1rem 1rem 4rem;
+    background: $wood-light;
+    line-height: 1.3rem;
+    @include mobile {
+      padding: 1rem 1rem 1rem 1rem;
+    }
+  }
+}
+.sec-intro::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: -1rem;
+  width: 100vw;
+  height: 200px;
+  @include dash-pattern;
+  z-index: -1;
+}
+
+.project-item {
+  position: relative;
+
+  .side-text {
+    font-family: Monoton, cursive;
+    position: absolute;
+    font-size: 5rem;
+    top: 160px;
+    z-index: -1;
+    color: $brown;
+    @include mobile {
+      font-size: 3.5rem;
+      right: -100px;
+      top: 120px;
+      //display: none;
+    }
+    @include tablet-x {
+      left: -140px;
+    }
+    p {
+      transform: rotate(-90deg);
+      font-family: Monoton, "Great Vibes", cursive, sans-serif;
+    }
+  }
+}
+
+.project-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 4rem 2rem 4rem 8rem;
+  gap: 4rem;
+  @include mobile {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 4rem 1rem 6rem 1rem;
+  }
+
+  picture {
+    position: relative;
+    width: 60%;
+    height: 25rem;
+    border-top: 1px solid $black;
+    border-left: 1px solid $black;
+    border-right: 1px solid $black;
+    opacity: 0;
+    @include mobile {
+      width: 100%;
+      height: 16rem;
+    }
+    @include tablet-x {
+      width: 55%;
+      height: 20rem;
+    }
+    @include desktop {
+      width: 60%;
+      height: 25rem;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    @include mobile {
+      width: 100%;
+    }
+    @include landscape {
+      width: 55%;
+      height: 16rem;
+    }
+  }
+  picture::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include dash-pattern;
+    z-index: -1;
+    top: 3rem;
+    left: -3rem;
+    @include mobile {
+      top: 1.5rem;
+      left: -1.5rem;
+    }
+    @include landscape {
+      top: 2.5rem;
+      left: -2.5rem;
+    }
+  }
+
+  article {
+    width: 28%;
+    height: 30rem;
+    position: relative;
+    opacity: 0;
+    @include mobile {
+      width: 100%;
+      height: auto;
+    }
+    @include tablet {
+      width: 30%;
+      height: 25rem;
+    }
+    @include landscape {
+      width: 40%;
+      height: 20rem;
+    }
+    h2 {
+      padding: 2rem 0 1rem 0;
+      font-size: 2.5rem;
+      @include mobile {
+        padding: 0;
+        font-size: 2rem;
+      }
+      @include tablet {
+        padding: 1rem 0 1rem 0;
+        font-size: 2rem;
+      }
+      @include landscape {
+        padding: 0rem 0 1rem 0;
+        font-size: 1.5rem;
+      }
+    }
+    p {
+      padding: 2rem 0rem 4rem 0;
+      line-height: 1.3rem;
+      font-weight: 300;
+      @include mobile {
+        padding: 1rem 0rem 3rem 0;
+      }
+      @include tablet {
+        padding: 1rem 0rem 3rem 0;
+      }
+      @include landscape {
+        padding: 1rem 0rem 2rem 0;
+      }
+    }
+    a {
+      position: relative;
+    }
+    a::before {
+      content: '';
+      position: absolute;
+      width: 50px;
+      height: 100px;
+      border-top: 2px solid $black;
+      border-right: 2px solid $black;
+      border-bottom: 2px solid $black;
+      right: -50px;
+      top: -33px;
+    }
+    
+    a img {
+      animation-name: to-and-fro;
+      animation-timing-function: linear;
+      animation-duration: 1s;
+      animation-direction: alternate;
+      animation-iteration-count: infinite;
+    }
+    @keyframes to-and-fro  {
+      0% {
+        transform: translateX(-5px);
+      }
+      50% {
+        transform: translateX(0px);
+      }
+      100% {
+        transform: translateX(5px);
+      }
+    }
+  }
+
+  article::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background: $brown;
+    right: -300px;
+    top: 5rem;
+    transform: rotate(45deg);
+    z-index: -1;
+    @include mobile {
+      top: 4rem;
+    }
+    @include tablet {
+      width: 200px;
+      height: 200px;
+      right: -200px;
+    }
+    @include desktop {
+      right: -320px;
+    }
+  }
+  article::after {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    @include dash-pattern;
+    right: -300px;
+    top: 5rem;
+    transform: rotate(45deg);
+    z-index: -2;
+    @include mobile {
+      top: 4rem;
+    }
+    animation: slide 10s linear infinite alternate;
+    @include tablet {
+      width: 200px;
+      height: 200px;
+      right: -200px;
+    }
+    @include desktop {
+      right: -320px;
+    }
+  }
+
+  @keyframes slide {
+    from {
+      top: 5rem;
+    }
+    to {
+      top: 10rem;
+    }
+  }
+
+}
+
+.btn-link {
+  width: 200px;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border: 2px solid $black;
+  @include flex-c;
+  transition: all 0.5s;
+  font-size: 0.9rem;
+  &:hover {
+    background: $brown;
+    box-shadow: 0px 0px 3px 3px $brown;
+  }
+}
+
+.more-projects {
+  margin-bottom: 4rem;
+  @include dash-pattern;
+  padding: 1rem;
+  a {
+    margin: 0 auto;
+    font-weight: 600;
+    background: $wood-light;
+  }
+}
+
+section.daily-ui {
+  padding: 4rem 0 4rem 0;
+  h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    padding-bottom: 1.2rem;
+  }
+  .ui-text {
+    text-align: center;
+    position: relative;
+    width: 18rem;
+    margin: 0 auto;
+    p {
+      padding: 1rem;
+      line-height: 1.3rem;
+      background: $brown;
+      font-weight: 500;
+    }
+  }
+  .ui-text::before {
+    content: '';
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    background: $brown;
+    border-radius: 20px;
+    top: -40px;
+    left: -100px;
+    z-index: -1;
+    transform: rotate(45deg);
+  }
+  .ui-text::after {
+    content: '';
+    position: absolute;
+    width: 12rem;
+    height: 12rem;
+    background: $brown;
+    border-radius: 20px;
+    top: -40px;
+    right: -100px;
+    z-index: -1;
+    transform: rotate(45deg);
+  }
+}
+
+.ui-list {
+  padding: 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 2rem;
+
+  @include mobile {
+    flex-direction: column;
+  }
+  @include tablet-x {
+    flex-wrap: wrap;
+  }
+
+  .ui-comp {
+    position: relative;
+    width: 18rem;
+    height: 16rem;
+    border: 3px solid $black;
+    opacity: 0;
+    @include mobile {
+      width: 20rem;
+    }
+    .line-down {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 4rem;
+      height: 100%;
+      border-right: 3px solid $black;
+      @include dash-pattern;
+    }
+    .line-up {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 4rem;
+      font-weight: 100;
+      font-size: 1rem;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      border-bottom: 3px solid $black;
+      padding-left: 0.8rem;
+    }
+    .line-up a {
+      margin-left: 1.5rem;
+      font-weight: 400;
+      font-size: 0.9rem;
+    }
+
+    img {
+      width: 16rem;
+      height: 10rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 4.5rem auto;
+      border: 3px solid $black;
+    }
+  }
+}
+
+section.contact {
+  padding-bottom: 2rem;
+  h1 {
+    font-size: 3.5rem;
+    text-align: center;
+  }
+
+  .contact-text {
+    width: 50vw;
+    margin: 0 auto;
+
+    p {
+      padding: 2rem;
+      line-height: 1.3rem;
+      background: $brown;
+      border-radius: 20px 20px 0 0;
+    }
+  }
+  .contact-info {
+    padding: 2rem 4rem;
+    @include flex-c;
+    gap: 4rem;
+    @include mobile {
+      flex-direction: column-reverse;
+    }
+    @include landscape {
+      gap: 2.5rem;
+    }
+  }
+  form {
+    position: relative;
+    border: 3px solid $black;
+    width: 25rem;
+    padding: 2rem;
+    background: $wood-light;
+    //opacity: 0;
+    @include mobile {
+      width: 88vw;
+      padding: 1rem;
+    }
+    @include landscape {
+      width: 28rem;
+    }
+    .input-group {
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-start;
+      row-gap: 1rem;
+      flex-direction: column;
+      margin-bottom: 2rem;
+
+      @include mobile {
+        row-gap: 0.5rem;
+        margin-bottom: 1rem;
+      }
+    }
+    label {
+      font-weight: 600;
+    }
+    input {
+      width: 100%;
+      height: 3rem;
+      padding-left: 1.5rem;
+      font-size: 1rem;
+      font-weight: 600;
+    }
+    button[type="submit"] {
+      font-weight: 600;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+    textarea {
+      width: 100%;
+      height: 10rem;
+      padding: 1rem;
+      line-height: 1.3rem;
+    }
+  }
+  form::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    @include dash-pattern;
+    top: 3rem;
+    left: -3rem;
+    z-index: -1;
+    @include mobile {
+      top: 2rem
+    }
+  }
+}
+
+.socials {
+  position: relative;
+  width: 25rem;
+  height: 35rem;
+  border: 3px solid $black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+  background: $wood-light;
+  @include mobile {
+    width: 88vw;
+  }
+  @include landscape {
+    width: 28rem;
+    height: 38rem;
+  }
+  //opacity: 0;
+  p {
+    padding: 1rem;
+    margin: 1rem;
+    line-height: 1.3rem;
+    text-align: center;
+    border: 3px dotted $black;
+    font-weight: 600;
+    font-size: 0.85rem;
+  }
+
+  .social-group {
+    width: 100%;
+  }
+
+  a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-collapse: collapse;
+    border-top: 2px solid $black;
+    padding: 0.5rem 1rem 0.5em 1rem;
+    transition: all 0.5s;
+
+    &:hover {
+      background: $brown;
+    }
+  }
+  .tg {
+    display: none;
+  }
+}
+.socials::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 3rem;
+  right: -3rem;
+  @include dash-pattern;
+  z-index: -1;
+  @include mobile {
+    top: 2rem;
+  }
+}
+
+footer {
+  border-top: 5px solid $black;
+  @include dash-pattern;
+  p {
+    text-align: center;
+    padding: 0.5rem;
+    margin: 0 auto;
+    background: $wood-light;
+    width: fit-content;
+  }
+}

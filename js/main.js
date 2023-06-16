@@ -1,61 +1,99 @@
-const state = {
-  menuIsOpen: false,
-};
+window.addEventListener("DOMContentLoaded", contentLoaded);
 
-function resetOverflow(el) {
-  el.style.height = "100%";
-  el.style.overflow = "auto";
+function contentLoaded(event) {
+    window.appState = {
+        open: false,
+        aboutMe: [false, false, false, false],
+        projectOne: [false, false, false],
+        projectTwo: [false, false, false],
+        uiElements: [false, false, false, false, false, false, false, false, false, false, false, false],
+        contactInfo: [false, false, false, false],
+    };
+
+    const year = new Date().getFullYear();
+    document.getElementById("year").innerText = year + '';
+
+    const aboutMe = document.querySelector('.page-about');
+    observeElement(aboutMe, window.appState.aboutMe, true);
+
+    const projects = document.querySelectorAll('.project-container');
+    observeElement(projects[0], window.appState.projectOne, true);
+    observeElement(projects[1], window.appState.projectTwo, true);
+
+
+    const menuBtn = document.querySelector(".mb-menu-btn input[type='checkbox']");
+    menuBtn.onclick = toggleMenu;
+
+    const uiElements = document.querySelector('.ui-list');
+    observeElement(uiElements, window.appState.uiElements, true);
+
+    // const contactInfo = document.querySelector('.contact-info');
+    // observeElement(contactInfo, window.appState.contactInfo, true);
+
+    const mobileLinks = document.querySelectorAll('.mb-nav a');
+    attachListeners(mobileLinks);
 }
 
-function closeMenu(menuButton, header) {
-    const body = document.querySelector("body");
+function observeElement(el, state, isList) {
+    if(isList) {
+        for(let i = 0; i < el.children.length; i++) {
+            const observer = elementObserver(state[i], flag => {
+                if(flag) {
+                   state[i] = flag;
+                   el.children[i].classList.add('slide-in');
+                }
+            });
+            observer.observe(el.children[i]);
+        }
+    } else {
+        const observe = elementObserver(state, flag => {
+            if(flag) {
+                state = flag;
+                el.classList.add('slide-in');
 
-    setTimeout(function () {
-      menuButton.classList.remove("open-menu");
-    }, 400);
-
-    menuButton.classList.toggle("rotate-menu");
-    state.menuIsOpen = false;
-    header.classList.remove("expand");
-    state.menuIsOpen = false;
-    resetOverflow(body);
+            }
+        });
+        observe.observe(el);
+    }
 }
 
-const menuButton = document.getElementById('nav-button');
-menuButton.addEventListener('click', toggleMenu);
-
-function openMenu(menuButton, header) {
-    const body = document.querySelector("body");
-
-    menuButton.classList.add("open-menu");
-    setTimeout(function () {
-      menuButton.classList.toggle("rotate-menu");
-    }, 400);
-    state.menuIsOpen = true;
-    header.classList.add("expand");
-    body.style.height = "100vh";
-    body.style.overflow = "hidden";
+function elementObserver(visible, setVisible) {
+    const inter = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting && !visible) {
+                setVisible(true);
+            }
+        })
+    }, { threshold: 1 });
+    return inter;
 }
 
-function toggleMenu(evt) {
-  
-  const menuContainer = document.getElementById("header");
-
-  if (state.menuIsOpen) {
-    closeMenu(menuButton, menuContainer)
-  } else {
-    openMenu(menuButton, menuContainer)
-  }
+function toggleMenu() {
+    const menu = document.querySelector('.mb-nav');
+    const spans = document.querySelector('.menu-btn-group');
+    for(let i = 0; i < spans.children.length; i++) {
+        spans.children[i].classList.remove('no-animation');
+    }
+    if(this.checked) {
+        menu.style = 'height: 320px; padding-top: 3rem';
+    } else {
+        menu.style = 'height: 0px; padding-top: 0';
+    }
 }
 
-(() => {
-  const menuLinks = document.querySelectorAll(".menu a");
-  menuLinks.forEach((element) => {
-    element.addEventListener("click", () => {
-        const navButton = document.querySelector(".nav-button");
-        const menuContainer = document.getElementById("header");
-        closeMenu(navButton, menuContainer);
-    });
-  });
-  
-})();
+/**
+ * Attach click listeners to the mobile anchor tags
+ *
+ * @param elements
+ */
+function attachListeners(elements) {
+    for (let el of elements) {
+        el.addEventListener('click', closeMenu);
+    }
+}
+
+function closeMenu() {
+    const menuBtn = document.querySelector(".mb-menu-btn input[type='checkbox']");
+    menuBtn.checked = false;
+    toggleMenu.call(menuBtn);
+}
