@@ -1,0 +1,47 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Bruno Ace", "Montserrat", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  border: 5px solid #000;
+  background: #df9155;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 98.5vh;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f25d26;
+  border: 5px solid #000;
+  width: 20rem;
+  height: 20rem;
+}
+.container h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+.container h1 span {
+  font-size: 4rem;
+}
+
+/*# sourceMappingURL=thanks.css.map */
