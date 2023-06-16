@@ -121,6 +121,11 @@ section.intro picture img {
   width: 100%;
   height: 100%;
 }
+@media screen and (min-width: 1025px) {
+  .container .left .domlaw-img {
+    height: 300px !important;
+  }
+}
 .container .right {
   border-collapse: collapse;
 }

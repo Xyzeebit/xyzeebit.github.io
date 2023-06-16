@@ -143,6 +143,11 @@ section.intro {
          height: 100%;
        }
     }
+    .domlaw-img {
+      @include desktop {
+        height: 300px !important;
+      }
+    }
   }
   .right {
 
