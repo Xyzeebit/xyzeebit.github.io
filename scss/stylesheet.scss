@@ -484,7 +484,7 @@ nav {
   height: 100vh;
 
   @include landscape {
-    height: 150vh;
+    height: 250vh;
   }
 }
 
@@ -500,7 +500,7 @@ section.page-about {
     position: relative;
     margin: 3rem 0 0 0;
     @include mobile {
-      margin: 5rem 0 0 0;
+      margin: 3rem 0 0 0;
     }
     @include tablet-x {
       margin: 7rem 0 0 0;
@@ -514,12 +514,12 @@ section.page-about {
     font-size: 5rem;
     text-align: center;
     @include mobile {
-      font-size: 3rem;
+      font-size: 2.8rem;
     }
     span {
       font-size: 7rem;
       @include mobile {
-        font-size: 6rem;
+        font-size: 4.5rem;
       }
     }
   }
@@ -552,14 +552,15 @@ section.page-about {
     opacity: 0;
     font-family: 'Montserrat', sans-serif;
     @include mobile {
-      margin: 2.5rem auto;
+      margin: 2rem auto;
     }
     text-align: center;
     color: $white;
-    padding: 3rem 3rem 0rem 3rem;
+    padding: 3rem 3rem 0 3rem;
     width: 30rem;
     @include mobile {
       width: 100%;
+      padding: 0 3rem 0 3rem;
     }
     line-height: 1.3rem;
 
@@ -610,7 +611,7 @@ section.page-about {
   height: 100vh;
   background: $black-transparent;
   @include landscape {
-    height: 150vh;
+    height: 250vh;
   }
 }
 
@@ -619,6 +620,9 @@ section.projects {
   h1 {
     text-align: center;
     font-size: 3.5rem;
+    @include mobile {
+        font-size: 2.8rem;
+    }
   }
 
 }
@@ -1087,6 +1091,10 @@ section.contact {
       font-weight: 600;
       margin: 0 auto;
       font-size: 1rem;
+      background: $wood-light;
+      &:hover {
+          background: $brown;
+      }
     }
     textarea {
       width: 100%;
