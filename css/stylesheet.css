@@ -1065,7 +1065,7 @@ section.contact form {
 }
 @media (orientation: landscape) and (max-height: 500px) {
   section.contact form {
-    width: 28rem;
+    width: 25rem;
   }
 }
 section.contact form .input-group {
@@ -1142,8 +1142,13 @@ section.contact form::before {
 }
 @media (orientation: landscape) and (max-height: 500px) {
   .socials {
-    width: 28rem;
+    width: 25rem;
     height: 38rem;
+  }
+}
+@media screen and (max-width: 700px) {
+  .socials h2 {
+    font-size: 1.25rem;
   }
 }
 .socials p {
