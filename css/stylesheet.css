@@ -490,13 +490,14 @@ section.page-about p {
 }
 @media screen and (max-width: 700px) {
   section.page-about p {
-    margin: 2rem auto;
+    margin: 1rem auto;
   }
 }
 @media screen and (max-width: 700px) {
   section.page-about p {
     width: 100%;
     padding: 0 3rem 0 3rem;
+    font-size: 0.9rem;
   }
 }
 section.page-about a {

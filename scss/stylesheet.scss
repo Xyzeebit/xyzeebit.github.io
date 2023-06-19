@@ -552,7 +552,7 @@ section.page-about {
     opacity: 0;
     font-family: 'Montserrat', sans-serif;
     @include mobile {
-      margin: 2rem auto;
+      margin: 1rem auto;
     }
     text-align: center;
     color: $white;
@@ -561,6 +561,7 @@ section.page-about {
     @include mobile {
       width: 100%;
       padding: 0 3rem 0 3rem;
+      font-size: 0.9rem;
     }
     line-height: 1.3rem;
 
