@@ -482,22 +482,31 @@ section.page-about p {
   margin: 0 auto;
   opacity: 0;
   font-family: "Montserrat", sans-serif;
+  line-height: 1.3rem;
   text-align: center;
   color: #fff;
   padding: 3rem 3rem 0 3rem;
   width: 30rem;
-  line-height: 1.3rem;
 }
 @media screen and (max-width: 700px) {
   section.page-about p {
-    margin: 1rem auto;
+    margin: 0 auto;
+    border: 3px solid #f25d26;
   }
 }
 @media screen and (max-width: 700px) {
   section.page-about p {
-    width: 100%;
-    padding: 0 2rem 0 2rem;
+    padding: 0.5rem;
     font-size: 0.9rem;
+    width: 18rem;
+    line-height: 1.2rem;
+  }
+}
+@media (orientation: landscape) and (max-height: 500px) {
+  section.page-about p {
+    width: 25rem;
+    padding: 1rem 1rem 1rem 1rem;
+    border: 3px solid #f25d26;
   }
 }
 section.page-about a {
@@ -519,7 +528,7 @@ section.page-about a {
 }
 @media (orientation: landscape) and (max-height: 500px) {
   section.page-about a {
-    bottom: 3rem;
+    bottom: 0.5rem;
   }
 }
 section.page-about a img:hover {
