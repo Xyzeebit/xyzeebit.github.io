@@ -552,7 +552,7 @@ section.page-about {
     opacity: 0;
     font-family: 'Montserrat', sans-serif;
     @include mobile {
-      margin: 2rem auto;
+      margin: 1rem auto;
     }
     text-align: center;
     color: $white;
@@ -560,7 +560,8 @@ section.page-about {
     width: 30rem;
     @include mobile {
       width: 100%;
-      padding: 0 3rem 0 3rem;
+      padding: 0 2rem 0 2rem;
+      font-size: 0.9rem;
     }
     line-height: 1.3rem;
 
@@ -568,6 +569,9 @@ section.page-about {
   a {
     position: absolute;
     bottom: 5rem;
+    @include mobile {
+        bottom: 2rem;
+    }
     @include landscape {
       bottom: 3rem;
     }
@@ -1062,7 +1066,7 @@ section.contact {
       padding: 1rem;
     }
     @include landscape {
-      width: 28rem;
+      width: 25rem;
     }
     .input-group {
       display: flex;
@@ -1132,10 +1136,15 @@ section.contact {
     width: 88vw;
   }
   @include landscape {
-    width: 28rem;
+    width: 25rem;
     height: 38rem;
   }
   //opacity: 0;
+  h2 {
+      @include mobile {
+          font-size: 1.25rem;
+      }
+  }
   p {
     padding: 1rem;
     margin: 1rem;
