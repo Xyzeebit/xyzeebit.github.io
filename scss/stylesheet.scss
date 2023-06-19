@@ -560,7 +560,7 @@ section.page-about {
     width: 30rem;
     @include mobile {
       width: 100%;
-      padding: 0 3rem 0 3rem;
+      padding: 0 2rem 0 2rem;
       font-size: 0.9rem;
     }
     line-height: 1.3rem;
@@ -569,6 +569,9 @@ section.page-about {
   a {
     position: absolute;
     bottom: 5rem;
+    @include mobile {
+        bottom: 2rem;
+    }
     @include landscape {
       bottom: 3rem;
     }

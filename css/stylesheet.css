@@ -496,7 +496,7 @@ section.page-about p {
 @media screen and (max-width: 700px) {
   section.page-about p {
     width: 100%;
-    padding: 0 3rem 0 3rem;
+    padding: 0 2rem 0 2rem;
     font-size: 0.9rem;
   }
 }
@@ -511,6 +511,11 @@ section.page-about a {
   right: 0;
   margin: 0 auto;
   animation: bouncer 0.8s linear infinite alternate;
+}
+@media screen and (max-width: 700px) {
+  section.page-about a {
+    bottom: 2rem;
+  }
 }
 @media (orientation: landscape) and (max-height: 500px) {
   section.page-about a {
