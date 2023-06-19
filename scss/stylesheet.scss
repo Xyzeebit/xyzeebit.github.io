@@ -551,19 +551,27 @@ section.page-about {
     margin: 0 auto;
     opacity: 0;
     font-family: 'Montserrat', sans-serif;
+    line-height: 1.3rem;
     @include mobile {
-      margin: 1rem auto;
+      margin: 0 auto;
+      border: 3px solid $brown;
     }
     text-align: center;
     color: $white;
     padding: 3rem 3rem 0 3rem;
     width: 30rem;
     @include mobile {
-      width: 100%;
-      padding: 0 2rem 0 2rem;
+      padding: 0.5rem;
       font-size: 0.9rem;
+      width: 18rem;
+      line-height: 1.2rem;
     }
-    line-height: 1.3rem;
+    @include landscape {
+        width: 25rem;
+        padding: 1rem 1rem 1rem 1rem;
+        border: 3px solid $brown
+    }
+    
 
   }
   a {
@@ -573,7 +581,7 @@ section.page-about {
         bottom: 2rem;
     }
     @include landscape {
-      bottom: 3rem;
+      bottom: 0.5rem;
     }
     @include flex-c;
     width: 5rem;
