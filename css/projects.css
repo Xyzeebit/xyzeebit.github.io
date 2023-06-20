@@ -23,6 +23,11 @@ a {
   display: none;
 }
 
+main {
+  position: relative;
+  overflow-x: hidden;
+}
+
 section.intro {
   display: flex;
   justify-content: center;
@@ -406,7 +411,7 @@ section.contact form::before {
 .socials {
   position: relative;
   width: 25rem;
-  height: 35rem;
+  height: 42rem;
   border: 3px solid #000;
   display: flex;
   justify-content: space-between;
@@ -416,13 +421,14 @@ section.contact form::before {
 }
 @media screen and (max-width: 700px) {
   .socials {
+    height: fit-content;
     width: 88vw;
   }
 }
 @media (orientation: landscape) and (max-height: 500px) {
   .socials {
     width: 28rem;
-    height: 38rem;
+    height: 42rem;
   }
 }
 .socials p {
