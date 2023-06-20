@@ -1133,7 +1133,7 @@ section.contact {
 .socials {
   position: relative;
   width: 25rem;
-  height: 35rem;
+  min-height: 42rem;
   border: 3px solid $black;
   display: flex;
   justify-content: space-between;
@@ -1142,10 +1142,11 @@ section.contact {
   background: $wood-light;
   @include mobile {
     width: 88vw;
+    height: fit-content;
   }
   @include landscape {
     width: 25rem;
-    height: 38rem;
+    height: 42rem;
   }
   //opacity: 0;
   h2 {

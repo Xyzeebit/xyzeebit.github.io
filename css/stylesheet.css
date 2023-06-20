@@ -1142,7 +1142,7 @@ section.contact form::before {
 .socials {
   position: relative;
   width: 25rem;
-  height: 35rem;
+  min-height: 42rem;
   border: 3px solid #000;
   display: flex;
   justify-content: space-between;
@@ -1153,12 +1153,13 @@ section.contact form::before {
 @media screen and (max-width: 700px) {
   .socials {
     width: 88vw;
+    height: fit-content;
   }
 }
 @media (orientation: landscape) and (max-height: 500px) {
   .socials {
     width: 25rem;
-    height: 38rem;
+    height: 42rem;
   }
 }
 @media screen and (max-width: 700px) {

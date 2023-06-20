@@ -26,6 +26,11 @@ a {
   display: none;
 }
 
+main {
+    position: relative;
+    overflow-x: hidden;
+}
+
 .header {
   position: relative;
   background: $brown;
