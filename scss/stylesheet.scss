@@ -503,7 +503,7 @@ section.page-about {
       margin: 3rem 0 0 0;
     }
     @include tablet-x {
-      margin: 7rem 0 0 0;
+      margin: 5rem 0 0 0;
     }
     @include landscape {
       margin: 3rem 0 0 0;
@@ -531,7 +531,7 @@ section.page-about {
       font-size: 16px;
     }
     span {
-      font-size: 6rem;
+      font-size: 4rem;
       text-shadow: 1px 1px #df9155;
       @include mobile {
         font-size: 4rem;
@@ -552,6 +552,8 @@ section.page-about {
     opacity: 0;
     font-family: 'Montserrat', sans-serif;
     line-height: 1.3rem;
+    border: 3px solid #f25d26;
+
     @include mobile {
       margin: 0 auto;
       border: 3px solid $brown;
@@ -571,6 +573,16 @@ section.page-about {
         padding: 1rem 1rem 1rem 1rem;
         border: 3px solid $brown
     }
+
+    @include tablet-x() {
+      width: 70%;
+      font-size: 1rem;
+      padding: 1rem;
+    }
+
+    @include desktop() {
+      width: 40%;
+    }
     
 
   }
@@ -582,6 +594,12 @@ section.page-about {
     }
     @include landscape {
       bottom: 0.5rem;
+    }
+    @include tablet-x() {
+      bottom: 1.5rem;
+    }
+    @include desktop() {
+       bottom: 1rem
     }
     @include flex-c;
     width: 5rem;
@@ -616,7 +634,7 @@ section.page-about {
   top: 0;
   bottom: 0;
   margin: 0 auto;
-  width: 30rem;
+  width: 40rem;
   @include mobile {
     width: 18rem;
   }
