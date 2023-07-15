@@ -426,7 +426,7 @@ section.page-about h1 {
 }
 @media screen and (max-width: 700px) {
   section.page-about h1 {
-    margin: 5rem 0 0 0;
+    margin: 3rem 0 0 0;
   }
 }
 @media (min-width: 701px) {
@@ -441,7 +441,7 @@ section.page-about h1 {
 }
 @media screen and (max-width: 700px) {
   section.page-about h1 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 }
 section.page-about h1 span {
@@ -449,7 +449,7 @@ section.page-about h1 span {
 }
 @media screen and (max-width: 700px) {
   section.page-about h1 span {
-    font-size: 6rem;
+    font-size: 5rem;
   }
 }
 section.page-about h2 {
@@ -484,18 +484,19 @@ section.page-about p {
   font-family: "Montserrat", sans-serif;
   text-align: center;
   color: #fff;
-  padding: 3rem 3rem 0rem 3rem;
+  padding: 3rem 3rem 0 3rem;
   width: 30rem;
   line-height: 1.3rem;
 }
 @media screen and (max-width: 700px) {
   section.page-about p {
-    margin: 2.5rem auto;
+    margin: 2rem auto;
   }
 }
 @media screen and (max-width: 700px) {
   section.page-about p {
     width: 100%;
+    padding: 0 3rem 0 3rem;
   }
 }
 section.page-about a {
@@ -509,6 +510,11 @@ section.page-about a {
   right: 0;
   margin: 0 auto;
   animation: bouncer 0.8s linear infinite alternate;
+}
+@media screen and (max-width: 700px) {
+  section.page-about a {
+    bottom: 3rem;
+  }
 }
 @media (orientation: landscape) and (max-height: 500px) {
   section.page-about a {
@@ -559,6 +565,11 @@ section.projects {
 section.projects h1 {
   text-align: center;
   font-size: 3.5rem;
+}
+@media screen and (max-width: 700px) {
+  section.projects h1 {
+    font-size: 3rem;
+  }
 }
 
 .sec-intro {
