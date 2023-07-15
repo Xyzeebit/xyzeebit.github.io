@@ -329,7 +329,7 @@ section.contact {
     width: 25rem;
     padding: 2rem;
     background: $wood-light;
-    //opacity: 0;
+    
     @include mobile {
       width: 88vw;
       padding: 1rem;
@@ -391,7 +391,7 @@ section.contact {
 .socials {
   position: relative;
   width: 25rem;
-  height: 42rem;
+  // height: 42rem;
   border: 3px solid $black;
   display: flex;
   justify-content: space-between;
@@ -399,13 +399,18 @@ section.contact {
   flex-direction: column;
   background: $wood-light;
   @include mobile {
-      height: fit-content;
+    height: fit-content;
     width: 88vw;
   }
   @include landscape {
     width: 28rem;
-    height: 42rem;
+    // height: 42rem;
   }
+
+  @include tablet() {
+    // height: 40rem;
+  }
+
   p {
     padding: 1rem;
     margin: 1rem;

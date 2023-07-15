@@ -234,7 +234,7 @@ $wood-light: #df9155;
       width: 25rem;
       padding: 2rem;
       background: $wood-light;
-      //opacity: 0;
+      
       @include mobile {
         width: 88vw;
         padding: 1rem;
@@ -295,7 +295,7 @@ $wood-light: #df9155;
   .socials {
     position: relative;
     width: 25rem;
-    height: 42rem;
+    // height: 42rem;
     border: 3px solid $black;
     display: flex;
     justify-content: space-between;
@@ -308,7 +308,10 @@ $wood-light: #df9155;
     }
     @include landscape {
       width: 25rem;
-      height: 42rem;
+      // height: 42rem;
+    }
+    h2 {
+      font-size: 1rem;
     }
     p {
       padding: 1rem;
@@ -332,6 +335,7 @@ $wood-light: #df9155;
       border-top: 2px solid $black;
       padding: 0.5rem 1rem 0.5em 1rem;
       transition: all 0.5s;
+      font-size: 0.8rem;
 
       &:hover {
         background: $brown;
