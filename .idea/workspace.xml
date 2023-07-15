@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="93e76118-19a7-4552-b3a0-4211f4fd4240" name="Changes" comment="Add a form redirect thank-you page">
       <change beforePath="$PROJECT_DIR$/css/pcss.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/pcss.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/pcss.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/pcss.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/domlaw.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/domlaw.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projects/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/projects/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scss/_common.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/_common.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/projects.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/projects.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/stylesheet.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/stylesheet.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/stylesheet.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/css/stylesheet.css.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/thanks.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/thanks.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scss/stylesheet.scss" beforeDir="false" afterPath="$PROJECT_DIR$/scss/stylesheet.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +62,7 @@
     <property name="go.format.on.save.advertiser.fired" value="true" />
     <property name="go.formatter.settings.were.checked" value="true" />
     <property name="go.import.settings.migrated" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../compass-mail-app" />
     <property name="list.type.of.created.stylesheet" value="SCSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
@@ -100,6 +101,7 @@
       <workItem from="1686928987842" duration="6067000" />
       <workItem from="1686937524572" duration="4292000" />
       <workItem from="1686944134442" duration="1254000" />
+      <workItem from="1687038138539" duration="551000" />
     </task>
     <task id="LOCAL-00001" summary="page redesign">
       <created>1685228275916</created>

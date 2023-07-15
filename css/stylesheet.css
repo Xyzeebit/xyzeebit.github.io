@@ -431,7 +431,7 @@ section.page-about h1 {
 }
 @media (min-width: 701px) {
   section.page-about h1 {
-    margin: 7rem 0 0 0;
+    margin: 4rem 0 0 0;
   }
 }
 @media (orientation: landscape) and (max-height: 500px) {
@@ -466,7 +466,7 @@ section.page-about h2 {
   }
 }
 section.page-about h2 span {
-  font-size: 6rem;
+  font-size: 4rem;
   text-shadow: 1px 1px #df9155;
 }
 @media screen and (max-width: 700px) {
@@ -483,6 +483,7 @@ section.page-about p {
   opacity: 0;
   font-family: "Montserrat", sans-serif;
   line-height: 1.3rem;
+  border: 3px solid #f25d26;
   text-align: center;
   color: #fff;
   padding: 3rem 3rem 0 3rem;
@@ -509,6 +510,18 @@ section.page-about p {
     border: 3px solid #f25d26;
   }
 }
+@media (min-width: 701px) {
+  section.page-about p {
+    width: 70%;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  section.page-about p {
+    width: 40%;
+  }
+}
 section.page-about a {
   position: absolute;
   bottom: 5rem;
@@ -529,6 +542,16 @@ section.page-about a {
 @media (orientation: landscape) and (max-height: 500px) {
   section.page-about a {
     bottom: 0.5rem;
+  }
+}
+@media (min-width: 701px) {
+  section.page-about a {
+    bottom: 1.5rem;
+  }
+}
+@media screen and (min-width: 1025px) {
+  section.page-about a {
+    bottom: 1rem;
   }
 }
 section.page-about a img:hover {
@@ -554,7 +577,7 @@ section.page-about a img:hover {
   top: 0;
   bottom: 0;
   margin: 0 auto;
-  width: 30rem;
+  width: 40rem;
   height: 100vh;
   background: #0a0301b3;
 }
