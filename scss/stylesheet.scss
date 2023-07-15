@@ -484,7 +484,7 @@ nav {
   height: 100vh;
 
   @include landscape {
-    height: 150vh;
+    height: 250vh;
   }
 }
 
@@ -514,12 +514,12 @@ section.page-about {
     font-size: 5rem;
     text-align: center;
     @include mobile {
-      font-size: 2.5rem;
+      font-size: 2.8rem;
     }
     span {
       font-size: 7rem;
       @include mobile {
-        font-size: 5rem;
+        font-size: 4.5rem;
       }
     }
   }
@@ -551,29 +551,37 @@ section.page-about {
     margin: 0 auto;
     opacity: 0;
     font-family: 'Montserrat', sans-serif;
+    line-height: 1.3rem;
     @include mobile {
-      margin: 2rem auto;
+      margin: 0 auto;
+      border: 3px solid $brown;
     }
     text-align: center;
     color: $white;
     padding: 3rem 3rem 0 3rem;
     width: 30rem;
     @include mobile {
-      width: 100%;
-      padding: 0 3rem 0 3rem;
-
+      padding: 0.5rem;
+      font-size: 0.9rem;
+      width: 18rem;
+      line-height: 1.2rem;
     }
-    line-height: 1.3rem;
+    @include landscape {
+        width: 25rem;
+        padding: 1rem 1rem 1rem 1rem;
+        border: 3px solid $brown
+    }
+    
 
   }
   a {
     position: absolute;
     bottom: 5rem;
-    @include mobile() {
-      bottom: 3rem;
+    @include mobile {
+        bottom: 2rem;
     }
     @include landscape {
-      bottom: 3rem;
+      bottom: 0.5rem;
     }
     @include flex-c;
     width: 5rem;
@@ -615,7 +623,7 @@ section.page-about {
   height: 100vh;
   background: $black-transparent;
   @include landscape {
-    height: 150vh;
+    height: 250vh;
   }
 }
 
@@ -624,8 +632,8 @@ section.projects {
   h1 {
     text-align: center;
     font-size: 3.5rem;
-    @include mobile() {
-      font-size: 3rem;
+    @include mobile {
+        font-size: 2.8rem;
     }
   }
 
@@ -1066,7 +1074,7 @@ section.contact {
       padding: 1rem;
     }
     @include landscape {
-      width: 28rem;
+      width: 45%;
     }
     .input-group {
       display: flex;
@@ -1095,6 +1103,10 @@ section.contact {
       font-weight: 600;
       margin: 0 auto;
       font-size: 1rem;
+      background: $wood-light;
+      &:hover {
+          background: $brown;
+      }
     }
     textarea {
       width: 100%;
@@ -1121,7 +1133,7 @@ section.contact {
 .socials {
   position: relative;
   width: 25rem;
-  height: 35rem;
+  min-height: 42rem;
   border: 3px solid $black;
   display: flex;
   justify-content: space-between;
@@ -1130,12 +1142,18 @@ section.contact {
   background: $wood-light;
   @include mobile {
     width: 88vw;
+    height: fit-content;
   }
   @include landscape {
-    width: 28rem;
-    height: 38rem;
+    width: 45%;
+    height: 42rem;
   }
   //opacity: 0;
+  h2 {
+      @include mobile {
+          font-size: 1.25rem;
+      }
+  }
   p {
     padding: 1rem;
     margin: 1rem;

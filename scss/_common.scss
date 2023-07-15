@@ -295,7 +295,7 @@ $wood-light: #df9155;
   .socials {
     position: relative;
     width: 25rem;
-    height: 35rem;
+    height: 42rem;
     border: 3px solid $black;
     display: flex;
     justify-content: space-between;
@@ -303,7 +303,12 @@ $wood-light: #df9155;
     flex-direction: column;
     background: $wood-light;
     @include mobile {
-      width: 88vw;
+        height: fit-content;
+        width: 88vw;
+    }
+    @include landscape {
+      width: 25rem;
+      height: 42rem;
     }
     p {
       padding: 1rem;
